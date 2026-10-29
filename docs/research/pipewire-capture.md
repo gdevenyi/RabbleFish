@@ -10,13 +10,17 @@ How can a Python process list PipeWire sources (microphones and sink monitors) f
 
 **Recommendation for the first version: one `pw-record` subprocess per Source, plus one `pw-dump --monitor` subprocess for the device list and hot-plug events.** Use no native Python bindings.
 
-- **Capture.** Start one `pw-record --raw --rate 16000 --channels 1 --format s16 --target <object.serial> -P '{ stream.capture.sink=true node.dont-fallback=true node.dont-reconnect=true }' -` for each Source. Read stdout with `asyncio`. PipeWire does the downmix, the format conversion and the resampling in the stream.
+- **Capture.** Start one `pw-record` process for each Source. Read stdout with `asyncio`.
+  - Microphone Source: `pw-record --raw --rate 16000 --channels 1 --format s16 --target <object.serial> -P '{ node.dont-fallback=true node.dont-reconnect=true node.dont-move=true }' -`
+  - Monitor Source (a sink): the same, plus `stream.capture.sink=true` in `-P`. Do not set `stream.capture.sink` for microphones: it makes WirePlumber look for sinks.
+  PipeWire does the downmix, the format conversion and the resampling in the stream.
 - **Listing and hot-plug.** Parse the JSON stream from `pw-dump --monitor`. A new node arrives as a full object. A removed node arrives as `{"id": N, "info": null}`.
 - **Timestamps.** The raw pipe has no timestamps. Give each Source a `time.monotonic_ns()` anchor when its first bytes arrive. Then compute the time of each sample from the sample count. All Sources then share one clock: CLOCK_MONOTONIC. Check drift (sample time against wall time) at intervals and re-anchor when it is more than about 50 ms. This accuracy (tens of ms) is sufficient for a Timeline with a 2-5 s latency target.
-- **Three settings are mandatory.** We tested them on this laptop (PipeWire 1.6.9, WirePlumber 0.5.18):
+- **Four settings are mandatory.** We tested them on this laptop (PipeWire 1.6.9, WirePlumber 0.5.18):
   1. If you target a sink by **name** and do not set `stream.capture.sink=true`, WirePlumber **links the stream to the default microphone, with no error**. If you target a sink by **serial**, it links to the monitor ports.
   2. If you do not set `node.dont-reconnect=true` and the target goes away, the stream **moves to a different device, with no error**. With the property set, `pw-record` exits with code 1 and prints `target not found`.
   3. `node.dont-fallback=true` stops a fallback to the default device when the target cannot be linked.
+  4. If you do not set `node.dont-move=true`, another app can move the stream. On this laptop EasyEffects (service mode) moved a mic stream that targeted the mic **by serial** to `easyeffects_source`, with no error. With `node.dont-move=true` the stream stayed on the mic.
 - **Upgrade path.** Use GStreamer (`pipewiresrc` in one pipeline, through PyGObject) when we need sample-accurate alignment on one pipeline clock. Use JACK-Client on `pipewire-jack` when we need all Sources in one process cycle. Both need more work. See the caveats below.
 - **Do not use** `sounddevice` for multi-source capture. It cannot select individual PipeWire nodes. Use `pulsectl` only for control and listing. It does not capture audio.
 
@@ -55,7 +59,18 @@ All tests ran on the Level 1 laptop: Intel Core Ultra 7 258V, kernel 7.2.11, Pip
   | `--target <sink node.name>` | `...Mic__source:capture_*` (**wrong, no error**) |
   | `--target <sink node.name> -P '{ stream.capture.sink=true }'` | `...Speaker__sink:monitor_FL/FR` (correct) |
 
-  The cause is in WirePlumber. `cutils.getTargetDirection()` only selects sink-side (input) targets for a capture stream when `stream.capture.sink` is true (`/usr/share/wireplumber/scripts/lib/common-utils.lua`, WirePlumber 0.5.18). The name lookup in `linking/find-defined-target.lua` requires that direction to match, but the numeric lookup does not. When no target matches, WirePlumber falls back to the default source. This is session-manager behaviour. It can change between WirePlumber versions. Thus always set `stream.capture.sink=true` for monitors **and** `node.dont-fallback=true`.
+  More link tests (the same method):
+
+  | `pw-record` arguments | Linked to |
+  |---|---|
+  | `--target 54 -P '{ stream.capture.sink=true node.dont-fallback=true node.dont-reconnect=true }'` | `...Speaker__sink:monitor_FL/FR` (correct) |
+  | `--target 58` (mic serial) `-P '{ node.dont-fallback=true node.dont-reconnect=true }'` | `easyeffects_source:capture_FL/FR` (**moved by EasyEffects**) |
+  | `--target <mic node.name>`, same properties | `easyeffects_source:capture_FL/FR` (**moved by EasyEffects**) |
+  | `--target 58 -P '{ node.dont-fallback=true node.dont-reconnect=true node.dont-move=true }'` | `...Mic__source:capture_FL/FR/RL/RR` (correct) |
+
+  EasyEffects was running as `easyeffects --service-mode`. It moves recording streams to its own virtual source. `node.dont-move` means "Whether the node target may be changed using metadata" ([pipewire-props(7)](https://docs.pipewire.org/page_man_pipewire-props_7.html)). We did not test `stream.capture.sink=true` on a microphone.
+
+  The cause of the sink-by-name fallback is in WirePlumber. `cutils.getTargetDirection()` only selects sink-side (input) targets for a capture stream when `stream.capture.sink` is true (`/usr/share/wireplumber/scripts/lib/common-utils.lua`, WirePlumber 0.5.18). The name lookup in `linking/find-defined-target.lua` requires that direction to match, but the numeric lookup does not. When no target matches, WirePlumber falls back to the default source. This is session-manager behaviour. It can change between WirePlumber versions. Thus always set `stream.capture.sink=true` for monitors **and** `node.dont-fallback=true`.
 - **Target goes away, tested by unloading a null sink during capture:**
   - Without `node.dont-reconnect`: `pw-record` keeps running. Its ports are re-linked to `...Speaker__sink:monitor_FL/FR`, which is a different device. The app gets wrong audio and no error.
   - With `node.dont-reconnect=true`: `pw-record` exits with code 1. stderr shows `stream node ... error: target not found`.
@@ -88,14 +103,14 @@ All tests ran on the Level 1 laptop: Intel Core Ultra 7 258V, kernel 7.2.11, Pip
 - **Tested:** sounddevice 0.5.6 with system PortAudio "V19.7.0-devel". `query_hostapis()` returned only **ALSA** and **OSS**. `query_devices()` listed raw `hw:0,x` devices and ALSA plugin PCMs (`pipewire`, `pulse`, `default`). No PipeWire node or monitor appears by name.
 - PortAudio's last release is v19.7.0 (2021-04-06). Its `src/hostapi` folder has `alsa, jack, pulseaudio, ...` but no `pipewire` ([GitHub](https://github.com/PortAudio/portaudio/tree/master/src/hostapi), [releases](https://github.com/PortAudio/portaudio/releases)). The PulseAudio host API was merged in 2023 (PR #336) but is not in a release.
 - The callback gives `time.inputBufferAdcTime` in seconds on the stream's own time base ([sounddevice docs](https://python-sounddevice.readthedocs.io/en/0.5.3/api/streams.html)). There is no shared clock between streams.
-- Opening a raw `hw:` device bypasses PipeWire and blocks other users of the device. The `pipewire` PCM only gives the default source unless you set an environment variable such as `PIPEWIRE_NODE` per process. Thus it gives no benefit over `pw-record`.
+- Opening a raw `hw:` device bypasses PipeWire and blocks other users of the device. The `pipewire` PCM only gives the default source unless you set an environment variable such as `PIPEWIRE_NODE` per process (not verified). Thus it gives no benefit over `pw-record`.
 
 ### 5. GStreamer `pipewiresrc` via PyGObject (best clock, more risk)
 
 - The plugin `pipewire` (1.6.9, MIT/X11) has `pipewiresrc`, `pipewiresink` and `pipewiredeviceprovider` (local `gst-inspect-1.0 pipewire`).
 - `pipewiresrc` properties (local `gst-inspect-1.0 pipewiresrc`): `target-object` ("The source name/serial to connect to"), `stream-properties`, `provide-clock` (default true), `do-timestamp`, `on-disconnect` (`none` default, `eos`, `error`), `min-buffers`/`max-buffers`, `keepalive-time`, `client-name`.
 - **Shared clock, tested:** two `pipewiresrc` elements (mic + monitor with `stream-properties="props,stream.capture.sink=true"`) in one pipeline used one `GstPipeWireClock`. Every buffer PTS is on one pipeline running time. Buffers were one quantum (341 samples at 16 kHz = 1024 at 48 kHz, 21.3 ms). This is the best shared-clock solution of all options.
-- **Data loss with Python `appsink`, tested:** with `appsink emit-signals=true` and a Python `new-sample` handler, we received only 22-55 % of the expected audio (for example 3.75 s in a 9.5 s PTS span), with no `DISCONT` flags after the first buffer. A `queue` after `pipewiresrc` did not fix it. The same pipelines with `filesink` lost no data: `gst-launch-1.0` gave 7.93 s in about 8 s, and the same pipeline in-process from Python gave 9.9 s in about 10 s for the monitor. Thus the loss is in our appsink/Python handler path. The cause is not known. A pull loop (`try_pull_sample`) in a dedicated thread could fix it but is **not tested**. Do not choose GStreamer until a test shows loss-free capture into Python.
+- **Data loss with Python `appsink`, tested:** with `appsink emit-signals=true` and a Python `new-sample` handler, we received only 22-52 % of the expected audio (for example 3.75 s in a 9.5 s PTS span), with no `DISCONT` flags after the first buffer. A `queue` after `pipewiresrc` did not fix it. With `filesink` instead of `appsink`: `gst-launch-1.0` gave 7.93 s (monitor) and 7.79 s (mic) in about 8.07 s. The same pipeline in-process from Python gave 9.9 s for the monitor (clean) but only 7.49 s for the mic in about 10 s. Thus the appsink path loses much data, and the in-process mic also lost about 2 s. The cause is not known. The mic streams in these runs were probably also moved to `easyeffects_source` (no `node.dont-move`), which can be a factor. A pull loop (`try_pull_sample`) in a dedicated thread could fix it but is **not tested**. Do not choose GStreamer until a test shows loss-free capture into Python.
 - **Device list, tested:** `Gst.DeviceMonitor` with the `pipewiredeviceprovider` returned every source and sink with `object.serial`, `node.name` and the matching element (`pipewiresrc`/`pipewiresink`). Sink monitors are not listed as sources, so the UI must add them as for `pw-dump`. One quirk: `easyeffects_source` (`Audio/Source/Virtual`) was mapped to `pipewiresink`.
 - **Install, verified on PyPI:** PyGObject 3.58.1 (2026-10-09, LGPL-2.1+) publishes only `pygobject-3.58.1.tar.gz`. Under a `uv` venv it builds from source. It needs the gobject-introspection and cairo development packages and a C compiler. The alternative is a venv with `--system-site-packages`. This is a real cost for the "Python backend (uv)" constraint.
 - Licence: GStreamer core and PyGObject are LGPL-2.1+. Dynamic linking from an app with any licence is normally fine.
