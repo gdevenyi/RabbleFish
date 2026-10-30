@@ -31,6 +31,7 @@ A Session opens one capture and one NeMo-Speech.cpp realtime connection for each
 - `ltt.pipeline`: the Session, and for each Source the capture loop and the connection loop (automatic reconnect).
 - `ltt.translation`: the translation of Segments (see [Translation](#translation)).
 - `ltt.store` and `ltt.audio`: the saved Sessions and their audio (see [Saved sessions](#saved-sessions)).
+- `ltt.export`: the Markdown and JSON export of a Session (see [Export](#export)).
 
 ### The ASR endpoint
 
@@ -133,6 +134,75 @@ The running Session is not a past Session: these return 409 for it, and the list
 - `GET /api/sessions/{id}`: the same summary and `events`, the replay of the log through the code that builds the `/ws` snapshot. The UI gives these events to its reducer. It is read-only: no new Segments.
 - `PATCH /api/sessions/{id}/speakers/{speaker_id}` `{display_name}` and `POST /api/sessions/{id}/speakers/merge` `{from_speaker_id, into_speaker_id}`: append the `speaker` or `merge` event to the Session's log and return it. Encode the `#` as `%23`. For the last Session, the event also goes to `/ws`.
 - `DELETE /api/sessions/{id}`: delete the log and the audio (204). If it is the last Session, the backend clears its `/ws` snapshot and sends `hello` again on `/ws`, so each UI clears its state.
+
+## Export
+
+`ltt.export` makes a Markdown or a JSON file of one Session from its event log (decided in issue #30). A past Session is the replay of its log. The live Session is a snapshot of the moment, marked "in progress", without Partial text. Merges (also chains of Merges) and display names are applied in both formats.
+
+- `GET /api/sessions/{id}/export?format=md|json` (default `md`): a saved Session. The running Session is exported too. An unknown ID returns 404, another format 422.
+- `GET /api/session/export?format=md|json`: the current or last Session, as on `/ws`. 404 before the first Session, and after a restart of the backend until the next Session starts (the last Session is then a past Session).
+- The response is a download: `Content-Disposition: attachment; filename="<session id>.md"` (or `.json`).
+- The UI has an Export control (Markdown, JSON) in the bar for the live or last Session, and in the banner of an open past Session.
+
+The rules are the same as in the Timeline of the UI:
+
+- **Language switch:** a Segment starts a switch when its language is not the last language of the same Speaker (after Merges). A Segment with no language does not start or end a switch.
+- **Silence fold:** a silence of all Speakers longer than 20 s, also before the first Segment. There is no fold after the last Segment.
+- **Times:** `mm:ss`, `h:mm:ss` after one hour. Lengths: `45 s`, `2 min 05 s`, `1 h 02 min 05 s`.
+
+### Markdown
+
+```markdown
+# Session 2026-10-30T10-37-30
+
+- **Date:** 2026-10-30
+- **Start:** 10:37:30 (UTC+00:00)
+- **Length:** 2 min 18 s
+- **State:** interrupted (the app ended without a stop)
+- **Sources:** mic:alsa_input.usb-desk, monitor:alsa_output.pci-speakers
+- **Target language:** en
+- **Speakers:** Gabriel (Desk microphone), Alice (Speaker 1), Bertrand (Speaker 2; merged: Speaker 3)
+
+**[00:04] Bertrand:** Bonjour, je suis en retard, désolé.\
+*Hello, I'm late, sorry.*
+
+**[00:10] Alice:** [fr] Alors, on commence la réunion maintenant.\
+*So, we start the meeting now.*
+
+*— 1 min 32 s silence —*
+
+**[02:08] Bertrand:** [en] Sorry, my connection dropped out.
+```
+
+- The header has the date and the start time in the local time zone of the backend, the length, the state (only "in progress" or "interrupted"), the Source keys, the Target language and the Speakers. A Speaker shows its display name, else its label; the label and the merged Speakers follow in parentheses.
+- One paragraph for each Segment, by start time. `[fr]` marks a Language switch. The Translation is in italics on the next line (a `\` at the end of a line is a line break in CommonMark).
+- The text is not escaped: the Markdown characters in the text stay as they are.
+
+### JSON
+
+```json
+{
+  "version": 1,
+  "session": {"id": "...", "started_at": "2026-10-30T10:37:30+00:00", "duration_s": 3703.5,
+              "sources": ["mic:...", "monitor:..."], "target_language": "en",
+              "interrupted": true, "in_progress": false},
+  "speakers": [{"id": "monitor:...#3", "label": "Speaker 3", "display_name": null,
+                "source_key": "monitor:...", "merged_into": "monitor:...#2"}],
+  "segments": [{"id": "monitor:.../5", "start": 128.0, "end": 131.5,
+                "speaker_id": "monitor:...#2", "original_speaker_id": "monitor:...#3",
+                "source_key": "monitor:...", "text": "...", "lang": "en",
+                "translation": null, "words": [{"w": "Sorry,", "start": 128.0, "end": 128.56}]}],
+  "audio_files": [{"source_key": "monitor:...", "path": "audio/monitor_...-002.pcm",
+                   "start": 100.0, "sample_rate": 16000, "format": "s16le"}]
+}
+```
+
+- All times are seconds since the Session started. `started_at` is ISO 8601 with the offset of the local time zone. `duration_s` of the live Session is the time up to the export.
+- `speakers` has all Speakers, also the merged ones (`merged_into` is the Speaker that now has their Segments; else `null`).
+- `segments` are sorted by start. `speaker_id` is the Speaker after Merges; `original_speaker_id` is there only for a merged Segment. `translation` is `null` when the Segment has no Translation.
+- `audio_files[].path` is relative to the Session directory (raw PCM16, see [Saved sessions](#saved-sessions)).
+- The JSON Schema of the document is `src/ltt/export.schema.json`. The tests validate the exports against it.
+- The golden files of the tests are in `tests/fixtures/export/`. To write them again after an intended change: `LTT_UPDATE_GOLDEN=1 uv run pytest tests/test_export.py`.
 
 ## Translation
 

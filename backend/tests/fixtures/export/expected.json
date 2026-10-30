@@ -1,0 +1,435 @@
+{
+  "version": 1,
+  "session": {
+    "id": "2026-10-30T10-37-30",
+    "started_at": "2026-10-30T10:37:30+00:00",
+    "duration_s": 3703.5,
+    "sources": [
+      "mic:alsa_input.usb-desk",
+      "monitor:alsa_output.pci-speakers"
+    ],
+    "target_language": "en",
+    "interrupted": true,
+    "in_progress": false
+  },
+  "speakers": [
+    {
+      "id": "mic:alsa_input.usb-desk#0",
+      "label": "Desk microphone",
+      "display_name": "Gabriel",
+      "source_key": "mic:alsa_input.usb-desk",
+      "merged_into": null
+    },
+    {
+      "id": "monitor:alsa_output.pci-speakers#1",
+      "label": "Speaker 1",
+      "display_name": "Alice",
+      "source_key": "monitor:alsa_output.pci-speakers",
+      "merged_into": null
+    },
+    {
+      "id": "monitor:alsa_output.pci-speakers#2",
+      "label": "Speaker 2",
+      "display_name": "Bertrand",
+      "source_key": "monitor:alsa_output.pci-speakers",
+      "merged_into": null
+    },
+    {
+      "id": "monitor:alsa_output.pci-speakers#3",
+      "label": "Speaker 3",
+      "display_name": null,
+      "source_key": "monitor:alsa_output.pci-speakers",
+      "merged_into": "monitor:alsa_output.pci-speakers#2"
+    },
+    {
+      "id": "monitor:alsa_output.pci-speakers#4",
+      "label": "Speaker 4",
+      "display_name": null,
+      "source_key": "monitor:alsa_output.pci-speakers",
+      "merged_into": "monitor:alsa_output.pci-speakers#2"
+    }
+  ],
+  "segments": [
+    {
+      "id": "monitor:alsa_output.pci-speakers/1",
+      "start": 0.5,
+      "end": 3.2,
+      "speaker_id": "monitor:alsa_output.pci-speakers#1",
+      "source_key": "monitor:alsa_output.pci-speakers",
+      "text": "Hello everyone, thanks for joining.",
+      "lang": "en",
+      "translation": null,
+      "words": [
+        {
+          "w": "Hello",
+          "start": 0.5,
+          "end": 1.02
+        },
+        {
+          "w": "everyone,",
+          "start": 1.04,
+          "end": 1.56
+        },
+        {
+          "w": "thanks",
+          "start": 1.58,
+          "end": 2.1
+        },
+        {
+          "w": "for",
+          "start": 2.12,
+          "end": 2.64
+        },
+        {
+          "w": "joining.",
+          "start": 2.66,
+          "end": 3.2
+        }
+      ]
+    },
+    {
+      "id": "mic:alsa_input.usb-desk/1",
+      "start": 2.0,
+      "end": 4.0,
+      "speaker_id": "mic:alsa_input.usb-desk#0",
+      "source_key": "mic:alsa_input.usb-desk",
+      "text": "Good morning to all.",
+      "lang": "en",
+      "translation": null,
+      "words": [
+        {
+          "w": "Good",
+          "start": 2.0,
+          "end": 2.48
+        },
+        {
+          "w": "morning",
+          "start": 2.5,
+          "end": 2.98
+        },
+        {
+          "w": "to",
+          "start": 3.0,
+          "end": 3.48
+        },
+        {
+          "w": "all.",
+          "start": 3.5,
+          "end": 4.0
+        }
+      ]
+    },
+    {
+      "id": "monitor:alsa_output.pci-speakers/2",
+      "start": 4.5,
+      "end": 8.0,
+      "speaker_id": "monitor:alsa_output.pci-speakers#2",
+      "source_key": "monitor:alsa_output.pci-speakers",
+      "text": "Bonjour, je suis en retard, désolé.",
+      "lang": "fr",
+      "translation": "Hello, I'm late, sorry.",
+      "words": [
+        {
+          "w": "Bonjour,",
+          "start": 4.5,
+          "end": 5.063
+        },
+        {
+          "w": "je",
+          "start": 5.083,
+          "end": 5.647
+        },
+        {
+          "w": "suis",
+          "start": 5.667,
+          "end": 6.23
+        },
+        {
+          "w": "en",
+          "start": 6.25,
+          "end": 6.813
+        },
+        {
+          "w": "retard,",
+          "start": 6.833,
+          "end": 7.397
+        },
+        {
+          "w": "désolé.",
+          "start": 7.417,
+          "end": 8.0
+        }
+      ]
+    },
+    {
+      "id": "monitor:alsa_output.pci-speakers/3",
+      "start": 8.5,
+      "end": 10.0,
+      "speaker_id": "monitor:alsa_output.pci-speakers#1",
+      "source_key": "monitor:alsa_output.pci-speakers",
+      "text": "No problem.",
+      "lang": null,
+      "translation": null,
+      "words": [
+        {
+          "w": "No",
+          "start": 8.5,
+          "end": 9.23
+        },
+        {
+          "w": "problem.",
+          "start": 9.25,
+          "end": 10.0
+        }
+      ]
+    },
+    {
+      "id": "monitor:alsa_output.pci-speakers/4",
+      "start": 10.5,
+      "end": 14.0,
+      "speaker_id": "monitor:alsa_output.pci-speakers#1",
+      "source_key": "monitor:alsa_output.pci-speakers",
+      "text": "Alors, on commence la réunion maintenant.",
+      "lang": "fr",
+      "translation": "So, we start the meeting now.",
+      "words": [
+        {
+          "w": "Alors,",
+          "start": 10.5,
+          "end": 11.063
+        },
+        {
+          "w": "on",
+          "start": 11.083,
+          "end": 11.647
+        },
+        {
+          "w": "commence",
+          "start": 11.667,
+          "end": 12.23
+        },
+        {
+          "w": "la",
+          "start": 12.25,
+          "end": 12.813
+        },
+        {
+          "w": "réunion",
+          "start": 12.833,
+          "end": 13.397
+        },
+        {
+          "w": "maintenant.",
+          "start": 13.417,
+          "end": 14.0
+        }
+      ]
+    },
+    {
+      "id": "mic:alsa_input.usb-desk/2",
+      "start": 33.0,
+      "end": 36.0,
+      "speaker_id": "mic:alsa_input.usb-desk#0",
+      "source_key": "mic:alsa_input.usb-desk",
+      "text": "Let me share the slides now.",
+      "lang": "en",
+      "translation": null,
+      "words": [
+        {
+          "w": "Let",
+          "start": 33.0,
+          "end": 33.48
+        },
+        {
+          "w": "me",
+          "start": 33.5,
+          "end": 33.98
+        },
+        {
+          "w": "share",
+          "start": 34.0,
+          "end": 34.48
+        },
+        {
+          "w": "the",
+          "start": 34.5,
+          "end": 34.98
+        },
+        {
+          "w": "slides",
+          "start": 35.0,
+          "end": 35.48
+        },
+        {
+          "w": "now.",
+          "start": 35.5,
+          "end": 36.0
+        }
+      ]
+    },
+    {
+      "id": "monitor:alsa_output.pci-speakers/5",
+      "start": 128.0,
+      "end": 131.5,
+      "speaker_id": "monitor:alsa_output.pci-speakers#2",
+      "original_speaker_id": "monitor:alsa_output.pci-speakers#3",
+      "source_key": "monitor:alsa_output.pci-speakers",
+      "text": "Sorry, my connection dropped out.",
+      "lang": "en",
+      "translation": null,
+      "words": [
+        {
+          "w": "Sorry,",
+          "start": 128.0,
+          "end": 128.68
+        },
+        {
+          "w": "my",
+          "start": 128.7,
+          "end": 129.38
+        },
+        {
+          "w": "connection",
+          "start": 129.4,
+          "end": 130.08
+        },
+        {
+          "w": "dropped",
+          "start": 130.1,
+          "end": 130.78
+        },
+        {
+          "w": "out.",
+          "start": 130.8,
+          "end": 131.5
+        }
+      ]
+    },
+    {
+      "id": "monitor:alsa_output.pci-speakers/6",
+      "start": 132.0,
+      "end": 135.0,
+      "speaker_id": "monitor:alsa_output.pci-speakers#2",
+      "original_speaker_id": "monitor:alsa_output.pci-speakers#3",
+      "source_key": "monitor:alsa_output.pci-speakers",
+      "text": "Merci, on peut continuer.",
+      "lang": "fr",
+      "translation": "Thank you, we can continue.",
+      "words": [
+        {
+          "w": "Merci,",
+          "start": 132.0,
+          "end": 132.73
+        },
+        {
+          "w": "on",
+          "start": 132.75,
+          "end": 133.48
+        },
+        {
+          "w": "peut",
+          "start": 133.5,
+          "end": 134.23
+        },
+        {
+          "w": "continuer.",
+          "start": 134.25,
+          "end": 135.0
+        }
+      ]
+    },
+    {
+      "id": "monitor:alsa_output.pci-speakers/7",
+      "start": 136.0,
+      "end": 138.0,
+      "speaker_id": "monitor:alsa_output.pci-speakers#2",
+      "original_speaker_id": "monitor:alsa_output.pci-speakers#4",
+      "source_key": "monitor:alsa_output.pci-speakers",
+      "text": "Oui, d'accord avec ça.",
+      "lang": "fr",
+      "translation": "Yes, I agree with that.",
+      "words": [
+        {
+          "w": "Oui,",
+          "start": 136.0,
+          "end": 136.48
+        },
+        {
+          "w": "d'accord",
+          "start": 136.5,
+          "end": 136.98
+        },
+        {
+          "w": "avec",
+          "start": 137.0,
+          "end": 137.48
+        },
+        {
+          "w": "ça.",
+          "start": 137.5,
+          "end": 138.0
+        }
+      ]
+    },
+    {
+      "id": "mic:alsa_input.usb-desk/3",
+      "start": 3700.0,
+      "end": 3703.0,
+      "speaker_id": "mic:alsa_input.usb-desk#0",
+      "source_key": "mic:alsa_input.usb-desk",
+      "text": "That's all from me, goodbye.",
+      "lang": "en",
+      "translation": null,
+      "words": [
+        {
+          "w": "That's",
+          "start": 3700.0,
+          "end": 3700.58
+        },
+        {
+          "w": "all",
+          "start": 3700.6,
+          "end": 3701.18
+        },
+        {
+          "w": "from",
+          "start": 3701.2,
+          "end": 3701.78
+        },
+        {
+          "w": "me,",
+          "start": 3701.8,
+          "end": 3702.38
+        },
+        {
+          "w": "goodbye.",
+          "start": 3702.4,
+          "end": 3703.0
+        }
+      ]
+    }
+  ],
+  "audio_files": [
+    {
+      "source_key": "mic:alsa_input.usb-desk",
+      "path": "audio/mic_alsa_input.usb-desk-001.pcm",
+      "start": 0.02,
+      "sample_rate": 16000,
+      "format": "s16le"
+    },
+    {
+      "source_key": "monitor:alsa_output.pci-speakers",
+      "path": "audio/monitor_alsa_output.pci-speakers-001.pcm",
+      "start": 0.03,
+      "sample_rate": 16000,
+      "format": "s16le"
+    },
+    {
+      "source_key": "monitor:alsa_output.pci-speakers",
+      "path": "audio/monitor_alsa_output.pci-speakers-002.pcm",
+      "start": 100.0,
+      "sample_rate": 16000,
+      "format": "s16le"
+    }
+  ]
+}

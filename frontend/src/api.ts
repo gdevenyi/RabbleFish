@@ -68,3 +68,15 @@ export const httpSessionsApi: SessionsApi = {
   mergeSpeakers: (id, fromId, intoId) => json(send('POST', `${sessionUrl(id)}/speakers/merge`, { from_speaker_id: fromId, into_speaker_id: intoId })),
   remove: (id) => done(send('DELETE', sessionUrl(id))),
 }
+
+export type ExportFormat = 'md' | 'json'
+
+/**
+ * The download URL of the Markdown or JSON export of a Session: a past Session by its ID,
+ * or (with `null`) the current or last Session. A running Session is exported as a
+ * snapshot of the moment, without Partial text. The backend names the file `<id>.<format>`.
+ */
+export function exportUrl(id: string | null, format: ExportFormat): string {
+  const base = id === null ? '/api/session/export' : `${sessionUrl(id)}/export`
+  return `${base}?format=${format}`
+}

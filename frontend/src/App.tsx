@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useReducer, useState } from 'react'
 import './app.css'
 import { httpSessionsApi } from './api'
 import type { ServerEvent } from './contract'
+import { ExportMenu } from './ExportMenu'
 import { DEFAULT_TARGET_LANGUAGE, TARGET_LANGUAGES } from './languages'
 import { PastSessions } from './PastSessions'
 import { formatStart, pastSessionApi, pastSessionEvents } from './pastSession'
@@ -147,6 +148,7 @@ export function App() {
         <button className="past-toggle" onClick={() => setPastOpen((o) => !o)} aria-expanded={pastOpen} disabled={status === 'demo'}>
           Past sessions {pastOpen ? '▴' : '▾'}
         </button>
+        {pastId === null && <ExportMenu sessionId={null} disabled={status === 'demo' || state.session.state === 'idle'} />}
         <button className="sources-toggle" onClick={() => setSourcesOpen((o) => !o)} aria-expanded={sourcesOpen}>
           Sources {sourcesOpen ? '▴' : '▾'}
         </button>
@@ -176,6 +178,7 @@ export function App() {
               Speakers)
               {running && ' · a live Session runs'}
             </span>
+            <ExportMenu sessionId={pastId} />
             <button className="back-live" onClick={backToLive}>
               ← Back to live
             </button>
