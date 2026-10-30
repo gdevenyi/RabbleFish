@@ -52,7 +52,8 @@ export interface SourceStatus {
 }
 
 export interface SessionInfo {
-  state: 'idle' | 'started' | 'stopped'
+  /** "interrupted" only in a past Session: the app ended without a stop. */
+  state: 'idle' | 'started' | 'stopped' | 'interrupted'
   /** Unix seconds, on the server clock. */
   startedAt: number | null
   /** The Target language of the Session, if the backend sent it. */
@@ -183,7 +184,7 @@ function apply(s: AppState, { event: e, at }: ReceivedEvent) {
     case 'session':
       if (e.state === 'started' && e.started_at !== s.session.startedAt && s.session.startedAt !== null) resetTranscript(s)
       s.session = { state: e.state, startedAt: e.started_at ?? s.session.startedAt, targetLang: e.target_lang ?? s.session.targetLang }
-      if (e.state === 'stopped') {
+      if (e.state !== 'started') {
         s.partials = {}
         s.translationStatus = null
       }
@@ -250,6 +251,9 @@ function apply(s: AppState, { event: e, at }: ReceivedEvent) {
       // A Merge that closes a loop would hide both Columns: ignore it.
       if (resolveSpeaker(mergeTargets(s.merges), e.into_speaker_id) === e.from_speaker_id) return
       s.merges.push({ from: e.from_speaker_id, into: e.into_speaker_id, receivedAt: at })
+      return
+    case 'audio_file':
+      // The saved audio is not shown yet.
       return
   }
 }

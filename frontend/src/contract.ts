@@ -19,11 +19,14 @@ export interface Word {
 
 export interface SessionEvent {
   type: 'session'
-  state: 'started' | 'stopped'
+  /** "interrupted" is only in a saved Session: the app ended without a stop. */
+  state: 'started' | 'stopped' | 'interrupted'
   /** Unix time in seconds (the same clock as `heartbeat.server_time`). */
   started_at: number | null
   /** The Target language of the Session. */
   target_lang?: string | null
+  /** Unix time in seconds of the end ("stopped" and "interrupted" only). */
+  ended_at?: number | null
 }
 
 export interface SourceStatusEvent {
@@ -81,6 +84,18 @@ export interface MergeEvent {
   into_speaker_id: string
 }
 
+/** One saved audio file of a Source: raw PCM16, mono. */
+export interface AudioFileEvent {
+  type: 'audio_file'
+  source_key: string
+  /** Relative to the Session directory. */
+  path: string
+  /** Session time of the first sample. */
+  start: number
+  sample_rate: number
+  format: string
+}
+
 export interface HelloEvent {
   type: 'hello'
   version: string
@@ -109,3 +124,24 @@ export type ServerEvent =
   | TranslationEvent
   | TranslationStatusEvent
   | MergeEvent
+  | AudioFileEvent
+
+/** One past Session in `GET /api/sessions`. */
+export interface PastSessionSummary {
+  id: string
+  started_at: number | null
+  ended_at: number | null
+  /** Seconds. */
+  length: number
+  state: 'started' | 'stopped' | 'interrupted'
+  interrupted: boolean
+  target_lang: string | null
+  speakers: { id: string; label: string; display_name: string | null }[]
+  segments: number
+  audio_files: number
+}
+
+/** `GET /api/sessions/{id}`: the summary and the replayed snapshot of the Session. */
+export interface PastSession extends PastSessionSummary {
+  events: ServerEvent[]
+}

@@ -31,3 +31,20 @@ body { font-family: system-ui, sans-serif; color: #1d2330; background: #e9ecf2; 
 .sources li { display: flex; gap: 8px; align-items: center; padding: 2px 0; }
 .sources li label { flex: 1; }
 .sources p { margin: 2px 0; }
+
+.app-bar .save-audio { display: inline-flex; align-items: center; gap: 3px; }
+.past-sessions { background: #fff; border: 1px solid #d6dae2; border-radius: 6px; padding: 6px 10px; font-size: 13px; max-height: 40vh; overflow: auto; }
+.past-sessions p { margin: 2px 0; }
+.past-sessions table { width: 100%; border-collapse: collapse; }
+.past-sessions th { text-align: left; font-size: 12px; color: #556; font-weight: 600; padding: 2px 8px 4px 0; }
+.past-sessions td { padding: 3px 8px 3px 0; border-top: 1px solid #eef0f4; vertical-align: middle; }
+.past-sessions tr.open td { background: #eef5ff; }
+.past-sessions .chip { margin-left: 6px; }
+.past-speakers { max-width: 420px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.past-actions { white-space: nowrap; text-align: right; }
+.past-actions button { font-size: 12px; margin-left: 4px; padding: 2px 10px; border-radius: 4px; border: 1px solid #aab; background: #fff; cursor: pointer; }
+.past-actions button:disabled { opacity: 0.5; cursor: default; }
+.past-actions .danger { background: #c0392b; border-color: #a93226; color: #fff; }
+.past-banner { display: flex; align-items: center; gap: 10px; padding: 4px 10px; border: 1px solid #b9cbe8; border-radius: 4px; background: #eef5ff; font-size: 13px; }
+.past-banner .chip { margin-left: 6px; }
+.past-banner .back-live { margin-left: auto; font-size: 13px; padding: 3px 12px; border-radius: 4px; border: 1px solid #156647; background: #1b7f5a; color: #fff; cursor: pointer; }
