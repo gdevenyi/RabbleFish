@@ -256,10 +256,10 @@ The backend translates each Segment once, after the Segment is finalized and its
 
 ### Make the Riva-Translate model
 
-Convert the model to GGUF with `convert_model.py` from a NeMo-Speech.cpp v0.2.0 source checkout. The download is about 8 GB, and the Q8_0 file is about 4 GB:
+Convert the model to GGUF with `convert_model.py` from a NeMo-Speech.cpp v0.3.0 source checkout. The download is about 8 GB, and the Q8_0 file is about 4 GB:
 
 ```sh
-git clone --branch v0.2.0 https://github.com/NVIDIA/NeMo-Speech.cpp
+git clone --branch v0.3.0 https://github.com/NVIDIA/NeMo-Speech.cpp
 cd NeMo-Speech.cpp
 pip install -r requirements.txt   # in a Python virtual environment
 python convert_model.py nvidia/Riva-Translate-4B-Instruct-v2 \

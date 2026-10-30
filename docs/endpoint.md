@@ -20,12 +20,12 @@ The script does these steps. Each step skips its work when the result is
 already present and verified, so you can run the script again at any time. A
 second run does not use the network.
 
-1. Download the NeMo-Speech.cpp v0.2.0 release archive for the backend, check
+1. Download the NeMo-Speech.cpp v0.3.0 release archive for the backend, check
    its SHA-256 and extract it. `bin/nemo-speech` is a link to the binary.
 2. Download the ASR and diarization GGUF files from Hugging Face. The script
    checks the size and the SHA-256 that Hugging Face gives for each file.
 3. Convert `nvidia/Riva-Translate-4B-Instruct-v2` to a Q8_0 GGUF with
-   `convert_model.py` from the NeMo-Speech.cpp v0.2.0 source, in a temporary
+   `convert_model.py` from the NeMo-Speech.cpp v0.3.0 source, in a temporary
    `uv` venv with CPU PyTorch. After the conversion, the script deletes the
    source, the venv and the downloaded checkpoint, and keeps only the GGUF.
    `--no-translation` skips this step.
@@ -64,7 +64,8 @@ Build NeMo-Speech.cpp from source there.
 
 | Item | Size |
 | --- | --- |
-| Release archive (kept for the checksum) and its extracted files | archive: 7 MB (cpu), 17 MB (vulkan), 105 MB (cuda); extracted: a few times more |
+| Release archive (kept for the checksum) | 10 MB (cpu), 19 MB (vulkan), 704 MB (cuda: it includes cuBLAS) |
+| Extracted files of the archive | 25 MB (cpu), 57 MB (vulkan), 1.02 GB (cuda) |
 | ASR and diarization models | about 0.85 GB |
 | Translation model (Q8_0 GGUF) | about 4.4 GB |
 | During the conversion only | about 9 GB checkpoint download and a CPU PyTorch venv (about 2 GB) |
@@ -219,6 +220,28 @@ For a remote endpoint, install `rabblefish-endpoint.service` on the GPU machine 
 
 ## Update or remove
 
+- To update NeMo-Speech.cpp after you get a new version of this repository, run
+  the script again with the same options as before (`--backend`, `--prefix`,
+  `--host`, `--port`, `--threads`, `--no-translation`), then restart the
+  endpoint. The script writes `endpoint.env` again from these options, and the
+  default applies to each option that you omit. If you omit `--no-translation`
+  and you do not have the translation model, the script starts the download and
+  conversion of that model. The script downloads the new archive and changes the
+  `bin/nemo-speech` link. The models stay. A running endpoint continues to use
+  the old binary until you restart it. The script does not delete the old
+  version: delete
+  `<prefix>/nemo-speech-<old version>-*` and
+  `<prefix>/downloads/nemo-speech-<old version>-*` when the new version works.
+- The script does not download a model file again when the local file is
+  correct, so it does not see a new upload to Hugging Face with the same file
+  name. To get the new file, delete the file and its `.sha256` file from
+  `<prefix>/models`, then run the script again.
+- NeMo-Speech.cpp v0.3.0 changes the conversion of cache-aware RNNT Q8_0 models:
+  the pointwise convolution weights stay in F16, and upstream says that this
+  prevents some lost speech. The runtime cannot repair an older file. The ASR
+  file on Hugging Face (2026-09-10) is older than this change, and its 48
+  pointwise convolution tensors are Q8_0. It works with v0.3.0, but it does not
+  have this fix. The script uses this published file.
 - To use another backend, run the script again with the new `--backend`. It
   downloads the new archive and changes the `bin/nemo-speech` link. The models
   stay.
