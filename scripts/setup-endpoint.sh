@@ -467,7 +467,7 @@ Point the app at the endpoint:
 
   export LTT_ASR_ENDPOINT_URL=ws://$url_host:$port
 
-or, when the config file is available, in ~/.config/live-transcribe-translate/config.toml:
+or in ~/.config/live-transcribe-translate/config.toml:
 
   asr_endpoint_url = "ws://$url_host:$port"
 

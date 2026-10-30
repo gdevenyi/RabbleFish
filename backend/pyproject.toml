@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Live transcription and translation of PipeWire sources: backend"
 readme = "README.md"
 license = "Apache-2.0"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<3.15"  # lingua-language-detector 2.2.0 has wheels for 3.12-3.14 only
 dependencies = [
     "fastapi>=0.162.0",
     "lingua-language-detector>=2.2.0",
