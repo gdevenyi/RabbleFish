@@ -192,7 +192,14 @@ def create_app(
         if hub.session is not None:  # started by another request in the meantime
             raise HTTPException(409, "a session is running")
         hub.transcript.reset()
-        hub.session = Session(sources, endpoint, hub.publish, capture_factory, detect)
+        hub.session = Session(
+            sources,
+            endpoint,
+            hub.publish,
+            capture_factory,
+            detect,
+            resolve_source=hub.registry.get,
+        )
         hub.session.start()
         return hub.session.event("started")
 

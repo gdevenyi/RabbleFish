@@ -24,6 +24,7 @@ RETRY_MAX_S = 10.0
 COMMIT_TIMEOUT_S = 5.0
 
 Publish = Callable[[dict], None]
+ResolveSource = Callable[[str], Source | None]  # the current Source for a key
 
 
 class AudioCapture(Protocol):
@@ -45,8 +46,10 @@ class SourcePipeline:
         publish: Publish,
         capture_factory: CaptureFactory,
         clock: Callable[[], int] = time.monotonic_ns,
+        resolve_source: ResolveSource | None = None,
     ) -> None:
         self.source = source
+        self.resolve_source = resolve_source
         self.diarize = diarize
         self.mapper = mapper
         self.endpoint = endpoint
@@ -104,6 +107,9 @@ class SourcePipeline:
     async def _capture_loop(self) -> None:
         retry = RETRY_MIN_S
         while not self._stopping.is_set():
+            # A device that comes back after a capture error can have a new serial.
+            if self.resolve_source is not None:
+                self.source = self.resolve_source(self.key) or self.source
             self._capture = self.capture_factory(self.source)
             try:
                 async for chunk in self._capture.chunks():
@@ -195,6 +201,7 @@ class Session:
         capture_factory: CaptureFactory = Capture,
         detect_language: LanguageDetector | None = None,
         clock: Callable[[], int] = time.monotonic_ns,
+        resolve_source: ResolveSource | None = None,
     ) -> None:
         self.start_ns = clock()
         self.started_at = time.time()
@@ -214,6 +221,7 @@ class Session:
                 publish,
                 capture_factory,
                 clock,
+                resolve_source,
             )
             for source, diarize in sources
         ]

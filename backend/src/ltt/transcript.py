@@ -255,8 +255,9 @@ class Transcript:
         kind = event["type"]
         if kind == "session":
             self.session = event
-            if event["state"] == "stopped":
+            if event["state"] == "stopped":  # no Source is connected or speaking now
                 self.partials.clear()
+                self.statuses.clear()
         elif kind == "source_status":
             self.statuses[event["source_key"]] = event
         elif kind == "speaker":

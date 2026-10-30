@@ -145,11 +145,14 @@ def test_snapshot_rename_and_merge(fake_nemo):
             assert rest[-1] == {"type": "merge", **merge}
         c.post("/api/session/stop")
 
-        # After the Session, the snapshot is still there and ends stopped.
+        # After the Session, the snapshot is still there: stopped, with no Source status
+        # and no Partial text.
         with c.websocket_connect("/ws") as ws:
             ws.receive_json()
             ws.receive_json()
             assert ws.receive_json()["state"] == "stopped"
+            after = receive_until(ws, lambda ev: ev[-1]["type"] == "merge")
+            assert {e["type"] for e in after} == {"speaker", "segment", "merge"}
 
 
 def test_reconnect_marks_the_gap_and_gives_new_speakers(fake_nemo):
