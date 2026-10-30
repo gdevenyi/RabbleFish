@@ -9,6 +9,8 @@ export interface SourceInfo {
   description: string
   selected: boolean
   mode: SourceMode
+  /** PipeWire reports the node as muted (older backends do not send it). */
+  muted?: boolean
 }
 
 export interface Word {
@@ -34,7 +36,14 @@ export interface SourceStatusEvent {
   source_key: string
   state: 'connecting' | 'live' | 'error'
   message?: string | null
+  /** "muted": the Source is quiet and PipeWire reports it as muted.
+   * "silent": the Source gave only silence for a set time (default 30 s).
+   * A change of the warning alone sends the event again with the same state. */
+  warning?: SourceWarning | null
 }
+
+export type SourceWarning = 'muted' | 'silent'
+
 
 export interface SpeakerEvent {
   type: 'speaker'

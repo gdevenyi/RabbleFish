@@ -164,11 +164,16 @@ def test_reconnect_marks_the_gap_and_gives_new_speakers(fake_nemo):
         c.post("/api/session/start")
         events = receive_until(
             ws,
-            lambda ev: count(ev, "source_status", state="live") >= 2 and count(ev, "segment") >= 8,
+            lambda ev: (
+                any(e["type"] == "source_status" and "gap" in e for e in ev)
+                and count(ev, "segment") >= 8
+            ),
         )
         c.post("/api/session/stop")
+    # A change of the silent warning also sends "live" again, without a gap.
     lives = [e for e in events if e["type"] == "source_status" and e["state"] == "live"]
     assert "gap" not in lives[0]
+    lives = [lives[0], next(e for e in lives if "gap" in e)]
     gap = lives[1]["gap"]
     assert 0 <= gap["start"] <= gap["end"]
     # The second connection replays from the start: its speaker 1 is a new Speaker.

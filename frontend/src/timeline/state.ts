@@ -1,7 +1,7 @@
 // The app state that the /ws events build, and the pure reducer for it.
 // The reducer is idempotent: the snapshot on connect can repeat events that the UI
 // already has, and the result is the same.
-import type { ServerEvent, SourceInfo, Word } from '../contract'
+import type { ServerEvent, SourceInfo, SourceWarning, Word } from '../contract'
 
 export interface Speaker {
   id: string
@@ -49,6 +49,20 @@ export interface PartialText {
 export interface SourceStatus {
   state: 'connecting' | 'live' | 'error'
   message: string | null
+  /** The Source gives no sound: muted, or silent for a set time. */
+  warning: SourceWarning | null
+}
+
+/** The short text of a Source warning, for a chip or a Column header. */
+export function warningLabel(w: SourceWarning): string {
+  return w === 'muted' ? 'Muted' : 'No sound'
+}
+
+/** The longer explanation of a Source warning, for a tooltip. */
+export function warningHint(w: SourceWarning): string {
+  return w === 'muted'
+    ? 'PipeWire reports this Source as muted, so it gives no audio and no text. Unmute it to continue.'
+    : 'This Source has given only silence for some time. Make sure that the correct device is selected and that it plays sound.'
 }
 
 export interface SessionInfo {
@@ -190,7 +204,7 @@ function apply(s: AppState, { event: e, at }: ReceivedEvent) {
       }
       return
     case 'source_status':
-      s.sourceStatus[e.source_key] = { state: e.state, message: e.message ?? null }
+      s.sourceStatus[e.source_key] = { state: e.state, message: e.message ?? null, warning: e.warning ?? null }
       return
     case 'speaker': {
       const old = s.speakers[e.id]

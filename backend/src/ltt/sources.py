@@ -4,6 +4,10 @@ A Source (see GLOSSARY.md) is a microphone (`Audio/Source*` node) or the monitor
 output device (`Audio/Sink` node, captured with `stream.capture.sink=true`). Its key uses
 `node.name`, not `object.serial`, so a selection survives a device that goes away and
 comes back with a new serial.
+
+A Source is muted when PipeWire reports the node as muted (`pactl set-sink-mute` or
+`set-source-mute`, or the mute in a volume control). pw-dump sends the node again when
+this changes.
 """
 
 import asyncio
@@ -27,6 +31,36 @@ class Source:
     node_name: str
     description: str
     serial: int  # target for pw-record; changes when the device comes back
+    muted: bool = False  # see node_muted()
+
+
+def _param(params: list, name: str):
+    """The value of `name` in a flat [name, value, name, value, ...] list, or None."""
+    for i in range(0, len(params) - 1, 2):
+        if params[i] == name:
+            return params[i + 1]
+    return None
+
+
+def node_muted(info: dict, kind: SourceKind) -> bool:
+    """True if the `Props` params of a node say that the captured audio is muted.
+
+    A microphone is muted by its `mute`. The monitor of a sink is muted by the sink's
+    `mute` when `monitor.channel-volumes` is on (the monitor then follows the sink volume,
+    as in PulseAudio; this is the usual setting), and by `monitorMute`.
+    """
+    props = (info.get("params") or {}).get("Props") or []
+    muted = False
+    for p in props:
+        if not isinstance(p, dict):
+            continue
+        if kind == "microphone":
+            muted |= p.get("mute") is True
+            continue
+        follows = _param(p.get("params") or [], "monitor.channel-volumes")
+        muted |= p.get("monitorMute") is True
+        muted |= p.get("mute") is True and follows is not False
+    return muted
 
 
 def source_from_node(obj: dict) -> Source | None:
@@ -48,7 +82,8 @@ def source_from_node(obj: dict) -> Source | None:
     description = props.get("node.description") or props.get("node.nick") or name
     if kind == "monitor":
         description = f"Monitor of {description}"
-    return Source(f"{kind}:{name}", kind, name, description, int(serial))
+    muted = node_muted(obj["info"], kind)
+    return Source(f"{kind}:{name}", kind, name, description, int(serial), muted)
 
 
 class PwDumpStream:

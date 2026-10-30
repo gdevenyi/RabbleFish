@@ -18,6 +18,10 @@
 .tl-groups { display: flex; min-width: 0; }
 .tl-group { display: flex; flex-direction: column; min-width: 0; }
 .tl-group-title { flex: 0 0 22px; display: flex; align-items: center; gap: 6px; padding: 0 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.03em; color: #fff; background: #4a5a78; border-left: 2px solid #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tl-group-name { overflow: hidden; text-overflow: ellipsis; }
+.tl-warn { flex: 0 0 auto; margin-left: auto; padding: 0 6px; border-radius: 999px; background: #ffe8a3; color: #6b4e00; font-weight: 600; letter-spacing: 0; }
+.tl-group-warn .tl-hcell { box-shadow: inset 0 -2px 0 #e0b000; }
+.tl-sub-warn { color: #7a5a00; }
 .tl-status { flex: 0 0 8px; height: 8px; border-radius: 50%; background: #999; }
 .tl-status-live { background: #3ddc84; }
 .tl-status-connecting { background: #ffb300; animation: tl-blink 1s infinite; }

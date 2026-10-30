@@ -127,8 +127,10 @@ export function buildScenario(until = 3600): TimedEvent[] {
   const alone = 4 + fixture.duration + 55
   for (const line of MIC_ALONE) micLine(alone + line.at, line)
   const drop = alone + 3
-  emit(drop, { type: 'source_status', source_key: MONITOR, state: 'connecting', message: 'Connection to the ASR endpoint lost. Reconnecting.' })
-  emit(drop + 4, { type: 'source_status', source_key: MONITOR, state: 'live', message: null })
+  // The monitor is quiet after block 1: after 30 s it gets the "silent" warning.
+  emit(4 + fixture.duration + 30, { type: 'source_status', source_key: MONITOR, state: 'live', message: null, warning: 'silent' })
+  emit(drop, { type: 'source_status', source_key: MONITOR, state: 'connecting', message: 'Connection to the ASR endpoint lost. Reconnecting.', warning: 'silent' })
+  emit(drop + 4, { type: 'source_status', source_key: MONITOR, state: 'live', message: null, warning: 'silent' })
   // Block 2 onwards: after the reconnect the Speakers have new ids (6-10), as the contract says.
   let offset = alone + 14
   while (offset < until) {

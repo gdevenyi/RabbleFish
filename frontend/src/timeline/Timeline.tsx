@@ -6,7 +6,7 @@ import { COLLAPSED_PX, type ColumnInput, layoutColumns, type PinState, togglePin
 import { ColumnHeader, type HeaderColumn, hueStyle } from './ColumnHeader'
 import { buildModel, formatDuration, formatTime, liveEdge, nameOf } from './model'
 import { Overview } from './Overview'
-import type { AppState, Merge, Segment, Speaker } from './state'
+import { type AppState, type Merge, type Segment, type Speaker, warningHint, warningLabel } from './state'
 import { buildTimeScale } from './timeScale'
 import './timeline.css'
 
@@ -237,18 +237,33 @@ export function Timeline({ state, clientNow, api, onError }: { state: AppState; 
             <div className="tl-groups">
               {groups.map((g) => {
                 const st = state.sourceStatus[g.key]
+                const warning = st?.warning ?? null
                 return (
-                  <div key={g.key} className="tl-group" style={{ width: g.w }} data-testid="source-group">
-                    <div className="tl-group-title" title={`${g.description} (${g.key})${st?.message ? `: ${st.message}` : ''}`}>
+                  <div key={g.key} className={`tl-group${warning ? ' tl-group-warn' : ''}`} style={{ width: g.w }} data-testid="source-group">
+                    <div
+                      className="tl-group-title"
+                      title={`${g.description} (${g.key})${st?.message ? `: ${st.message}` : ''}${warning ? `\n${warningHint(warning)}` : ''}`}
+                    >
                       {st && <span className={`tl-status tl-status-${st.state}`} aria-label={`Source status: ${st.state}`} />}
-                      {g.description}
+                      <span className="tl-group-name">{g.description}</span>
+                      {warning && (
+                        <span className="tl-warn" data-testid="column-warning" title={warningHint(warning)}>
+                          {warningLabel(warning)}
+                        </span>
+                      )}
                     </div>
                     <div className="tl-group-row">
                       {g.cols.map((c) =>
                         c.kind === 'pending' ? (
                           <div key={c.key} className="tl-hcell tl-wide tl-pending-head" style={{ width: c.w }}>
                             <span className="tl-name">No Speaker yet</span>
-                            <small className="tl-sub">Partial text of this Source shows here</small>
+                            {warning ? (
+                              <small className="tl-sub tl-sub-warn" title={warningHint(warning)}>
+                                {warning === 'muted' ? 'The Source is muted: no audio' : 'No sound from this Source'}
+                              </small>
+                            ) : (
+                              <small className="tl-sub">Partial text of this Source shows here</small>
+                            )}
                           </div>
                         ) : (
                           <ColumnHeader

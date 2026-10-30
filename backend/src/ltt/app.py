@@ -96,6 +96,7 @@ class Hub:
                     "key": s.key,
                     "kind": s.kind,
                     "description": s.description,
+                    "muted": s.muted,
                     **setting.model_dump(),
                 }
             )
