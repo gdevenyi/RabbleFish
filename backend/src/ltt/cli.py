@@ -7,6 +7,8 @@ never change a log.
 
 import argparse
 import ipaddress
+import json
+import logging
 import sys
 import time
 from datetime import datetime
@@ -57,6 +59,9 @@ def cmd_serve(args: argparse.Namespace, settings: Settings) -> int:
         )
     print(f"  endpoint: {settings.asr_endpoint_url} (the UI shows its state)", flush=True)
     print(f"  data: {settings.data_dir}", flush=True)
+    # The app log (for example the endpoint state) in the same form as the uvicorn log.
+    logging.basicConfig(format="%(levelname)s:     %(name)s: %(message)s")
+    logging.getLogger("ltt").setLevel(args.log_level.upper())
     uvicorn.run(create_app(settings=settings), host=host, port=port, log_level=args.log_level)
     return 0
 
@@ -123,7 +128,8 @@ def cmd_config(_args: argparse.Namespace, settings: Settings) -> int:
     path = config_path()
     print(f"# config file: {path}{'' if path.is_file() else ' (not found: defaults)'}")
     rows = [
-        (k, str(list(v) if isinstance(v, tuple) else v), src) for k, v, src in settings.effective()
+        (k, json.dumps(list(v)) if isinstance(v, tuple) else str(v), src)
+        for k, v, src in settings.effective()
     ]
     kw = max(len(r[0]) for r in rows)
     vw = max(len(r[1]) for r in rows)
