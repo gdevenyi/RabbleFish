@@ -15,6 +15,7 @@ from pydantic import BaseModel
 
 from ltt import __version__
 from ltt.capture import Capture
+from ltt.export import SessionExport
 from ltt.nemo import NemoEndpoint
 from ltt.pipeline import CaptureFactory, Session
 from ltt.sources import Source, SourceRegistry, watch_sources
@@ -41,6 +42,7 @@ DEFAULT_LANGUAGES = "en,fr"
 log = logging.getLogger(__name__)
 
 SourceMode = Literal["single", "diarize"]
+ExportFormat = Literal["md", "json"]
 Watcher = Callable[[SourceRegistry, Callable[[list[Source]], Awaitable[None]]], Awaitable[None]]
 
 
@@ -177,6 +179,20 @@ def check_merge(t: Transcript, merge: SpeakerMerge) -> None:
     for sid in ids:
         if t.merged_away(sid):
             raise HTTPException(409, f"speaker {sid} is already merged into another")
+
+
+def export_response(t: Transcript, session_id: str, fmt: ExportFormat) -> Response:
+    """The Markdown or JSON export of a Session, as a download named `<session_id>.<fmt>`."""
+    export = SessionExport(t, session_id, now=time.time())
+    if fmt == "json":
+        body, media_type = export.json(), "application/json"
+    else:
+        body, media_type = export.markdown(), "text/markdown; charset=utf-8"
+    return Response(
+        body,
+        media_type=media_type,
+        headers={"Content-Disposition": f'attachment; filename="{session_id}.{fmt}"'},
+    )
 
 
 def renamed(t: Transcript, speaker_id: str, change: SpeakerUpdate) -> dict:
@@ -342,6 +358,13 @@ def create_app(
         hub.publish(event)
         return event
 
+    @app.get("/api/session/export")
+    async def export_live_session(format: ExportFormat = "md") -> Response:  # noqa: A002
+        """The current or last Session; a running Session is a snapshot of the moment."""
+        if hub.transcript.session is None or hub.log is None:
+            raise HTTPException(404, "no session")
+        return export_response(hub.transcript, hub.log.id, format)
+
     # Past Sessions: the saved logs. The running Session is not a past Session.
 
     def running_id() -> str | None:
@@ -379,6 +402,16 @@ def create_app(
     async def open_session(session_id: str) -> dict:
         saved = past(session_id)
         return {**saved.summary(), "events": saved.transcript().snapshot()}
+
+    @app.get("/api/sessions/{session_id}/export")
+    async def export_session(session_id: str, format: ExportFormat = "md") -> Response:  # noqa: A002
+        """A saved Session. The running Session is exported as a snapshot of the moment."""
+        if session_id == running_id():
+            return export_response(hub.transcript, session_id, format)
+        saved = store.load(session_id)
+        if saved is None:
+            raise HTTPException(404, f"unknown session: {session_id}")
+        return export_response(saved.transcript(), session_id, format)
 
     @app.patch("/api/sessions/{session_id}/speakers/{speaker_id:path}")
     async def rename_past_speaker(session_id: str, speaker_id: str, change: SpeakerUpdate) -> dict:
