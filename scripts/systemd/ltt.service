@@ -1,0 +1,33 @@
+# systemd user unit for the live-transcribe-translate app (`ltt serve`).
+#
+# Template. It needs the `ltt` CLI, which is a separate ticket and is not
+# available yet. When it is, install it with `uv tool install` from the
+# repository (this puts it in ~/.local/bin/ltt). Until then, this unit cannot
+# start.
+#
+# Install (see docs/endpoint.md):
+#   mkdir -p ~/.config/systemd/user
+#   cp scripts/systemd/ltt.service ~/.config/systemd/user/
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now ltt.service
+#
+# The app reads ~/.config/live-transcribe-translate/config.toml and the LTT_*
+# environment variables. It starts also when the endpoint is not ready: it
+# shows the endpoint state in the UI. For a remote endpoint, set
+# asr_endpoint_url in the config file and do not install ltt-endpoint.service.
+
+[Unit]
+Description=live-transcribe-translate (ltt serve)
+Documentation=https://github.com/gdevenyi/live-transcribe-translate/blob/master/docs/endpoint.md
+# Wants, not Requires: the endpoint can be on another machine.
+Wants=ltt-endpoint.service
+After=ltt-endpoint.service pipewire.service
+
+[Service]
+Type=exec
+ExecStart=%h/.local/bin/ltt serve
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
