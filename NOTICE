@@ -1,0 +1,36 @@
+live-transcribe-translate
+Copyright 2026 Gabriel A. Devenyi
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Third-party material
+====================
+
+Some test fixtures and the UI demo data contain transcripts that NVIDIA
+NeMo-Speech.cpp produced from these recordings. The transcripts are
+derivative works of the recordings and are used under their licences.
+
+AMI Meeting Corpus
+  Meeting EN2002d, Mix-Headset, a 60 s excerpt from 2132.5 s (as shipped in
+  NVIDIA NeMo-Speech.cpp test_files/diar/ami_en2002d_2132.wav).
+  https://groups.inf.ed.ac.uk/ami/corpus/
+  Licence: Creative Commons Attribution 4.0 International (CC BY 4.0),
+  https://creativecommons.org/licenses/by/4.0/
+  Changes: transcribed by machine (Nemotron 3.5 ASR Streaming); the text
+  contains recognition errors.
+
+Multilingual LibriSpeech (MLS), French test split
+  Two utterances (speakers 1406 and 296).
+  Pratap, V., Xu, Q., Sriram, A., Synnaeve, G., Collobert, R.: MLS: A
+  Large-Scale Multilingual Dataset for Speech Research. Interspeech 2020.
+  https://huggingface.co/datasets/facebook/multilingual_librispeech
+  Licence: Creative Commons Attribution 4.0 International (CC BY 4.0),
+  https://creativecommons.org/licenses/by/4.0/
+  Changes: transcribed by machine (Nemotron 3.5 ASR Streaming) and, in the
+  UI demo, translated by machine; the text contains recognition errors.
+
+Files that contain this material:
+  backend/tests/fixtures/nemo_diarize_en_fr.jsonl
+  backend/tests/fixtures/nemo_single_en.jsonl
+  backend/tests/test_transcript.py (short quotes)
+  frontend/src/demo/nemoFixture.json
+  frontend/scripts/nemo-to-fixture.mjs (short quotes)
