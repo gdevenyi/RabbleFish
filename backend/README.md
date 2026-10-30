@@ -65,7 +65,7 @@ At the start of each connection, the backend checks `GET /ready` and `GET /v1/mo
 - `POST /api/session/start` with an optional body `{"target_language": "fr", "save_audio": true}` (defaults `en` and `true`), `POST /api/session/stop`. The `stopped` `session` event has `ended_at` (unix seconds). While a Session runs, `PATCH /api/sources/...` returns 409. An unsupported Target language returns 400.
 - `PATCH /api/speakers/{id}` `{display_name}`. Encode the `#` of the ID as `%23`.
 - `POST /api/speakers/merge` `{from_speaker_id, into_speaker_id}`.
-- `/ws`: `hello`, `sources`, then the snapshot of the current or last Session (`session`, `source_status`, `speaker`, `segment`, `merge`, `translation`, `translation_status`, `partial`), then the live events. The `session` event has `target_lang`.
+- `/ws`: `hello`, `sources`, then the snapshot of the current or last Session (`session`, `source_status`, `speaker`, `segment`, `merge`, `translation`, `translation_status`, `audio_file`, `partial`), then the live events. The `session` event has `target_lang`.
 
 A `source_status` `live` event after a reconnect has `gap: {start, end}`, in seconds since the Session start. The audio of the gap is lost.
 
