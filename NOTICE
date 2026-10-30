@@ -34,3 +34,5 @@ Files that contain this material:
   backend/tests/test_transcript.py (short quotes)
   frontend/src/demo/nemoFixture.json
   frontend/scripts/nemo-to-fixture.mjs (short quotes)
+  docs/media/demo.gif and the demo video linked from README.md (screen
+  recording of a Session on this audio)
