@@ -1,0 +1,410 @@
+[
+ {
+  "source": 0,
+  "windows": 18,
+  "request_time_p50_s": 0.32,
+  "request_time_max_s": 0.83,
+  "latency_after_window_p50_s": 0.33,
+  "latency_after_window_max_s": 0.84,
+  "rows": [
+   {
+    "k": 0,
+    "end_s": 5.0,
+    "req_s": 0.29,
+    "lat_s": 0.33,
+    "text": " from a plain text file yeah back into organized by who which speaker's"
+   },
+   {
+    "k": 1,
+    "end_s": 10.0,
+    "req_s": 0.66,
+    "lat_s": 0.66,
+    "text": " speaks what and how doing the segment. I think that was the stupidest way they could have organized the whole thing as well."
+   },
+   {
+    "k": 2,
+    "end_s": 15.0,
+    "req_s": 0.26,
+    "lat_s": 0.27,
+    "text": " Organise it by time, not by speaker."
+   },
+   {
+    "k": 3,
+    "end_s": 20.0,
+    "req_s": 0.3,
+    "lat_s": 0.3,
+    "text": " But I don't know what we're going to do about that."
+   },
+   {
+    "k": 4,
+    "end_s": 25.0,
+    "req_s": 0.63,
+    "lat_s": 0.64,
+    "text": "."
+   },
+   {
+    "k": 5,
+    "end_s": 30.0,
+    "req_s": 0.54,
+    "lat_s": 0.54,
+    "text": " Okay. Yeah, are we done? Yeah."
+   },
+   {
+    "k": 6,
+    "end_s": 35.0,
+    "req_s": 0.79,
+    "lat_s": 0.8,
+    "text": " I guess we just see what Steve says about the real valuation."
+   },
+   {
+    "k": 7,
+    "end_s": 40.0,
+    "req_s": 0.28,
+    "lat_s": 0.28,
+    "text": " and then we'll keep in touch by email if we need to."
+   },
+   {
+    "k": 8,
+    "end_s": 45.0,
+    "req_s": 0.71,
+    "lat_s": 0.72,
+    "text": " I guess we'll see you on Thursday."
+   },
+   {
+    "k": 9,
+    "end_s": 50.0,
+    "req_s": 0.27,
+    "lat_s": 0.28,
+    "text": " On Monday. Yeah, we don't. Do we need another meeting?"
+   },
+   {
+    "k": 10,
+    "end_s": 55.0,
+    "req_s": 0.55,
+    "lat_s": 0.56,
+    "text": " this week? Probably not. I mean, just get work done."
+   },
+   {
+    "k": 11,
+    "end_s": 60.0,
+    "req_s": 0.83,
+    "lat_s": 0.84,
+    "text": " I think that's what I've got to do. We can just email if we need. Yeah."
+   },
+   {
+    "k": 12,
+    "end_s": 65.0,
+    "req_s": 0.3,
+    "lat_s": 0.31,
+    "text": " Pendant le second siècle, je fis serment d'ouvrir tous les trésors de la terre."
+   },
+   {
+    "k": 13,
+    "end_s": 70.0,
+    "req_s": 0.32,
+    "lat_s": 0.33,
+    "text": " à quiconque me mettrait en liberté. Mais je ne fus pas plus heureux."
+   },
+   {
+    "k": 14,
+    "end_s": 75.0,
+    "req_s": 0.38,
+    "lat_s": 0.38,
+    "text": " Dans le troisième, je promis de faire puissant monarque mon libérateur, d'être toujours un bon."
+   },
+   {
+    "k": 15,
+    "end_s": 80.0,
+    "req_s": 0.3,
+    "lat_s": 0.3,
+    "text": " de lui en esprit lorsqu'il achevait ce repas frugal"
+   },
+   {
+    "k": 16,
+    "end_s": 85.0,
+    "req_s": 0.64,
+    "lat_s": 0.64,
+    "text": " Comme il était bon musulman, il se lava les mains, le visage et les pieds."
+   },
+   {
+    "k": 17,
+    "end_s": 87.76,
+    "req_s": 0.25,
+    "lat_s": 0.25,
+    "text": " et fit sa prière"
+   }
+  ]
+ },
+ {
+  "source": 1,
+  "windows": 18,
+  "request_time_p50_s": 0.6,
+  "request_time_max_s": 0.92,
+  "latency_after_window_p50_s": 0.61,
+  "latency_after_window_max_s": 0.93,
+  "rows": [
+   {
+    "k": 0,
+    "end_s": 5.0,
+    "req_s": 0.81,
+    "lat_s": 0.85,
+    "text": " from a plain text file yeah back into organized by who which speaker's"
+   },
+   {
+    "k": 1,
+    "end_s": 10.0,
+    "req_s": 0.35,
+    "lat_s": 0.36,
+    "text": " speaks what and how doing the segment. I think that was the stupidest way they could have organized the whole thing as well."
+   },
+   {
+    "k": 2,
+    "end_s": 15.0,
+    "req_s": 0.51,
+    "lat_s": 0.51,
+    "text": " Organise it by time, not by speaker."
+   },
+   {
+    "k": 3,
+    "end_s": 20.0,
+    "req_s": 0.78,
+    "lat_s": 0.79,
+    "text": " But I don't know what we're going to do about that."
+   },
+   {
+    "k": 4,
+    "end_s": 25.0,
+    "req_s": 0.43,
+    "lat_s": 0.44,
+    "text": "."
+   },
+   {
+    "k": 5,
+    "end_s": 30.0,
+    "req_s": 0.76,
+    "lat_s": 0.77,
+    "text": " Okay. Yeah, are we done? Yeah."
+   },
+   {
+    "k": 6,
+    "end_s": 35.0,
+    "req_s": 0.28,
+    "lat_s": 0.29,
+    "text": " I guess we just see what Steve says about the real valuation."
+   },
+   {
+    "k": 7,
+    "end_s": 40.0,
+    "req_s": 0.78,
+    "lat_s": 0.78,
+    "text": " and then we'll keep in touch by email if we need to."
+   },
+   {
+    "k": 8,
+    "end_s": 45.0,
+    "req_s": 0.47,
+    "lat_s": 0.47,
+    "text": " I guess we'll see you on Thursday."
+   },
+   {
+    "k": 9,
+    "end_s": 50.0,
+    "req_s": 0.78,
+    "lat_s": 0.79,
+    "text": " On Monday. Yeah, we don't. Do we need another meeting?"
+   },
+   {
+    "k": 10,
+    "end_s": 55.0,
+    "req_s": 0.31,
+    "lat_s": 0.31,
+    "text": " this week? Probably not. I mean, just get work done."
+   },
+   {
+    "k": 11,
+    "end_s": 60.0,
+    "req_s": 0.28,
+    "lat_s": 0.29,
+    "text": " I think that's what I've got to do. We can just email if we need. Yeah."
+   },
+   {
+    "k": 12,
+    "end_s": 65.0,
+    "req_s": 0.6,
+    "lat_s": 0.61,
+    "text": " Pendant le second siècle, je fis serment d'ouvrir tous les trésors de la terre."
+   },
+   {
+    "k": 13,
+    "end_s": 70.0,
+    "req_s": 0.86,
+    "lat_s": 0.87,
+    "text": " à quiconque me mettrait en liberté. Mais je ne fus pas plus heureux."
+   },
+   {
+    "k": 14,
+    "end_s": 75.0,
+    "req_s": 0.69,
+    "lat_s": 0.7,
+    "text": " Dans le troisième, je promis de faire puissant monarque mon libérateur, d'être toujours un bon."
+   },
+   {
+    "k": 15,
+    "end_s": 80.0,
+    "req_s": 0.56,
+    "lat_s": 0.56,
+    "text": " de lui en esprit lorsqu'il achevait ce repas frugal"
+   },
+   {
+    "k": 16,
+    "end_s": 85.0,
+    "req_s": 0.92,
+    "lat_s": 0.93,
+    "text": " Comme il était bon musulman, il se lava les mains, le visage et les pieds."
+   },
+   {
+    "k": 17,
+    "end_s": 87.76,
+    "req_s": 0.64,
+    "lat_s": 0.65,
+    "text": " et fit sa prière"
+   }
+  ]
+ },
+ {
+  "source": 2,
+  "windows": 18,
+  "request_time_p50_s": 0.54,
+  "request_time_max_s": 0.97,
+  "latency_after_window_p50_s": 0.55,
+  "latency_after_window_max_s": 0.98,
+  "rows": [
+   {
+    "k": 0,
+    "end_s": 5.0,
+    "req_s": 0.59,
+    "lat_s": 0.59,
+    "text": " from a plain text file yeah back into organized by who which speaker's"
+   },
+   {
+    "k": 1,
+    "end_s": 10.0,
+    "req_s": 0.96,
+    "lat_s": 0.97,
+    "text": " speaks what and how doing the segment. I think that was the stupidest way they could have organized the whole thing as well."
+   },
+   {
+    "k": 2,
+    "end_s": 15.0,
+    "req_s": 0.75,
+    "lat_s": 0.75,
+    "text": " Organise it by time, not by speaker."
+   },
+   {
+    "k": 3,
+    "end_s": 20.0,
+    "req_s": 0.54,
+    "lat_s": 0.55,
+    "text": " But I don't know what we're going to do about that."
+   },
+   {
+    "k": 4,
+    "end_s": 25.0,
+    "req_s": 0.23,
+    "lat_s": 0.23,
+    "text": "."
+   },
+   {
+    "k": 5,
+    "end_s": 30.0,
+    "req_s": 0.29,
+    "lat_s": 0.3,
+    "text": " Okay. Yeah, are we done? Yeah."
+   },
+   {
+    "k": 6,
+    "end_s": 35.0,
+    "req_s": 0.54,
+    "lat_s": 0.55,
+    "text": " I guess we just see what Steve says about the real valuation."
+   },
+   {
+    "k": 7,
+    "end_s": 40.0,
+    "req_s": 0.53,
+    "lat_s": 0.53,
+    "text": " and then we'll keep in touch by email if we need to."
+   },
+   {
+    "k": 8,
+    "end_s": 45.0,
+    "req_s": 0.24,
+    "lat_s": 0.24,
+    "text": " I guess we'll see you on Thursday."
+   },
+   {
+    "k": 9,
+    "end_s": 50.0,
+    "req_s": 0.52,
+    "lat_s": 0.53,
+    "text": " On Monday. Yeah, we don't. Do we need another meeting?"
+   },
+   {
+    "k": 10,
+    "end_s": 55.0,
+    "req_s": 0.8,
+    "lat_s": 0.81,
+    "text": " this week? Probably not. I mean, just get work done."
+   },
+   {
+    "k": 11,
+    "end_s": 60.0,
+    "req_s": 0.57,
+    "lat_s": 0.57,
+    "text": " I think that's what I've got to do. We can just email if we need. Yeah."
+   },
+   {
+    "k": 12,
+    "end_s": 65.0,
+    "req_s": 0.89,
+    "lat_s": 0.9,
+    "text": " Pendant le second siècle, je fis serment d'ouvrir tous les trésors de la terre."
+   },
+   {
+    "k": 13,
+    "end_s": 70.0,
+    "req_s": 0.61,
+    "lat_s": 0.61,
+    "text": " à quiconque me mettrait en liberté. Mais je ne fus pas plus heureux."
+   },
+   {
+    "k": 14,
+    "end_s": 75.0,
+    "req_s": 0.97,
+    "lat_s": 0.98,
+    "text": " Dans le troisième, je promis de faire puissant monarque mon libérateur, d'être toujours un bon."
+   },
+   {
+    "k": 15,
+    "end_s": 80.0,
+    "req_s": 0.82,
+    "lat_s": 0.83,
+    "text": " de lui en esprit lorsqu'il achevait ce repas frugal"
+   },
+   {
+    "k": 16,
+    "end_s": 85.0,
+    "req_s": 0.33,
+    "lat_s": 0.33,
+    "text": " Comme il était bon musulman, il se lava les mains, le visage et les pieds."
+   },
+   {
+    "k": 17,
+    "end_s": 87.76,
+    "req_s": 0.45,
+    "lat_s": 0.45,
+    "text": " et fit sa prière"
+   }
+  ]
+ }
+]

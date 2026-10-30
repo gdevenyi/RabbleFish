@@ -1,0 +1,28 @@
+[
+ {
+  "source": 0,
+  "model_ready_s": 25.0,
+  "audio_s": 87.8,
+  "completed_segments": 12,
+  "completed_latency_p50_s": 10.03,
+  "completed_latency_p95_s": 20.29,
+  "completed_latency_max_s": 21.57,
+  "partial_latency_p50_s": 5.03,
+  "partial_latency_p95_s": 15.32,
+  "languages_reported": [
+   "en"
+  ],
+  "speakers": [
+   "SPEAKER_00",
+   "SPEAKER_01",
+   "SPEAKER_02",
+   "SPEAKER_03",
+   "SPEAKER_04",
+   "SPEAKER_05",
+   "SPEAKER_06"
+  ],
+  "text_head": " From a plain text file back into organized by who which speaker speaks what and how I'm doing the segment  I think that was the stupidest way they could have o",
+  "text_tail": " all the treasures of the earth to whoever would put me in freedom, but I was not happier.  In the third one, I promised to make my liberator a powerful monarch, to be always close to him in his mind.",
+  "mean_completed_latency_s": 11.58
+ }
+]

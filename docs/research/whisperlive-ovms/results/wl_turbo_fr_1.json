@@ -1,0 +1,17 @@
+[
+ {
+  "source": 0,
+  "model_ready_s": 2.5,
+  "audio_s": 87.8,
+  "completed_segments": 43,
+  "completed_latency_p50_s": 2.05,
+  "completed_latency_p95_s": 4.28,
+  "completed_latency_max_s": 8.28,
+  "partial_latency_p50_s": 0.2,
+  "partial_latency_p95_s": 4.01,
+  "languages_reported": [],
+  "text_head": " de la plaintexte.  et bien  bien  bien  speaks what  et en ce qui est  C'est le plus simple  qu'ils avaient organisé  la whole thing  si vous askz me  mais  or",
+  "text_tail": "us pas plus heureux.  Dans le troisième, je promis de faire puissant monarque mon libérateur, d'être toujours  près de lui en esprit.  lorsqu'il achevait ce repas frugal,  comme il était bon musulman,",
+  "mean_completed_latency_s": 2.33
+ }
+]

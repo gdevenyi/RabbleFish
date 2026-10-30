@@ -1,0 +1,32 @@
+[
+ {
+  "source": 0,
+  "model_ready_s": 5.3,
+  "audio_s": 87.8,
+  "completed_segments": 38,
+  "completed_latency_p50_s": 2.05,
+  "completed_latency_p95_s": 3.9,
+  "completed_latency_max_s": 6.45,
+  "partial_latency_p50_s": 0.37,
+  "partial_latency_p95_s": 2.43,
+  "languages_reported": [],
+  "text_head": " from a plain text file  back into organized by who which  speaker speaks  what and how  doing this  segment  I think that was the stupidest way they could have",
+  "text_tail": "onque me mettrait en liberté.  but I was not happy.  Dans le troisième, je promis de faire puissant monarque mon libérateur, d'être toujours  près de lui en esprit.  lorsqu'il achevait ce repas frugal",
+  "mean_completed_latency_s": 2.21
+ },
+ {
+  "source": 1,
+  "model_ready_s": 5.3,
+  "audio_s": 87.8,
+  "completed_segments": 41,
+  "completed_latency_p50_s": 1.88,
+  "completed_latency_p95_s": 5.14,
+  "completed_latency_max_s": 5.61,
+  "partial_latency_p50_s": 0.36,
+  "partial_latency_p95_s": 2.64,
+  "languages_reported": [],
+  "text_head": " from a plain text file  back into  organized by  who which  speaker speaks  what and how  doing this  segment  I think that was the stupidest way they could ha",
+  "text_tail": "nque me mettrait en liberté.  but I was not happy.  Dans le troisième, je promis de faire puissant monarque mon libérateur, d'être toujours  près de lui en esprit.  Lorsqu'il achevait ce repas frugal,",
+  "mean_completed_latency_s": 2.22
+ }
+]

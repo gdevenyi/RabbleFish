@@ -1,0 +1,274 @@
+[
+ {
+  "source": 0,
+  "windows": 18,
+  "request_time_p50_s": 0.58,
+  "request_time_max_s": 1.14,
+  "latency_after_window_p50_s": 0.59,
+  "latency_after_window_max_s": 1.15,
+  "rows": [
+   {
+    "k": 0,
+    "end_s": 5.0,
+    "req_s": 0.9,
+    "lat_s": 0.94,
+    "text": " de l'écriture"
+   },
+   {
+    "k": 1,
+    "end_s": 10.0,
+    "req_s": 0.9,
+    "lat_s": 0.9,
+    "text": " C'est quoi?"
+   },
+   {
+    "k": 2,
+    "end_s": 15.0,
+    "req_s": 0.49,
+    "lat_s": 0.49,
+    "text": "..."
+   },
+   {
+    "k": 3,
+    "end_s": 20.0,
+    "req_s": 0.5,
+    "lat_s": 0.51,
+    "text": " Je ne sais pas vraiment."
+   },
+   {
+    "k": 4,
+    "end_s": 25.0,
+    "req_s": 0.48,
+    "lat_s": 0.48,
+    "text": "..."
+   },
+   {
+    "k": 5,
+    "end_s": 30.0,
+    "req_s": 0.91,
+    "lat_s": 0.92,
+    "text": " Ok, are we done?"
+   },
+   {
+    "k": 6,
+    "end_s": 35.0,
+    "req_s": 0.57,
+    "lat_s": 0.57,
+    "text": " Je pense que c'est ce que Steve dit sur les évaluations."
+   },
+   {
+    "k": 7,
+    "end_s": 40.0,
+    "req_s": 0.55,
+    "lat_s": 0.56,
+    "text": " et puis on va en contact par email si nous devons."
+   },
+   {
+    "k": 8,
+    "end_s": 45.0,
+    "req_s": 0.95,
+    "lat_s": 0.95,
+    "text": " Je pense qu'on se voit sur Thursday."
+   },
+   {
+    "k": 9,
+    "end_s": 50.0,
+    "req_s": 0.55,
+    "lat_s": 0.55,
+    "text": " On a Monday. Oui, on a une autre meeting."
+   },
+   {
+    "k": 10,
+    "end_s": 55.0,
+    "req_s": 0.99,
+    "lat_s": 0.99,
+    "text": " this week? Probably not. I mean, just get work done."
+   },
+   {
+    "k": 11,
+    "end_s": 60.0,
+    "req_s": 1.09,
+    "lat_s": 1.1,
+    "text": " I think that's what I've got to do. We can just email if we need. Yeah."
+   },
+   {
+    "k": 12,
+    "end_s": 65.0,
+    "req_s": 1.1,
+    "lat_s": 1.1,
+    "text": " Pendant le second siècle, je fis serment d'ouvrir tous les trésors de la terre."
+   },
+   {
+    "k": 13,
+    "end_s": 70.0,
+    "req_s": 0.58,
+    "lat_s": 0.59,
+    "text": " à quiconque me mettrait en liberté. Mais je ne fus pas plus heureux."
+   },
+   {
+    "k": 14,
+    "end_s": 75.0,
+    "req_s": 1.14,
+    "lat_s": 1.15,
+    "text": " Dans le troisième, je promis de faire puissant monarque mon libérateur, d'être toujours un bon."
+   },
+   {
+    "k": 15,
+    "end_s": 80.0,
+    "req_s": 0.57,
+    "lat_s": 0.57,
+    "text": " de lui en esprit lorsqu'il achevait ce repas frugal"
+   },
+   {
+    "k": 16,
+    "end_s": 85.0,
+    "req_s": 1.11,
+    "lat_s": 1.12,
+    "text": " Comme il était bon musulman, il se lava les mains, le visage et les pieds."
+   },
+   {
+    "k": 17,
+    "end_s": 87.76,
+    "req_s": 0.49,
+    "lat_s": 0.49,
+    "text": " et fit sa prière"
+   }
+  ]
+ },
+ {
+  "source": 1,
+  "windows": 18,
+  "request_time_p50_s": 0.62,
+  "request_time_max_s": 1.06,
+  "latency_after_window_p50_s": 0.63,
+  "latency_after_window_max_s": 1.07,
+  "rows": [
+   {
+    "k": 0,
+    "end_s": 5.0,
+    "req_s": 0.54,
+    "lat_s": 0.54,
+    "text": " de l'écriture"
+   },
+   {
+    "k": 1,
+    "end_s": 10.0,
+    "req_s": 0.5,
+    "lat_s": 0.51,
+    "text": " C'est quoi?"
+   },
+   {
+    "k": 2,
+    "end_s": 15.0,
+    "req_s": 0.85,
+    "lat_s": 0.86,
+    "text": "..."
+   },
+   {
+    "k": 3,
+    "end_s": 20.0,
+    "req_s": 0.91,
+    "lat_s": 0.91,
+    "text": " Je ne sais pas vraiment."
+   },
+   {
+    "k": 4,
+    "end_s": 25.0,
+    "req_s": 0.85,
+    "lat_s": 0.86,
+    "text": "..."
+   },
+   {
+    "k": 5,
+    "end_s": 30.0,
+    "req_s": 0.51,
+    "lat_s": 0.52,
+    "text": " Ok, are we done?"
+   },
+   {
+    "k": 6,
+    "end_s": 35.0,
+    "req_s": 1.04,
+    "lat_s": 1.05,
+    "text": " Je pense que c'est ce que Steve dit sur les évaluations."
+   },
+   {
+    "k": 7,
+    "end_s": 40.0,
+    "req_s": 1.0,
+    "lat_s": 1.01,
+    "text": " et puis on va en contact par email si nous devons."
+   },
+   {
+    "k": 8,
+    "end_s": 45.0,
+    "req_s": 0.53,
+    "lat_s": 0.53,
+    "text": " Je pense qu'on se voit sur Thursday."
+   },
+   {
+    "k": 9,
+    "end_s": 50.0,
+    "req_s": 1.0,
+    "lat_s": 1.01,
+    "text": " On a Monday. Oui, on a une autre meeting."
+   },
+   {
+    "k": 10,
+    "end_s": 55.0,
+    "req_s": 0.53,
+    "lat_s": 0.54,
+    "text": " Probably not. I mean, just get work done."
+   },
+   {
+    "k": 11,
+    "end_s": 60.0,
+    "req_s": 0.59,
+    "lat_s": 0.6,
+    "text": " I think that's what I've got to do. We can just email if we need. Yeah."
+   },
+   {
+    "k": 12,
+    "end_s": 65.0,
+    "req_s": 0.58,
+    "lat_s": 0.59,
+    "text": " During the second century, I was a sermon to open all the treasures of the earth."
+   },
+   {
+    "k": 13,
+    "end_s": 70.0,
+    "req_s": 1.06,
+    "lat_s": 1.07,
+    "text": " à quiconque me mettrait en liberté. Mais je ne fus pas plus heureux."
+   },
+   {
+    "k": 14,
+    "end_s": 75.0,
+    "req_s": 0.62,
+    "lat_s": 0.63,
+    "text": " Dans le troisième, je promis de faire puissant monarque mon libérateur, d'être toujours un bon."
+   },
+   {
+    "k": 15,
+    "end_s": 80.0,
+    "req_s": 1.03,
+    "lat_s": 1.04,
+    "text": " de lui en esprit lorsqu'il achevait ce repas frugal"
+   },
+   {
+    "k": 16,
+    "end_s": 85.0,
+    "req_s": 0.61,
+    "lat_s": 0.61,
+    "text": " Comme il était bon musulman, il se lava les mains, le visage et les pieds."
+   },
+   {
+    "k": 17,
+    "end_s": 87.76,
+    "req_s": 0.87,
+    "lat_s": 0.88,
+    "text": " et fit sa prière"
+   }
+  ]
+ }
+]

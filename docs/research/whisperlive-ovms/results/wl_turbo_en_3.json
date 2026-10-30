@@ -1,0 +1,47 @@
+[
+ {
+  "source": 0,
+  "model_ready_s": 7.3,
+  "audio_s": 87.8,
+  "completed_segments": 42,
+  "completed_latency_p50_s": 2.36,
+  "completed_latency_p95_s": 4.56,
+  "completed_latency_max_s": 8.66,
+  "partial_latency_p50_s": 0.64,
+  "partial_latency_p95_s": 3.83,
+  "languages_reported": [],
+  "text_head": " from a plain text file  back into  organized by  who which  speaker speaks  what and how  doing the  segment  I think that  was the stupidest way  they could h",
+  "text_tail": "résors de la terre à quiconque me mettrait en liberté, mais je ne fus pas plus heureux.  Dans le troisième, je promis de faire puissant monarque, mon libérateur, d'être toujours près de lui en esprit.",
+  "mean_completed_latency_s": 2.79
+ },
+ {
+  "source": 1,
+  "model_ready_s": 7.3,
+  "audio_s": 87.8,
+  "completed_segments": 37,
+  "completed_latency_p50_s": 2.56,
+  "completed_latency_p95_s": 4.56,
+  "completed_latency_max_s": 8.67,
+  "partial_latency_p50_s": 0.63,
+  "partial_latency_p95_s": 3.46,
+  "languages_reported": [],
+  "text_head": " from a plain text file  back into  organized by  who which  speaker speaks  what and  how doing  the segment  I think that was the stupidest way they could hav",
+  "text_tail": "quiconque me mettrait en liberté, mais je ne fus pas plus heureux.  In the third, I promise to be a powerful monarch, my liberator,  d'être toujours près de lui en esprit.  when he achieved this lunch",
+  "mean_completed_latency_s": 2.88
+ },
+ {
+  "source": 2,
+  "model_ready_s": 7.3,
+  "audio_s": 87.8,
+  "completed_segments": 52,
+  "completed_latency_p50_s": 2.46,
+  "completed_latency_p95_s": 5.71,
+  "completed_latency_max_s": 8.65,
+  "partial_latency_p50_s": 0.57,
+  "partial_latency_p95_s": 3.44,
+  "languages_reported": [],
+  "text_head": " from a plain text file  back into  organized by  who which  speaker speaks  what and how  doing this  segment  I think that was the stupidest way they could ha",
+  "text_tail": "ux.  In the third, I promise to be a powerful monarch, my liberator,  of being always close to him in mind.  when he achieved this  frugal  comme il était bon musulman  il se lava les mains  le visage",
+  "mean_completed_latency_s": 2.77
+ }
+]
