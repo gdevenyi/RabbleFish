@@ -22,6 +22,8 @@ export interface SessionEvent {
   state: 'started' | 'stopped'
   /** Unix time in seconds (the same clock as `heartbeat.server_time`). */
   started_at: number | null
+  /** The Target language of the Session. */
+  target_lang?: string | null
 }
 
 export interface SourceStatusEvent {
@@ -65,6 +67,14 @@ export interface TranslationEvent {
   target_lang: string
 }
 
+/** The state of the translation endpoint in this Session. */
+export interface TranslationStatusEvent {
+  type: 'translation_status'
+  state: 'ready' | 'error'
+  target_lang: string
+  message?: string | null
+}
+
 export interface MergeEvent {
   type: 'merge'
   from_speaker_id: string
@@ -97,4 +107,5 @@ export type ServerEvent =
   | PartialEvent
   | SegmentEvent
   | TranslationEvent
+  | TranslationStatusEvent
   | MergeEvent

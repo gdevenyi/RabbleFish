@@ -80,7 +80,7 @@ describe('reducer', () => {
     expect(same.segmentOrder).toEqual(['a'])
     const next = run([{ type: 'session', state: 'started', started_at: 200 }], s)
     expect(next.segmentOrder).toEqual([])
-    expect(next.session).toEqual({ state: 'started', startedAt: 200 })
+    expect(next.session).toEqual({ state: 'started', startedAt: 200, targetLang: null })
   })
 
   it('keeps the transcript and clears the Partial texts when the Session stops', () => {
@@ -106,6 +106,22 @@ describe('reducer', () => {
       { type: 'merge', from_speaker_id: 'b', into_speaker_id: 'a' },
     ])
     expect(s.merges).toHaveLength(1)
+  })
+
+  it('keeps the Target language, the translations and the translation status of the Session', () => {
+    let s = run([
+      { type: 'session', state: 'started', started_at: 1, target_lang: 'en' },
+      speaker('mon#1'),
+      segment('a', 'mon#1', 1, 2, 'fr'),
+      { type: 'translation', segment_id: 'a', text: 'hello', target_lang: 'en' },
+      { type: 'translation_status', state: 'error', target_lang: 'en', message: 'no translation model' },
+    ])
+    expect(s.session.targetLang).toBe('en')
+    expect(s.translations.a).toEqual({ text: 'hello', targetLang: 'en' })
+    expect(s.translationStatus).toEqual({ state: 'error', targetLang: 'en', message: 'no translation model' })
+    s = run([{ type: 'session', state: 'stopped', started_at: 1, target_lang: 'en' }], s)
+    expect(s.translationStatus).toBeNull()
+    expect(s.translations.a.text).toBe('hello') // the transcript stays after the Session
   })
 })
 

@@ -15,12 +15,13 @@ def fast_retry(monkeypatch):
     monkeypatch.setattr(pipeline, "RETRY_MIN_S", 0.05)
 
 
-def make_client(url):
+def make_client(url, translation_url=None, detect_language=None):
     app = create_app(
         watch=fake_watcher([MIC, SPEAKER]),
         asr_endpoint_url=url,
         capture_factory=FakeCapture,
-        detect_language=lambda text: "fr" if "prière" in text else "en",
+        detect_language=detect_language or (lambda text: "fr" if "prière" in text else "en"),
+        translation_endpoint_url=translation_url,
     )
     return TestClient(app)
 
@@ -136,6 +137,7 @@ def test_snapshot_rename_and_merge(fake_nemo):
                 "type": "session",
                 "state": "started",
                 "started_at": snap[0]["started_at"],
+                "target_lang": "en",
             }
             kinds = [e["type"] for e in snap]
             assert kinds.index("source_status") < kinds.index("speaker") < kinds.index("segment")

@@ -6,6 +6,7 @@ import json
 import threading
 import time
 from http import HTTPStatus
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 import pytest
@@ -140,6 +141,80 @@ def fake_nemo():
 
     def make(**kwargs) -> FakeNemo:
         servers.append(FakeNemo(**kwargs).start())
+        return servers[-1]
+
+    yield make
+    for s in servers:
+        s.close()
+
+
+class FakeTranslator:
+    """A local HTTP server with `GET /v1/models` and `POST /v1/translations`.
+
+    It records each request and answers "[<target>] <input>", or HTTP 500 for the first
+    `fail` requests.
+    """
+
+    def __init__(self, capabilities=("translation",), fail=0, delay=0.0):
+        self.capabilities = list(capabilities)
+        self.fail = fail
+        self.delay = delay
+        self.requests: list[dict] = []
+        fake = self
+
+        class Handler(BaseHTTPRequestHandler):
+            def log_message(self, *args):
+                pass
+
+            def _send(self, status, body):
+                data = json.dumps(body).encode()
+                self.send_response(status)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Content-Length", str(len(data)))
+                self.end_headers()
+                self.wfile.write(data)
+
+            def do_GET(self):
+                if self.path == "/v1/models":
+                    data = [{"id": c, "capability": c} for c in fake.capabilities]
+                    self._send(200, {"data": data})
+                else:
+                    self._send(404, {"error": "not found"})
+
+            def do_POST(self):
+                if self.path != "/v1/translations":
+                    return self._send(404, {"error": "not found"})
+                body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+                fake.requests.append(body)
+                time.sleep(fake.delay)
+                if fake.fail > 0:
+                    fake.fail -= 1
+                    return self._send(500, {"error": {"message": "no NMT model"}})
+                text = f"[{body['target_language']}] {body['input']}"
+                self._send(200, {"translations": [{"text": text}]})
+
+        self._server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+        self._thread = threading.Thread(target=self._server.serve_forever, daemon=True)
+
+    @property
+    def url(self) -> str:
+        return f"http://127.0.0.1:{self._server.server_address[1]}"
+
+    def start(self) -> "FakeTranslator":
+        self._thread.start()
+        return self
+
+    def close(self) -> None:
+        self._server.shutdown()
+        self._server.server_close()
+
+
+@pytest.fixture
+def fake_translator():
+    servers: list[FakeTranslator] = []
+
+    def make(**kwargs) -> FakeTranslator:
+        servers.append(FakeTranslator(**kwargs).start())
         return servers[-1]
 
     yield make

@@ -3,7 +3,8 @@
 import type { SourceMode } from './contract'
 
 export interface Api {
-  startSession(): Promise<void>
+  /** `targetLanguage` is the Target language of the Session, for example "en". */
+  startSession(targetLanguage: string): Promise<void>
   stopSession(): Promise<void>
   /** `null` removes the Display name. */
   renameSpeaker(id: string, displayName: string | null): Promise<void>
@@ -29,7 +30,7 @@ async function send(method: string, url: string, body?: unknown) {
 }
 
 export const httpApi: Api = {
-  startSession: () => send('POST', '/api/session/start'),
+  startSession: (targetLanguage) => send('POST', '/api/session/start', { target_language: targetLanguage }),
   stopSession: () => send('POST', '/api/session/stop'),
   renameSpeaker: (id, displayName) => send('PATCH', `/api/speakers/${encodeURIComponent(id)}`, { display_name: displayName }),
   mergeSpeakers: (fromId, intoId) => send('POST', '/api/speakers/merge', { from_speaker_id: fromId, into_speaker_id: intoId }),

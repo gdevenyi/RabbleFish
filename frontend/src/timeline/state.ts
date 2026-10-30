@@ -55,6 +55,14 @@ export interface SessionInfo {
   state: 'idle' | 'started' | 'stopped'
   /** Unix seconds, on the server clock. */
   startedAt: number | null
+  /** The Target language of the Session, if the backend sent it. */
+  targetLang: string | null
+}
+
+export interface TranslationStatus {
+  state: 'ready' | 'error'
+  targetLang: string
+  message: string | null
 }
 
 export interface AppState {
@@ -69,6 +77,8 @@ export interface AppState {
   /** Segment ids, sorted by start time (then id). */
   segmentOrder: string[]
   translations: Record<string, Translation>
+  /** The state of the translation endpoint; null before the backend sends it. */
+  translationStatus: TranslationStatus | null
   merges: Merge[]
   partials: Record<string, PartialText>
 }
@@ -83,12 +93,13 @@ export interface ReceivedEvent {
 const PARTIAL_LEAD_S = 1.5
 
 const emptyTranscript = {
-  session: { state: 'idle', startedAt: null } as SessionInfo,
+  session: { state: 'idle', startedAt: null, targetLang: null } as SessionInfo,
   sourceStatus: {},
   speakers: {},
   segments: {},
   segmentOrder: [],
   translations: {},
+  translationStatus: null as TranslationStatus | null,
   merges: [],
   partials: {},
 } satisfies Partial<AppState>
@@ -171,8 +182,11 @@ function apply(s: AppState, { event: e, at }: ReceivedEvent) {
       return
     case 'session':
       if (e.state === 'started' && e.started_at !== s.session.startedAt && s.session.startedAt !== null) resetTranscript(s)
-      s.session = { state: e.state, startedAt: e.started_at ?? s.session.startedAt }
-      if (e.state === 'stopped') s.partials = {}
+      s.session = { state: e.state, startedAt: e.started_at ?? s.session.startedAt, targetLang: e.target_lang ?? s.session.targetLang }
+      if (e.state === 'stopped') {
+        s.partials = {}
+        s.translationStatus = null
+      }
       return
     case 'source_status':
       s.sourceStatus[e.source_key] = { state: e.state, message: e.message ?? null }
@@ -226,6 +240,9 @@ function apply(s: AppState, { event: e, at }: ReceivedEvent) {
     }
     case 'translation':
       s.translations[e.segment_id] = { text: e.text, targetLang: e.target_lang }
+      return
+    case 'translation_status':
+      s.translationStatus = { state: e.state, targetLang: e.target_lang, message: e.message ?? null }
       return
     case 'merge':
       if (e.from_speaker_id === e.into_speaker_id) return
