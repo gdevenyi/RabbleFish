@@ -1,67 +1,74 @@
 import { useEffect, useState } from 'react'
+import { type Api, httpApi } from './api'
+import type { ServerEvent } from './contract'
+import type { ReceivedEvent } from './timeline/state'
 
-export type ConnectionStatus = 'connecting' | 'connected' | 'disconnected'
-export type SourceMode = 'single' | 'diarize'
-
-export interface SourceInfo {
-  key: string
-  kind: 'microphone' | 'monitor'
-  description: string
-  selected: boolean
-  mode: SourceMode
-}
-
-type ServerMessage =
-  | { type: 'hello'; version: string }
-  | { type: 'heartbeat'; seq: number; server_time: number }
-  | { type: 'sources'; sources: SourceInfo[] }
+export type ConnectionStatus = 'connecting' | 'connected' | 'disconnected' | 'demo'
 
 const RECONNECT_DELAY_MS = 1000
 
-// Connects to the backend WebSocket on the same origin and reconnects after a drop.
-export function useBackendSocket() {
-  const [status, setStatus] = useState<ConnectionStatus>('connecting')
-  const [version, setVersion] = useState<string>()
-  const [lastHeartbeat, setLastHeartbeat] = useState<{ seq: number; serverTime: number }>()
-  const [sources, setSources] = useState<SourceInfo[]>([])
+/** Dev-only demo mode: `?demo` replays recorded events and does not open the backend socket. */
+export const DEMO = import.meta.env.DEV && new URLSearchParams(location.search).has('demo')
+
+/**
+ * Connects to the backend WebSocket on the same origin, reconnects after a drop, and
+ * sends the events to `onEvents` in one batch per animation frame (a snapshot can hold
+ * thousands of events). In demo mode the events come from the demo player.
+ */
+export function useBackendSocket(onEvents: (batch: ReceivedEvent[]) => void): { status: ConnectionStatus; api: Api } {
+  const [status, setStatus] = useState<ConnectionStatus>(DEMO ? 'demo' : 'connecting')
+  const [api, setApi] = useState<Api>(httpApi)
 
   useEffect(() => {
-    let ws: WebSocket | undefined
-    let retry: ReturnType<typeof setTimeout> | undefined
+    let queue: ReceivedEvent[] = []
+    let frame = 0
+    const flush = () => {
+      frame = 0
+      const batch = queue
+      queue = []
+      onEvents(batch)
+    }
+    const push = (event: ServerEvent) => {
+      queue.push({ event, at: Date.now() / 1000 })
+      if (!frame) frame = requestAnimationFrame(flush)
+    }
+    let stop = () => {}
     let closed = false
 
-    const connect = () => {
-      const scheme = location.protocol === 'https:' ? 'wss' : 'ws'
-      ws = new WebSocket(`${scheme}://${location.host}/ws`)
-      setStatus('connecting')
-      ws.onopen = () => setStatus('connected')
-      ws.onmessage = (ev) => {
-        const msg = JSON.parse(ev.data) as ServerMessage
-        if (msg.type === 'hello') setVersion(msg.version)
-        if (msg.type === 'heartbeat') setLastHeartbeat({ seq: msg.seq, serverTime: msg.server_time })
-        if (msg.type === 'sources') setSources(msg.sources)
+    if (import.meta.env.DEV && DEMO) {
+      import('./demo/player').then(({ startDemo }) => {
+        if (closed) return
+        const params = new URLSearchParams(location.search)
+        const demo = startDemo(push, { speed: Number(params.get('speed')) || 1, history: Number(params.get('history') ?? 230) })
+        setApi(demo.api)
+        stop = demo.stop
+      })
+    } else {
+      let ws: WebSocket | undefined
+      let retry: ReturnType<typeof setTimeout> | undefined
+      const connect = () => {
+        const scheme = location.protocol === 'https:' ? 'wss' : 'ws'
+        ws = new WebSocket(`${scheme}://${location.host}/ws`)
+        setStatus('connecting')
+        ws.onopen = () => setStatus('connected')
+        ws.onmessage = (ev) => push(JSON.parse(ev.data) as ServerEvent)
+        ws.onclose = () => {
+          setStatus('disconnected')
+          if (!closed) retry = setTimeout(connect, RECONNECT_DELAY_MS)
+        }
       }
-      ws.onclose = () => {
-        setStatus('disconnected')
-        if (!closed) retry = setTimeout(connect, RECONNECT_DELAY_MS)
+      connect()
+      stop = () => {
+        clearTimeout(retry)
+        ws?.close()
       }
     }
-    connect()
     return () => {
       closed = true
-      clearTimeout(retry)
-      ws?.close()
+      cancelAnimationFrame(frame)
+      stop()
     }
-  }, [])
+  }, [onEvents])
 
-  return { status, version, lastHeartbeat, sources }
-}
-
-export async function updateSource(key: string, change: { selected?: boolean; mode?: SourceMode }) {
-  const r = await fetch(`/api/sources/${encodeURIComponent(key)}`, {
-    method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(change),
-  })
-  if (!r.ok) throw new Error(`update ${key}: HTTP ${r.status}`)
+  return { status, api }
 }
