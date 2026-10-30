@@ -11,11 +11,13 @@ Needs `uv`, Node.js and `pnpm`.
 ```sh
 pnpm install
 pnpm dev      # backend on :8000 and Vite on http://127.0.0.1:5173
-pnpm test     # backend tests and frontend type check
+pnpm test     # backend tests, frontend type check and frontend unit tests (vitest)
 pnpm lint     # ruff
 pnpm build    # build the frontend into frontend/dist
 pnpm start    # backend only, serving frontend/dist on http://127.0.0.1:8000
 ```
+
+Demo mode (development only): open http://127.0.0.1:5173/?demo to replay a recorded Session in the Timeline without the backend pipeline. `?demo&speed=4` plays it faster, and `?demo&history=0` starts it at the beginning. The production build does not contain the demo.
 
 ## Layout
 
