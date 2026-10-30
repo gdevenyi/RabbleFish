@@ -13,7 +13,6 @@ between two quiet chunks counts as silence too.
 """
 
 import math
-import os
 
 from ltt.capture import NS_PER_S, AudioChunk
 
@@ -33,23 +32,16 @@ def peak_dbfs(pcm: bytes) -> float:
     return 20 * math.log10(peak / FULL_SCALE) if peak else -math.inf
 
 
-def _env_float(name: str, default: float) -> float:
-    try:
-        return float(os.environ[name])
-    except (KeyError, ValueError):
-        return default
-
-
 class SilenceDetector:
     """Gives the warning of one Source from its chunks."""
 
     def __init__(self, after_s: float | None = None, threshold_dbfs: float | None = None):
-        """The defaults are `LTT_SILENT_AFTER_S` and `LTT_SILENCE_DBFS` from the
-        environment, then `SILENT_AFTER_S` and `SILENCE_DBFS`."""
+        """The defaults are `SILENT_AFTER_S` and `SILENCE_DBFS`. The app gives the
+        `silent_after_s` and `silence_dbfs` settings (see `ltt.settings`)."""
         if after_s is None:
-            after_s = _env_float("LTT_SILENT_AFTER_S", SILENT_AFTER_S)
+            after_s = SILENT_AFTER_S
         if threshold_dbfs is None:
-            threshold_dbfs = _env_float("LTT_SILENCE_DBFS", SILENCE_DBFS)
+            threshold_dbfs = SILENCE_DBFS
         self.after_ns = int(after_s * NS_PER_S)
         self.threshold_dbfs = threshold_dbfs
         self.quiet_since_ns: int | None = None  # start of the current quiet time

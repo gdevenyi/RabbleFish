@@ -108,6 +108,26 @@ export interface AudioFileEvent {
 export interface HelloEvent {
   type: 'hello'
   version: string
+  /** The `default_target_language` setting: the first value of "Translate to". */
+  default_target_language?: string
+}
+
+/**
+ * The state of the model endpoint (not a Session event, never saved). The backend checks
+ * it at its start, at each Session start, and again every 30 s while it is not ready.
+ */
+export interface EndpointStatusEvent {
+  type: 'endpoint_status'
+  state: 'checking' | 'ready' | 'not_ready' | 'unreachable'
+  /** The http:// form of the ASR endpoint. */
+  asr_url: string
+  translation_url: string
+  /** Of "transcription", "diarization", "translation". */
+  capabilities: string[]
+  missing: string[]
+  message: string | null
+  /** Unix seconds; null while the first check runs. */
+  checked_at: number | null
 }
 
 export interface HeartbeatEvent {
@@ -123,6 +143,7 @@ export interface SourcesEvent {
 
 export type ServerEvent =
   | HelloEvent
+  | EndpointStatusEvent
   | HeartbeatEvent
   | SourcesEvent
   | SessionEvent

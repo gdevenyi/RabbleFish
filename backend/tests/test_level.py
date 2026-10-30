@@ -68,13 +68,9 @@ def test_lost_audio_counts_as_quiet_time():
     assert d.feed(chunk(300, SILENT), muted=False) and d.warning == "silent"
 
 
-def test_environment_sets_the_constants(monkeypatch):
-    monkeypatch.setenv("LTT_SILENT_AFTER_S", "2.5")
-    monkeypatch.setenv("LTT_SILENCE_DBFS", "-40")
+def test_the_defaults_are_the_constants():
     d = SilenceDetector()
-    assert d.after_ns == 2_500_000_000 and d.threshold_dbfs == -40.0
-    monkeypatch.setenv("LTT_SILENT_AFTER_S", "nonsense")
-    assert SilenceDetector().after_ns == 30 * NS_PER_S
+    assert d.after_ns == 30 * NS_PER_S and d.threshold_dbfs == -60.0
 
 
 def with_props(obj: dict, *props: dict) -> dict:

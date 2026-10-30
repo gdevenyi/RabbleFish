@@ -13,16 +13,26 @@ import pytest
 from websockets.asyncio.server import serve
 
 from ltt.capture import NS_PER_S, AudioChunk
+from ltt.settings import ENV
 
 FIXTURES = Path(__file__).parent / "fixtures"
 DIARIZE_EVENTS = FIXTURES / "nemo_diarize_en_fr.jsonl"  # n1 benchmark, en_fr.wav, 5 speakers
 SINGLE_EVENTS = FIXTURES / "nemo_single_en.jsonl"  # en_fr.wav, first 15 s, no diarization
+ENV_NAMES = [name for name, _parse in ENV.values()] + ["LTT_STATIC_DIR"]
 CONTROL = {"session.created", "session.updated", "input_audio_buffer.committed"}
 
 
 @pytest.fixture(autouse=True)
 def data_dir(tmp_path, monkeypatch) -> Path:
-    """Saved Sessions go to a temporary directory, never to the user's data directory."""
+    """Saved Sessions go to a temporary directory, never to the user's data directory, and
+    the settings never come from the user's config file or LTT_* environment."""
+    for name in ENV_NAMES:
+        monkeypatch.delenv(name, raising=False)
+    monkeypatch.setenv("XDG_CONFIG_HOME", str(tmp_path / "config"))
+    monkeypatch.setenv("XDG_DATA_HOME", str(tmp_path / "xdg-data"))
+    # Port 9 (discard): nothing listens, so the endpoint check of an app that has no
+    # fake endpoint never reaches a real server on this machine.
+    monkeypatch.setenv("LTT_ASR_ENDPOINT_URL", "ws://127.0.0.1:9")
     path = tmp_path / "data"
     monkeypatch.setenv("LTT_DATA_DIR", str(path))
     return path

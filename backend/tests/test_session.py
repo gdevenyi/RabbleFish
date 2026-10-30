@@ -32,11 +32,11 @@ def select_both(c):
 
 
 def receive_until(ws, done, limit=20000):
-    """Receive events (heartbeats left out) until `done(events)` is true."""
+    """Receive events (heartbeats and endpoint states left out) until `done(events)`."""
     events = []
     for _ in range(limit):
         msg = ws.receive_json()
-        if msg["type"] != "heartbeat":
+        if msg["type"] not in ("heartbeat", "endpoint_status"):
             events.append(msg)
             if done(events):
                 return events
@@ -150,8 +150,11 @@ def test_snapshot_rename_and_merge(fake_nemo):
         # After the Session, the snapshot is still there: stopped, with no Source status
         # and no Partial text.
         with c.websocket_connect("/ws") as ws:
-            ws.receive_json()
-            ws.receive_json()
+            assert [ws.receive_json()["type"] for _ in range(3)] == [
+                "hello",
+                "sources",
+                "endpoint_status",
+            ]
             assert ws.receive_json()["state"] == "stopped"
             after = receive_until(ws, lambda ev: ev[-1]["type"] == "merge")
             assert {e["type"] for e in after} == {"speaker", "segment", "merge"}

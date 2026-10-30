@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { ServerEvent } from '../contract'
-import { type AppState, initialState, mergeTargets, reduceAll, sortedSegments, warningHint, warningLabel } from './state'
+import { type AppState, endpointChip, initialState, mergeTargets, reduceAll, sortedSegments, warningHint, warningLabel } from './state'
 
 const run = (events: ServerEvent[], state: AppState = initialState(), at = 1000) =>
   reduceAll(
@@ -166,5 +166,43 @@ describe('mergeTargets', () => {
     expect(t.get('a')).toBe('c')
     expect(t.get('b')).toBe('c')
     expect(t.has('c')).toBe(false)
+  })
+})
+
+describe('settings and the endpoint state', () => {
+  const status = (state: 'checking' | 'ready' | 'not_ready' | 'unreachable', missing: string[] = [], message: string | null = null) =>
+    ({
+      type: 'endpoint_status',
+      state,
+      asr_url: 'http://127.0.0.1:8080',
+      translation_url: 'http://127.0.0.1:8080',
+      capabilities: ['transcription', 'diarization', 'translation'].filter((c) => !missing.includes(c)),
+      missing,
+      message,
+      checked_at: state === 'checking' ? null : 1000,
+    }) as const
+
+  it('keeps the default Target language of hello, also after a hello with none', () => {
+    let s = run([{ type: 'hello', version: '1', default_target_language: 'fr' }])
+    expect(s.defaultTargetLang).toBe('fr')
+    s = run([{ type: 'hello', version: '1' }], s)
+    expect(s.defaultTargetLang).toBe('fr')
+  })
+
+  it('keeps the last endpoint state, also after a hello', () => {
+    let s = run([status('checking'), status('unreachable', [], 'http://127.0.0.1:8080/ready: refused')])
+    expect(s.endpointStatus?.state).toBe('unreachable')
+    s = run([{ type: 'hello', version: '1' }], s)
+    expect(s.endpointStatus?.state).toBe('unreachable')
+  })
+
+  it('labels the endpoint chip', () => {
+    expect(endpointChip(status('ready'))).toMatchObject({ label: 'ready', tone: 'live' })
+    expect(endpointChip(status('ready', ['translation'], 'no translation model'))).toMatchObject({ label: 'ready, no translation', tone: 'connecting' })
+    expect(endpointChip(status('checking'))).toMatchObject({ label: 'checking', tone: 'connecting' })
+    expect(endpointChip(status('not_ready'))).toMatchObject({ label: 'not ready', tone: 'error' })
+    const down = endpointChip(status('unreachable', [], 'http://127.0.0.1:8080/ready: refused'))
+    expect(down).toMatchObject({ label: 'unreachable', tone: 'error' })
+    expect(down.hint).toContain('refused')
   })
 })
