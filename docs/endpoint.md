@@ -36,7 +36,7 @@ second run does not use the network.
 | Option | Default | Use |
 | --- | --- | --- |
 | `--backend vulkan\|cuda\|cpu` | none (required) | Release archive and `--device`. Without it, the script shows a suggestion for this machine and stops. |
-| `--prefix DIR` | `${XDG_DATA_HOME:-~/.local/share}/live-transcribe-translate/endpoint` | Install directory. It must not contain spaces. |
+| `--prefix DIR` | `${XDG_DATA_HOME:-~/.local/share}/rabblefish/endpoint` | Install directory. It must not contain spaces. |
 | `--no-translation` | off | Do not convert the translation model. |
 | `--host ADDR` | `127.0.0.1` | Bind address in the env file and the printed command. |
 | `--port N` | `8080` | Port in the env file and the printed command. |
@@ -80,10 +80,10 @@ stay there, and the next run continues the download. Delete
 Run the command that the script prints, for example:
 
 ```sh
-~/.local/share/live-transcribe-translate/endpoint/bin/nemo-speech serve \
-    --asr-model ~/.local/share/live-transcribe-translate/endpoint/models/nemotron-3.5-asr-streaming-0.6b.q8_0.gguf \
-    --diar-model ~/.local/share/live-transcribe-translate/endpoint/models/Nemotron-3-Diarization.q8_0.gguf \
-    --nmt.model.path ~/.local/share/live-transcribe-translate/endpoint/models/riva-translate-4b-instruct-v2.q8_0.gguf \
+~/.local/share/rabblefish/endpoint/bin/nemo-speech serve \
+    --asr-model ~/.local/share/rabblefish/endpoint/models/nemotron-3.5-asr-streaming-0.6b.q8_0.gguf \
+    --diar-model ~/.local/share/rabblefish/endpoint/models/Nemotron-3-Diarization.q8_0.gguf \
+    --nmt.model.path ~/.local/share/rabblefish/endpoint/models/riva-translate-4b-instruct-v2.q8_0.gguf \
     --device vulkan --host 127.0.0.1 --port 8080 --no-ui --threads 4 \
     --asr.endpointing.enable=true --asr.batching.enabled=false
 ```
@@ -129,7 +129,7 @@ The app cannot read the server flags, so it cannot check them. Use them all:
 ## Point the app at the endpoint
 
 Set the base URL of the endpoint with the key `asr_endpoint_url` in the config
-file (`~/.config/live-transcribe-translate/config.toml`):
+file (`~/.config/rabblefish/config.toml`):
 
 ```toml
 asr_endpoint_url = "ws://127.0.0.1:8080"
@@ -138,11 +138,11 @@ asr_endpoint_url = "ws://127.0.0.1:8080"
 or with the environment variable, which overrides the file:
 
 ```sh
-export LTT_ASR_ENDPOINT_URL=ws://127.0.0.1:8080
+export RABBLEFISH_ASR_ENDPOINT_URL=ws://127.0.0.1:8080
 ```
 
 The default is `ws://127.0.0.1:8080`, so a local endpoint on port 8080 needs
-no setting. `ltt config` shows the effective value. The "Endpoint" chip of the
+no setting. `rabblefish config` shows the effective value. The "Endpoint" chip of the
 UI shows whether the endpoint is ready and which capabilities (transcription,
 diarization, translation) it has.
 
@@ -159,7 +159,7 @@ To use a GPU on another machine:
 
 2. Start the endpoint there (printed command or the systemd unit).
 3. On the laptop, set the endpoint URL to the GPU machine in
-   `~/.config/live-transcribe-translate/config.toml`:
+   `~/.config/rabblefish/config.toml`:
 
    ```toml
    asr_endpoint_url = "ws://gpu-host.lan:8080"
@@ -180,42 +180,42 @@ can reach the port can use the models. Use one of these:
 
 `scripts/systemd/` has two templates. The script does not install them.
 
-- `ltt-endpoint.service` runs `nemo-speech serve` with the values from
+- `rabblefish-endpoint.service` runs `nemo-speech serve` with the values from
   `<prefix>/endpoint.env`, which the script writes. Run the script again to
   change the backend, host, port or threads, then restart the unit.
-- `ltt.service` runs `ltt serve`. It expects the `ltt` CLI in
-  `~/.local/bin/ltt` (`uv tool install ./backend` from the repository root;
+- `rabblefish.service` runs `rabblefish serve`. It expects the `rabblefish` CLI in
+  `~/.local/bin/rabblefish` (`uv tool install ./backend` from the repository root;
   see `README.md`). It uses
   `Wants=` for the endpoint, not `Requires=`, because the endpoint can be on
-  another machine, and `ltt serve` starts also when the endpoint is not ready.
+  another machine, and `rabblefish serve` starts also when the endpoint is not ready.
 
 Install them:
 
 ```sh
 mkdir -p ~/.config/systemd/user
-cp scripts/systemd/ltt-endpoint.service scripts/systemd/ltt.service ~/.config/systemd/user/
+cp scripts/systemd/rabblefish-endpoint.service scripts/systemd/rabblefish.service ~/.config/systemd/user/
 systemctl --user daemon-reload
-systemctl --user enable --now ltt-endpoint.service
-systemctl --user enable --now ltt.service
+systemctl --user enable --now rabblefish-endpoint.service
+systemctl --user enable --now rabblefish.service
 ```
 
 Show the state and the log:
 
 ```sh
-systemctl --user status ltt-endpoint.service
-journalctl --user -u ltt-endpoint.service -f
+systemctl --user status rabblefish-endpoint.service
+journalctl --user -u rabblefish-endpoint.service -f
 ```
 
 The units use the default prefix
-(`~/.local/share/live-transcribe-translate/endpoint`). For another prefix or
+(`~/.local/share/rabblefish/endpoint`). For another prefix or
 `XDG_DATA_HOME`, change the paths with
-`systemctl --user edit --full ltt-endpoint.service`.
+`systemctl --user edit --full rabblefish-endpoint.service`.
 
 To start the units at boot without a login, enable lingering:
 `loginctl enable-linger $USER`.
 
-For a remote endpoint, install `ltt-endpoint.service` on the GPU machine and
-`ltt.service` on the laptop.
+For a remote endpoint, install `rabblefish-endpoint.service` on the GPU machine and
+`rabblefish.service` on the laptop.
 
 ## Update or remove
 

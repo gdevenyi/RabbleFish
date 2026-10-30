@@ -1,11 +1,11 @@
 {
-  "name": "live-transcribe-translate",
+  "name": "rabblefish",
   "private": true,
   "license": "Apache-2.0",
   "scripts": {
-    "dev": "concurrently -k -n backend,frontend -c blue,green \"uv run --project backend uvicorn --factory ltt.app:create_app --reload --reload-dir backend/src --app-dir backend/src --port 8000\" \"pnpm -C frontend dev\"",
+    "dev": "concurrently -k -n backend,frontend -c blue,green \"uv run --project backend uvicorn --factory rabblefish.app:create_app --reload --reload-dir backend/src --app-dir backend/src --port 8000\" \"pnpm -C frontend dev\"",
     "build": "pnpm -C frontend build",
-    "start": "uv run --project backend ltt serve",
+    "start": "uv run --project backend rabblefish serve",
     "test": "uv run --project backend pytest backend && pnpm -C frontend typecheck && pnpm -C frontend test",
     "lint": "uv run --project backend ruff check backend && uv run --project backend ruff format --check backend"
   },

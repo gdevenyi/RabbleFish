@@ -1,6 +1,6 @@
 // The Target languages of Riva-Translate-4B-Instruct-v2: English, and the languages it
 // translates to and from English. Keep in step with TARGET_LANGUAGES in
-// backend/src/ltt/translation.py.
+// backend/src/rabblefish/translation.py.
 export const TARGET_LANGUAGES: { code: string; name: string }[] = [
   { code: 'en', name: 'English' },
   { code: 'ar', name: 'Arabic' },

@@ -3,8 +3,8 @@
 import pytest
 from conftest import DIARIZE_EVENTS, SINGLE_EVENTS, load_events
 
-from ltt.capture import NS_PER_S, SAMPLE_RATE
-from ltt.transcript import (
+from rabblefish.capture import NS_PER_S, SAMPLE_RATE
+from rabblefish.transcript import (
     COMPLETED,
     LanguageIdentifier,
     SourceMapper,

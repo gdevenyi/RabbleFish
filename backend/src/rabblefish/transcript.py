@@ -1,6 +1,6 @@
 """From NeMo-Speech.cpp realtime events to our UI events, and the Session state.
 
-Terms follow GLOSSARY.md. The event contract is in gdevenyi/live-transcribe-translate#11:
+Terms follow GLOSSARY.md. The event contract is in gdevenyi/RabbleFish#11:
 
 - `partial` {source_key, text, audio_time}: the Partial text of a Source.
 - `segment` {id, source_key, speaker_id, start, end, text, words[{w, start, end}], lang}:
@@ -17,7 +17,7 @@ from bisect import bisect_right
 from collections.abc import Callable
 from dataclasses import dataclass, field
 
-from ltt.capture import NS_PER_S, SAMPLE_RATE
+from rabblefish.capture import NS_PER_S, SAMPLE_RATE
 
 MIN_LANG_WORDS = 3  # shorter Segments get no language
 CONTINUITY_TOLERANCE_NS = 1_000_000

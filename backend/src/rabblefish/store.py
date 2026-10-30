@@ -3,7 +3,7 @@
 Layout: `<base>/sessions/<YYYY-MM-DDTHH-MM-SS>/events.jsonl`, and the saved audio in
 `audio/` next to it. The directory name is the local time of the Session start, with
 `-2`, `-3`, ... when two Sessions start in the same second. `<base>` is the `data_dir`
-setting (see `ltt.settings`; by default `$XDG_DATA_HOME/live-transcribe-translate`).
+setting (see `rabblefish.settings`; by default `$XDG_DATA_HOME/rabblefish`).
 
 Each line is one event, exactly as on `/ws`. Only the event types in `SAVED_TYPES` are
 saved. Each event is written and flushed when it happens, so an app crash loses nothing;
@@ -32,8 +32,8 @@ import time
 from dataclasses import dataclass
 from pathlib import Path
 
-from ltt.capture import BYTES_PER_SAMPLE, SAMPLE_RATE
-from ltt.transcript import Transcript
+from rabblefish.capture import BYTES_PER_SAMPLE, SAMPLE_RATE
+from rabblefish.transcript import Transcript
 
 log = logging.getLogger(__name__)
 

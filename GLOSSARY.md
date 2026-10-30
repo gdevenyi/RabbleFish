@@ -1,4 +1,4 @@
-# Live Transcribe Translate
+# RabbleFish
 
 Live transcription of the audio on a Linux desktop, with one timeline column for each speaker and optional translation.
 

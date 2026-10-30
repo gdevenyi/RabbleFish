@@ -1,44 +1,44 @@
-# ltt backend
+# rabblefish backend
 
 FastAPI app that serves the WebSocket and REST API for the web UI, and the built frontend in production.
 
 ```sh
-uv run ltt serve                      # the app, with the settings below
-uv run uvicorn --factory ltt.app:create_app --reload   # development, port 8000
+uv run rabblefish serve                      # the app, with the settings below
+uv run uvicorn --factory rabblefish.app:create_app --reload   # development, port 8000
 uv run pytest
 uv run ruff check && uv run ruff format --check
 ```
 
-The built UI: `LTT_STATIC_DIR` if it is set, else `ltt/static` in the installed package (the wheel has it, see "Packaging"), else `../frontend/dist` of the checkout. With none of them, only the API is served (in development Vite serves the UI).
+The built UI: `RABBLEFISH_STATIC_DIR` if it is set, else `rabblefish/static` in the installed package (the wheel has it, see "Packaging"), else `../frontend/dist` of the checkout. With none of them, only the API is served (in development Vite serves the UI).
 
-## The `ltt` command
+## The `rabblefish` command
 
-`ltt` is the `[project.scripts]` entry `ltt.cli:main`.
+`rabblefish` is the `[project.scripts]` entry `rabblefish.cli:main`.
 
 | Command | Use |
 | --- | --- |
-| `ltt serve [--host H] [--port P]` | Start the UI and the API. It prints the URL, and a warning when the host is not a loopback address (there is no login). |
-| `ltt sessions list` | The saved Sessions: ID, date, length, state, Speakers. `started` is a log with no stop line: the Session runs now, or the app ended without a stop (the next `ltt serve` marks it `interrupted`). |
-| `ltt export SESSION_ID --format md\|json [-o FILE]` | The export of a saved Session (`ltt.export`), to stdout or to FILE. |
-| `ltt config` | The effective settings, and where each value comes from. |
-| `ltt --version`, `ltt --help` | |
+| `rabblefish serve [--host H] [--port P]` | Start the UI and the API. It prints the URL, and a warning when the host is not a loopback address (there is no login). |
+| `rabblefish sessions list` | The saved Sessions: ID, date, length, state, Speakers. `started` is a log with no stop line: the Session runs now, or the app ended without a stop (the next `rabblefish serve` marks it `interrupted`). |
+| `rabblefish export SESSION_ID --format md\|json [-o FILE]` | The export of a saved Session (`rabblefish.export`), to stdout or to FILE. |
+| `rabblefish config` | The effective settings, and where each value comes from. |
+| `rabblefish --version`, `rabblefish --help` | |
 
-`sessions list` and `export` only read the logs. A bad config file or a bad environment value stops each command with `ltt: bad setting: ...` and exit status 2.
+`sessions list` and `export` only read the logs. A bad config file or a bad environment value stops each command with `rabblefish: bad setting: ...` and exit status 2.
 
 ## Packaging
 
-`hatch_build.py` is a build hook of the wheel. It runs `pnpm install --frozen-lockfile` and `pnpm -C frontend build` at the repository root, and adds `frontend/dist` to the wheel as `ltt/static`. So `uv tool install ./backend` (from the repository root) needs Node.js and pnpm. To use a `frontend/dist` that is already built, set `LTT_SKIP_UI_BUILD=1`. An editable install (`uv sync`, `uv run`) does not run the hook.
+`hatch_build.py` is a build hook of the wheel. It runs `pnpm install --frozen-lockfile` and `pnpm -C frontend build` at the repository root, and adds `frontend/dist` to the wheel as `rabblefish/static`. So `uv tool install ./backend` (from the repository root) needs Node.js and pnpm. To use a `frontend/dist` that is already built, set `RABBLEFISH_SKIP_UI_BUILD=1`. An editable install (`uv sync`, `uv run`) does not run the hook.
 
 Build the wheel from a checkout of the whole repository: an sdist of `backend/` alone does not contain the UI.
 
 ## Sources and capture
 
-- `ltt.sources`: the PipeWire Sources (microphones and sink monitors) from `pw-dump --monitor`.
-- `ltt.capture`: one `pw-record` per Source, 16 kHz mono PCM16, timed on the monotonic clock.
+- `rabblefish.sources`: the PipeWire Sources (microphones and sink monitors) from `pw-dump --monitor`.
+- `rabblefish.capture`: one `pw-record` per Source, 16 kHz mono PCM16, timed on the monotonic clock.
 
 ```sh
-uv run python -m ltt.capture list
-uv run python -m ltt.capture record <key> <key> --seconds 10 --out captures
+uv run python -m rabblefish.capture list
+uv run python -m rabblefish.capture record <key> <key> --seconds 10 --out captures
 ```
 
 `record` writes one WAV per Source and reports the audio length, gaps and the largest lag behind the wall clock.
@@ -47,12 +47,12 @@ uv run python -m ltt.capture record <key> <key> --seconds 10 --out captures
 
 A Session opens one capture and one NeMo-Speech.cpp realtime connection for each selected Source (see ADR-0001 and the contract in issue #11).
 
-- `ltt.nemo`: the thin realtime client (`session.update`, 80 ms PCM16 frames, `.delta` and `.completed`), and the endpoint check.
-- `ltt.transcript`: the mapping from NeMo events to our `partial`, `segment` and `speaker` events, the language of each Segment, and the Session state for the `/ws` snapshot.
-- `ltt.pipeline`: the Session, and for each Source the capture loop and the connection loop (automatic reconnect).
-- `ltt.translation`: the translation of Segments (see [Translation](#translation)).
-- `ltt.store` and `ltt.audio`: the saved Sessions and their audio (see [Saved sessions](#saved-sessions)).
-- `ltt.export`: the Markdown and JSON export of a Session (see [Export](#export)).
+- `rabblefish.nemo`: the thin realtime client (`session.update`, 80 ms PCM16 frames, `.delta` and `.completed`), and the endpoint check.
+- `rabblefish.transcript`: the mapping from NeMo events to our `partial`, `segment` and `speaker` events, the language of each Segment, and the Session state for the `/ws` snapshot.
+- `rabblefish.pipeline`: the Session, and for each Source the capture loop and the connection loop (automatic reconnect).
+- `rabblefish.translation`: the translation of Segments (see [Translation](#translation)).
+- `rabblefish.store` and `rabblefish.audio`: the saved Sessions and their audio (see [Saved sessions](#saved-sessions)).
+- `rabblefish.export`: the Markdown and JSON export of a Session (see [Export](#export)).
 
 ### The ASR endpoint
 
@@ -75,25 +75,25 @@ At the start of each connection, the backend checks `GET /ready` and `GET /v1/mo
 
 ### Settings
 
-`ltt.settings` reads all settings. The file is `$XDG_CONFIG_HOME/live-transcribe-translate/config.toml` (by default `~/.config/live-transcribe-translate/config.toml`); the app works with no file. Precedence, from high to low: the `--host` and `--port` flags of `ltt serve`, the environment variable, the file, the default. An empty environment variable counts as not set. A file that is not valid TOML, an unknown key or a bad value is an error (`ltt config` shows the effective values and their sources).
+`rabblefish.settings` reads all settings. The file is `$XDG_CONFIG_HOME/rabblefish/config.toml` (by default `~/.config/rabblefish/config.toml`); the app works with no file. Precedence, from high to low: the `--host` and `--port` flags of `rabblefish serve`, the environment variable, the file, the default. An empty environment variable counts as not set. A file that is not valid TOML, an unknown key or a bad value is an error (`rabblefish config` shows the effective values and their sources).
 
 | Key in `config.toml` | Environment variable | Default | Use |
 | --- | --- | --- | --- |
-| `asr_endpoint_url` | `LTT_ASR_ENDPOINT_URL` | `"ws://127.0.0.1:8080"` | Base URL of the NeMo-Speech.cpp endpoint (`ws://` or `wss://`) |
-| `translation_endpoint_url` | `LTT_TRANSLATION_ENDPOINT_URL` | the `http://` form of `asr_endpoint_url` | Base URL of the translation endpoint (`http://` or `https://`) |
-| `detect_languages` | `LTT_LANGUAGES` (comma-separated) | `["en", "fr"]` | ISO 639-1 codes for the language identifier (lingua, CPU only) |
-| `default_target_language` | `LTT_DEFAULT_TARGET_LANGUAGE` | `"en"` | The first value of the "Translate to" selector of the UI |
-| `data_dir` | `LTT_DATA_DIR` | `$XDG_DATA_HOME/live-transcribe-translate` (`~/.local/share/...`) | The directory of the saved Sessions (`sessions/` in it). `~` is expanded. |
-| `host` | `LTT_HOST` | `"127.0.0.1"` | The address of the UI. Another address gives LAN access, with **no login**. |
-| `port` | `LTT_PORT` | `8000` | The port of the UI |
-| `silent_after_s` | `LTT_SILENT_AFTER_S` | `30` | Seconds of quiet audio before the `silent` warning of a Source |
-| `silence_dbfs` | `LTT_SILENCE_DBFS` | `-60` | A 100 ms chunk with a lower peak level (dBFS) is quiet |
+| `asr_endpoint_url` | `RABBLEFISH_ASR_ENDPOINT_URL` | `"ws://127.0.0.1:8080"` | Base URL of the NeMo-Speech.cpp endpoint (`ws://` or `wss://`) |
+| `translation_endpoint_url` | `RABBLEFISH_TRANSLATION_ENDPOINT_URL` | the `http://` form of `asr_endpoint_url` | Base URL of the translation endpoint (`http://` or `https://`) |
+| `detect_languages` | `RABBLEFISH_LANGUAGES` (comma-separated) | `["en", "fr"]` | ISO 639-1 codes for the language identifier (lingua, CPU only) |
+| `default_target_language` | `RABBLEFISH_DEFAULT_TARGET_LANGUAGE` | `"en"` | The first value of the "Translate to" selector of the UI |
+| `data_dir` | `RABBLEFISH_DATA_DIR` | `$XDG_DATA_HOME/rabblefish` (`~/.local/share/...`) | The directory of the saved Sessions (`sessions/` in it). `~` is expanded. |
+| `host` | `RABBLEFISH_HOST` | `"127.0.0.1"` | The address of the UI. Another address gives LAN access, with **no login**. |
+| `port` | `RABBLEFISH_PORT` | `8000` | The port of the UI |
+| `silent_after_s` | `RABBLEFISH_SILENT_AFTER_S` | `30` | Seconds of quiet audio before the `silent` warning of a Source |
+| `silence_dbfs` | `RABBLEFISH_SILENCE_DBFS` | `-60` | A 100 ms chunk with a lower peak level (dBFS) is quiet |
 
-`pnpm dev` always uses port 8000 for the backend (the Vite proxy expects it); `host` and `port` apply to `ltt serve`.
+`pnpm dev` always uses port 8000 for the backend (the Vite proxy expects it); `host` and `port` apply to `rabblefish serve`.
 
 ### Endpoint state
 
-`ltt serve` checks the endpoint when it starts, but does not wait for the check: the app starts also when the endpoint is not reachable. It checks again at each Session start, and every 30 s while the endpoint is not ready. The check is `GET /ready` and `GET /v1/models` on the ASR endpoint, and `GET /v1/models` on the translation endpoint when it is another server. The log shows each change of state. The UI shows the "Endpoint" chip from the `endpoint_status` event (see `ltt.endpoint_status`):
+`rabblefish serve` checks the endpoint when it starts, but does not wait for the check: the app starts also when the endpoint is not reachable. It checks again at each Session start, and every 30 s while the endpoint is not ready. The check is `GET /ready` and `GET /v1/models` on the ASR endpoint, and `GET /v1/models` on the translation endpoint when it is another server. The log shows each change of state. The UI shows the "Endpoint" chip from the `endpoint_status` event (see `rabblefish.endpoint_status`):
 
 ```json
 {"type": "endpoint_status", "state": "ready", "asr_url": "http://127.0.0.1:8080", "translation_url": "http://127.0.0.1:8080",
@@ -135,7 +135,7 @@ With the endpoint running, and a temporary null sink as the speech Source:
 ```sh
 pactl load-module module-null-sink sink_name=ltt_test   # prints the module ID
 pactl set-sink-mute ltt_test 0                          # a new null sink can start muted
-LTT_ASR_ENDPOINT_URL=ws://127.0.0.1:8080 uv run ltt serve
+RABBLEFISH_ASR_ENDPOINT_URL=ws://127.0.0.1:8080 uv run rabblefish serve
 # select monitor:ltt_test (diarize), POST /api/session/start, then:
 pw-play --target ltt_test speech.wav
 pactl unload-module <module ID>
@@ -148,7 +148,7 @@ A muted sink gives silence on its monitor, so its Source gives no text. The Sour
 Each Session is saved as it runs (decided in issue #29). Recording again always starts a new Session.
 
 ```
-$LTT_DATA_DIR/sessions/<YYYY-MM-DDTHH-MM-SS>/   # local time of the start; "-2" if two start in one second
+$RABBLEFISH_DATA_DIR/sessions/<YYYY-MM-DDTHH-MM-SS>/   # local time of the start; "-2" if two start in one second
   events.jsonl                                 # the event log
   audio/<source key>-001.pcm                   # the saved audio, one file per Source and capture run
 ```
@@ -177,7 +177,7 @@ The running Session is not a past Session: these return 409 for it, and the list
 
 ## Export
 
-`ltt.export` makes a Markdown or a JSON file of one Session from its event log (decided in issue #30). A past Session is the replay of its log. The live Session is a snapshot of the moment, marked "in progress", without Partial text. Merges (also chains of Merges) and display names are applied in both formats.
+`rabblefish.export` makes a Markdown or a JSON file of one Session from its event log (decided in issue #30). A past Session is the replay of its log. The live Session is a snapshot of the moment, marked "in progress", without Partial text. Merges (also chains of Merges) and display names are applied in both formats.
 
 - `GET /api/sessions/{id}/export?format=md|json` (default `md`): a saved Session. The running Session is exported too. An unknown ID returns 404, another format 422.
 - `GET /api/session/export?format=md|json`: the current or last Session, as on `/ws`. 404 before the first Session, and after a restart of the backend until the next Session starts (the last Session is then a past Session).
@@ -241,8 +241,8 @@ The rules are the same as in the Timeline of the UI:
 - `speakers` has all Speakers, also the merged ones (`merged_into` is the Speaker that now has their Segments; else `null`).
 - `segments` are sorted by start. `speaker_id` is the Speaker after Merges; `original_speaker_id` is there only for a merged Segment. `translation` is `null` when the Segment has no Translation.
 - `audio_files[].path` is relative to the Session directory (raw PCM16, see [Saved sessions](#saved-sessions)).
-- The JSON Schema of the document is `src/ltt/export.schema.json`. The tests validate the exports against it.
-- The golden files of the tests are in `tests/fixtures/export/`. To write them again after an intended change: `LTT_UPDATE_GOLDEN=1 uv run pytest tests/test_export.py`.
+- The JSON Schema of the document is `src/rabblefish/export.schema.json`. The tests validate the exports against it.
+- The golden files of the tests are in `tests/fixtures/export/`. To write them again after an intended change: `RABBLEFISH_UPDATE_GOLDEN=1 uv run pytest tests/test_export.py`.
 
 ## Translation
 
@@ -282,4 +282,4 @@ nemo-speech serve --port 8080 \
 
 The server loads the NMT model at start. Then `GET /v1/models` shows a model with `capability: "translation"`.
 
-Speed (issue #25, Vulkan, on the laptop): with one Source, one translation takes about 0.7 s (p50). With more Sources on the same server, the ASR or the translation becomes slower. To move the translation to another machine, start a second server there with only `--nmt.model.path`, and set `LTT_TRANSLATION_ENDPOINT_URL=http://<host>:<port>`.
+Speed (issue #25, Vulkan, on the laptop): with one Source, one translation takes about 0.7 s (p50). With more Sources on the same server, the ASR or the translation becomes slower. To move the translation to another machine, start a second server there with only `--nmt.model.path`, and set `RABBLEFISH_TRANSLATION_ENDPOINT_URL=http://<host>:<port>`.

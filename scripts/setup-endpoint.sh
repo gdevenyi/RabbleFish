@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Set up a local NeMo-Speech.cpp endpoint for live-transcribe-translate.
+# Set up a local NeMo-Speech.cpp endpoint for rabblefish.
 #
 # Downloads the NeMo-Speech.cpp release binary, the Nemotron ASR and
 # diarization models, converts Riva-Translate to GGUF, writes an env file and
@@ -26,7 +26,7 @@ readonly NMT_FILE="riva-translate-4b-instruct-v2.q8_0.gguf"
 readonly CONVERT_FREE_GIB=17
 
 backend=""
-prefix="${XDG_DATA_HOME:-$HOME/.local/share}/live-transcribe-translate/endpoint"
+prefix="${XDG_DATA_HOME:-$HOME/.local/share}/rabblefish/endpoint"
 translation=1
 host="127.0.0.1"
 port=8080
@@ -37,14 +37,14 @@ usage() {
 Usage: $(basename "$0") --backend vulkan|cuda|cpu [options]
 
 Set up a local NeMo-Speech.cpp ${NEMO_VERSION} endpoint (ASR, diarization and
-translation) for live-transcribe-translate. Run it again at any time: it skips
+translation) for rabblefish. Run it again at any time: it skips
 the steps that are already done and verified.
 
 Options:
   --backend B       vulkan, cuda or cpu. Required. Without it, the script
                     shows a suggestion for this machine and stops.
   --prefix DIR      Install directory.
-                    Default: \${XDG_DATA_HOME:-~/.local/share}/live-transcribe-translate/endpoint
+                    Default: \${XDG_DATA_HOME:-~/.local/share}/rabblefish/endpoint
                     (now: ${prefix})
   --no-translation  Do not convert the Riva-Translate model (saves 4.4 GB and
                     the conversion).
@@ -379,13 +379,13 @@ step_translation() {
 		git -C "$src" submodule update --init --depth 1 llama.cpp
 	fi
 
-	if [[ ! -f $venv/.ltt-ready ]]; then
+	if [[ ! -f $venv/.rabblefish-ready ]]; then
 		echo "    create the conversion venv (CPU PyTorch)"
 		rm -rf "$venv"
 		uv venv --quiet -p 3.12 "$venv"
 		uv pip install --quiet --python "$venv/bin/python" \
 			-r "$src/requirements.txt" --index-strategy unsafe-best-match
-		touch "$venv/.ltt-ready"
+		touch "$venv/.rabblefish-ready"
 	fi
 
 	echo "    convert (downloads about 9 GB the first time)"
@@ -421,16 +421,16 @@ step_env() {
 	new=$(
 		cat <<EOF
 # Written by scripts/setup-endpoint.sh. Run the script again to change it.
-# Read by scripts/systemd/ltt-endpoint.service (EnvironmentFile=) and by sh.
+# Read by scripts/systemd/rabblefish-endpoint.service (EnvironmentFile=) and by sh.
 NEMO_SPEECH_BIN="$bin_link"
-LTT_ENDPOINT_ASR_MODEL="$models/$ASR_FILE"
-LTT_ENDPOINT_DIAR_MODEL="$models/$DIAR_FILE"
-LTT_ENDPOINT_NMT_MODEL="$nmt_model"
-LTT_ENDPOINT_NMT_ARGS="$nmt_args"
-LTT_ENDPOINT_DEVICE="$backend"
-LTT_ENDPOINT_HOST="$host"
-LTT_ENDPOINT_PORT="$port"
-LTT_ENDPOINT_THREADS="$threads"
+RABBLEFISH_ENDPOINT_ASR_MODEL="$models/$ASR_FILE"
+RABBLEFISH_ENDPOINT_DIAR_MODEL="$models/$DIAR_FILE"
+RABBLEFISH_ENDPOINT_NMT_MODEL="$nmt_model"
+RABBLEFISH_ENDPOINT_NMT_ARGS="$nmt_args"
+RABBLEFISH_ENDPOINT_DEVICE="$backend"
+RABBLEFISH_ENDPOINT_HOST="$host"
+RABBLEFISH_ENDPOINT_PORT="$port"
+RABBLEFISH_ENDPOINT_THREADS="$threads"
 EOF
 	)
 	if [[ -f $env_file && $(<"$env_file") == "$new" ]]; then
@@ -458,16 +458,16 @@ Done. Start the endpoint with:
 
   $(printf '%q ' "${cmd[@]}" | sed 's/ $//; s/ --/ \\\n    --/g')
 
-Or copy scripts/systemd/ltt-endpoint.service to ~/.config/systemd/user/ and
+Or copy scripts/systemd/rabblefish-endpoint.service to ~/.config/systemd/user/ and
 run (see docs/endpoint.md):
 
-  systemctl --user enable --now ltt-endpoint.service
+  systemctl --user enable --now rabblefish-endpoint.service
 
 Point the app at the endpoint:
 
-  export LTT_ASR_ENDPOINT_URL=ws://$url_host:$port
+  export RABBLEFISH_ASR_ENDPOINT_URL=ws://$url_host:$port
 
-or in ~/.config/live-transcribe-translate/config.toml:
+or in ~/.config/rabblefish/config.toml:
 
   asr_endpoint_url = "ws://$url_host:$port"
 

@@ -2,9 +2,9 @@
 
 import json
 
-from ltt.audio import AudioRecorder
-from ltt.capture import NS_PER_S, AudioChunk
-from ltt.store import LOG_NAME, SessionStore, read_events
+from rabblefish.audio import AudioRecorder
+from rabblefish.capture import NS_PER_S, AudioChunk
+from rabblefish.store import LOG_NAME, SessionStore, read_events
 
 STARTED = {"type": "session", "state": "started", "started_at": 1000.0, "target_lang": "en"}
 SPEAKER = {

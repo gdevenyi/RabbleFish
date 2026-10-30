@@ -1,7 +1,7 @@
 """The Markdown and JSON exports (issue #30): golden files from a fixture event log, the
 rules shared with the UI, and the export API for past and live Sessions.
 
-To write the golden files again after an intended change: `LTT_UPDATE_GOLDEN=1 pytest`.
+To write the golden files again after an intended change: `RABBLEFISH_UPDATE_GOLDEN=1 pytest`.
 """
 
 import json
@@ -16,9 +16,9 @@ import pytest
 from test_persistence import make_client, run_session, session_dirs
 from test_session import count, receive_until, select_both
 
-import ltt
-from ltt import pipeline
-from ltt.export import (
+import rabblefish
+from rabblefish import pipeline
+from rabblefish.export import (
     SessionExport,
     format_duration,
     format_time,
@@ -26,11 +26,11 @@ from ltt.export import (
     merge_targets,
     silence_folds,
 )
-from ltt.store import read_events
-from ltt.transcript import Transcript
+from rabblefish.store import read_events
+from rabblefish.transcript import Transcript
 
 FIXTURES = Path(__file__).parent / "fixtures" / "export"
-SCHEMA = json.loads((Path(ltt.__file__).parent / "export.schema.json").read_text())
+SCHEMA = json.loads((Path(rabblefish.__file__).parent / "export.schema.json").read_text())
 SESSION_ID = "2026-10-30T10-37-30"
 # The time of the export; it does not change the export of a closed Session.
 NOW = 1793360000.0
@@ -50,7 +50,7 @@ def replay(path: Path) -> Transcript:
 
 def golden(name: str, actual: str) -> None:
     path = FIXTURES / name
-    if os.environ.get("LTT_UPDATE_GOLDEN"):
+    if os.environ.get("RABBLEFISH_UPDATE_GOLDEN"):
         path.write_text(actual, encoding="utf-8")
     assert actual == path.read_text(encoding="utf-8")
 

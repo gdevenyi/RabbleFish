@@ -1,6 +1,6 @@
 <div align="center">
 
-# Live Transcribe Translate
+# RabbleFish
 
 **Live, multi-speaker transcription and translation of your Linux desktop audio, with local models.**
 
@@ -19,14 +19,14 @@
 
 ## Overview
 
-Live Transcribe Translate captures one or more PipeWire sources (your microphone, the audio of a call, any output device) and shows what each person says as it is spoken, on a timeline with **one column per speaker**. It detects language switches, can translate each segment into one target language, saves the whole session as it goes, and exports it to Markdown or JSON.
+RabbleFish captures one or more PipeWire sources (your microphone, the audio of a call, any output device) and shows what each person says as it is spoken, on a timeline with **one column per speaker**. It detects language switches, can translate each segment into one target language, saves the whole session as it goes, and exports it to Markdown or JSON.
 
 The app never runs a model itself. It streams the audio to a **NeMo-Speech.cpp endpoint**, which runs NVIDIA's Nemotron models for transcription and diarization and Riva-Translate for translation. By default the endpoint runs on the same machine. To use a GPU elsewhere on your network, point the app at another URL.
 
 ```mermaid
 flowchart LR
     subgraph Desktop["Linux desktop"]
-        PW["PipeWire sources<br/>mic, call audio, …"] -->|pw-record, 16 kHz| BE["ltt backend<br/>(FastAPI)"]
+        PW["PipeWire sources<br/>mic, call audio, …"] -->|pw-record, 16 kHz| BE["rabblefish backend<br/>(FastAPI)"]
         BE <-->|WebSocket + REST| UI["Browser UI<br/>timeline"]
         BE --> LOG[("Session logs<br/>and audio")]
     end
@@ -65,8 +65,8 @@ The script downloads the NeMo-Speech.cpp server and the models, converts the tra
 ### 2. Install and start the app
 
 ```sh
-uv tool install ./backend    # puts the `ltt` command in ~/.local/bin
-ltt serve                    # then open http://127.0.0.1:8000
+uv tool install ./backend    # puts the `rabblefish` command in ~/.local/bin
+rabblefish serve                    # then open http://127.0.0.1:8000
 ```
 
 ### 3. Run a session
@@ -84,33 +84,33 @@ ltt serve                    # then open http://127.0.0.1:8000
 
 | Command | What it does |
 | --- | --- |
-| `ltt serve` | Start the backend and the web UI (`--host`, `--port`) |
-| `ltt sessions list` | List the saved sessions: ID, date, length, state, speakers |
-| `ltt export <id> --format md\|json [-o FILE]` | Export one session to Markdown or JSON |
-| `ltt config` | Show each effective setting and where it comes from |
+| `rabblefish serve` | Start the backend and the web UI (`--host`, `--port`) |
+| `rabblefish sessions list` | List the saved sessions: ID, date, length, state, speakers |
+| `rabblefish export <id> --format md\|json [-o FILE]` | Export one session to Markdown or JSON |
+| `rabblefish config` | Show each effective setting and where it comes from |
 
 The UI also lists the past sessions. You can reopen one read-only, rename and merge its speakers, export it, or delete it.
 
 ### Settings
 
-The app works with no settings. To change them, create `~/.config/live-transcribe-translate/config.toml`:
+The app works with no settings. To change them, create `~/.config/rabblefish/config.toml`:
 
 ```toml
 asr_endpoint_url = "ws://127.0.0.1:8080"   # the NeMo-Speech.cpp endpoint
 # translation_endpoint_url = "http://gpu-box:8080"   # default: the same server
 detect_languages = ["en", "fr"]
 default_target_language = "en"
-# data_dir = "~/.local/share/live-transcribe-translate"
+# data_dir = "~/.local/share/rabblefish"
 host = "127.0.0.1"
 port = 8000
 ```
 
-Each key has an `LTT_*` environment variable that overrides the file. The full table is in [`backend/README.md`](backend/README.md#settings).
+Each key has an `RABBLEFISH_*` environment variable that overrides the file. The full table is in [`backend/README.md`](backend/README.md#settings).
 
 > [!IMPORTANT]
 > The app has **no login**. Keep `host = "127.0.0.1"` unless you trust everyone on the network: anyone who can reach the port can read the transcripts and start a session.
 
-The sessions are saved under `~/.local/share/live-transcribe-translate/sessions/`, one folder per session, with an `events.jsonl` log and the raw audio (about 115 MB per hour per source). Nothing is deleted automatically.
+The sessions are saved under `~/.local/share/rabblefish/sessions/`, one folder per session, with an `events.jsonl` log and the raw audio (about 115 MB per hour per source). Nothing is deleted automatically.
 
 ## Endpoint
 
@@ -141,7 +141,7 @@ To replay a recorded session in the timeline without a backend, open http://127.
 
 | Folder | Contents |
 | --- | --- |
-| `backend/` | FastAPI app and the `ltt` CLI (Python, `uv`) |
+| `backend/` | FastAPI app and the `rabblefish` CLI (Python, `uv`) |
 | `frontend/` | Timeline UI (React, Vite, TypeScript) |
 | `scripts/` | Endpoint setup script and systemd user unit templates |
 | `docs/` | [Architecture decisions](docs/adr/) and the [endpoint guide](docs/endpoint.md) |
@@ -149,5 +149,5 @@ To replay a recorded session in the timeline without a backend, open http://127.
 ## Learn more
 
 - [`GLOSSARY.md`](GLOSSARY.md): the domain terms used in the code and the UI (Session, Source, Speaker, Segment, …)
-- [The project map](https://github.com/gdevenyi/live-transcribe-translate/issues/1): every design decision, with the benchmarks behind each one
+- [The project map](https://github.com/gdevenyi/RabbleFish/issues/1): every design decision, with the benchmarks behind each one
 - [`backend/README.md`](backend/README.md): the API, the events and the export formats

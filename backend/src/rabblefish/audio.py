@@ -16,9 +16,9 @@ import re
 from collections.abc import Callable
 from pathlib import Path
 
-from ltt.capture import NS_PER_S, SAMPLE_RATE, AudioChunk
-from ltt.store import AUDIO_DIR, Syncer
-from ltt.transcript import CONTINUITY_TOLERANCE_NS
+from rabblefish.capture import NS_PER_S, SAMPLE_RATE, AudioChunk
+from rabblefish.store import AUDIO_DIR, Syncer
+from rabblefish.transcript import CONTINUITY_TOLERANCE_NS
 
 log = logging.getLogger(__name__)
 

@@ -2,8 +2,8 @@ import asyncio
 
 from fastapi.testclient import TestClient
 
-from ltt.app import create_app
-from ltt.sources import NODE_TYPE
+from rabblefish.app import create_app
+from rabblefish.sources import NODE_TYPE
 
 MIC = {
     "id": 58,

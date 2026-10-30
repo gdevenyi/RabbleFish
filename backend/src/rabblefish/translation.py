@@ -1,4 +1,4 @@
-"""Translation of Segments (decided in gdevenyi/live-transcribe-translate#12).
+"""Translation of Segments (decided in gdevenyi/RabbleFish#12).
 
 Each `segment` is translated once, after it is finalized and its language is detected,
 through the NeMo-Speech.cpp text translation endpoint (`POST /v1/translations`, with

@@ -1,0 +1,40 @@
+# systemd user unit for the local NeMo-Speech.cpp endpoint.
+#
+# Template: scripts/setup-endpoint.sh writes the env file that this unit reads.
+# Install (see docs/endpoint.md):
+#   mkdir -p ~/.config/systemd/user
+#   cp scripts/systemd/rabblefish-endpoint.service ~/.config/systemd/user/
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now rabblefish-endpoint.service
+#
+# The paths below use the default prefix
+# (~/.local/share/rabblefish/endpoint). For another prefix or
+# XDG_DATA_HOME, change them with: systemctl --user edit --full rabblefish-endpoint.service
+
+[Unit]
+Description=NeMo-Speech.cpp endpoint for rabblefish (ASR, diarization, translation)
+Documentation=https://github.com/gdevenyi/RabbleFish/blob/master/docs/endpoint.md
+After=network.target
+
+[Service]
+Type=exec
+EnvironmentFile=%h/.local/share/rabblefish/endpoint/endpoint.env
+# $RABBLEFISH_ENDPOINT_NMT_ARGS has no braces on purpose: systemd splits it into
+# "--nmt.model.path <file>", or into no arguments when it is empty
+# (setup-endpoint.sh --no-translation).
+ExecStart=%h/.local/share/rabblefish/endpoint/bin/nemo-speech serve \
+    --asr-model ${RABBLEFISH_ENDPOINT_ASR_MODEL} \
+    --diar-model ${RABBLEFISH_ENDPOINT_DIAR_MODEL} \
+    $RABBLEFISH_ENDPOINT_NMT_ARGS \
+    --device ${RABBLEFISH_ENDPOINT_DEVICE} \
+    --host ${RABBLEFISH_ENDPOINT_HOST} \
+    --port ${RABBLEFISH_ENDPOINT_PORT} \
+    --no-ui \
+    --threads ${RABBLEFISH_ENDPOINT_THREADS} \
+    --asr.endpointing.enable=true \
+    --asr.batching.enabled=false
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

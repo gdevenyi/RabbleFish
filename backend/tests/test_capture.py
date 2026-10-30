@@ -1,5 +1,5 @@
-from ltt.capture import NS_PER_S, SAMPLE_RATE, Timeline, pw_record_args
-from ltt.sources import Source
+from rabblefish.capture import NS_PER_S, SAMPLE_RATE, Timeline, pw_record_args
+from rabblefish.sources import Source
 
 MIC = Source("microphone:m", "microphone", "m", "Mic", 58)
 MON = Source("monitor:s", "monitor", "s", "Monitor of Speaker", 54)

@@ -4,7 +4,7 @@ Each captured chunk (100 ms) gets its peak level. A chunk is quiet when its peak
 below `SILENCE_DBFS`. The warning of a Source is:
 
 - "muted": the chunk is quiet and PipeWire reports the node as muted (see
-  `ltt.sources.node_muted`). It shows at once.
+  `rabblefish.sources.node_muted`). It shows at once.
 - "silent": all chunks were quiet for `SILENT_AFTER_S` seconds of audio time.
 - None: the last chunk had sound. A chunk with sound clears the warning at once.
 
@@ -14,7 +14,7 @@ between two quiet chunks counts as silence too.
 
 import math
 
-from ltt.capture import NS_PER_S, AudioChunk
+from rabblefish.capture import NS_PER_S, AudioChunk
 
 SILENT_AFTER_S = 30.0  # quiet time before the "silent" warning
 SILENCE_DBFS = -60.0  # a chunk with a lower peak is quiet (about 33 of 32768)
@@ -37,7 +37,7 @@ class SilenceDetector:
 
     def __init__(self, after_s: float | None = None, threshold_dbfs: float | None = None):
         """The defaults are `SILENT_AFTER_S` and `SILENCE_DBFS`. The app gives the
-        `silent_after_s` and `silence_dbfs` settings (see `ltt.settings`)."""
+        `silent_after_s` and `silence_dbfs` settings (see `rabblefish.settings`)."""
         if after_s is None:
             after_s = SILENT_AFTER_S
         if threshold_dbfs is None:

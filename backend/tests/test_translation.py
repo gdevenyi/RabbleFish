@@ -7,9 +7,9 @@ from fastapi.testclient import TestClient
 from test_app import MIC, SPEAKER, fake_watcher
 from test_session import count, receive_until
 
-from ltt import pipeline
-from ltt.app import create_app
-from ltt.translation import LanguageTracker, normalize_target
+from rabblefish import pipeline
+from rabblefish.app import create_app
+from rabblefish.translation import LanguageTracker, normalize_target
 
 FRENCH = {"le", "je", "de", "et", "à", "mais", "la", "dans"}
 

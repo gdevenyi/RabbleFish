@@ -542,7 +542,7 @@ function MergeNotice({ merge, state, count, onShow, onDismiss }: { merge: Merge;
 
 /** Dismissed Merge notices, kept per Session in localStorage so that a reload does not show them again. */
 function useDismissedMerges(startedAt: number | null): [Set<string>, (key: string) => void] {
-  const storageKey = `ltt.dismissedMerges.${startedAt ?? 'none'}`
+  const storageKey = `rabblefish.dismissedMerges.${startedAt ?? 'none'}`
   const [version, setVersion] = useState(0)
   const set = useMemo(() => {
     void version // read again after each dismiss
