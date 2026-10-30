@@ -1,0 +1,25 @@
+### vk_b1_d1_n1 dev=vulkan batching=true diar=1 sources=1 server_alive=yes
+   {'source': 0, 'finals': 20, 'words': 191, 'first_partial_s': 1.68, 'word_latency_p50_s': 2.12, 'word_latency_p95_s': 12.08, 'word_latency_max_s': 15.6, 'speakers_seen': [1, 2, 3, 4, 5]} errors: []
+### vk_b1_d1_n2 dev=vulkan batching=true diar=1 sources=2 server_alive=yes
+   {'source': 0, 'finals': 1, 'words': 0, 'first_partial_s': None, 'word_latency_p50_s': None, 'word_latency_p95_s': None, 'word_latency_max_s': None, 'speakers_seen': []} errors: []
+   {'source': 1, 'finals': 1, 'words': 0, 'first_partial_s': None, 'word_latency_p50_s': None, 'word_latency_p95_s': None, 'word_latency_max_s': None, 'speakers_seen': []} errors: []
+### vk_b0_d1_n2 dev=vulkan batching=false diar=1 sources=2 server_alive=yes
+   {'source': 0, 'finals': 20, 'words': 191, 'first_partial_s': 1.72, 'word_latency_p50_s': 2.08, 'word_latency_p95_s': 11.96, 'word_latency_max_s': 15.48, 'speakers_seen': [1, 2, 3, 4, 5]} errors: []
+   {'source': 1, 'finals': 20, 'words': 191, 'first_partial_s': 1.8, 'word_latency_p50_s': 2.13, 'word_latency_p95_s': 11.99, 'word_latency_max_s': 15.51, 'speakers_seen': [1, 2, 3, 4, 5]} errors: []
+### vk_b1_d0_n2 dev=vulkan batching=true diar=0 sources=2 server_alive=yes
+   {'source': 0, 'finals': 1, 'words': 0, 'first_partial_s': None, 'word_latency_p50_s': None, 'word_latency_p95_s': None, 'word_latency_max_s': None, 'speakers_seen': []} errors: []
+   {'source': 1, 'finals': 1, 'words': 0, 'first_partial_s': None, 'word_latency_p50_s': None, 'word_latency_p95_s': None, 'word_latency_max_s': None, 'speakers_seen': []} errors: []
+### cpu_b1_d1_n1 dev=cpu batching=true diar=1 sources=1 server_alive=yes
+   {'source': 0, 'finals': 20, 'words': 192, 'first_partial_s': 1.69, 'word_latency_p50_s': 2.77, 'word_latency_p95_s': 12.59, 'word_latency_max_s': 16.11, 'speakers_seen': [1, 2, 3, 4, 5]} errors: []
+### cpu_b1_d1_n2 dev=cpu batching=true diar=1 sources=2 server_alive=yes
+   {'source': 0, 'finals': 15, 'words': 124, 'first_partial_s': 1.72, 'word_latency_p50_s': 12.17, 'word_latency_p95_s': 33.88, 'word_latency_max_s': 35.48, 'speakers_seen': [1, 2, 3]} errors: []
+   {'source': 1, 'finals': 15, 'words': 124, 'first_partial_s': 1.72, 'word_latency_p50_s': 12.17, 'word_latency_p95_s': 33.88, 'word_latency_max_s': 35.48, 'speakers_seen': [1, 2, 3]} errors: []
+### cpu_b0_d1_n2 dev=cpu batching=false diar=1 sources=2 server_alive=yes
+   {'source': 0, 'finals': 13, 'words': 107, 'first_partial_s': 1.74, 'word_latency_p50_s': 13.46, 'word_latency_p95_s': 38.31, 'word_latency_max_s': 39.73, 'speakers_seen': [1, 2, 3]} errors: []
+   {'source': 1, 'finals': 13, 'words': 107, 'first_partial_s': 1.75, 'word_latency_p50_s': 12.79, 'word_latency_p95_s': 37.28, 'word_latency_max_s': 38.68, 'speakers_seen': [1, 2, 3]} errors: []
+done
+### vk_b0_d1_n3 dev=vulkan batching=false diar=1 sources=3 server_alive=yes
+   {'source': 0, 'finals': 20, 'words': 191, 'first_partial_s': 1.68, 'word_latency_p50_s': 2.14, 'word_latency_p95_s': 12.0, 'word_latency_max_s': 15.52, 'speakers_seen': [1, 2, 3, 4, 5]} errors: []
+   {'source': 1, 'finals': 20, 'words': 191, 'first_partial_s': 1.76, 'word_latency_p50_s': 2.16, 'word_latency_p95_s': 12.08, 'word_latency_max_s': 15.6, 'speakers_seen': [1, 2, 3, 4, 5]} errors: []
+   {'source': 2, 'finals': 20, 'words': 191, 'first_partial_s': 1.76, 'word_latency_p50_s': 2.15, 'word_latency_p95_s': 12.15, 'word_latency_max_s': 15.67, 'speakers_seen': [1, 2, 3, 4, 5]} errors: []
+done

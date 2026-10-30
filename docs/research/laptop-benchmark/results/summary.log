@@ -1,0 +1,13 @@
+=== asr_stream_cpu
+exit=0 wall_s=156.9 maxrss_kb=974824
+=== asr_stream_vulkan
+exit=0 wall_s=131.3 maxrss_kb=205236
+=== diar_stream_cpu
+exit=0 wall_s=45.4 maxrss_kb=183948
+=== diar_stream_vulkan
+exit=0 wall_s=9.7 maxrss_kb=110664
+=== asr_stream_cpu_10min
+exit=0 wall_s=427.3 maxrss_kb=1012732
+=== asr_stream_vulkan_10min
+exit=0 wall_s=234.6 maxrss_kb=138608
+done; results in /var/tmp/claude/claude-1000/-home-gdevenyi-projects-live-transcribe-translate/b77459c2-530f-47aa-8ec0-57ff5f4638fa/scratchpad/bench/results

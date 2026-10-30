@@ -1,0 +1,73 @@
+{
+  "batching": true,
+  "command": "bench diarize",
+  "corpus_audio_seconds": 87.760000000000005,
+  "files": 1,
+  "load_ms": 116.34546400000001,
+  "mode": "streaming",
+  "model": "Nemotron-3-Diarization.q8_0",
+  "repetitions": 1,
+  "runs": [
+    {
+      "audio_seconds": 87.760000000000005,
+      "concurrency": 1,
+      "items": 1,
+      "items_per_second": 0.33579314786956399,
+      "latency_ms": {
+        "max": 2977.7311340000001,
+        "mean": 2977.7311340000001,
+        "min": 2977.7311340000001,
+        "p50": 2977.7311340000001,
+        "p90": 2977.7311340000001,
+        "p95": 2977.7311340000001,
+        "p99": 2977.7311340000001
+      },
+      "metrics": {
+        "segments": {
+          "max": 29,
+          "mean": 29,
+          "min": 29,
+          "p50": 29,
+          "p90": 29,
+          "p95": 29,
+          "p99": 29
+        }
+      },
+      "rtfx": 29.469206657032938,
+      "segment_mismatches": 0,
+      "wall_seconds": 2.9780238410000002
+    },
+    {
+      "audio_seconds": 87.760000000000005,
+      "concurrency": 2,
+      "items": 1,
+      "items_per_second": 0.36189306905698226,
+      "latency_ms": {
+        "max": 2763.026312,
+        "mean": 2763.026312,
+        "min": 2763.026312,
+        "p50": 2763.026312,
+        "p90": 2763.026312,
+        "p95": 2763.026312,
+        "p99": 2763.026312
+      },
+      "metrics": {
+        "segments": {
+          "max": 29,
+          "mean": 29,
+          "min": 29,
+          "p50": 29,
+          "p90": 29,
+          "p95": 29,
+          "p99": 29
+        }
+      },
+      "rtfx": 31.759735740440767,
+      "segment_mismatches": 0,
+      "wall_seconds": 2.7632471729999999
+    }
+  ],
+  "task": "diarize",
+  "warmup": 1,
+  "warmup_ms": 3820.6381179999998
+}
