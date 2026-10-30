@@ -24,7 +24,7 @@ import json
 from dataclasses import dataclass
 from datetime import datetime, tzinfo
 
-from ltt.transcript import Transcript
+from rabblefish.transcript import Transcript
 
 FOLD_AFTER_S = 20.0
 JSON_VERSION = 1

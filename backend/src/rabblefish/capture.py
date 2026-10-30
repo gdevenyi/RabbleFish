@@ -12,7 +12,7 @@ import time
 from collections.abc import AsyncIterator, Callable
 from dataclasses import dataclass, field
 
-from ltt.sources import Source
+from rabblefish.sources import Source
 
 SAMPLE_RATE = 16000
 BYTES_PER_SAMPLE = 2  # s16, mono
@@ -153,7 +153,7 @@ async def _record(keys: list[str], seconds: float, out_dir: str) -> int:
     import wave
     from pathlib import Path
 
-    from ltt.sources import list_sources
+    from rabblefish.sources import list_sources
 
     sources = {s.key: s for s in await list_sources()}
     missing = [k for k in keys if k not in sources]
@@ -195,9 +195,9 @@ def main() -> int:
     import argparse
     from pathlib import Path
 
-    from ltt.sources import list_sources
+    from rabblefish.sources import list_sources
 
-    parser = argparse.ArgumentParser(prog="python -m ltt.capture")
+    parser = argparse.ArgumentParser(prog="python -m rabblefish.capture")
     sub = parser.add_subparsers(dest="cmd", required=True)
     sub.add_parser("list", help="list microphones and sink monitors")
     rec = sub.add_parser("record", help="record Sources together to WAV files")

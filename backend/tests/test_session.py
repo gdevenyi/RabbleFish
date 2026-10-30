@@ -5,9 +5,9 @@ from conftest import FakeCapture
 from fastapi.testclient import TestClient
 from test_app import MIC, SPEAKER, fake_watcher
 
-from ltt import pipeline
-from ltt.app import create_app
-from ltt.nemo import FRAME_BYTES
+from rabblefish import pipeline
+from rabblefish.app import create_app
+from rabblefish.nemo import FRAME_BYTES
 
 
 @pytest.fixture(autouse=True)

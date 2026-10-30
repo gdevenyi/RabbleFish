@@ -12,10 +12,10 @@ from test_app import MIC, SPEAKER, fake_watcher
 from test_session import count, receive_until, select_both
 from test_translation import detect
 
-from ltt import pipeline
-from ltt.app import create_app
-from ltt.capture import NS_PER_S, AudioChunk, CaptureError
-from ltt.store import LOG_NAME, SAVED_TYPES, read_events
+from rabblefish import pipeline
+from rabblefish.app import create_app
+from rabblefish.capture import NS_PER_S, AudioChunk, CaptureError
+from rabblefish.store import LOG_NAME, SAVED_TYPES, read_events
 
 
 @pytest.fixture(autouse=True)

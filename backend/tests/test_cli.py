@@ -1,4 +1,4 @@
-"""The `ltt` command: help, `sessions list`, `export`, `config` and the `serve` warning."""
+"""The `rabblefish` command: help, `sessions list`, `export`, `config` and the `serve` warning."""
 
 import json
 import shutil
@@ -9,12 +9,12 @@ import jsonschema
 import pytest
 import uvicorn
 
-import ltt
-from ltt import cli
-from ltt.store import LOG_NAME
+import rabblefish
+from rabblefish import cli
+from rabblefish.store import LOG_NAME
 
 FIXTURES = Path(__file__).parent / "fixtures" / "export"
-SCHEMA = json.loads((Path(ltt.__file__).parent / "export.schema.json").read_text())
+SCHEMA = json.loads((Path(rabblefish.__file__).parent / "export.schema.json").read_text())
 SESSION_ID = "2026-10-30T10-37-30"
 
 
@@ -57,7 +57,7 @@ def test_help_and_version(capsys):
         assert command in out
     with pytest.raises(SystemExit):
         cli.main(["--version"])
-    assert capsys.readouterr().out.strip() == f"ltt {ltt.__version__}"
+    assert capsys.readouterr().out.strip() == f"rabblefish {rabblefish.__version__}"
     with pytest.raises(SystemExit) as e:
         cli.main([])
     assert e.value.code == 2
@@ -109,26 +109,26 @@ def test_export_unknown_session(capsys, recorded):
 
 
 def test_config_shows_the_sources(capsys, monkeypatch, tmp_path):
-    path = tmp_path / "config" / "live-transcribe-translate" / "config.toml"
+    path = tmp_path / "config" / "rabblefish" / "config.toml"
     path.parent.mkdir(parents=True)
     path.write_text("port = 8123\n")
-    monkeypatch.setenv("LTT_HOST", "0.0.0.0")
+    monkeypatch.setenv("RABBLEFISH_HOST", "0.0.0.0")
     code, out, _ = run(capsys, "config")
     assert code == 0
     assert f"# config file: {path}" in out
     lines = {line.split()[0]: line for line in out.splitlines()[1:]}
     assert lines["port"].split() == ["port", "8123", "#", "file"]
-    assert lines["host"].endswith("# env LTT_HOST")
+    assert lines["host"].endswith("# env RABBLEFISH_HOST")
     assert lines["default_target_language"].endswith("# default")
 
 
 def test_a_bad_config_file_is_a_clear_error(capsys, tmp_path):
-    path = tmp_path / "config" / "live-transcribe-translate" / "config.toml"
+    path = tmp_path / "config" / "rabblefish" / "config.toml"
     path.parent.mkdir(parents=True)
     path.write_text("colour = 'blue'\n")
     code, out, err = run(capsys, "sessions", "list")
     assert code == 2 and out == ""
-    assert err.startswith("ltt: bad setting: ") and "unknown key 'colour'" in err
+    assert err.startswith("rabblefish: bad setting: ") and "unknown key 'colour'" in err
 
 
 @pytest.fixture
@@ -151,7 +151,7 @@ def test_serve_on_loopback_has_no_warning(capsys, no_server):
 
 @pytest.mark.parametrize("host", ["0.0.0.0", "192.168.1.20", "::"])
 def test_serve_warns_when_the_host_is_not_loopback(capsys, no_server, monkeypatch, host):
-    monkeypatch.setenv("LTT_HOST", host)
+    monkeypatch.setenv("RABBLEFISH_HOST", host)
     code, out, err = run(capsys, "serve")
     assert code == 0
     assert "WARNING" in err and "no login" in err

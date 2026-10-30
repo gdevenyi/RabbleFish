@@ -10,12 +10,12 @@ from test_app import fake_watcher
 from test_session import receive_until
 from test_sources import node
 
-from ltt import pipeline
-from ltt.app import create_app
-from ltt.capture import NS_PER_S, AudioChunk
-from ltt.level import SilenceDetector, peak_dbfs
-from ltt.sources import SourceRegistry, source_from_node
-from ltt.store import LOG_NAME, read_events
+from rabblefish import pipeline
+from rabblefish.app import create_app
+from rabblefish.capture import NS_PER_S, AudioChunk
+from rabblefish.level import SilenceDetector, peak_dbfs
+from rabblefish.sources import SourceRegistry, source_from_node
+from rabblefish.store import LOG_NAME, read_events
 
 SILENT = b"\0\0" * 1600
 NEAR_SILENT = (20).to_bytes(2, "little", signed=True) * 1600  # about -64 dBFS

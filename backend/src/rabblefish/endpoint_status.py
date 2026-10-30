@@ -1,6 +1,6 @@
 """The state of the model endpoint, for the "Endpoint" chip of the UI (issue #31).
 
-`ltt serve` checks the endpoint when it starts, but it never waits for the check: the app
+`rabblefish serve` checks the endpoint when it starts, but it never waits for the check: the app
 starts also when the endpoint is not reachable yet. The app checks again at each Session
 start, and every `RECHECK_S` seconds while the endpoint is not ready.
 

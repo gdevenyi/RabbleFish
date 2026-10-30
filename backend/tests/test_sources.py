@@ -1,6 +1,6 @@
 import json
 
-from ltt.sources import PwDumpStream, SourceRegistry, source_from_node
+from rabblefish.sources import PwDumpStream, SourceRegistry, source_from_node
 
 
 def node(obj_id, serial, media_class, name, description=None):

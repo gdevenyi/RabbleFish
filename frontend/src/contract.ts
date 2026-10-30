@@ -1,5 +1,5 @@
 // Events from the backend on /ws, as the endpoint contract defines them
-// (gdevenyi/live-transcribe-translate#11). All times are seconds since the Session started.
+// (gdevenyi/RabbleFish#11). All times are seconds since the Session started.
 
 export type SourceMode = 'single' | 'diarize'
 

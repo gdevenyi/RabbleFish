@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/gdevenyi/live-transcribe-translate/backend/src/ltt/export.schema.json",
+  "$id": "https://github.com/gdevenyi/RabbleFish/backend/src/rabblefish/export.schema.json",
   "title": "Session export (JSON)",
-  "description": "One Session of live-transcribe-translate (issue #30). All times are seconds since the Session started.",
+  "description": "One Session of rabblefish (issue #30). All times are seconds since the Session started.",
   "type": "object",
   "required": ["version", "session", "speakers", "segments", "audio_files"],
   "additionalProperties": false,

@@ -81,7 +81,7 @@ export function App() {
   return (
     <div className="app">
       <header className="app-bar">
-        <h1>Live Transcribe Translate</h1>
+        <h1>RabbleFish</h1>
         <span className={`conn conn-${status}`} title={state.version ? `Backend version ${state.version}` : undefined}>
           Backend: <strong data-testid="status">{status}</strong>
         </span>

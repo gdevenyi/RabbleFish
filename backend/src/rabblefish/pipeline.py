@@ -3,11 +3,11 @@
 The capture runs for the whole Session. The connection reconnects by itself when it is
 lost; the audio of the gap is not transcribed, and the `source_status` "live" event that
 follows carries the gap. While a Source is not connected, its audio is not sent to NeMo.
-With "Save audio" on, all captured audio is saved (see `ltt.audio`), also during a gap.
+With "Save audio" on, all captured audio is saved (see `rabblefish.audio`), also during a gap.
 
 The level of each chunk is measured also while the Source is not connected. Each
 `source_status` event has the current `warning` ("muted", "silent" or None, see
-`ltt.level`), and a change of the warning sends a `source_status` event with the current
+`rabblefish.level`), and a change of the warning sends a `source_status` event with the current
 state and message.
 """
 
@@ -19,13 +19,13 @@ from collections.abc import AsyncIterator, Callable
 from pathlib import Path
 from typing import Protocol
 
-from ltt.audio import AudioRecorder
-from ltt.capture import BYTES_PER_SAMPLE, NS_PER_S, AudioChunk, Capture, CaptureError
-from ltt.level import SilenceDetector
-from ltt.nemo import EndpointError, NemoConnection, NemoEndpoint
-from ltt.sources import Source
-from ltt.transcript import LanguageDetector, SourceMapper
-from ltt.translation import Translator
+from rabblefish.audio import AudioRecorder
+from rabblefish.capture import BYTES_PER_SAMPLE, NS_PER_S, AudioChunk, Capture, CaptureError
+from rabblefish.level import SilenceDetector
+from rabblefish.nemo import EndpointError, NemoConnection, NemoEndpoint
+from rabblefish.sources import Source
+from rabblefish.transcript import LanguageDetector, SourceMapper
+from rabblefish.translation import Translator
 
 log = logging.getLogger(__name__)
 
@@ -62,7 +62,7 @@ class SourcePipeline:
         silence: tuple[float, float] | None = None,
     ) -> None:
         """`silence` is (after_s, threshold_dbfs) of the "silent" warning; None gives the
-        defaults of `ltt.level`."""
+        defaults of `rabblefish.level`."""
         self.source = source
         self.recorder = recorder
         self.resolve_source = resolve_source

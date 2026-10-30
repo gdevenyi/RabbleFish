@@ -15,7 +15,7 @@ from collections.abc import AsyncIterator
 
 import websockets
 
-from ltt.capture import BYTES_PER_SAMPLE, SAMPLE_RATE
+from rabblefish.capture import BYTES_PER_SAMPLE, SAMPLE_RATE
 
 REALTIME_PATH = "/v1/audio/transcriptions/realtime"
 FRAME_MS = 80

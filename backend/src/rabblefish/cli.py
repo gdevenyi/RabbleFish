@@ -1,6 +1,6 @@
-"""The `ltt` command (issue #31): `serve`, `sessions list`, `export` and `config`.
+"""The `rabblefish` command (issue #31): `serve`, `sessions list`, `export` and `config`.
 
-All commands read the settings (`ltt.settings`): the config file, then the LTT_*
+All commands read the settings (`rabblefish.settings`): the config file, then the RABBLEFISH_*
 environment variables. `sessions list` and `export` only read the saved Sessions; they
 never change a log.
 """
@@ -14,10 +14,10 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from ltt import __version__
-from ltt.export import SessionExport, format_duration
-from ltt.settings import Settings, SettingsError, config_path, load_settings
-from ltt.store import SessionStore
+from rabblefish import __version__
+from rabblefish.export import SessionExport, format_duration
+from rabblefish.settings import Settings, SettingsError, config_path, load_settings
+from rabblefish.store import SessionStore
 
 EXIT_USAGE = 2
 EXIT_NOT_FOUND = 1
@@ -42,11 +42,11 @@ def _url(host: str, port: int) -> str:
 def cmd_serve(args: argparse.Namespace, settings: Settings) -> int:
     import uvicorn
 
-    from ltt.app import create_app
+    from rabblefish.app import create_app
 
     settings = settings.with_overrides(host=args.host, port=args.port)
     host, port = settings.host, settings.port
-    print(f"live-transcribe-translate {__version__}: open {_url(host, port)}", flush=True)
+    print(f"rabblefish {__version__}: open {_url(host, port)}", flush=True)
     if host in ("0.0.0.0", "::"):
         print(f"  (listening on all network interfaces, port {port})", flush=True)
     if not is_loopback(host):
@@ -61,7 +61,7 @@ def cmd_serve(args: argparse.Namespace, settings: Settings) -> int:
     print(f"  data: {settings.data_dir}", flush=True)
     # The app log (for example the endpoint state) in the same form as the uvicorn log.
     logging.basicConfig(format="%(levelname)s:     %(name)s: %(message)s")
-    logging.getLogger("ltt").setLevel(args.log_level.upper())
+    logging.getLogger("rabblefish").setLevel(args.log_level.upper())
     uvicorn.run(create_app(settings=settings), host=host, port=port, log_level=args.log_level)
     return 0
 
@@ -86,7 +86,7 @@ def cmd_sessions_list(_args: argparse.Namespace, settings: Settings) -> int:
             continue
         s = saved.summary()
         # "started": the log has no stop line. The Session runs now, or the app ended
-        # without a stop and `ltt serve` marks it "interrupted" at its next start.
+        # without a stop and `rabblefish serve` marks it "interrupted" at its next start.
         rows.append(
             (
                 s["id"],
@@ -110,7 +110,10 @@ def cmd_export(args: argparse.Namespace, settings: Settings) -> int:
     store = SessionStore(settings.data_dir)
     saved = store.load(args.session_id)
     if saved is None:
-        print(f"ltt: unknown session: {args.session_id} (see `ltt sessions list`)", file=sys.stderr)
+        print(
+            f"rabblefish: unknown session: {args.session_id} (see `rabblefish sessions list`)",
+            file=sys.stderr,
+        )
         return EXIT_NOT_FOUND
     export = SessionExport(saved.transcript(), args.session_id, now=time.time())
     body = export.json() if args.format == "json" else export.markdown()
@@ -140,11 +143,14 @@ def cmd_config(_args: argparse.Namespace, settings: Settings) -> int:
 
 def parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
-        prog="ltt",
+        prog="rabblefish",
         description="Live transcription and translation of PipeWire sources.",
-        epilog=f"Settings: {config_path()} and the LTT_* environment variables (see `ltt config`).",
+        epilog=(
+            f"Settings: {config_path()} and the RABBLEFISH_* environment variables"
+            " (see `rabblefish config`)."
+        ),
     )
-    p.add_argument("--version", action="version", version=f"ltt {__version__}")
+    p.add_argument("--version", action="version", version=f"rabblefish {__version__}")
     sub = p.add_subparsers(dest="command", metavar="COMMAND", required=True)
 
     serve = sub.add_parser("serve", help="start the web UI and the API")
@@ -168,7 +174,9 @@ def parser() -> argparse.ArgumentParser:
     listing.set_defaults(func=cmd_sessions_list)
 
     export = sub.add_parser("export", help="export one saved Session as Markdown or JSON")
-    export.add_argument("session_id", metavar="SESSION_ID", help="an ID from `ltt sessions list`")
+    export.add_argument(
+        "session_id", metavar="SESSION_ID", help="an ID from `rabblefish sessions list`"
+    )
     export.add_argument("--format", "-f", choices=["md", "json"], default="md", help="default: md")
     export.add_argument("--output", "-o", metavar="FILE", help="write to FILE (default: stdout)")
     export.set_defaults(func=cmd_export)
@@ -184,7 +192,7 @@ def main(argv: list[str] | None = None) -> int:
         settings = load_settings()
         return args.func(args, settings)
     except SettingsError as e:
-        print(f"ltt: bad setting: {e}", file=sys.stderr)
+        print(f"rabblefish: bad setting: {e}", file=sys.stderr)
         return EXIT_USAGE
 
 

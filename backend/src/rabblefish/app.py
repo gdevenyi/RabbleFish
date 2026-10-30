@@ -12,17 +12,17 @@ from fastapi import FastAPI, HTTPException, Response, WebSocket, WebSocketDiscon
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from ltt import __version__
-from ltt.capture import Capture
-from ltt.endpoint_status import RECHECK_S, check_endpoint, initial_status
-from ltt.export import SessionExport
-from ltt.nemo import NemoEndpoint
-from ltt.pipeline import CaptureFactory, Session
-from ltt.settings import Settings, load_settings, static_dir
-from ltt.sources import Source, SourceRegistry, watch_sources
-from ltt.store import FSYNC_INTERVAL_S, SavedSession, SessionLog, SessionStore
-from ltt.transcript import LanguageDetector, LanguageIdentifier, Transcript
-from ltt.translation import (
+from rabblefish import __version__
+from rabblefish.capture import Capture
+from rabblefish.endpoint_status import RECHECK_S, check_endpoint, initial_status
+from rabblefish.export import SessionExport
+from rabblefish.nemo import NemoEndpoint
+from rabblefish.pipeline import CaptureFactory, Session
+from rabblefish.settings import Settings, load_settings, static_dir
+from rabblefish.sources import Source, SourceRegistry, watch_sources
+from rabblefish.store import FSYNC_INTERVAL_S, SavedSession, SessionLog, SessionStore
+from rabblefish.transcript import LanguageDetector, LanguageIdentifier, Transcript
+from rabblefish.translation import (
     DEFAULT_TARGET_LANGUAGE,
     TARGET_LANGUAGES,
     TranslationEndpoint,
@@ -257,7 +257,7 @@ def create_app(
     data_dir: Path | str | None = None,
 ) -> FastAPI:
     """Create the app. With no `settings`, it reads them with `load_settings()` (the
-    config file and the LTT_* environment variables; see `ltt.settings`).
+    config file and the RABBLEFISH_* environment variables; see `rabblefish.settings`).
 
     The other arguments replace a setting (tests use them). `translation_endpoint_url`
     with no setting is the http:// form of the ASR endpoint (the same server).
@@ -304,7 +304,7 @@ def create_app(
             with contextlib.suppress(asyncio.CancelledError):
                 await task
 
-    app = FastAPI(title="live-transcribe-translate", version=__version__, lifespan=lifespan)
+    app = FastAPI(title="rabblefish", version=__version__, lifespan=lifespan)
     app.state.hub = hub
     app.state.asr_endpoint = endpoint
     app.state.translation_endpoint = translation_endpoint

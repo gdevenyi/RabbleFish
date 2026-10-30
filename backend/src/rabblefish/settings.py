@@ -1,9 +1,9 @@
 """The settings of the app: one TOML file, with environment overrides (issue #31).
 
-The file is `$XDG_CONFIG_HOME/live-transcribe-translate/config.toml` (by default
-`~/.config/live-transcribe-translate/config.toml`). The app works with no file.
+The file is `$XDG_CONFIG_HOME/rabblefish/config.toml` (by default
+`~/.config/rabblefish/config.toml`). The app works with no file.
 
-Precedence, from high to low: a command-line flag of `ltt serve` (only `--host` and
+Precedence, from high to low: a command-line flag of `rabblefish serve` (only `--host` and
 `--port`), an environment variable, the file, the default. `translation_endpoint_url`
 with no value is the `http://` form of `asr_endpoint_url` (the same server).
 
@@ -20,9 +20,9 @@ from dataclasses import dataclass, field, fields, replace
 from pathlib import Path
 from typing import Any
 
-from ltt.translation import DEFAULT_TARGET_LANGUAGE, TARGET_LANGUAGES, normalize_target
+from rabblefish.translation import DEFAULT_TARGET_LANGUAGE, TARGET_LANGUAGES, normalize_target
 
-APP_DIR = "live-transcribe-translate"
+APP_DIR = "rabblefish"
 CONFIG_NAME = "config.toml"
 
 DEFAULT_ASR_ENDPOINT_URL = "ws://127.0.0.1:8080"
@@ -68,7 +68,7 @@ class Settings:
     port: int = DEFAULT_PORT
     silent_after_s: float = DEFAULT_SILENT_AFTER_S
     silence_dbfs: float = DEFAULT_SILENCE_DBFS
-    # Where each value comes from: "default", "file", "env LTT_...", "flag" or "derived".
+    # Where each value comes from: "default", "file", "env RABBLEFISH_...", "flag" or "derived".
     sources: dict[str, str] = field(default_factory=dict, compare=False, repr=False)
 
     @property
@@ -81,13 +81,13 @@ class Settings:
         return self.sources.get(key, "default")
 
     def with_overrides(self, source: str = "flag", **values: Any) -> "Settings":
-        """A copy with some values replaced, for example `ltt serve --port`."""
+        """A copy with some values replaced, for example `rabblefish serve --port`."""
         values = {k: v for k, v in values.items() if v is not None}
         checked = {k: _check(k, v, source) for k, v in values.items()}
         return replace(self, **checked, sources={**self.sources, **dict.fromkeys(values, source)})
 
     def effective(self) -> list[tuple[str, Any, str]]:
-        """(key, value, source) for each setting, for `ltt config`."""
+        """(key, value, source) for each setting, for `rabblefish config`."""
         out = []
         for f in fields(self):
             if f.name == "sources":
@@ -103,15 +103,15 @@ KEYS = tuple(f.name for f in fields(Settings) if f.name != "sources")
 
 # The environment variable of each key, and how to read its text.
 ENV: dict[str, tuple[str, Callable[[str], Any]]] = {
-    "asr_endpoint_url": ("LTT_ASR_ENDPOINT_URL", str),
-    "translation_endpoint_url": ("LTT_TRANSLATION_ENDPOINT_URL", str),
-    "detect_languages": ("LTT_LANGUAGES", lambda s: [c.strip() for c in s.split(",")]),
-    "default_target_language": ("LTT_DEFAULT_TARGET_LANGUAGE", str),
-    "data_dir": ("LTT_DATA_DIR", str),
-    "host": ("LTT_HOST", str),
-    "port": ("LTT_PORT", int),
-    "silent_after_s": ("LTT_SILENT_AFTER_S", float),
-    "silence_dbfs": ("LTT_SILENCE_DBFS", float),
+    "asr_endpoint_url": ("RABBLEFISH_ASR_ENDPOINT_URL", str),
+    "translation_endpoint_url": ("RABBLEFISH_TRANSLATION_ENDPOINT_URL", str),
+    "detect_languages": ("RABBLEFISH_LANGUAGES", lambda s: [c.strip() for c in s.split(",")]),
+    "default_target_language": ("RABBLEFISH_DEFAULT_TARGET_LANGUAGE", str),
+    "data_dir": ("RABBLEFISH_DATA_DIR", str),
+    "host": ("RABBLEFISH_HOST", str),
+    "port": ("RABBLEFISH_PORT", int),
+    "silent_after_s": ("RABBLEFISH_SILENT_AFTER_S", float),
+    "silence_dbfs": ("RABBLEFISH_SILENCE_DBFS", float),
 }
 
 
@@ -209,11 +209,11 @@ def load_settings(env: Mapping[str, str] | None = None, path: Path | None = None
 
 
 def static_dir(env: Mapping[str, str] | None = None) -> Path | None:
-    """The directory of the built UI: `LTT_STATIC_DIR`, else the copy in the installed
-    package (`ltt/static`), else `frontend/dist` of the source checkout. None if no
+    """The directory of the built UI: `RABBLEFISH_STATIC_DIR`, else the copy in the installed
+    package (`rabblefish/static`), else `frontend/dist` of the source checkout. None if no
     directory exists (in development Vite serves the UI)."""
     env = os.environ if env is None else env
-    if override := env.get("LTT_STATIC_DIR"):
+    if override := env.get("RABBLEFISH_STATIC_DIR"):
         return Path(override)
     here = Path(__file__).resolve().parent
     for candidate in (here / "static", here.parents[2] / "frontend" / "dist"):

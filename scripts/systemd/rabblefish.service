@@ -1,0 +1,31 @@
+# systemd user unit for the rabblefish app (`rabblefish serve`).
+#
+# Template. It needs the `rabblefish` CLI in ~/.local/bin/rabblefish. Install it from the
+# root of the repository with `uv tool install ./backend` (see README.md).
+#
+# Install (see docs/endpoint.md):
+#   mkdir -p ~/.config/systemd/user
+#   cp scripts/systemd/rabblefish.service ~/.config/systemd/user/
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now rabblefish.service
+#
+# The app reads ~/.config/rabblefish/config.toml and the RABBLEFISH_*
+# environment variables (`rabblefish config` shows the effective settings). It starts
+# also when the endpoint is not ready: it shows the endpoint state in the UI. For a remote endpoint, set
+# asr_endpoint_url in the config file and do not install rabblefish-endpoint.service.
+
+[Unit]
+Description=rabblefish (rabblefish serve)
+Documentation=https://github.com/gdevenyi/RabbleFish/blob/master/docs/endpoint.md
+# Wants, not Requires: the endpoint can be on another machine.
+Wants=rabblefish-endpoint.service
+After=rabblefish-endpoint.service pipewire.service
+
+[Service]
+Type=exec
+ExecStart=%h/.local/bin/rabblefish serve
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

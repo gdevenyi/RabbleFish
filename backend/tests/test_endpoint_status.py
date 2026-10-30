@@ -6,9 +6,9 @@ from conftest import FakeCapture
 from fastapi.testclient import TestClient
 from test_app import MIC, fake_watcher
 
-from ltt.app import create_app
-from ltt.endpoint_status import check_endpoint
-from ltt.settings import load_settings
+from rabblefish.app import create_app
+from rabblefish.endpoint_status import check_endpoint
+from rabblefish.settings import load_settings
 
 DEAD = "http://127.0.0.1:9"  # nothing listens on the discard port
 
@@ -109,8 +109,8 @@ def test_a_session_start_checks_the_endpoint_again(fake_nemo):
 
 
 def test_config_gives_the_default_target_language(monkeypatch):
-    monkeypatch.setenv("LTT_DEFAULT_TARGET_LANGUAGE", "fr")
-    monkeypatch.setenv("LTT_LANGUAGES", "en,de")
+    monkeypatch.setenv("RABBLEFISH_DEFAULT_TARGET_LANGUAGE", "fr")
+    monkeypatch.setenv("RABBLEFISH_LANGUAGES", "en,de")
     app = create_app(fake_watcher([]), settings=load_settings())
     with TestClient(app) as c:
         config = c.get("/api/config").json()
