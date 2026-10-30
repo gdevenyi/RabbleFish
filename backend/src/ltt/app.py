@@ -9,7 +9,7 @@ from collections.abc import AsyncIterator, Awaitable, Callable
 from pathlib import Path
 from typing import Literal
 
-from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, HTTPException, Response, WebSocket, WebSocketDisconnect
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
@@ -18,6 +18,13 @@ from ltt.capture import Capture
 from ltt.nemo import NemoEndpoint
 from ltt.pipeline import CaptureFactory, Session
 from ltt.sources import Source, SourceRegistry, watch_sources
+from ltt.store import (
+    FSYNC_INTERVAL_S,
+    SavedSession,
+    SessionLog,
+    SessionStore,
+    default_data_dir,
+)
 from ltt.transcript import LanguageDetector, LanguageIdentifier, Transcript
 from ltt.translation import (
     DEFAULT_TARGET_LANGUAGE,
@@ -49,6 +56,7 @@ class SourceUpdate(BaseModel):
 
 class SessionStart(BaseModel):
     target_language: str = DEFAULT_TARGET_LANGUAGE
+    save_audio: bool = True
 
 
 class SpeakerUpdate(BaseModel):
@@ -68,11 +76,15 @@ def default_setting(source: Source) -> SourceSetting:
 class Hub:
     """The current Sources, their settings, the Session, and the connected UI sockets."""
 
-    def __init__(self) -> None:
+    def __init__(self, store: SessionStore) -> None:
         self.registry = SourceRegistry()
         self.settings: dict[str, SourceSetting] = {}  # by Source key; kept when a device goes
         self.transcript = Transcript()  # the current or last Session
         self.session: Session | None = None  # the running Session
+        self.store = store
+        # The log of the current or last Session. It stays open after the stop, so that a
+        # rename or a merge of the last Session is saved too, until the next start.
+        self.log: SessionLog | None = None
         self._clients: set[asyncio.Queue] = set()
 
     def sources_payload(self) -> list[dict]:
@@ -109,9 +121,29 @@ class Hub:
         self._broadcast({"type": "sources", "sources": self.sources_payload()})
 
     def publish(self, event: dict) -> None:
-        """Record a Session event for the snapshot and send it to every UI."""
+        """Record a Session event for the snapshot and in the log, and send it to every UI."""
         self.transcript.apply(event)
+        if self.log is not None:
+            try:
+                self.log.append(event)
+            except OSError as e:
+                log.error("cannot write the session log: %s", e)
         self._broadcast(event)
+
+    def close_log(self) -> None:
+        if self.log is not None:
+            self.log.close()
+            self.log = None
+
+    def sync(self) -> None:
+        """fsync the log and the saved audio of the Session."""
+        try:
+            if self.log is not None:
+                self.log.sync()
+            if self.session is not None:
+                self.session.sync()
+        except OSError as e:
+            log.error("cannot sync the session files: %s", e)
 
     def _broadcast(self, msg: dict) -> None:
         for q in self._clients:
@@ -125,6 +157,33 @@ class Hub:
 
     def unsubscribe(self, q: asyncio.Queue) -> None:
         self._clients.discard(q)
+
+
+def check_merge(t: Transcript, merge: SpeakerMerge) -> None:
+    """Raise HTTPException unless the Merge is valid in the Session of `t`."""
+    ids = (merge.from_speaker_id, merge.into_speaker_id)
+    for sid in ids:
+        if sid not in t.speakers:
+            raise HTTPException(404, f"unknown speaker: {sid}")
+    if merge.from_speaker_id == merge.into_speaker_id:
+        raise HTTPException(400, "a speaker cannot be merged into itself")
+    for sid in ids:
+        if t.merged_away(sid):
+            raise HTTPException(409, f"speaker {sid} is already merged into another")
+
+
+def renamed(t: Transcript, speaker_id: str, change: SpeakerUpdate) -> dict:
+    """The `speaker` event of a rename; raise HTTPException for an unknown Speaker."""
+    speaker = t.speakers.get(speaker_id)
+    if speaker is None:
+        raise HTTPException(404, f"unknown speaker: {speaker_id}")
+    return {**speaker, "display_name": (change.display_name or "").strip() or None}
+
+
+async def _sync_loop(hub: Hub) -> None:
+    while True:
+        await asyncio.sleep(FSYNC_INTERVAL_S)
+        hub.sync()
 
 
 async def _run_watcher(watch: Watcher, hub: Hub) -> None:
@@ -141,6 +200,7 @@ def create_app(
     capture_factory: CaptureFactory = Capture,
     detect_language: LanguageDetector | None = None,
     translation_endpoint_url: str | None = None,
+    data_dir: Path | str | None = None,
 ) -> FastAPI:
     """Create the app.
 
@@ -148,8 +208,10 @@ def create_app(
     `translation_endpoint_url` defaults to `LTT_TRANSLATION_ENDPOINT_URL`, then to the
     http:// form of the ASR endpoint (the same NeMo-Speech.cpp server).
     `detect_language` defaults to lingua, limited to `LTT_LANGUAGES` (default "en,fr").
+    `data_dir` defaults to `LTT_DATA_DIR`, then to `$XDG_DATA_HOME/live-transcribe-translate`.
     """
-    hub = Hub()
+    hub = Hub(SessionStore(Path(data_dir) if data_dir else default_data_dir()))
+    store = hub.store
     endpoint = NemoEndpoint(
         asr_endpoint_url or os.environ.get("LTT_ASR_ENDPOINT_URL") or DEFAULT_ASR_ENDPOINT_URL
     )
@@ -168,19 +230,27 @@ def create_app(
 
     @contextlib.asynccontextmanager
     async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
-        task = asyncio.create_task(_run_watcher(watch, hub))
+        # A log with no stop line is from an app that ended without a stop.
+        await asyncio.to_thread(store.recover)
+        tasks = [
+            asyncio.create_task(_run_watcher(watch, hub)),
+            asyncio.create_task(_sync_loop(hub)),
+        ]
         yield
         if hub.session is not None:
             await hub.session.stop()
             hub.session = None
-        task.cancel()
-        with contextlib.suppress(asyncio.CancelledError):
-            await task
+        hub.close_log()
+        for task in tasks:
+            task.cancel()
+            with contextlib.suppress(asyncio.CancelledError):
+                await task
 
     app = FastAPI(title="live-transcribe-translate", version=__version__, lifespan=lifespan)
     app.state.hub = hub
     app.state.asr_endpoint = endpoint
     app.state.translation_endpoint = translation_endpoint
+    app.state.store = store
 
     @app.get("/api/health")
     async def health() -> dict:
@@ -205,7 +275,8 @@ def create_app(
     async def start_session(start: SessionStart | None = None) -> dict:
         if hub.session is not None:
             raise HTTPException(409, "a session is running")
-        requested = (start or SessionStart()).target_language
+        start = start or SessionStart()
+        requested = start.target_language
         target = normalize_target(requested)
         if target is None:
             raise HTTPException(
@@ -219,7 +290,14 @@ def create_app(
         detect = await asyncio.to_thread(language_detector)
         if hub.session is not None:  # started by another request in the meantime
             raise HTTPException(409, "a session is running")
+        started_at = time.time()
+        try:
+            session_log = store.create(started_at)
+        except OSError as e:
+            raise HTTPException(500, f"cannot create the session directory: {e}") from e
+        hub.close_log()
         hub.transcript.reset()
+        hub.log = session_log  # before start(), which publishes the "started" event
         hub.session = Session(
             sources,
             endpoint,
@@ -228,6 +306,8 @@ def create_app(
             detect,
             resolve_source=hub.registry.get,
             translator=lambda publish: Translator(translation_endpoint, target, publish),
+            audio_dir=session_log.dir if start.save_audio else None,
+            started_at=started_at,
         )
         hub.session.start()
         return hub.session.event("started")
@@ -239,32 +319,81 @@ def create_app(
             raise HTTPException(409, "no session is running")
         await session.stop()
         hub.session = None
+        hub.sync()
         return session.event("stopped")
 
     @app.patch("/api/speakers/{speaker_id:path}")
     async def rename_speaker(speaker_id: str, change: SpeakerUpdate) -> dict:
-        speaker = hub.transcript.speakers.get(speaker_id)
-        if speaker is None:
-            raise HTTPException(404, f"unknown speaker: {speaker_id}")
-        event = {**speaker, "display_name": (change.display_name or "").strip() or None}
+        event = renamed(hub.transcript, speaker_id, change)
         hub.publish(event)
         return event
 
     @app.post("/api/speakers/merge")
     async def merge_speakers(merge: SpeakerMerge) -> dict:
-        t = hub.transcript
-        ids = (merge.from_speaker_id, merge.into_speaker_id)
-        for sid in ids:
-            if sid not in t.speakers:
-                raise HTTPException(404, f"unknown speaker: {sid}")
-        if merge.from_speaker_id == merge.into_speaker_id:
-            raise HTTPException(400, "a speaker cannot be merged into itself")
-        for sid in ids:
-            if t.merged_away(sid):
-                raise HTTPException(409, f"speaker {sid} is already merged into another")
+        check_merge(hub.transcript, merge)
         event = {"type": "merge", **merge.model_dump()}
         hub.publish(event)
         return event
+
+    # Past Sessions: the saved logs. The running Session is not a past Session.
+
+    def running_id() -> str | None:
+        return hub.log.id if hub.session is not None and hub.log is not None else None
+
+    def past(session_id: str) -> SavedSession:
+        if session_id == running_id():
+            raise HTTPException(409, "this session is running")
+        saved = store.load(session_id)
+        if saved is None:
+            raise HTTPException(404, f"unknown session: {session_id}")
+        return saved
+
+    def record(session_id: str, event: dict) -> None:
+        """Append a change to a past Session's log. For the last live Session, publish it,
+        so that the /ws snapshot and the UIs have it too."""
+        if hub.log is not None and session_id == hub.log.id:
+            hub.publish(event)
+        else:
+            store.append(session_id, event)
+
+    @app.get("/api/sessions")
+    async def list_sessions() -> list[dict]:
+        skip = running_id()
+        out = []
+        for sid in store.ids():
+            if sid == skip:
+                continue
+            saved = store.load(sid)
+            if saved is not None:
+                out.append(saved.summary())
+        return out
+
+    @app.get("/api/sessions/{session_id}")
+    async def open_session(session_id: str) -> dict:
+        saved = past(session_id)
+        return {**saved.summary(), "events": saved.transcript().snapshot()}
+
+    @app.patch("/api/sessions/{session_id}/speakers/{speaker_id:path}")
+    async def rename_past_speaker(session_id: str, speaker_id: str, change: SpeakerUpdate) -> dict:
+        event = renamed(past(session_id).transcript(), speaker_id, change)
+        record(session_id, event)
+        return event
+
+    @app.post("/api/sessions/{session_id}/speakers/merge")
+    async def merge_past_speakers(session_id: str, merge: SpeakerMerge) -> dict:
+        check_merge(past(session_id).transcript(), merge)
+        event = {"type": "merge", **merge.model_dump()}
+        record(session_id, event)
+        return event
+
+    @app.delete("/api/sessions/{session_id}", status_code=204)
+    async def delete_session(session_id: str) -> Response:
+        past(session_id)
+        if hub.log is not None and session_id == hub.log.id:
+            hub.close_log()
+            hub.transcript.reset()  # the deleted Session is not the last Session any more
+        store.delete(session_id)
+        return Response(status_code=204)
 
     @app.websocket("/ws")
     async def ui_socket(ws: WebSocket) -> None:

@@ -252,12 +252,14 @@ class Transcript:
         self.translations: dict[str, dict] = {}  # by Segment ID
         self.translation_status: dict | None = None
         self.partials: dict[str, dict] = {}
+        self.audio_files: list[dict] = []
 
     def apply(self, event: dict) -> None:
         kind = event["type"]
         if kind == "session":
             self.session = event
-            if event["state"] == "stopped":  # no Source is connected or speaking now
+            # Stopped, or (in a saved log) interrupted: no Source is connected or speaking.
+            if event["state"] in ("stopped", "interrupted"):
                 self.partials.clear()
                 self.statuses.clear()
                 self.translation_status = None
@@ -279,6 +281,8 @@ class Transcript:
             self.translations[event["segment_id"]] = event
         elif kind == "translation_status":
             self.translation_status = event
+        elif kind == "audio_file":
+            self.audio_files.append(event)
 
     def merged_away(self, speaker_id: str) -> bool:
         return any(m["from_speaker_id"] == speaker_id for m in self.merges)
@@ -295,5 +299,6 @@ class Transcript:
             *self.merges,
             *self.translations.values(),
             *([self.translation_status] if self.translation_status else []),
+            *self.audio_files,
             *self.partials.values(),
         ]
