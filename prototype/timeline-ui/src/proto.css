@@ -1,0 +1,16 @@
+/* PROTOTYPE: throwaway. Shell styles only; each variant has its own CSS file. */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body { font: 14px/1.4 system-ui, sans-serif; color: #1d2330; background: #f6f7f9; }
+.proto-app { display: flex; flex-direction: column; height: 100%; }
+.proto-stage { flex: 1; min-height: 0; position: relative; }
+.proto-controls { display: flex; gap: 8px; align-items: center; padding: 6px 10px; background: #2b2b2b; color: #eee; font-size: 13px; white-space: nowrap; overflow: hidden; }
+.proto-controls strong { color: #ffcc00; letter-spacing: 0.05em; }
+.proto-controls button { background: #444; color: #eee; border: 1px solid #666; border-radius: 4px; padding: 2px 8px; cursor: pointer; }
+.proto-controls button.on { background: #ffcc00; color: #222; }
+.proto-last { opacity: 0.8; overflow: hidden; text-overflow: ellipsis; }
+.proto-state { position: fixed; right: 12px; bottom: 12px; z-index: 1000; font-size: 12px; }
+.proto-state button { background: #2b2b2b; color: #ffcc00; border: none; border-radius: 4px; padding: 4px 8px; cursor: pointer; float: right; }
+.proto-state pre { clear: both; margin: 4px 0 0; padding: 8px; background: rgba(20, 20, 20, 0.92); color: #cfe; border-radius: 6px; max-height: 50vh; overflow: auto; }
+.proto-switcher { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 1000; display: flex; gap: 10px; align-items: center; padding: 6px 12px; background: #ffcc00; color: #222; border-radius: 999px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35); font-weight: 600; }
+.proto-switcher button { border: none; background: #222; color: #ffcc00; border-radius: 999px; width: 28px; height: 28px; cursor: pointer; font-size: 16px; }

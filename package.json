@@ -1,0 +1,7 @@
+{
+  "name": "live-transcribe-translate",
+  "private": true,
+  "scripts": {
+    "timeline-proto": "pnpm -C prototype/timeline-ui install && pnpm -C prototype/timeline-ui dev"
+  }
+}
