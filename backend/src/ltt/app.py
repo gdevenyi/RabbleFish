@@ -130,6 +130,13 @@ class Hub:
                 log.error("cannot write the session log: %s", e)
         self._broadcast(event)
 
+    def forget_last_session(self) -> None:
+        """The last Session was deleted: clear it. A new `hello` makes each UI clear its
+        state, as on a new connection; the snapshot that follows is empty."""
+        self.close_log()
+        self.transcript.reset()
+        self._broadcast({"type": "hello", "version": __version__})
+
     def close_log(self) -> None:
         if self.log is not None:
             self.log.close()
@@ -390,8 +397,7 @@ def create_app(
     async def delete_session(session_id: str) -> Response:
         past(session_id)
         if hub.log is not None and session_id == hub.log.id:
-            hub.close_log()
-            hub.transcript.reset()  # the deleted Session is not the last Session any more
+            hub.forget_last_session()
         store.delete(session_id)
         return Response(status_code=204)
 

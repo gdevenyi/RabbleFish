@@ -55,7 +55,8 @@ export function App() {
     httpSessionsApi
       .open(id)
       .then((past) => {
-        pastDispatch(pastSessionEvents(past, state.sources, Date.now() / 1000))
+        // Time 0: the saved Merges are old, so the Timeline shows no "recent Merge" notice.
+        pastDispatch(pastSessionEvents(past, state.sources, 0))
         setPastId(id)
         setPastOpen(false)
       })

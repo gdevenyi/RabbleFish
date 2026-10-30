@@ -114,7 +114,7 @@ The running Session is not a past Session: these return 409 for it, and the list
 - `GET /api/sessions`: newest first, each {id, started_at, ended_at, length (s), state (`stopped` or `interrupted`), interrupted, target_lang, speakers [{id, label, display_name}] (merged Speakers left out), segments, audio_files}.
 - `GET /api/sessions/{id}`: the same summary and `events`, the replay of the log through the code that builds the `/ws` snapshot. The UI gives these events to its reducer. It is read-only: no new Segments.
 - `PATCH /api/sessions/{id}/speakers/{speaker_id}` `{display_name}` and `POST /api/sessions/{id}/speakers/merge` `{from_speaker_id, into_speaker_id}`: append the `speaker` or `merge` event to the Session's log and return it. Encode the `#` as `%23`. For the last Session, the event also goes to `/ws`.
-- `DELETE /api/sessions/{id}`: delete the log and the audio (204).
+- `DELETE /api/sessions/{id}`: delete the log and the audio (204). If it is the last Session, the backend clears its `/ws` snapshot and sends `hello` again on `/ws`, so each UI clears its state.
 
 ## Translation
 

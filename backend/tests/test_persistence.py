@@ -160,7 +160,9 @@ def test_rename_and_merge_of_a_past_session_are_appended(fake_nemo, data_dir):
         assert alice["display_name"] == "Alice"
         assert "monitor:spk#2" not in {s["id"] for s in opened["speakers"]}
         # The live snapshot (the second Session) does not change.
-        assert "monitor:spk#1" not in c.app.state.hub.transcript.speakers
+        live = c.app.state.hub.transcript
+        assert (live.speakers.get("monitor:spk#1") or {}).get("display_name") is None
+        assert live.merges == []
 
 
 def test_changes_to_the_last_session_after_stop_are_saved(fake_nemo, data_dir):
@@ -190,8 +192,13 @@ def test_delete_a_past_session(fake_nemo, data_dir):
         (d,) = session_dirs(data_dir)
         assert (d / "audio").is_dir()
         assert c.delete("/api/sessions/nope").status_code == 404
-        assert c.delete("/api/sessions/..").status_code == 404
-        assert c.delete(f"/api/sessions/{d.name}").status_code == 204
+        assert c.delete("/api/sessions/%2E%2E").status_code == 404
+        with c.websocket_connect("/ws") as ws:
+            receive_until(ws, lambda ev: count(ev, "session", state="stopped"))
+            assert c.delete(f"/api/sessions/{d.name}").status_code == 204
+            # It was the last Session: each UI gets a new `hello` (clear) and no snapshot.
+            assert receive_until(ws, lambda ev: count(ev, "hello"))[-1]["type"] == "hello"
+        assert c.app.state.hub.transcript.snapshot() == []
         assert not d.exists() and (data_dir / "sessions").is_dir()
         assert c.get("/api/sessions").json() == []
         assert c.get(f"/api/sessions/{d.name}").status_code == 404
