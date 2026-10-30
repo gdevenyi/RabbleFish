@@ -7,7 +7,7 @@ import { PastSessions } from './PastSessions'
 import { formatStart, pastSessionApi, pastSessionEvents } from './pastSession'
 import { SourcesPanel } from './SourcesPanel'
 import { formatTime, liveEdge, sourceDescription } from './timeline/model'
-import { initialState, type ReceivedEvent, reduceAll } from './timeline/state'
+import { initialState, type ReceivedEvent, reduceAll, warningHint, warningLabel } from './timeline/state'
 import { Timeline } from './timeline/Timeline'
 import { useBackendSocket } from './useBackendSocket'
 
@@ -118,9 +118,19 @@ export function App() {
         </button>
         <span className="source-status">
           {Object.entries(state.sourceStatus).map(([key, st]) => (
-            <span key={key} className={`chip chip-${st.state}`} title={st.message ?? key} data-testid="source-status">
+            <span
+              key={key}
+              className={`chip chip-${st.state}${st.warning ? ' chip-warn' : ''}`}
+              title={st.warning ? warningHint(st.warning) : (st.message ?? key)}
+              data-testid="source-status"
+            >
               {sourceDescription(state, key)}: {st.state}
               {st.message && st.state !== 'live' ? ` (${st.message})` : ''}
+              {st.warning && (
+                <b className="warn-badge" data-testid="source-warning">
+                  {warningLabel(st.warning)}
+                </b>
+              )}
             </span>
           ))}
           {state.translationStatus && (

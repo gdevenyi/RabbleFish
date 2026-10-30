@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { ServerEvent } from '../contract'
-import { type AppState, initialState, mergeTargets, reduceAll, sortedSegments } from './state'
+import { type AppState, initialState, mergeTargets, reduceAll, sortedSegments, warningHint, warningLabel } from './state'
 
 const run = (events: ServerEvent[], state: AppState = initialState(), at = 1000) =>
   reduceAll(
@@ -122,6 +122,38 @@ describe('reducer', () => {
     s = run([{ type: 'session', state: 'stopped', started_at: 1, target_lang: 'en' }], s)
     expect(s.translationStatus).toBeNull()
     expect(s.translations.a.text).toBe('hello') // the transcript stays after the Session
+  })
+})
+
+describe('Source warning', () => {
+  const status = (state: 'connecting' | 'live' | 'error', warning?: 'muted' | 'silent' | null): ServerEvent => ({
+    type: 'source_status',
+    source_key: 'mon',
+    state,
+    message: null,
+    ...(warning === undefined ? {} : { warning }),
+  })
+
+  it('is set by source_status and cleared when the warning goes away', () => {
+    let s = run([status('connecting', 'muted')])
+    expect(s.sourceStatus.mon).toEqual({ state: 'connecting', message: null, warning: 'muted' })
+    s = run([status('live', 'muted')], s)
+    expect(s.sourceStatus.mon.warning).toBe('muted')
+    s = run([status('live', null)], s)
+    expect(s.sourceStatus.mon).toEqual({ state: 'live', message: null, warning: null })
+    s = run([status('live', 'silent')], s)
+    expect(s.sourceStatus.mon.warning).toBe('silent')
+  })
+
+  it('is null for an event of an older backend without the field', () => {
+    expect(run([status('live')]).sourceStatus.mon.warning).toBeNull()
+  })
+
+  it('has a short label and a hint', () => {
+    expect(warningLabel('muted')).toBe('Muted')
+    expect(warningLabel('silent')).toBe('No sound')
+    expect(warningHint('muted')).toMatch(/muted/)
+    expect(warningHint('silent')).toMatch(/silence/)
   })
 })
 

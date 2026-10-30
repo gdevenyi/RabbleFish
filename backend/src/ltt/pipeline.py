@@ -4,6 +4,11 @@ The capture runs for the whole Session. The connection reconnects by itself when
 lost; the audio of the gap is not transcribed, and the `source_status` "live" event that
 follows carries the gap. While a Source is not connected, its audio is not sent to NeMo.
 With "Save audio" on, all captured audio is saved (see `ltt.audio`), also during a gap.
+
+The level of each chunk is measured also while the Source is not connected. Each
+`source_status` event has the current `warning` ("muted", "silent" or None, see
+`ltt.level`), and a change of the warning sends a `source_status` event with the current
+state and message.
 """
 
 import asyncio
@@ -16,6 +21,7 @@ from typing import Protocol
 
 from ltt.audio import AudioRecorder
 from ltt.capture import BYTES_PER_SAMPLE, NS_PER_S, AudioChunk, Capture, CaptureError
+from ltt.level import SilenceDetector
 from ltt.nemo import EndpointError, NemoConnection, NemoEndpoint
 from ltt.sources import Source
 from ltt.transcript import LanguageDetector, SourceMapper
@@ -68,6 +74,11 @@ class SourcePipeline:
         self._stopping = asyncio.Event()
         self._task: asyncio.Task | None = None
         self._capture_task: asyncio.Task | None = None
+        self.silence = SilenceDetector()
+        self._state: str | None = None  # of the last source_status event
+        self._message: str | None = None
+        # A Source that is muted at the start shows "muted" in its first event.
+        self.silence.warning = "muted" if source.muted else None
 
     @property
     def key(self) -> str:
@@ -94,15 +105,24 @@ class SourcePipeline:
             self.recorder.close()
 
     def _status(self, state: str, message: str | None = None, **extra) -> None:
+        self._state, self._message = state, message
         self.publish(
             {
                 "type": "source_status",
                 "source_key": self.key,
                 "state": state,
                 "message": message,
+                "warning": self.silence.warning,
                 **extra,
             }
         )
+
+    def _measure(self, chunk: AudioChunk) -> None:
+        """Update the warning from one chunk; send it if it changed."""
+        current = self.resolve_source(self.key) if self.resolve_source else None
+        muted = (current or self.source).muted
+        if self.silence.feed(chunk, muted) and self._state is not None:
+            self._status(self._state, self._message)
 
     def _session_time(self, ns: int) -> float:
         return round((ns - self.mapper.session_start_ns) / NS_PER_S, 3)
@@ -123,6 +143,7 @@ class SourcePipeline:
             try:
                 async for chunk in self._capture.chunks():
                     retry = RETRY_MIN_S
+                    self._measure(chunk)
                     if self.recorder is not None:
                         self.recorder.write(chunk)
                     conn = self._conn

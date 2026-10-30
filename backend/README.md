@@ -59,6 +59,8 @@ At the start of each connection, the backend checks `GET /ready` and `GET /v1/mo
 | `LTT_LANGUAGES` | `en,fr` | ISO 639-1 codes for the language identifier (lingua, CPU only) |
 | `LTT_TRANSLATION_ENDPOINT_URL` | the `http://` form of `LTT_ASR_ENDPOINT_URL` | Base URL of the translation endpoint (`http://` or `https://`) |
 | `LTT_DATA_DIR` | `$XDG_DATA_HOME/live-transcribe-translate` (`~/.local/share/...`) | The directory of the saved Sessions (`sessions/` in it) |
+| `LTT_SILENT_AFTER_S` | `30` | Seconds of quiet audio before the `silent` warning of a Source |
+| `LTT_SILENCE_DBFS` | `-60` | A 100 ms chunk with a lower peak level (dBFS) is quiet |
 
 ### API
 
@@ -68,6 +70,22 @@ At the start of each connection, the backend checks `GET /ready` and `GET /v1/mo
 - `/ws`: `hello`, `sources`, then the snapshot of the current or last Session (`session`, `source_status`, `speaker`, `segment`, `merge`, `translation`, `translation_status`, `audio_file`, `partial`), then the live events. The `session` event has `target_lang`.
 
 A `source_status` `live` event after a reconnect has `gap: {start, end}`, in seconds since the Session start. The audio of the gap is lost.
+
+Each `sources` entry has `muted` (true when PipeWire reports the node as muted; see below).
+
+### Silent or muted Source
+
+The backend measures the peak level of each 100 ms chunk of each Source, also while the NeMo connection is down. A chunk with a peak below `LTT_SILENCE_DBFS` (default -60 dBFS) is quiet. Each `source_status` event has `warning`:
+
+- `"muted"`: the chunk is quiet and PipeWire reports the node as muted. It shows at once. For a microphone, this is the `mute` of the node (`pactl set-source-mute`). For a sink monitor, this is the `mute` of the sink (`pactl set-sink-mute`) when the sink has `monitor.channel-volumes` on (the usual setting: the monitor follows the sink volume, as in PulseAudio), or its `monitorMute`. The backend reads it from `info.params.Props` of the node in `pw-dump --monitor`. A mute that only the hardware or the application knows (for example the mute button of a call app) is not seen; it gives `"silent"`.
+- `"silent"`: all chunks were quiet for `LTT_SILENT_AFTER_S` seconds (default 30) of audio time.
+- `null`: the Source has sound. The first chunk with sound clears the warning.
+
+When the warning changes, the backend sends a `source_status` event with the current `state` and `message` and the new `warning` (without `gap`). `state` does not change. The event is saved in the event log like all `source_status` events.
+
+```json
+{"type": "source_status", "source_key": "monitor:ltt_test", "state": "live", "message": null, "warning": "muted"}
+```
 
 ### Integration check
 
@@ -82,7 +100,7 @@ pw-play --target ltt_test speech.wav
 pactl unload-module <module ID>
 ```
 
-A muted sink gives silence on its monitor, so its Source gives no text.
+A muted sink gives silence on its monitor, so its Source gives no text. The Source then shows the `muted` warning.
 
 ## Saved sessions
 
