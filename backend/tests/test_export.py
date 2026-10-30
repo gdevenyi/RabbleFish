@@ -11,10 +11,12 @@ import time
 from datetime import UTC
 from pathlib import Path
 
+import jsonschema
 import pytest
 from test_persistence import make_client, run_session, session_dirs
 from test_session import count, receive_until, select_both
 
+import ltt
 from ltt import pipeline
 from ltt.export import (
     SessionExport,
@@ -28,6 +30,7 @@ from ltt.store import read_events
 from ltt.transcript import Transcript
 
 FIXTURES = Path(__file__).parent / "fixtures" / "export"
+SCHEMA = json.loads((Path(ltt.__file__).parent / "export.schema.json").read_text())
 SESSION_ID = "2026-10-30T10-37-30"
 # The time of the export; it does not change the export of a closed Session.
 NOW = 1793360000.0
@@ -63,6 +66,14 @@ def test_markdown_matches_the_golden_file(fixture_export):
 
 def test_json_matches_the_golden_file(fixture_export):
     golden("expected.json", fixture_export.json())
+
+
+def validate(doc: dict) -> None:
+    jsonschema.validate(doc, SCHEMA, format_checker=jsonschema.FormatChecker())
+
+
+def test_json_validates_against_the_schema(fixture_export):
+    validate(fixture_export.document())
 
 
 def test_markdown_has_the_decided_parts(fixture_export):
@@ -189,6 +200,7 @@ def test_export_of_the_live_session_is_a_snapshot_in_progress(data_dir, fake_nem
             r = c.get("/api/session/export?format=json")
             assert r.headers["content-disposition"] == f'attachment; filename="{d.name}.json"'
             doc = r.json()
+            validate(doc)
             assert doc["session"]["in_progress"] is True
             assert doc["session"]["interrupted"] is False
             assert len(doc["segments"]) >= 2

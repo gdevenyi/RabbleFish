@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/gdevenyi/live-transcribe-translate/backend/src/ltt/export.schema.json",
+  "title": "Session export (JSON)",
+  "description": "One Session of live-transcribe-translate (issue #30). All times are seconds since the Session started.",
+  "type": "object",
+  "required": ["version", "session", "speakers", "segments", "audio_files"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "const": 1 },
+    "session": {
+      "type": "object",
+      "required": ["id", "started_at", "duration_s", "sources", "target_language", "interrupted", "in_progress"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "started_at": { "type": ["string", "null"], "format": "date-time" },
+        "duration_s": { "type": "number", "minimum": 0 },
+        "sources": { "type": "array", "items": { "type": "string" } },
+        "target_language": { "type": ["string", "null"] },
+        "interrupted": { "type": "boolean" },
+        "in_progress": { "type": "boolean" }
+      }
+    },
+    "speakers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "display_name", "source_key", "merged_into"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "display_name": { "type": ["string", "null"] },
+          "source_key": { "type": ["string", "null"] },
+          "merged_into": { "type": ["string", "null"], "description": "The Speaker that now has the Segments of this merged Speaker." }
+        }
+      }
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "start", "end", "speaker_id", "source_key", "text", "lang", "translation", "words"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "start": { "type": "number" },
+          "end": { "type": "number" },
+          "speaker_id": { "type": "string", "description": "The Speaker after Merges." },
+          "original_speaker_id": { "type": "string", "description": "Only for a merged Segment: the Speaker before Merges." },
+          "source_key": { "type": ["string", "null"] },
+          "text": { "type": "string" },
+          "lang": { "type": ["string", "null"] },
+          "translation": { "type": ["string", "null"] },
+          "words": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["w", "start", "end"],
+              "additionalProperties": false,
+              "properties": {
+                "w": { "type": "string" },
+                "start": { "type": ["number", "null"] },
+                "end": { "type": ["number", "null"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    "audio_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_key", "path", "start"],
+        "additionalProperties": false,
+        "properties": {
+          "source_key": { "type": "string" },
+          "path": { "type": "string", "description": "Relative to the Session directory." },
+          "start": { "type": "number" },
+          "sample_rate": { "type": ["integer", "null"] },
+          "format": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

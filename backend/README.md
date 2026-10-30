@@ -183,6 +183,7 @@ The rules are the same as in the Timeline of the UI:
 - `speakers` has all Speakers, also the merged ones (`merged_into` is the Speaker that now has their Segments; else `null`).
 - `segments` are sorted by start. `speaker_id` is the Speaker after Merges; `original_speaker_id` is there only for a merged Segment. `translation` is `null` when the Segment has no Translation.
 - `audio_files[].path` is relative to the Session directory (raw PCM16, see [Saved sessions](#saved-sessions)).
+- The JSON Schema of the document is `src/ltt/export.schema.json`. The tests validate the exports against it.
 - The golden files of the tests are in `tests/fixtures/export/`. To write them again after an intended change: `LTT_UPDATE_GOLDEN=1 uv run pytest tests/test_export.py`.
 
 ## Translation
