@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useReducer, useState } from 'react'
 import './app.css'
+import { DEFAULT_TARGET_LANGUAGE, TARGET_LANGUAGES } from './languages'
 import { SourcesPanel } from './SourcesPanel'
 import { formatTime, liveEdge, sourceDescription } from './timeline/model'
 import { initialState, type ReceivedEvent, reduceAll } from './timeline/state'
@@ -16,6 +17,7 @@ export function App() {
   const [error, setError] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
   const [sourcesOpen, setSourcesOpen] = useState(true)
+  const [targetLang, setTargetLang] = useState(DEFAULT_TARGET_LANGUAGE)
 
   const running = state.session.state === 'started'
   useEffect(() => {
@@ -47,9 +49,25 @@ export function App() {
           Session: <strong>{state.session.state}</strong>
           {running && ` · ${formatTime(liveEdge(state, clientNow))}`}
         </span>
+        <label className="target-lang" title="The Target language of the translation. You cannot change it while a Session runs.">
+          Translate to{' '}
+          <select
+            aria-label="Target language"
+            data-testid="target-language"
+            value={running && state.session.targetLang ? state.session.targetLang : targetLang}
+            onChange={(e) => setTargetLang(e.target.value)}
+            disabled={running}
+          >
+            {TARGET_LANGUAGES.map((l) => (
+              <option key={l.code} value={l.code}>
+                {l.name} ({l.code})
+              </option>
+            ))}
+          </select>
+        </label>
         <button
           className="start"
-          onClick={() => command(api.startSession)}
+          onClick={() => command(() => api.startSession(targetLang))}
           disabled={!online || running || busy || !anySelected}
           title={anySelected ? 'Start a Session with the selected Sources' : 'Select at least one Source first'}
         >
@@ -65,6 +83,16 @@ export function App() {
               {st.message && st.state !== 'live' ? ` (${st.message})` : ''}
             </span>
           ))}
+          {state.translationStatus && (
+            <span
+              className={`chip chip-${state.translationStatus.state === 'ready' ? 'live' : 'error'}`}
+              title={state.translationStatus.message ?? `Translation to ${state.translationStatus.targetLang}`}
+              data-testid="translation-status"
+            >
+              Translation: {state.translationStatus.state}
+              {state.translationStatus.message ? ` (${state.translationStatus.message})` : ''}
+            </span>
+          )}
         </span>
         <button className="sources-toggle" onClick={() => setSourcesOpen((o) => !o)} aria-expanded={sourcesOpen}>
           Sources {sourcesOpen ? '▴' : '▾'}

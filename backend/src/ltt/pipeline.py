@@ -16,12 +16,14 @@ from ltt.capture import BYTES_PER_SAMPLE, NS_PER_S, AudioChunk, Capture, Capture
 from ltt.nemo import EndpointError, NemoConnection, NemoEndpoint
 from ltt.sources import Source
 from ltt.transcript import LanguageDetector, SourceMapper
+from ltt.translation import Translator
 
 log = logging.getLogger(__name__)
 
 RETRY_MIN_S = 1.0
 RETRY_MAX_S = 10.0
 COMMIT_TIMEOUT_S = 5.0
+TRANSLATION_DRAIN_S = 10.0  # at stop, the time to translate the last Segments
 
 Publish = Callable[[dict], None]
 ResolveSource = Callable[[str], Source | None]  # the current Source for a key
@@ -202,10 +204,13 @@ class Session:
         detect_language: LanguageDetector | None = None,
         clock: Callable[[], int] = time.monotonic_ns,
         resolve_source: ResolveSource | None = None,
+        translator: Callable[[Publish], Translator] | None = None,
     ) -> None:
         self.start_ns = clock()
         self.started_at = time.time()
         self.publish = publish
+        self.translator = translator(publish) if translator else None
+        self.target_lang = self.translator.target_lang if self.translator else None
         self.pipelines = [
             SourcePipeline(
                 source,
@@ -218,7 +223,7 @@ class Session:
                     detect_language or (lambda _text: None),
                 ),
                 endpoint,
-                publish,
+                self._publish_source_event,
                 capture_factory,
                 clock,
                 resolve_source,
@@ -226,14 +231,28 @@ class Session:
             for source, diarize in sources
         ]
 
+    def _publish_source_event(self, event: dict) -> None:
+        self.publish(event)
+        if event["type"] == "segment" and self.translator is not None:
+            self.translator.submit(event)
+
     def event(self, state: str) -> dict:
-        return {"type": "session", "state": state, "started_at": self.started_at}
+        return {
+            "type": "session",
+            "state": state,
+            "started_at": self.started_at,
+            "target_lang": self.target_lang,
+        }
 
     def start(self) -> None:
         self.publish(self.event("started"))
+        if self.translator is not None:
+            self.translator.start()
         for p in self.pipelines:
             p.start()
 
     async def stop(self) -> None:
         await asyncio.gather(*(p.stop() for p in self.pipelines))
+        if self.translator is not None:
+            await self.translator.stop(TRANSLATION_DRAIN_S)
         self.publish(self.event("stopped"))

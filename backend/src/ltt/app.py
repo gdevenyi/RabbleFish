@@ -19,6 +19,13 @@ from ltt.nemo import NemoEndpoint
 from ltt.pipeline import CaptureFactory, Session
 from ltt.sources import Source, SourceRegistry, watch_sources
 from ltt.transcript import LanguageDetector, LanguageIdentifier, Transcript
+from ltt.translation import (
+    DEFAULT_TARGET_LANGUAGE,
+    TARGET_LANGUAGES,
+    TranslationEndpoint,
+    Translator,
+    normalize_target,
+)
 
 HEARTBEAT_INTERVAL_S = 1.0
 DEFAULT_ASR_ENDPOINT_URL = "ws://127.0.0.1:8080"
@@ -38,6 +45,10 @@ class SourceSetting(BaseModel):
 class SourceUpdate(BaseModel):
     selected: bool | None = None
     mode: SourceMode | None = None
+
+
+class SessionStart(BaseModel):
+    target_language: str = DEFAULT_TARGET_LANGUAGE
 
 
 class SpeakerUpdate(BaseModel):
@@ -129,15 +140,23 @@ def create_app(
     asr_endpoint_url: str | None = None,
     capture_factory: CaptureFactory = Capture,
     detect_language: LanguageDetector | None = None,
+    translation_endpoint_url: str | None = None,
 ) -> FastAPI:
     """Create the app.
 
     `asr_endpoint_url` defaults to `LTT_ASR_ENDPOINT_URL`, then to ws://127.0.0.1:8080.
+    `translation_endpoint_url` defaults to `LTT_TRANSLATION_ENDPOINT_URL`, then to the
+    http:// form of the ASR endpoint (the same NeMo-Speech.cpp server).
     `detect_language` defaults to lingua, limited to `LTT_LANGUAGES` (default "en,fr").
     """
     hub = Hub()
     endpoint = NemoEndpoint(
         asr_endpoint_url or os.environ.get("LTT_ASR_ENDPOINT_URL") or DEFAULT_ASR_ENDPOINT_URL
+    )
+    translation_endpoint = TranslationEndpoint(
+        translation_endpoint_url
+        or os.environ.get("LTT_TRANSLATION_ENDPOINT_URL")
+        or endpoint.http_url
     )
     detectors: list[LanguageDetector] = [detect_language] if detect_language else []
 
@@ -161,6 +180,7 @@ def create_app(
     app = FastAPI(title="live-transcribe-translate", version=__version__, lifespan=lifespan)
     app.state.hub = hub
     app.state.asr_endpoint = endpoint
+    app.state.translation_endpoint = translation_endpoint
 
     @app.get("/api/health")
     async def health() -> dict:
@@ -182,9 +202,17 @@ def create_app(
         return hub.sources_payload()
 
     @app.post("/api/session/start")
-    async def start_session() -> dict:
+    async def start_session(start: SessionStart | None = None) -> dict:
         if hub.session is not None:
             raise HTTPException(409, "a session is running")
+        requested = (start or SessionStart()).target_language
+        target = normalize_target(requested)
+        if target is None:
+            raise HTTPException(
+                400,
+                f"unsupported target language: {requested}; use one of "
+                + ", ".join(TARGET_LANGUAGES),
+            )
         sources = hub.selected_sources()
         if not sources:
             raise HTTPException(400, "no source is selected")
@@ -199,6 +227,7 @@ def create_app(
             capture_factory,
             detect,
             resolve_source=hub.registry.get,
+            translator=lambda publish: Translator(translation_endpoint, target, publish),
         )
         hub.session.start()
         return hub.session.event("started")
