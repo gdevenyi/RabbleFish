@@ -1,8 +1,9 @@
 """A Session: for each selected Source, one capture and one NeMo realtime connection.
 
 The capture runs for the whole Session. The connection reconnects by itself when it is
-lost; the audio of the gap is lost, and the `source_status` "live" event that follows
-carries the gap. While a Source is not connected, its audio is dropped.
+lost; the audio of the gap is not transcribed, and the `source_status` "live" event that
+follows carries the gap. While a Source is not connected, its audio is not sent to NeMo.
+With "Save audio" on, all captured audio is saved (see `ltt.audio`), also during a gap.
 """
 
 import asyncio
@@ -10,8 +11,10 @@ import contextlib
 import logging
 import time
 from collections.abc import AsyncIterator, Callable
+from pathlib import Path
 from typing import Protocol
 
+from ltt.audio import AudioRecorder
 from ltt.capture import BYTES_PER_SAMPLE, NS_PER_S, AudioChunk, Capture, CaptureError
 from ltt.nemo import EndpointError, NemoConnection, NemoEndpoint
 from ltt.sources import Source
@@ -49,8 +52,10 @@ class SourcePipeline:
         capture_factory: CaptureFactory,
         clock: Callable[[], int] = time.monotonic_ns,
         resolve_source: ResolveSource | None = None,
+        recorder: AudioRecorder | None = None,
     ) -> None:
         self.source = source
+        self.recorder = recorder
         self.resolve_source = resolve_source
         self.diarize = diarize
         self.mapper = mapper
@@ -85,6 +90,8 @@ class SourcePipeline:
                 await conn.commit()
         if self._task is not None:
             await _finish(self._task, COMMIT_TIMEOUT_S)
+        if self.recorder is not None:
+            self.recorder.close()
 
     def _status(self, state: str, message: str | None = None, **extra) -> None:
         self.publish(
@@ -116,6 +123,8 @@ class SourcePipeline:
             try:
                 async for chunk in self._capture.chunks():
                     retry = RETRY_MIN_S
+                    if self.recorder is not None:
+                        self.recorder.write(chunk)
                     conn = self._conn
                     if conn is None:
                         continue  # not connected: the audio of the gap is lost
@@ -127,6 +136,8 @@ class SourcePipeline:
             except CaptureError as e:
                 log.warning("%s", e)
                 self._status("error", f"capture: {e}")
+            if self.recorder is not None:
+                self.recorder.capture_break()
             if self._stopping.is_set() or await self._wait_stop(retry):
                 return
             retry = min(retry * 2, RETRY_MAX_S)
@@ -205,9 +216,14 @@ class Session:
         clock: Callable[[], int] = time.monotonic_ns,
         resolve_source: ResolveSource | None = None,
         translator: Callable[[Publish], Translator] | None = None,
+        audio_dir: Path | None = None,
+        started_at: float | None = None,
     ) -> None:
+        """`audio_dir` is the Session directory to save the audio in; None saves none.
+        `started_at` is the unix time of the start (default: now)."""
         self.start_ns = clock()
-        self.started_at = time.time()
+        self.started_at = time.time() if started_at is None else started_at
+        self.ended_at: float | None = None
         self.publish = publish
         self.translator = translator(publish) if translator else None
         self.target_lang = self.translator.target_lang if self.translator else None
@@ -227,6 +243,9 @@ class Session:
                 capture_factory,
                 clock,
                 resolve_source,
+                None
+                if audio_dir is None
+                else AudioRecorder(audio_dir, source.key, self.start_ns, self.publish),
             )
             for source, diarize in sources
         ]
@@ -237,12 +256,21 @@ class Session:
             self.translator.submit(event)
 
     def event(self, state: str) -> dict:
-        return {
+        event = {
             "type": "session",
             "state": state,
             "started_at": self.started_at,
             "target_lang": self.target_lang,
         }
+        if state == "stopped":
+            event["ended_at"] = self.ended_at
+        return event
+
+    def sync(self) -> None:
+        """fsync the saved audio that is not on the disk yet."""
+        for p in self.pipelines:
+            if p.recorder is not None:
+                p.recorder.sync()
 
     def start(self) -> None:
         self.publish(self.event("started"))
@@ -255,4 +283,5 @@ class Session:
         await asyncio.gather(*(p.stop() for p in self.pipelines))
         if self.translator is not None:
             await self.translator.stop(TRANSLATION_DRAIN_S)
+        self.ended_at = round(time.time(), 3)
         self.publish(self.event("stopped"))

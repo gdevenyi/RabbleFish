@@ -20,6 +20,14 @@ SINGLE_EVENTS = FIXTURES / "nemo_single_en.jsonl"  # en_fr.wav, first 15 s, no d
 CONTROL = {"session.created", "session.updated", "input_audio_buffer.committed"}
 
 
+@pytest.fixture(autouse=True)
+def data_dir(tmp_path, monkeypatch) -> Path:
+    """Saved Sessions go to a temporary directory, never to the user's data directory."""
+    path = tmp_path / "data"
+    monkeypatch.setenv("LTT_DATA_DIR", str(path))
+    return path
+
+
 def load_events(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
 

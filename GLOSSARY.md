@@ -14,6 +14,10 @@ _Avoid_: Recording, meeting, run
 A session that ended without being stopped, for example because the app crashed. It is kept as a past session and is never continued.
 _Avoid_: Crashed session, broken session
 
+**Past session**:
+A session that is not running any more and is saved, stopped or interrupted. It opens read-only in the timeline, but its speakers can still be renamed and merged.
+_Avoid_: Recording, history entry
+
 **Source**:
 One audio input that the user selects for a session, for example a microphone or the monitor of an output device. Each source stays a separate stream.
 _Avoid_: Device, channel, input

@@ -30,6 +30,7 @@ A Session opens one capture and one NeMo-Speech.cpp realtime connection for each
 - `ltt.transcript`: the mapping from NeMo events to our `partial`, `segment` and `speaker` events, the language of each Segment, and the Session state for the `/ws` snapshot.
 - `ltt.pipeline`: the Session, and for each Source the capture loop and the connection loop (automatic reconnect).
 - `ltt.translation`: the translation of Segments (see [Translation](#translation)).
+- `ltt.store` and `ltt.audio`: the saved Sessions and their audio (see [Saved sessions](#saved-sessions)).
 
 ### The ASR endpoint
 
@@ -57,13 +58,14 @@ At the start of each connection, the backend checks `GET /ready` and `GET /v1/mo
 | `LTT_ASR_ENDPOINT_URL` | `ws://127.0.0.1:8080` | Base URL of the NeMo-Speech.cpp endpoint (`ws://` or `wss://`) |
 | `LTT_LANGUAGES` | `en,fr` | ISO 639-1 codes for the language identifier (lingua, CPU only) |
 | `LTT_TRANSLATION_ENDPOINT_URL` | the `http://` form of `LTT_ASR_ENDPOINT_URL` | Base URL of the translation endpoint (`http://` or `https://`) |
+| `LTT_DATA_DIR` | `$XDG_DATA_HOME/live-transcribe-translate` (`~/.local/share/...`) | The directory of the saved Sessions (`sessions/` in it) |
 
 ### API
 
-- `POST /api/session/start` with an optional body `{"target_language": "fr"}` (default `en`), `POST /api/session/stop`. While a Session runs, `PATCH /api/sources/...` returns 409. An unsupported Target language returns 400.
+- `POST /api/session/start` with an optional body `{"target_language": "fr", "save_audio": true}` (defaults `en` and `true`), `POST /api/session/stop`. The `stopped` `session` event has `ended_at` (unix seconds). While a Session runs, `PATCH /api/sources/...` returns 409. An unsupported Target language returns 400.
 - `PATCH /api/speakers/{id}` `{display_name}`. Encode the `#` of the ID as `%23`.
 - `POST /api/speakers/merge` `{from_speaker_id, into_speaker_id}`.
-- `/ws`: `hello`, `sources`, then the snapshot of the current or last Session (`session`, `source_status`, `speaker`, `segment`, `merge`, `translation`, `translation_status`, `partial`), then the live events. The `session` event has `target_lang`.
+- `/ws`: `hello`, `sources`, then the snapshot of the current or last Session (`session`, `source_status`, `speaker`, `segment`, `merge`, `translation`, `translation_status`, `audio_file`, `partial`), then the live events. The `session` event has `target_lang`.
 
 A `source_status` `live` event after a reconnect has `gap: {start, end}`, in seconds since the Session start. The audio of the gap is lost.
 
@@ -81,6 +83,38 @@ pactl unload-module <module ID>
 ```
 
 A muted sink gives silence on its monitor, so its Source gives no text.
+
+## Saved sessions
+
+Each Session is saved as it runs (decided in issue #29). Recording again always starts a new Session.
+
+```
+$LTT_DATA_DIR/sessions/<YYYY-MM-DDTHH-MM-SS>/   # local time of the start; "-2" if two start in one second
+  events.jsonl                                 # the event log
+  audio/<source key>-001.pcm                   # the saved audio, one file per Source and capture run
+```
+
+- **Event log:** one JSON line for each event, exactly as on `/ws`. Saved: `session`, `speaker` (also each rename), `segment`, `translation`, `translation_status`, `merge`, `source_status`, `audio_file`. Not saved: `partial`, `heartbeat`, `hello`, `sources`.
+- **Durability:** each event is written and flushed to the kernel when it happens, so a crash of the app loses nothing. `fsync` runs at most every 2 s (also every 2 s in the background, and at stop), so a power failure loses at most about 2 s.
+- **The last Session:** its log stays open after the stop, so a rename or a merge (`PATCH /api/speakers/...`, `POST /api/speakers/merge`) is saved too, until the next start.
+- **Interrupted session:** at start-up, the backend closes each log that has no `session` `stopped` line with this line, and lists the Session as a past Session. It is never continued.
+
+  ```json
+  {"type": "session", "state": "interrupted", "started_at": 1761830000.0, "target_lang": "en", "ended_at": 1761830421.5}
+  ```
+
+  `ended_at` is `started_at` plus the last known Session time: the end of the last Segment, gap or audio file.
+- **Audio:** with "Save audio" on (the default), the backend saves all captured audio of each Source as raw PCM16 little-endian, 16 kHz mono (about 115 MB per hour per Source). It saves the audio also while the NeMo connection is down, so a gap can be transcribed again later. A new file starts after each break in the capture (a capture restart, or lost audio that moved the capture's time anchor). Each file has an `audio_file` event {source_key, path (relative to the Session directory), start (Session time of the first sample), sample_rate, format: `s16le`}. To listen to a file: `play -t raw -r 16000 -e signed -b 16 -c 1 file.pcm`.
+- **Retention:** nothing is deleted automatically.
+
+### Past sessions API
+
+The running Session is not a past Session: these return 409 for it, and the list leaves it out. An unknown ID returns 404.
+
+- `GET /api/sessions`: newest first, each {id, started_at, ended_at, length (s), state (`stopped` or `interrupted`), interrupted, target_lang, speakers [{id, label, display_name}] (merged Speakers left out), segments, audio_files}.
+- `GET /api/sessions/{id}`: the same summary and `events`, the replay of the log through the code that builds the `/ws` snapshot. The UI gives these events to its reducer. It is read-only: no new Segments.
+- `PATCH /api/sessions/{id}/speakers/{speaker_id}` `{display_name}` and `POST /api/sessions/{id}/speakers/merge` `{from_speaker_id, into_speaker_id}`: append the `speaker` or `merge` event to the Session's log and return it. Encode the `#` as `%23`. For the last Session, the event also goes to `/ws`.
+- `DELETE /api/sessions/{id}`: delete the log and the audio (204). If it is the last Session, the backend clears its `/ws` snapshot and sends `hello` again on `/ws`, so each UI clears its state.
 
 ## Translation
 
