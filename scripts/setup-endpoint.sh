@@ -10,7 +10,7 @@
 
 set -euo pipefail
 
-readonly NEMO_VERSION="0.2.0"
+readonly NEMO_VERSION="0.3.0"
 readonly NEMO_REPO="https://github.com/NVIDIA/NeMo-Speech.cpp"
 readonly HF="https://huggingface.co"
 
@@ -369,6 +369,12 @@ step_translation() {
 	fi
 	export HF_HOME="$work/hf" TMPDIR="$work/tmp" UV_CACHE_DIR="$work/uv-cache"
 
+	# A failed conversion leaves its work files. Do not use them with another
+	# NeMo-Speech.cpp version. The downloaded checkpoint in $HF_HOME stays valid.
+	if [[ -f $src/VERSION && $(<"$src/VERSION") != *" $NEMO_VERSION" ]]; then
+		echo "    remove the conversion source and venv of another version"
+		rm -rf "$src" "$venv"
+	fi
 	if [[ ! -f $src/convert_model.py ]]; then
 		echo "    clone NeMo-Speech.cpp v$NEMO_VERSION source"
 		rm -rf "$src"

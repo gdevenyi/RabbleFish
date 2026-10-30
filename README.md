@@ -60,7 +60,7 @@ flowchart LR
 scripts/setup-endpoint.sh --backend vulkan   # or: cuda, cpu
 ```
 
-The script downloads the NeMo-Speech.cpp server and the models, converts the translation model once, checks every file, and prints the exact `nemo-speech serve` command to run. It needs about 5.3 GB of disk, plus about 11 GB more during the conversion. You can run it again at any time: it skips the work that is done.
+The script downloads the NeMo-Speech.cpp server and the models, converts the translation model once, checks every file, and prints the exact `nemo-speech serve` command to run. It needs about 5.3 GB of disk (about 7 GB with `cuda`), plus about 11 GB more during the conversion. You can run it again at any time: it skips the work that is done.
 
 ### 2. Install and start the app
 
@@ -116,7 +116,7 @@ The sessions are saved under `~/.local/share/rabblefish/sessions/`, one folder p
 
 Every endpoint runs the same stack ([ADR-0001](docs/adr/0001-endpoint-only-app-built-new.md)): NeMo-Speech.cpp with Nemotron 3.5 ASR Streaming 0.6B, Nemotron 3 Diarization and Riva-Translate-4B. The server needs `--asr.endpointing.enable=true --asr.batching.enabled=false`, and `--threads` at least equal to the number of sources. The setup script prints these flags for you.
 
-Measured capacity in real time, with diarization:
+Capacity measured with NeMo-Speech.cpp v0.2.0, in real time, with diarization:
 
 | Hardware | Sources | Notes |
 | --- | --- | --- |
