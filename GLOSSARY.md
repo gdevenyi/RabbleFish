@@ -24,16 +24,9 @@ _Avoid_: Participant, user, voice
 The real name that the user assigns to a speaker, for example "Alice" for "Speaker 2".
 _Avoid_: Alias, nickname
 
-**Correction**:
-A change by diarization to the speaker of segments that are already finalized. A correction is a move or a merge.
-_Avoid_: Reassignment, fix, relabel
-
-**Move**:
-A correction that gives one segment to a different speaker.
-
 **Merge**:
-A correction that finds two speakers are the same voice and joins one into the other. The joined speaker no longer has a column.
-_Avoid_: False split (that is the cause, not the correction)
+A user action that joins two speakers who are the same person, for example after the diarizer split one voice or after a reconnect. The joined speaker no longer has a column.
+_Avoid_: Correction, relabel
 
 ### Transcript
 
