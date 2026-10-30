@@ -1,0 +1,10 @@
+{"dir": "results/kyutai/n1", "src": 0, "n": 44, "p50": -0.038, "p95": -0.037, "max": 0.0, "min": -0.04}
+{"dir": "results/kyutai/n2", "src": 0, "n": 44, "p50": -6.194, "p95": -1.154, "max": 0.0, "min": -15.076}
+{"dir": "results/kyutai/n2", "src": 1, "n": 44, "p50": -6.229, "p95": -1.153, "max": 0.0, "min": -15.075}
+{"dir": "results/kyutai/n3", "src": 0, "n": 44, "p50": -13.674, "p95": -1.395, "max": 0.0, "min": -27.155}
+{"dir": "results/kyutai/n3", "src": 1, "n": 44, "p50": -13.674, "p95": -1.467, "max": 0.0, "min": -27.154}
+{"dir": "results/kyutai/n3", "src": 2, "n": 44, "p50": -13.675, "p95": -1.468, "max": 0.0, "min": -27.155}
+{"dir": "results/kyutai/wer_en_ami", "src": 0, "n": 30, "p50": -0.036, "p95": -0.034, "max": 0.0, "min": -0.038}
+{"dir": "results/kyutai/wer_fr", "src": 0, "n": 14, "p50": -0.038, "p95": -0.038, "max": 0.0, "min": -0.04}
+{"dir": "results/kyutai_corun/kyutai", "src": 0, "n": 44, "p50": -0.036, "p95": -0.035, "max": 0.0, "min": -0.038}
+{"dir": "results/kyutai_b64/n1", "src": 0, "n": 44, "p50": -0.021, "p95": -0.021, "max": 0.0, "min": -0.023}

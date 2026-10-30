@@ -1,0 +1,20 @@
+== before-voxtral-start 2026-10-29T23:00:09-04:00
+apps: 
+gpu: 0 %, 2 MiB
+uptime:  23:00:09 up 19 days, 39 min,  2 users,  load average: 6.13, 2.94, 2.10
+docker: 
+== after-voxtral-start 2026-10-29T23:02:59-04:00
+apps: 
+gpu: 0 %, 2 MiB
+uptime:  23:02:59 up 19 days, 42 min,  2 users,  load average: 2.02, 2.39, 2.02
+docker: 
+== before-voxtral-start2 2026-10-29T23:03:18-04:00
+apps: 
+gpu: 0 %, 2 MiB
+uptime:  23:03:18 up 19 days, 43 min,  2 users,  load average: 1.51, 2.25, 1.98
+docker: 
+== after-voxtral-start2 2026-10-29T23:04:34-04:00
+apps: 2770722, VLLM::EngineCore, 13780 MiB;
+gpu: 0 %, 13790 MiB
+uptime:  23:04:34 up 19 days, 44 min,  2 users,  load average: 2.27, 2.40, 2.06
+docker: 

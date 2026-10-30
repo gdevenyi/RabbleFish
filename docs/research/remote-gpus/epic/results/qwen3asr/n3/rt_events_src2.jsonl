@@ -1,0 +1,456 @@
+{"type": "session.created", "id": "sess-a7ac8106d3c09eab", "created": 1793330602}
+{"type": "transcription.delta", "delta": "language", "_t": 4.977, "_audio_sent_s": 5.04}
+{"type": "transcription.delta", "delta": " English", "_t": 4.982, "_audio_sent_s": 5.04}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 4.987, "_audio_sent_s": 5.04}
+{"type": "transcription.delta", "delta": "From", "_t": 4.992, "_audio_sent_s": 5.04}
+{"type": "transcription.delta", "delta": " a", "_t": 4.997, "_audio_sent_s": 5.04}
+{"type": "transcription.delta", "delta": " plain", "_t": 5.002, "_audio_sent_s": 5.04}
+{"type": "transcription.delta", "delta": " text", "_t": 5.007, "_audio_sent_s": 5.04}
+{"type": "transcription.delta", "delta": " file", "_t": 5.012, "_audio_sent_s": 5.04}
+{"type": "transcription.delta", "delta": ",", "_t": 5.017, "_audio_sent_s": 5.04}
+{"type": "transcription.delta", "delta": " yeah", "_t": 5.021, "_audio_sent_s": 5.04}
+{"type": "transcription.delta", "delta": ",", "_t": 5.026, "_audio_sent_s": 5.04}
+{"type": "transcription.delta", "delta": " back", "_t": 5.031, "_audio_sent_s": 5.04}
+{"type": "transcription.delta", "delta": " into", "_t": 5.036, "_audio_sent_s": 5.04}
+{"type": "transcription.delta", "delta": " organized", "_t": 5.041, "_audio_sent_s": 5.12}
+{"type": "transcription.delta", "delta": " by", "_t": 5.046, "_audio_sent_s": 5.12}
+{"type": "transcription.delta", "delta": " who", "_t": 5.051, "_audio_sent_s": 5.12}
+{"type": "transcription.delta", "delta": ",", "_t": 5.056, "_audio_sent_s": 5.12}
+{"type": "transcription.delta", "delta": " which", "_t": 5.061, "_audio_sent_s": 5.12}
+{"type": "transcription.delta", "delta": " speakers", "_t": 5.066, "_audio_sent_s": 5.12}
+{"type": "transcription.delta", "delta": ".", "_t": 5.071, "_audio_sent_s": 5.12}
+{"type": "transcription.delta", "delta": "", "_t": 5.076, "_audio_sent_s": 5.12}
+{"type": "transcription.delta", "delta": "language", "_t": 9.941, "_audio_sent_s": 10.0}
+{"type": "transcription.delta", "delta": " English", "_t": 9.946, "_audio_sent_s": 10.0}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 9.951, "_audio_sent_s": 10.0}
+{"type": "transcription.delta", "delta": "I", "_t": 9.956, "_audio_sent_s": 10.0}
+{"type": "transcription.delta", "delta": " think", "_t": 9.961, "_audio_sent_s": 10.0}
+{"type": "transcription.delta", "delta": " that", "_t": 9.965, "_audio_sent_s": 10.0}
+{"type": "transcription.delta", "delta": " was", "_t": 9.97, "_audio_sent_s": 10.0}
+{"type": "transcription.delta", "delta": " the", "_t": 9.975, "_audio_sent_s": 10.0}
+{"type": "transcription.delta", "delta": " stupid", "_t": 9.98, "_audio_sent_s": 10.0}
+{"type": "transcription.delta", "delta": "est", "_t": 9.985, "_audio_sent_s": 10.0}
+{"type": "transcription.delta", "delta": " way", "_t": 9.99, "_audio_sent_s": 10.0}
+{"type": "transcription.delta", "delta": " they", "_t": 9.995, "_audio_sent_s": 10.0}
+{"type": "transcription.delta", "delta": " could", "_t": 10.0, "_audio_sent_s": 10.0}
+{"type": "transcription.delta", "delta": " ever", "_t": 10.005, "_audio_sent_s": 10.08}
+{"type": "transcription.delta", "delta": " organize", "_t": 10.01, "_audio_sent_s": 10.08}
+{"type": "transcription.delta", "delta": " the", "_t": 10.015, "_audio_sent_s": 10.08}
+{"type": "transcription.delta", "delta": " whole", "_t": 10.02, "_audio_sent_s": 10.08}
+{"type": "transcription.delta", "delta": " thing", "_t": 10.025, "_audio_sent_s": 10.08}
+{"type": "transcription.delta", "delta": ",", "_t": 10.029, "_audio_sent_s": 10.08}
+{"type": "transcription.delta", "delta": " if", "_t": 10.034, "_audio_sent_s": 10.08}
+{"type": "transcription.delta", "delta": " you", "_t": 10.039, "_audio_sent_s": 10.08}
+{"type": "transcription.delta", "delta": ".", "_t": 10.044, "_audio_sent_s": 10.08}
+{"type": "transcription.delta", "delta": "", "_t": 10.049, "_audio_sent_s": 10.08}
+{"type": "transcription.delta", "delta": "language", "_t": 14.981, "_audio_sent_s": 15.04}
+{"type": "transcription.delta", "delta": " English", "_t": 14.986, "_audio_sent_s": 15.04}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 14.991, "_audio_sent_s": 15.04}
+{"type": "transcription.delta", "delta": "Organ", "_t": 14.996, "_audio_sent_s": 15.04}
+{"type": "transcription.delta", "delta": "ize", "_t": 15.001, "_audio_sent_s": 15.04}
+{"type": "transcription.delta", "delta": " it", "_t": 15.006, "_audio_sent_s": 15.04}
+{"type": "transcription.delta", "delta": " by", "_t": 15.011, "_audio_sent_s": 15.04}
+{"type": "transcription.delta", "delta": " time", "_t": 15.016, "_audio_sent_s": 15.04}
+{"type": "transcription.delta", "delta": ",", "_t": 15.02, "_audio_sent_s": 15.04}
+{"type": "transcription.delta", "delta": " not", "_t": 15.025, "_audio_sent_s": 15.04}
+{"type": "transcription.delta", "delta": " by", "_t": 15.03, "_audio_sent_s": 15.04}
+{"type": "transcription.delta", "delta": " speaker", "_t": 15.035, "_audio_sent_s": 15.04}
+{"type": "transcription.delta", "delta": ".", "_t": 15.041, "_audio_sent_s": 15.12}
+{"type": "transcription.delta", "delta": " But", "_t": 15.045, "_audio_sent_s": 15.12}
+{"type": "transcription.delta", "delta": ".", "_t": 15.05, "_audio_sent_s": 15.12}
+{"type": "transcription.delta", "delta": "", "_t": 15.055, "_audio_sent_s": 15.12}
+{"type": "transcription.delta", "delta": "language", "_t": 19.941, "_audio_sent_s": 20.0}
+{"type": "transcription.delta", "delta": " English", "_t": 19.946, "_audio_sent_s": 20.0}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 19.951, "_audio_sent_s": 20.0}
+{"type": "transcription.delta", "delta": "But", "_t": 19.956, "_audio_sent_s": 20.0}
+{"type": "transcription.delta", "delta": " so", "_t": 19.961, "_audio_sent_s": 20.0}
+{"type": "transcription.delta", "delta": " I", "_t": 19.966, "_audio_sent_s": 20.0}
+{"type": "transcription.delta", "delta": " don", "_t": 19.971, "_audio_sent_s": 20.0}
+{"type": "transcription.delta", "delta": "'t", "_t": 19.976, "_audio_sent_s": 20.0}
+{"type": "transcription.delta", "delta": " know", "_t": 19.981, "_audio_sent_s": 20.0}
+{"type": "transcription.delta", "delta": ",", "_t": 19.986, "_audio_sent_s": 20.0}
+{"type": "transcription.delta", "delta": " really", "_t": 19.991, "_audio_sent_s": 20.0}
+{"type": "transcription.delta", "delta": ",", "_t": 19.995, "_audio_sent_s": 20.0}
+{"type": "transcription.delta", "delta": " what", "_t": 20.0, "_audio_sent_s": 20.08}
+{"type": "transcription.delta", "delta": " we", "_t": 20.005, "_audio_sent_s": 20.08}
+{"type": "transcription.delta", "delta": "'re", "_t": 20.01, "_audio_sent_s": 20.08}
+{"type": "transcription.delta", "delta": " gonna", "_t": 20.015, "_audio_sent_s": 20.08}
+{"type": "transcription.delta", "delta": " do", "_t": 20.021, "_audio_sent_s": 20.08}
+{"type": "transcription.delta", "delta": " about", "_t": 20.025, "_audio_sent_s": 20.08}
+{"type": "transcription.delta", "delta": " that", "_t": 20.03, "_audio_sent_s": 20.08}
+{"type": "transcription.delta", "delta": ".", "_t": 20.035, "_audio_sent_s": 20.08}
+{"type": "transcription.delta", "delta": "", "_t": 20.04, "_audio_sent_s": 20.08}
+{"type": "transcription.delta", "delta": "language", "_t": 24.982, "_audio_sent_s": 25.04}
+{"type": "transcription.delta", "delta": " English", "_t": 24.987, "_audio_sent_s": 25.04}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 24.992, "_audio_sent_s": 25.04}
+{"type": "transcription.delta", "delta": "But", "_t": 24.997, "_audio_sent_s": 25.04}
+{"type": "transcription.delta", "delta": " so", "_t": 25.002, "_audio_sent_s": 25.04}
+{"type": "transcription.delta", "delta": " I", "_t": 25.007, "_audio_sent_s": 25.04}
+{"type": "transcription.delta", "delta": " don", "_t": 25.012, "_audio_sent_s": 25.04}
+{"type": "transcription.delta", "delta": "'t", "_t": 25.017, "_audio_sent_s": 25.04}
+{"type": "transcription.delta", "delta": " know", "_t": 25.022, "_audio_sent_s": 25.04}
+{"type": "transcription.delta", "delta": ",", "_t": 25.028, "_audio_sent_s": 25.04}
+{"type": "transcription.delta", "delta": " really", "_t": 25.033, "_audio_sent_s": 25.04}
+{"type": "transcription.delta", "delta": ",", "_t": 25.038, "_audio_sent_s": 25.04}
+{"type": "transcription.delta", "delta": " what", "_t": 25.043, "_audio_sent_s": 25.12}
+{"type": "transcription.delta", "delta": " we", "_t": 25.048, "_audio_sent_s": 25.12}
+{"type": "transcription.delta", "delta": "'re", "_t": 25.053, "_audio_sent_s": 25.12}
+{"type": "transcription.delta", "delta": " gonna", "_t": 25.058, "_audio_sent_s": 25.12}
+{"type": "transcription.delta", "delta": " do", "_t": 25.063, "_audio_sent_s": 25.12}
+{"type": "transcription.delta", "delta": " about", "_t": 25.068, "_audio_sent_s": 25.12}
+{"type": "transcription.delta", "delta": " that", "_t": 25.073, "_audio_sent_s": 25.12}
+{"type": "transcription.delta", "delta": ".", "_t": 25.078, "_audio_sent_s": 25.12}
+{"type": "transcription.delta", "delta": "", "_t": 25.083, "_audio_sent_s": 25.12}
+{"type": "transcription.delta", "delta": "language", "_t": 29.942, "_audio_sent_s": 30.0}
+{"type": "transcription.delta", "delta": " English", "_t": 29.947, "_audio_sent_s": 30.0}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 29.952, "_audio_sent_s": 30.0}
+{"type": "transcription.delta", "delta": "Okay", "_t": 29.957, "_audio_sent_s": 30.0}
+{"type": "transcription.delta", "delta": ",", "_t": 29.962, "_audio_sent_s": 30.0}
+{"type": "transcription.delta", "delta": " yeah", "_t": 29.967, "_audio_sent_s": 30.0}
+{"type": "transcription.delta", "delta": ",", "_t": 29.972, "_audio_sent_s": 30.0}
+{"type": "transcription.delta", "delta": " are", "_t": 29.977, "_audio_sent_s": 30.0}
+{"type": "transcription.delta", "delta": " we", "_t": 29.982, "_audio_sent_s": 30.0}
+{"type": "transcription.delta", "delta": " done", "_t": 29.988, "_audio_sent_s": 30.0}
+{"type": "transcription.delta", "delta": "?", "_t": 29.993, "_audio_sent_s": 30.0}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 29.998, "_audio_sent_s": 30.0}
+{"type": "transcription.delta", "delta": ".", "_t": 30.003, "_audio_sent_s": 30.08}
+{"type": "transcription.delta", "delta": "", "_t": 30.008, "_audio_sent_s": 30.08}
+{"type": "transcription.delta", "delta": "language", "_t": 34.982, "_audio_sent_s": 35.04}
+{"type": "transcription.delta", "delta": " English", "_t": 34.987, "_audio_sent_s": 35.04}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 34.992, "_audio_sent_s": 35.04}
+{"type": "transcription.delta", "delta": "I", "_t": 34.997, "_audio_sent_s": 35.04}
+{"type": "transcription.delta", "delta": " guess", "_t": 35.003, "_audio_sent_s": 35.04}
+{"type": "transcription.delta", "delta": " we", "_t": 35.008, "_audio_sent_s": 35.04}
+{"type": "transcription.delta", "delta": " just", "_t": 35.013, "_audio_sent_s": 35.04}
+{"type": "transcription.delta", "delta": " see", "_t": 35.018, "_audio_sent_s": 35.04}
+{"type": "transcription.delta", "delta": " what", "_t": 35.023, "_audio_sent_s": 35.04}
+{"type": "transcription.delta", "delta": " Steve", "_t": 35.028, "_audio_sent_s": 35.04}
+{"type": "transcription.delta", "delta": " says", "_t": 35.033, "_audio_sent_s": 35.04}
+{"type": "transcription.delta", "delta": " about", "_t": 35.038, "_audio_sent_s": 35.04}
+{"type": "transcription.delta", "delta": " the", "_t": 35.043, "_audio_sent_s": 35.12}
+{"type": "transcription.delta", "delta": " valuation", "_t": 35.048, "_audio_sent_s": 35.12}
+{"type": "transcription.delta", "delta": ".", "_t": 35.054, "_audio_sent_s": 35.12}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 35.059, "_audio_sent_s": 35.12}
+{"type": "transcription.delta", "delta": ".", "_t": 35.064, "_audio_sent_s": 35.12}
+{"type": "transcription.delta", "delta": "", "_t": 35.068, "_audio_sent_s": 35.12}
+{"type": "transcription.delta", "delta": "language", "_t": 39.942, "_audio_sent_s": 40.0}
+{"type": "transcription.delta", "delta": " English", "_t": 39.947, "_audio_sent_s": 40.0}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 39.952, "_audio_sent_s": 40.0}
+{"type": "transcription.delta", "delta": "And", "_t": 39.957, "_audio_sent_s": 40.0}
+{"type": "transcription.delta", "delta": " then", "_t": 39.962, "_audio_sent_s": 40.0}
+{"type": "transcription.delta", "delta": ",", "_t": 39.967, "_audio_sent_s": 40.0}
+{"type": "transcription.delta", "delta": " like", "_t": 39.972, "_audio_sent_s": 40.0}
+{"type": "transcription.delta", "delta": ",", "_t": 39.977, "_audio_sent_s": 40.0}
+{"type": "transcription.delta", "delta": " we", "_t": 39.983, "_audio_sent_s": 40.0}
+{"type": "transcription.delta", "delta": "'ll", "_t": 39.988, "_audio_sent_s": 40.0}
+{"type": "transcription.delta", "delta": " keep", "_t": 39.993, "_audio_sent_s": 40.0}
+{"type": "transcription.delta", "delta": " in", "_t": 39.998, "_audio_sent_s": 40.0}
+{"type": "transcription.delta", "delta": " touch", "_t": 40.003, "_audio_sent_s": 40.08}
+{"type": "transcription.delta", "delta": " by", "_t": 40.008, "_audio_sent_s": 40.08}
+{"type": "transcription.delta", "delta": " email", "_t": 40.013, "_audio_sent_s": 40.08}
+{"type": "transcription.delta", "delta": " if", "_t": 40.018, "_audio_sent_s": 40.08}
+{"type": "transcription.delta", "delta": " we", "_t": 40.023, "_audio_sent_s": 40.08}
+{"type": "transcription.delta", "delta": " need", "_t": 40.029, "_audio_sent_s": 40.08}
+{"type": "transcription.delta", "delta": ".", "_t": 40.034, "_audio_sent_s": 40.08}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 40.039, "_audio_sent_s": 40.08}
+{"type": "transcription.delta", "delta": ".", "_t": 40.044, "_audio_sent_s": 40.08}
+{"type": "transcription.delta", "delta": "", "_t": 40.049, "_audio_sent_s": 40.08}
+{"type": "transcription.delta", "delta": "language", "_t": 44.981, "_audio_sent_s": 45.04}
+{"type": "transcription.delta", "delta": " English", "_t": 44.987, "_audio_sent_s": 45.04}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 44.992, "_audio_sent_s": 45.04}
+{"type": "transcription.delta", "delta": "Right", "_t": 44.997, "_audio_sent_s": 45.04}
+{"type": "transcription.delta", "delta": ".", "_t": 45.002, "_audio_sent_s": 45.04}
+{"type": "transcription.delta", "delta": " Anything", "_t": 45.008, "_audio_sent_s": 45.04}
+{"type": "transcription.delta", "delta": "?", "_t": 45.013, "_audio_sent_s": 45.04}
+{"type": "transcription.delta", "delta": " I", "_t": 45.018, "_audio_sent_s": 45.04}
+{"type": "transcription.delta", "delta": " guess", "_t": 45.023, "_audio_sent_s": 45.04}
+{"type": "transcription.delta", "delta": " we", "_t": 45.029, "_audio_sent_s": 45.04}
+{"type": "transcription.delta", "delta": "'ll", "_t": 45.034, "_audio_sent_s": 45.04}
+{"type": "transcription.delta", "delta": " see", "_t": 45.039, "_audio_sent_s": 45.04}
+{"type": "transcription.delta", "delta": " you", "_t": 45.044, "_audio_sent_s": 45.12}
+{"type": "transcription.delta", "delta": " on", "_t": 45.049, "_audio_sent_s": 45.12}
+{"type": "transcription.delta", "delta": " Thursday", "_t": 45.055, "_audio_sent_s": 45.12}
+{"type": "transcription.delta", "delta": ".", "_t": 45.06, "_audio_sent_s": 45.12}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 45.065, "_audio_sent_s": 45.12}
+{"type": "transcription.delta", "delta": ".", "_t": 45.071, "_audio_sent_s": 45.12}
+{"type": "transcription.delta", "delta": "", "_t": 45.076, "_audio_sent_s": 45.12}
+{"type": "transcription.delta", "delta": "language", "_t": 49.942, "_audio_sent_s": 50.0}
+{"type": "transcription.delta", "delta": " English", "_t": 49.947, "_audio_sent_s": 50.0}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 49.952, "_audio_sent_s": 50.0}
+{"type": "transcription.delta", "delta": "Yeah", "_t": 49.958, "_audio_sent_s": 50.0}
+{"type": "transcription.delta", "delta": ",", "_t": 49.963, "_audio_sent_s": 50.0}
+{"type": "transcription.delta", "delta": " we", "_t": 49.968, "_audio_sent_s": 50.0}
+{"type": "transcription.delta", "delta": " do", "_t": 49.974, "_audio_sent_s": 50.0}
+{"type": "transcription.delta", "delta": ".", "_t": 49.979, "_audio_sent_s": 50.0}
+{"type": "transcription.delta", "delta": " Do", "_t": 49.984, "_audio_sent_s": 50.0}
+{"type": "transcription.delta", "delta": " we", "_t": 49.99, "_audio_sent_s": 50.0}
+{"type": "transcription.delta", "delta": " need", "_t": 49.995, "_audio_sent_s": 50.0}
+{"type": "transcription.delta", "delta": " another", "_t": 50.001, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": " meeting", "_t": 50.006, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": "?", "_t": 50.011, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 50.016, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": ",", "_t": 50.022, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": " we", "_t": 50.027, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": " do", "_t": 50.033, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": ".", "_t": 50.038, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 50.043, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": ",", "_t": 50.049, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": " we", "_t": 50.054, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": " do", "_t": 50.059, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": ".", "_t": 50.064, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 50.07, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": ",", "_t": 50.075, "_audio_sent_s": 50.08}
+{"type": "transcription.delta", "delta": " we", "_t": 50.081, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": " do", "_t": 50.086, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": ".", "_t": 50.091, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 50.097, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": ",", "_t": 50.102, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": " we", "_t": 50.107, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": " do", "_t": 50.113, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": ".", "_t": 50.118, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 50.123, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": ",", "_t": 50.129, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": " we", "_t": 50.134, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": " do", "_t": 50.14, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": ".", "_t": 50.145, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 50.15, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": ",", "_t": 50.156, "_audio_sent_s": 50.16}
+{"type": "transcription.delta", "delta": " we", "_t": 50.161, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": " do", "_t": 50.166, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": ".", "_t": 50.172, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 50.177, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": ",", "_t": 50.182, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": " we", "_t": 50.188, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": " do", "_t": 50.193, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": ".", "_t": 50.198, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 50.204, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": ",", "_t": 50.209, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": " we", "_t": 50.214, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": " do", "_t": 50.22, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": ".", "_t": 50.225, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 50.23, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": ",", "_t": 50.236, "_audio_sent_s": 50.24}
+{"type": "transcription.delta", "delta": " we", "_t": 50.241, "_audio_sent_s": 50.32}
+{"type": "transcription.delta", "delta": " do", "_t": 50.246, "_audio_sent_s": 50.32}
+{"type": "transcription.delta", "delta": ".", "_t": 50.252, "_audio_sent_s": 50.32}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 50.257, "_audio_sent_s": 50.32}
+{"type": "transcription.delta", "delta": ",", "_t": 50.263, "_audio_sent_s": 50.32}
+{"type": "transcription.delta", "delta": " we", "_t": 50.268, "_audio_sent_s": 50.32}
+{"type": "transcription.delta", "delta": " do", "_t": 50.273, "_audio_sent_s": 50.32}
+{"type": "transcription.delta", "delta": ".", "_t": 50.278, "_audio_sent_s": 50.32}
+{"type": "transcription.delta", "delta": "language", "_t": 54.983, "_audio_sent_s": 55.04}
+{"type": "transcription.delta", "delta": " English", "_t": 54.988, "_audio_sent_s": 55.04}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 54.993, "_audio_sent_s": 55.04}
+{"type": "transcription.delta", "delta": "Probably", "_t": 54.999, "_audio_sent_s": 55.04}
+{"type": "transcription.delta", "delta": " not", "_t": 55.004, "_audio_sent_s": 55.04}
+{"type": "transcription.delta", "delta": ".", "_t": 55.009, "_audio_sent_s": 55.04}
+{"type": "transcription.delta", "delta": " I", "_t": 55.015, "_audio_sent_s": 55.04}
+{"type": "transcription.delta", "delta": " mean", "_t": 55.02, "_audio_sent_s": 55.04}
+{"type": "transcription.delta", "delta": ",", "_t": 55.025, "_audio_sent_s": 55.04}
+{"type": "transcription.delta", "delta": " just", "_t": 55.031, "_audio_sent_s": 55.04}
+{"type": "transcription.delta", "delta": " get", "_t": 55.036, "_audio_sent_s": 55.04}
+{"type": "transcription.delta", "delta": " work", "_t": 55.041, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": " done", "_t": 55.047, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": ".", "_t": 55.052, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.058, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": ".", "_t": 55.063, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.068, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": ".", "_t": 55.074, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.079, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": ".", "_t": 55.085, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.09, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": ".", "_t": 55.095, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.101, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": ".", "_t": 55.106, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.111, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": ".", "_t": 55.117, "_audio_sent_s": 55.12}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.122, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": ".", "_t": 55.127, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.133, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": ".", "_t": 55.138, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.144, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": ".", "_t": 55.149, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.154, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": ".", "_t": 55.16, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.165, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": ".", "_t": 55.17, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.176, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": ".", "_t": 55.181, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.187, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": ".", "_t": 55.192, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.197, "_audio_sent_s": 55.2}
+{"type": "transcription.delta", "delta": ".", "_t": 55.202, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.208, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": ".", "_t": 55.213, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.219, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": ".", "_t": 55.224, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.23, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": ".", "_t": 55.235, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.24, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": ".", "_t": 55.246, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.251, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": ".", "_t": 55.256, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.262, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": ".", "_t": 55.267, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.273, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": ".", "_t": 55.278, "_audio_sent_s": 55.28}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.283, "_audio_sent_s": 55.36}
+{"type": "transcription.delta", "delta": ".", "_t": 55.289, "_audio_sent_s": 55.36}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.294, "_audio_sent_s": 55.36}
+{"type": "transcription.delta", "delta": ".", "_t": 55.299, "_audio_sent_s": 55.36}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.305, "_audio_sent_s": 55.36}
+{"type": "transcription.delta", "delta": ".", "_t": 55.31, "_audio_sent_s": 55.36}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 55.315, "_audio_sent_s": 55.36}
+{"type": "transcription.delta", "delta": ".", "_t": 55.32, "_audio_sent_s": 55.36}
+{"type": "transcription.delta", "delta": "language", "_t": 59.942, "_audio_sent_s": 60.0}
+{"type": "transcription.delta", "delta": " English", "_t": 59.947, "_audio_sent_s": 60.0}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 59.953, "_audio_sent_s": 60.0}
+{"type": "transcription.delta", "delta": "We", "_t": 59.958, "_audio_sent_s": 60.0}
+{"type": "transcription.delta", "delta": " can", "_t": 59.964, "_audio_sent_s": 60.0}
+{"type": "transcription.delta", "delta": " just", "_t": 59.969, "_audio_sent_s": 60.0}
+{"type": "transcription.delta", "delta": " email", "_t": 59.974, "_audio_sent_s": 60.0}
+{"type": "transcription.delta", "delta": " if", "_t": 59.98, "_audio_sent_s": 60.0}
+{"type": "transcription.delta", "delta": " we", "_t": 59.985, "_audio_sent_s": 60.0}
+{"type": "transcription.delta", "delta": " need", "_t": 59.99, "_audio_sent_s": 60.0}
+{"type": "transcription.delta", "delta": ".", "_t": 59.996, "_audio_sent_s": 60.0}
+{"type": "transcription.delta", "delta": " Yeah", "_t": 60.001, "_audio_sent_s": 60.08}
+{"type": "transcription.delta", "delta": ".", "_t": 60.007, "_audio_sent_s": 60.08}
+{"type": "transcription.delta", "delta": "", "_t": 60.012, "_audio_sent_s": 60.08}
+{"type": "transcription.delta", "delta": "language", "_t": 64.984, "_audio_sent_s": 65.04}
+{"type": "transcription.delta", "delta": " French", "_t": 64.989, "_audio_sent_s": 65.04}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 64.994, "_audio_sent_s": 65.04}
+{"type": "transcription.delta", "delta": "P", "_t": 65.0, "_audio_sent_s": 65.04}
+{"type": "transcription.delta", "delta": "endant", "_t": 65.005, "_audio_sent_s": 65.04}
+{"type": "transcription.delta", "delta": " le", "_t": 65.011, "_audio_sent_s": 65.04}
+{"type": "transcription.delta", "delta": " second", "_t": 65.016, "_audio_sent_s": 65.04}
+{"type": "transcription.delta", "delta": " siècle", "_t": 65.022, "_audio_sent_s": 65.04}
+{"type": "transcription.delta", "delta": ",", "_t": 65.027, "_audio_sent_s": 65.04}
+{"type": "transcription.delta", "delta": " je", "_t": 65.033, "_audio_sent_s": 65.04}
+{"type": "transcription.delta", "delta": " fis", "_t": 65.038, "_audio_sent_s": 65.04}
+{"type": "transcription.delta", "delta": " ser", "_t": 65.044, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": "ment", "_t": 65.05, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": " d", "_t": 65.055, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": "'", "_t": 65.061, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": "ou", "_t": 65.066, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": "vrir", "_t": 65.071, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": " tous", "_t": 65.077, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": " les", "_t": 65.082, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": " tr", "_t": 65.088, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": "és", "_t": 65.094, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": "ors", "_t": 65.099, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": " de", "_t": 65.105, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": " la", "_t": 65.11, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": " terre", "_t": 65.116, "_audio_sent_s": 65.12}
+{"type": "transcription.delta", "delta": ".", "_t": 65.121, "_audio_sent_s": 65.2}
+{"type": "transcription.delta", "delta": "", "_t": 65.127, "_audio_sent_s": 65.2}
+{"type": "transcription.delta", "delta": "language", "_t": 69.943, "_audio_sent_s": 70.0}
+{"type": "transcription.delta", "delta": " French", "_t": 69.949, "_audio_sent_s": 70.0}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 69.954, "_audio_sent_s": 70.0}
+{"type": "transcription.delta", "delta": "À", "_t": 69.96, "_audio_sent_s": 70.0}
+{"type": "transcription.delta", "delta": " qui", "_t": 69.965, "_audio_sent_s": 70.0}
+{"type": "transcription.delta", "delta": " compte", "_t": 69.971, "_audio_sent_s": 70.0}
+{"type": "transcription.delta", "delta": " me", "_t": 69.976, "_audio_sent_s": 70.0}
+{"type": "transcription.delta", "delta": " met", "_t": 69.982, "_audio_sent_s": 70.0}
+{"type": "transcription.delta", "delta": "tr", "_t": 69.987, "_audio_sent_s": 70.0}
+{"type": "transcription.delta", "delta": "ai", "_t": 69.993, "_audio_sent_s": 70.0}
+{"type": "transcription.delta", "delta": " en", "_t": 69.999, "_audio_sent_s": 70.0}
+{"type": "transcription.delta", "delta": " liberté", "_t": 70.004, "_audio_sent_s": 70.08}
+{"type": "transcription.delta", "delta": ",", "_t": 70.01, "_audio_sent_s": 70.08}
+{"type": "transcription.delta", "delta": " mais", "_t": 70.015, "_audio_sent_s": 70.08}
+{"type": "transcription.delta", "delta": " je", "_t": 70.021, "_audio_sent_s": 70.08}
+{"type": "transcription.delta", "delta": " ne", "_t": 70.026, "_audio_sent_s": 70.08}
+{"type": "transcription.delta", "delta": " fus", "_t": 70.032, "_audio_sent_s": 70.08}
+{"type": "transcription.delta", "delta": " pas", "_t": 70.037, "_audio_sent_s": 70.08}
+{"type": "transcription.delta", "delta": " plus", "_t": 70.043, "_audio_sent_s": 70.08}
+{"type": "transcription.delta", "delta": " heure", "_t": 70.048, "_audio_sent_s": 70.08}
+{"type": "transcription.delta", "delta": "ux", "_t": 70.054, "_audio_sent_s": 70.08}
+{"type": "transcription.delta", "delta": ".", "_t": 70.06, "_audio_sent_s": 70.08}
+{"type": "transcription.delta", "delta": "", "_t": 70.065, "_audio_sent_s": 70.08}
+{"type": "transcription.delta", "delta": "language", "_t": 74.983, "_audio_sent_s": 75.04}
+{"type": "transcription.delta", "delta": " French", "_t": 74.989, "_audio_sent_s": 75.04}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 74.994, "_audio_sent_s": 75.04}
+{"type": "transcription.delta", "delta": "Dans", "_t": 75.0, "_audio_sent_s": 75.04}
+{"type": "transcription.delta", "delta": " le", "_t": 75.006, "_audio_sent_s": 75.04}
+{"type": "transcription.delta", "delta": " tro", "_t": 75.011, "_audio_sent_s": 75.04}
+{"type": "transcription.delta", "delta": "isi", "_t": 75.017, "_audio_sent_s": 75.04}
+{"type": "transcription.delta", "delta": "ème", "_t": 75.022, "_audio_sent_s": 75.04}
+{"type": "transcription.delta", "delta": ",", "_t": 75.028, "_audio_sent_s": 75.04}
+{"type": "transcription.delta", "delta": " je", "_t": 75.034, "_audio_sent_s": 75.04}
+{"type": "transcription.delta", "delta": " prom", "_t": 75.039, "_audio_sent_s": 75.04}
+{"type": "transcription.delta", "delta": "is", "_t": 75.045, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": " de", "_t": 75.051, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": " faire", "_t": 75.056, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": " pu", "_t": 75.062, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": "issant", "_t": 75.067, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": " mon", "_t": 75.073, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": "ar", "_t": 75.079, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": "que", "_t": 75.084, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": " mon", "_t": 75.09, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": " lib", "_t": 75.096, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": "é", "_t": 75.101, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": "rate", "_t": 75.107, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": "ur", "_t": 75.113, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": ",", "_t": 75.118, "_audio_sent_s": 75.12}
+{"type": "transcription.delta", "delta": " d", "_t": 75.124, "_audio_sent_s": 75.2}
+{"type": "transcription.delta", "delta": "'être", "_t": 75.129, "_audio_sent_s": 75.2}
+{"type": "transcription.delta", "delta": " tout", "_t": 75.135, "_audio_sent_s": 75.2}
+{"type": "transcription.delta", "delta": ".", "_t": 75.141, "_audio_sent_s": 75.2}
+{"type": "transcription.delta", "delta": "", "_t": 75.146, "_audio_sent_s": 75.2}
+{"type": "transcription.delta", "delta": "language", "_t": 79.943, "_audio_sent_s": 80.0}
+{"type": "transcription.delta", "delta": " French", "_t": 79.948, "_audio_sent_s": 80.0}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 79.954, "_audio_sent_s": 80.0}
+{"type": "transcription.delta", "delta": "L", "_t": 79.959, "_audio_sent_s": 80.0}
+{"type": "transcription.delta", "delta": "ors", "_t": 79.965, "_audio_sent_s": 80.0}
+{"type": "transcription.delta", "delta": "qu", "_t": 79.971, "_audio_sent_s": 80.0}
+{"type": "transcription.delta", "delta": "'il", "_t": 79.976, "_audio_sent_s": 80.0}
+{"type": "transcription.delta", "delta": " ache", "_t": 79.982, "_audio_sent_s": 80.0}
+{"type": "transcription.delta", "delta": "v", "_t": 79.988, "_audio_sent_s": 80.0}
+{"type": "transcription.delta", "delta": "ait", "_t": 79.993, "_audio_sent_s": 80.0}
+{"type": "transcription.delta", "delta": " ce", "_t": 79.999, "_audio_sent_s": 80.0}
+{"type": "transcription.delta", "delta": " rep", "_t": 80.005, "_audio_sent_s": 80.08}
+{"type": "transcription.delta", "delta": "as", "_t": 80.01, "_audio_sent_s": 80.08}
+{"type": "transcription.delta", "delta": " fr", "_t": 80.016, "_audio_sent_s": 80.08}
+{"type": "transcription.delta", "delta": "ugal", "_t": 80.021, "_audio_sent_s": 80.08}
+{"type": "transcription.delta", "delta": ",", "_t": 80.027, "_audio_sent_s": 80.08}
+{"type": "transcription.delta", "delta": " quand", "_t": 80.033, "_audio_sent_s": 80.08}
+{"type": "transcription.delta", "delta": ".", "_t": 80.038, "_audio_sent_s": 80.08}
+{"type": "transcription.delta", "delta": "", "_t": 80.044, "_audio_sent_s": 80.08}
+{"type": "transcription.delta", "delta": "language", "_t": 84.983, "_audio_sent_s": 85.04}
+{"type": "transcription.delta", "delta": " French", "_t": 84.989, "_audio_sent_s": 85.04}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 84.994, "_audio_sent_s": 85.04}
+{"type": "transcription.delta", "delta": "Com", "_t": 85.0, "_audio_sent_s": 85.04}
+{"type": "transcription.delta", "delta": "me", "_t": 85.006, "_audio_sent_s": 85.04}
+{"type": "transcription.delta", "delta": " il", "_t": 85.011, "_audio_sent_s": 85.04}
+{"type": "transcription.delta", "delta": " était", "_t": 85.017, "_audio_sent_s": 85.04}
+{"type": "transcription.delta", "delta": " bon", "_t": 85.022, "_audio_sent_s": 85.04}
+{"type": "transcription.delta", "delta": " mus", "_t": 85.028, "_audio_sent_s": 85.04}
+{"type": "transcription.delta", "delta": "ul", "_t": 85.034, "_audio_sent_s": 85.04}
+{"type": "transcription.delta", "delta": "man", "_t": 85.039, "_audio_sent_s": 85.04}
+{"type": "transcription.delta", "delta": ",", "_t": 85.045, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": " il", "_t": 85.05, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": " s", "_t": 85.056, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": "'", "_t": 85.062, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": "ava", "_t": 85.068, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": " la", "_t": 85.073, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": "it", "_t": 85.079, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": " les", "_t": 85.084, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": " mains", "_t": 85.09, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": ",", "_t": 85.096, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": " le", "_t": 85.101, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": " vis", "_t": 85.107, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": "age", "_t": 85.113, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": " et", "_t": 85.118, "_audio_sent_s": 85.12}
+{"type": "transcription.delta", "delta": " les", "_t": 85.124, "_audio_sent_s": 85.2}
+{"type": "transcription.delta", "delta": ".", "_t": 85.129, "_audio_sent_s": 85.2}
+{"type": "transcription.delta", "delta": "", "_t": 85.135, "_audio_sent_s": 85.2}
+{"type": "transcription.delta", "delta": "language", "_t": 87.781, "_audio_sent_s": 87.76}
+{"type": "transcription.delta", "delta": " French", "_t": 87.786, "_audio_sent_s": 87.76}
+{"type": "transcription.delta", "delta": "<asr_text>", "_t": 87.792, "_audio_sent_s": 87.76}
+{"type": "transcription.delta", "delta": "Et", "_t": 87.797, "_audio_sent_s": 87.76}
+{"type": "transcription.delta", "delta": " fit", "_t": 87.803, "_audio_sent_s": 87.76}
+{"type": "transcription.delta", "delta": " sa", "_t": 87.809, "_audio_sent_s": 87.76}
+{"type": "transcription.delta", "delta": " pri", "_t": 87.814, "_audio_sent_s": 87.76}
+{"type": "transcription.delta", "delta": "ère", "_t": 87.82, "_audio_sent_s": 87.76}
+{"type": "transcription.delta", "delta": ".", "_t": 87.826, "_audio_sent_s": 87.76}
+{"type": "transcription.delta", "delta": "", "_t": 87.832, "_audio_sent_s": 87.76}
+{"type": "transcription.done", "text": "language English<asr_text>From a plain text file, yeah, back into organized by who, which speakers.language English<asr_text>I think that was the stupidest way they could ever organize the whole thing, if you.language English<asr_text>Organize it by time, not by speaker. But.language English<asr_text>But so I don't know, really, what we're gonna do about that.language English<asr_text>But so I don't know, really, what we're gonna do about that.language English<asr_text>Okay, yeah, are we done? Yeah.language English<asr_text>I guess we just see what Steve says about the valuation. Yeah.language English<asr_text>And then, like, we'll keep in touch by email if we need. Yeah.language English<asr_text>Right. Anything? I guess we'll see you on Thursday. Yeah.language English<asr_text>Yeah, we do. Do we need another meeting? Yeah, we do. Yeah, we do. Yeah, we do. Yeah, we do. Yeah, we do. Yeah, we do. Yeah, we do. Yeah, we do. Yeah, we do. Yeah, we do.language English<asr_text>Probably not. I mean, just get work done. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah.language English<asr_text>We can just email if we need. Yeah.language French<asr_text>Pendant le second siècle, je fis serment d'ouvrir tous les trésors de la terre.language French<asr_text>À qui compte me mettrai en liberté, mais je ne fus pas plus heureux.language French<asr_text>Dans le troisième, je promis de faire puissant monarque mon libérateur, d'être tout.language French<asr_text>Lorsqu'il achevait ce repas frugal, quand.language French<asr_text>Comme il était bon musulman, il s'ava lait les mains, le visage et les.language French<asr_text>Et fit sa prière.", "usage": {"prompt_tokens": 75, "total_tokens": 529, "completion_tokens": 454, "prompt_tokens_details": null, "completion_tokens_details": null}, "_t": 87.832, "_audio_sent_s": 87.76}

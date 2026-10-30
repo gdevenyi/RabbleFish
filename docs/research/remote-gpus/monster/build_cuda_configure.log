@@ -1,0 +1,49 @@
+-- The C compiler identification is GNU 16.2.1
+-- The CXX compiler identification is GNU 16.2.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found CUDAToolkit: /opt/cuda/targets/x86_64-linux/include (found version "12.9.86")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Applying 19 patches from /var/tmp/ltt-bench/src/patches to llama.cpp in /var/tmp/ltt-bench/src/build/cuda-server/_deps/llama.cpp
+-- ggml and llama.cpp source: /var/tmp/ltt-bench/src/build/cuda-server/_deps/llama.cpp
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/cc
+-- ccache found, compilation results will be cached. Disable with GGML_CCACHE=OFF.
+-- CMAKE_SYSTEM_PROCESSOR: x86_64
+-- GGML_SYSTEM_ARCH: x86
+-- Found OpenMP_C: -fopenmp (found version "5.2")
+-- Found OpenMP_CXX: -fopenmp (found version "5.2")
+-- Found OpenMP: TRUE (found version "5.2")
+-- Including CPU backend
+-- x86 detected
+-- Adding CPU backend variant ggml-cpu: -march=native 
+-- CUDA Toolkit found
+-- The CUDA compiler identification is NVIDIA 12.9.86 with host compiler GNU 14.3.1
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /opt/cuda/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Using CMAKE_CUDA_ARCHITECTURES=61 CMAKE_CUDA_ARCHITECTURES_NATIVE=61-real
+-- FlashAttention K-V type combinations: f16-f16;q4_0-q4_0;q8_0-q8_0;bf16-bf16
+-- Found NCCL: /usr/lib/libnccl.so
+-- CUDA host compiler is GNU 14.3.1
+-- Including CUDA backend
+-- ggml version: 0.25.1
+-- ggml commit:  6a3ca36
+-- llama.cpp version: 0.5.0-dev
+CMAKE_BUILD_TYPE=Release
+-- Found Git: /usr/bin/git (found version "2.56.0")
+-- Configuring done (4.6s)
+-- Generating done (0.1s)
+-- Build files have been written to: /var/tmp/ltt-bench/src/build/cuda-server

@@ -1,0 +1,848 @@
+    Updating crates.io index
+  Installing moshi-server v0.6.4
+    Updating crates.io index
+     Locking 449 packages to highest compatible versions
+      Adding base64 v0.21.7 (available: v0.23.1)
+      Adding bincode v1.3.3 (available: v3.0.0)
+      Adding candle-core v0.9.2 (available: v0.11.0)
+      Adding candle-nn v0.9.2 (available: v0.11.0)
+      Adding candle-transformers v0.9.2 (available: v0.11.0)
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding hf-hub v0.4.3 (available: v1.0.0)
+      Adding kaudio v0.2.1 (available: v0.3.0)
+      Adding matchit v0.8.4 (available: v0.8.6)
+      Adding numpy v0.23.0 (available: v0.30.0)
+      Adding opus v0.3.1 (available: v0.4.0)
+      Adding prometheus v0.13.4 (available: v0.14.0)
+      Adding pyo3 v0.23.5 (available: v0.30.1)
+      Adding pyo3-ffi v0.23.5 (available: v0.30.1)
+      Adding rubato v0.15.0 (available: v5.0.1)
+      Adding sentencepiece v0.11.3 (available: v0.14.0)
+      Adding symphonia v0.5.5 (available: v0.6.1)
+      Adding toml v0.8.23 (available: v1.1.8+spec-1.1.0)
+      Adding tower v0.4.13 (available: v0.5.3)
+      Adding tower-http v0.5.2 (available: v0.7.1)
+      Adding vergen v8.3.2 (available: v10.0.3)
+   Compiling serde_json v1.0.154
+   Compiling bytemuck_derive v1.12.1
+   Compiling serde_derive v1.0.229
+   Compiling synstructure v0.14.0
+   Compiling zerocopy-derive v0.8.63
+   Compiling tokio-macros v2.7.2
+   Compiling tracing-attributes v0.1.31
+   Compiling zerovec-derive v0.11.7
+   Compiling displaydoc v0.2.7
+   Compiling futures-macro v0.3.34
+   Compiling pyo3-build-config v0.23.5
+   Compiling thiserror-impl v2.0.21
+   Compiling thiserror-impl v1.0.69
+   Compiling openssl-macros v0.1.1
+   Compiling openssl-sys v0.9.117
+   Compiling cmake v0.1.58
+   Compiling zstd-sys v2.1.2+zstd.1.5.7
+   Compiling ring v0.17.14
+   Compiling semver v1.0.28
+   Compiling pin-project-internal v1.1.13
+   Compiling hashbrown v0.16.1
+   Compiling regex-automata v0.4.18
+   Compiling bindgen_cuda v0.1.6
+   Compiling camino v1.2.6
+   Compiling prost-derive v0.11.9
+   Compiling clap_lex v1.1.1
+   Compiling powerfmt v0.2.1
+   Compiling num-conv v0.2.2
+   Compiling nu-ansi-term v0.50.3
+   Compiling strsim v0.11.1
+   Compiling prometheus v0.13.4
+   Compiling dirs v6.0.0
+   Compiling indicatif v0.17.11
+   Compiling protobuf v2.28.0
+   Compiling uuid v1.29.0
+   Compiling mime_guess v2.0.5
+   Compiling clap_derive v4.6.7
+   Compiling rmp v0.8.15
+   Compiling num-derive v0.4.2
+   Compiling rustc_version v0.4.1
+   Compiling time v0.3.55
+   Compiling crossbeam-channel v0.5.17
+   Compiling anyhow v1.0.104
+   Compiling serde_path_to_error v0.1.20
+   Compiling audiopus_sys v0.2.2
+   Compiling sentencepiece-sys v0.11.3
+   Compiling openssl v0.10.81
+   Compiling native-tls v0.2.18
+   Compiling tracing-subscriber v0.3.23
+   Compiling tokio v1.54.1
+   Compiling clap_builder v4.6.7
+   Compiling zerofrom-derive v0.1.8
+   Compiling yoke-derive v0.8.4
+   Compiling iri-string v0.7.14
+   Compiling candle-kernels v0.9.2
+   Compiling opus v0.3.1
+   Compiling http-range-header v0.4.2
+   Compiling futures-util v0.3.34
+   Compiling symlink v0.1.0
+   Compiling rustc-hash v2.1.3
+   Compiling matchit v0.8.4
+   Compiling base64 v0.21.7
+   Compiling pyo3-ffi v0.23.5
+   Compiling pyo3-macros-backend v0.23.5
+   Compiling pyo3 v0.23.5
+   Compiling pin-project v1.1.13
+   Compiling bytemuck v1.25.2
+   Compiling tracing v0.1.44
+   Compiling thiserror v1.0.69
+   Compiling thiserror v2.0.21
+   Compiling num-complex v0.4.6
+   Compiling symphonia-core v0.5.5
+   Compiling dyn-stack v0.13.2
+   Compiling axum-core v0.5.6
+   Compiling prost v0.11.9
+   Compiling zerofrom v0.1.8
+   Compiling yoke v0.8.4
+   Compiling zerocopy v0.8.63
+   Compiling pulp v0.22.3
+   Compiling zerovec v0.11.9
+   Compiling zerotrie v0.2.5
+   Compiling rustfft v6.4.1
+   Compiling symphonia-metadata v0.5.5
+   Compiling regex v1.13.1
+   Compiling tinystr v0.8.5
+   Compiling potential_utf v0.1.6
+   Compiling icu_locale_core v2.4.0
+   Compiling icu_collections v2.4.0
+   Compiling symphonia-utils-xiph v0.5.5
+   Compiling symphonia-codec-vorbis v0.5.5
+   Compiling symphonia-format-mkv v0.5.5
+   Compiling symphonia-format-ogg v0.5.5
+   Compiling serde v1.0.229
+   Compiling fancy-regex v0.17.0
+   Compiling futures-executor v0.3.34
+   Compiling symphonia-format-isomp4 v0.5.5
+   Compiling icu_provider v2.4.0
+   Compiling symphonia-bundle-flac v0.5.5
+   Compiling symphonia-format-caf v0.5.5
+   Compiling icu_normalizer v2.4.0
+   Compiling icu_properties v2.4.0
+   Compiling safetensors v0.7.0
+   Compiling cargo-platform v0.1.9
+   Compiling serde_urlencoded v0.7.1
+   Compiling toml_datetime v0.6.11
+   Compiling cargo_metadata v0.18.1
+   Compiling serde_spanned v0.6.9
+   Compiling serde_plain v1.0.2
+   Compiling symphonia-bundle-mp3 v0.5.5
+   Compiling symphonia-format-riff v0.5.5
+   Compiling symphonia-codec-pcm v0.5.5
+   Compiling symphonia-codec-alac v0.5.5
+   Compiling pyo3-macros v0.23.5
+   Compiling idna_adapter v1.2.2
+   Compiling vergen v8.3.2
+   Compiling idna v1.1.0
+   Compiling tokio-util v0.7.20
+   Compiling tower v0.5.3
+   Compiling tokio-native-tls v0.3.1
+   Compiling tokio-util v0.6.10
+   Compiling symphonia-codec-adpcm v0.5.5
+   Compiling symphonia-codec-aac v0.5.5
+   Compiling url v2.5.8
+   Compiling toml_edit v0.22.27
+   Compiling ogg v0.9.2
+   Compiling rustls v0.23.46
+   Compiling h2 v0.4.20
+   Compiling futures v0.3.34
+   Compiling symphonia v0.5.5
+   Compiling ppv-lite86 v0.2.21
+   Compiling moshi-server v0.6.4
+   Compiling tower v0.4.13
+   Compiling ndarray v0.16.1
+   Compiling tokio-stream v0.1.19
+   Compiling tower-http v0.6.11
+   Compiling rand_chacha v0.9.0
+   Compiling realfft v3.5.1
+   Compiling rmp-serde v1.3.1
+   Compiling bincode v1.3.3
+   Compiling rand v0.9.5
+   Compiling rubato v0.15.0
+   Compiling clap v4.6.7
+   Compiling tracing-appender v0.2.5
+   Compiling rand_distr v0.5.1
+   Compiling rustls-webpki v0.103.16
+   Compiling tungstenite v0.29.0
+   Compiling kaudio v0.2.1
+   Compiling half v2.7.1
+   Compiling toml v0.8.23
+   Compiling gemm-common v0.19.0
+   Compiling float8 v0.7.0
+   Compiling tokio-tungstenite v0.29.0
+   Compiling gemm-f32 v0.19.0
+   Compiling gemm-c64 v0.19.0
+   Compiling gemm-f64 v0.19.0
+   Compiling gemm-c32 v0.19.0
+   Compiling gemm-f16 v0.19.0
+   Compiling cudarc v0.19.10
+   Compiling gemm v0.19.0
+   Compiling numpy v0.23.0
+   Compiling hyper v1.12.0
+   Compiling float8 v0.6.1
+   Compiling hyper-util v0.1.21
+   Compiling ureq v2.12.1
+   Compiling hyper-tls v0.6.0
+   Compiling axum v0.8.9
+   Compiling reqwest v0.12.28
+   Compiling zstd-safe v8.2.0
+   Compiling hf-hub v0.4.3
+   Compiling zstd v0.14.3
+   Compiling compression-codecs v0.4.46
+   Compiling async-compression v0.4.51
+   Compiling tower-http v0.5.2
+error: failed to run custom build command for `sentencepiece-sys v0.11.3`
+
+Caused by:
+  process didn't exit successfully: `/var/tmp/ltt-bench/kyutai/target/release/build/sentencepiece-sys-dbf83f49f7118106/build-script-build` (exit status: 101)
+  --- stdout
+  cargo:rerun-if-env-changed=SENTENCEPIECE_NO_PKG_CONFIG
+  cargo:rerun-if-env-changed=PKG_CONFIG_x86_64-unknown-linux-gnu
+  cargo:rerun-if-env-changed=PKG_CONFIG_x86_64_unknown_linux_gnu
+  cargo:rerun-if-env-changed=HOST_PKG_CONFIG
+  cargo:rerun-if-env-changed=PKG_CONFIG
+  cargo:rerun-if-env-changed=SENTENCEPIECE_STATIC
+  cargo:rerun-if-env-changed=SENTENCEPIECE_DYNAMIC
+  cargo:rerun-if-env-changed=PKG_CONFIG_ALL_STATIC
+  cargo:rerun-if-env-changed=PKG_CONFIG_ALL_DYNAMIC
+  cargo:rerun-if-env-changed=PKG_CONFIG_PATH_x86_64-unknown-linux-gnu
+  cargo:rerun-if-env-changed=PKG_CONFIG_PATH_x86_64_unknown_linux_gnu
+  cargo:rerun-if-env-changed=HOST_PKG_CONFIG_PATH
+  cargo:rerun-if-env-changed=PKG_CONFIG_PATH
+  cargo:rerun-if-env-changed=PKG_CONFIG_LIBDIR_x86_64-unknown-linux-gnu
+  cargo:rerun-if-env-changed=PKG_CONFIG_LIBDIR_x86_64_unknown_linux_gnu
+  cargo:rerun-if-env-changed=HOST_PKG_CONFIG_LIBDIR
+  cargo:rerun-if-env-changed=PKG_CONFIG_LIBDIR
+  cargo:rerun-if-env-changed=PKG_CONFIG_SYSROOT_DIR_x86_64-unknown-linux-gnu
+  cargo:rerun-if-env-changed=PKG_CONFIG_SYSROOT_DIR_x86_64_unknown_linux_gnu
+  cargo:rerun-if-env-changed=HOST_PKG_CONFIG_SYSROOT_DIR
+  cargo:rerun-if-env-changed=PKG_CONFIG_SYSROOT_DIR
+  cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+  CC_x86_64-unknown-linux-gnu = None
+  cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+  CC_x86_64_unknown_linux_gnu = None
+  cargo:rerun-if-env-changed=HOST_CC
+  HOST_CC = None
+  cargo:rerun-if-env-changed=CC
+  CC = None
+  cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+  cargo:rerun-if-env-changed=CPATH
+  cargo:rerun-if-env-changed=C_INCLUDE_PATH
+  cargo:rerun-if-env-changed=CPLUS_INCLUDE_PATH
+  cargo:rerun-if-env-changed=OBJC_INCLUDE_PATH
+  cargo:rerun-if-env-changed=OBJCPLUS_INCLUDE_PATH
+  cargo:rerun-if-env-changed=COMPILER_PATH
+  cargo:rerun-if-env-changed=SOURCE_DATE_EPOCH
+  cargo:rerun-if-env-changed=GCC_EXEC_PREFIX
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CFLAGS
+  CFLAGS = None
+  cargo:rerun-if-env-changed=HOST_CFLAGS
+  HOST_CFLAGS = None
+  cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+  CFLAGS_x86_64_unknown_linux_gnu = None
+  cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+  CFLAGS_x86_64-unknown-linux-gnu = None
+  CMAKE_TOOLCHAIN_FILE_x86_64-unknown-linux-gnu = None
+  CMAKE_TOOLCHAIN_FILE_x86_64_unknown_linux_gnu = None
+  HOST_CMAKE_TOOLCHAIN_FILE = None
+  CMAKE_TOOLCHAIN_FILE = None
+  CMAKE_GENERATOR_x86_64-unknown-linux-gnu = None
+  CMAKE_GENERATOR_x86_64_unknown_linux_gnu = None
+  HOST_CMAKE_GENERATOR = None
+  CMAKE_GENERATOR = None
+  CMAKE_PREFIX_PATH_x86_64-unknown-linux-gnu = None
+  CMAKE_PREFIX_PATH_x86_64_unknown_linux_gnu = None
+  HOST_CMAKE_PREFIX_PATH = None
+  CMAKE_PREFIX_PATH = None
+  CMAKE_x86_64-unknown-linux-gnu = None
+  CMAKE_x86_64_unknown_linux_gnu = None
+  HOST_CMAKE = None
+  CMAKE = None
+  -- VERSION: 0.1.99
+  -- The C compiler identification is GNU 16.2.1
+  -- The CXX compiler identification is GNU 16.2.1
+  -- Detecting C compiler ABI info
+  -- Detecting C compiler ABI info - done
+  -- Check for working C compiler: /usr/bin/cc - skipped
+  -- Detecting C compile features
+  -- Detecting C compile features - done
+  -- Detecting CXX compiler ABI info
+  -- Detecting CXX compiler ABI info - done
+  -- Check for working CXX compiler: /usr/bin/c++ - skipped
+  -- Detecting CXX compile features
+  -- Detecting CXX compile features - done
+  -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+  -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+  -- Found Threads: TRUE
+  -- Found TCMalloc: /usr/lib/libtcmalloc_minimal.so
+  -- Configuring done (2.0s)
+  -- Generating done (0.2s)
+  -- Build files have been written to: /var/tmp/ltt-bench/kyutai/target/release/build/sentencepiece-sys-45726a540319f821/out/build
+  [  0%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/arena.cc.o
+  [  1%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/arena.cc.o
+  [  2%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/arenastring.cc.o
+  [  3%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/arenastring.cc.o
+  [  4%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/bytestream.cc.o
+  [  5%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/coded_stream.cc.o
+  [  6%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/common.cc.o
+  [  7%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/bytestream.cc.o
+  [  8%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/builder.cc.o
+  [  9%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/coded_stream.cc.o
+  [ 10%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/common.cc.o
+  [ 11%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/extension_set.cc.o
+  [ 12%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/extension_set.cc.o
+  [ 13%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/generated_enum_util.cc.o
+  [ 14%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/unicode_script.cc.o
+  [ 15%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/trainer_factory.cc.o
+  [ 16%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/trainer_interface.cc.o
+  [ 16%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/generated_message_table_driven_lite.cc.o
+  [ 17%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/generated_message_util.cc.o
+  [ 18%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/implicit_weak_message.cc.o
+  [ 19%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/generated_enum_util.cc.o
+  [ 20%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/int128.cc.o
+  [ 21%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/generated_message_table_driven_lite.cc.o
+  [ 21%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/unigram_model_trainer.cc.o
+  [ 23%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/word_model_trainer.cc.o
+  [ 23%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/char_model_trainer.cc.o
+  [ 23%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/generated_message_util.cc.o
+  [ 24%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/io_win32.cc.o
+  [ 25%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/implicit_weak_message.cc.o
+  [ 26%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/bpe_model_trainer.cc.o
+  [ 27%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/sentencepiece_trainer.cc.o
+  [ 28%] Building CXX object src/CMakeFiles/sentencepiece_train-static.dir/pretokenizer_for_training.cc.o
+  [ 29%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/int128.cc.o
+  [ 30%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/io_win32.cc.o
+  [ 31%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/message_lite.cc.o
+  [ 32%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/parse_context.cc.o
+  [ 33%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/repeated_field.cc.o
+  [ 34%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/status.cc.o
+  [ 35%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/message_lite.cc.o
+  [ 36%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/parse_context.cc.o
+  [ 36%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/statusor.cc.o
+  [ 37%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/repeated_field.cc.o
+  [ 38%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/status.cc.o
+  [ 38%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/statusor.cc.o
+  [ 39%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/stringpiece.cc.o
+  [ 40%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/stringprintf.cc.o
+  [ 41%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/stringpiece.cc.o
+  [ 42%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/stringprintf.cc.o
+  [ 43%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/structurally_valid.cc.o
+  [ 44%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/structurally_valid.cc.o
+  [ 45%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/strutil.cc.o
+  [ 46%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/strutil.cc.o
+  [ 47%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/time.cc.o
+  [ 48%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/time.cc.o
+  [ 49%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/wire_format_lite.cc.o
+  [ 50%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/wire_format_lite.cc.o
+  [ 51%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/zero_copy_stream.cc.o
+  [ 51%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/zero_copy_stream_impl.cc.o
+  [ 52%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/zero_copy_stream.cc.o
+  [ 52%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/zero_copy_stream_impl.cc.o
+  [ 53%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/zero_copy_stream_impl_lite.cc.o
+  [ 54%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/builtin_pb/sentencepiece.pb.cc.o
+  [ 55%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/protobuf-lite/zero_copy_stream_impl_lite.cc.o
+  [ 56%] Building CXX object src/CMakeFiles/sentencepiece.dir/builtin_pb/sentencepiece.pb.cc.o
+  [ 57%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/builtin_pb/sentencepiece_model.pb.cc.o
+  [ 58%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/bpe_model.cc.o
+  [ 59%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/char_model.cc.o
+  [ 60%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/error.cc.o
+  [ 61%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/filesystem.cc.o
+  [ 61%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/model_factory.cc.o
+  [ 62%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/model_interface.cc.o
+  [ 63%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/normalizer.cc.o
+  [ 64%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/sentencepiece_processor.cc.o
+  [ 65%] Building CXX object src/CMakeFiles/sentencepiece.dir/builtin_pb/sentencepiece_model.pb.cc.o
+  [ 66%] Building CXX object src/CMakeFiles/sentencepiece.dir/bpe_model.cc.o
+  [ 67%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/unigram_model.cc.o
+  [ 68%] Building CXX object src/CMakeFiles/sentencepiece.dir/char_model.cc.o
+  [ 69%] Building CXX object src/CMakeFiles/sentencepiece.dir/error.cc.o
+  [ 70%] Building CXX object src/CMakeFiles/sentencepiece.dir/filesystem.cc.o
+  [ 71%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/util.cc.o
+  [ 72%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/word_model.cc.o
+  [ 72%] Building CXX object src/CMakeFiles/sentencepiece.dir/model_factory.cc.o
+  [ 73%] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/absl/flags/flag.cc.o
+  [ 74%] Building CXX object src/CMakeFiles/sentencepiece.dir/model_interface.cc.o
+  [ 75%] Building CXX object src/CMakeFiles/sentencepiece.dir/normalizer.cc.o
+  [ 76%] Building CXX object src/CMakeFiles/sentencepiece.dir/sentencepiece_processor.cc.o
+  [ 77%] Building CXX object src/CMakeFiles/sentencepiece.dir/unigram_model.cc.o
+  [ 78%] Building CXX object src/CMakeFiles/sentencepiece.dir/util.cc.o
+  [ 79%] Building CXX object src/CMakeFiles/sentencepiece.dir/word_model.cc.o
+  [ 80%] Building CXX object src/CMakeFiles/sentencepiece.dir/__/third_party/absl/flags/flag.cc.o
+  [ 81%] Linking CXX static library libsentencepiece_train.a
+  [ 81%] Built target sentencepiece_train-static
+
+  --- stderr
+  running: cd "/var/tmp/ltt-bench/kyutai/target/release/build/sentencepiece-sys-45726a540319f821/out/build" && CMAKE_PREFIX_PATH="" LC_ALL="C" "cmake" "/var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source" "-B" "/var/tmp/ltt-bench/kyutai/target/release/build/sentencepiece-sys-45726a540319f821/out/build" "-DCMAKE_POLICY_VERSION_MINIMUM=3.5" "-DCMAKE_INSTALL_PREFIX=/var/tmp/ltt-bench/kyutai/target/release/build/sentencepiece-sys-45726a540319f821/out" "-DCMAKE_C_FLAGS= -ffunction-sections -fdata-sections -fPIC -m64 -w" "-DCMAKE_C_COMPILER=/usr/bin/cc" "-DCMAKE_CXX_FLAGS= -ffunction-sections -fdata-sections -fPIC -m64 -w" "-DCMAKE_CXX_COMPILER=/usr/bin/c++" "-DCMAKE_ASM_FLAGS= -ffunction-sections -fdata-sections -fPIC -m64 -w" "-DCMAKE_ASM_COMPILER=/usr/bin/cc" "-DCMAKE_BUILD_TYPE=Release"
+  CMake Warning (deprecated) at CMakeLists.txt:15 (cmake_minimum_required):
+    Compatibility with CMake < 3.10 will be removed from a future version of
+    CMake.
+
+    Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+    to tell CMake that the project requires at least <min> but has been updated
+    to work with policies introduced by <max> or earlier.
+  This warning is for project developers.  Use -Wno-author or -Wno-deprecated
+  to suppress it.
+
+  CMake Warning (unused-cli):
+    Manually-specified variables were not used by the project:
+
+      CMAKE_ASM_COMPILER
+      CMAKE_ASM_FLAGS
+
+
+  running: cd "/var/tmp/ltt-bench/kyutai/target/release/build/sentencepiece-sys-45726a540319f821/out/build" && LC_ALL="C" MAKEFLAGS="-j --jobserver-fds=3,9 --jobserver-auth=3,9" "cmake" "--build" "/var/tmp/ltt-bench/kyutai/target/release/build/sentencepiece-sys-45726a540319f821/out/build" "--target" "install" "--config" "Release"
+  In file included from /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:15:
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:167:3: error: 'uint32_t' does not name a type
+    167 |   uint32_t id() const;
+        |   ^~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:24:1: note: 'uint32_t' is defined in header '<cstdint>'; this is probably fixable by adding '#include <cstdint>'
+     23 | #include <vector>
+    +++ |+#include <cstdint>
+     24 | 
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:168:3: error: 'uint32_t' does not name a type
+    168 |   uint32_t begin() const;
+        |   ^~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:168:3: note: 'uint32_t' is defined in header '<cstdint>'; this is probably fixable by adding '#include <cstdint>'
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:169:3: error: 'uint32_t' does not name a type
+    169 |   uint32_t end() const;
+        |   ^~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:169:3: note: 'uint32_t' is defined in header '<cstdint>'; this is probably fixable by adding '#include <cstdint>'
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:116:10: error: no declaration matches 'uint32_t sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece::id() const'
+    116 | uint32_t ImmutableSentencePieceText_ImmutableSentencePiece::id() const {
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:116:10: note: no functions named 'uint32_t sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece::id() const'
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:160:7: note: 'class sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece' defined here
+    160 | class ImmutableSentencePieceText_ImmutableSentencePiece {
+        |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:120:10: error: no declaration matches 'uint32_t sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece::begin() const'
+    120 | uint32_t ImmutableSentencePieceText_ImmutableSentencePiece::begin() const {
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:120:10: note: no functions named 'uint32_t sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece::begin() const'
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:160:7: note: 'class sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece' defined here
+    160 | class ImmutableSentencePieceText_ImmutableSentencePiece {
+        |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:124:10: error: no declaration matches 'uint32_t sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece::end() const'
+    124 | uint32_t ImmutableSentencePieceText_ImmutableSentencePiece::end() const {
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:124:10: note: no functions named 'uint32_t sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece::end() const'
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:160:7: note: 'class sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece' defined here
+    160 | class ImmutableSentencePieceText_ImmutableSentencePiece {
+        |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  In file included from /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:15:
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:167:3: error: 'uint32_t' does not name a type
+    167 |   uint32_t id() const;
+        |   ^~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:24:1: note: 'uint32_t' is defined in header '<cstdint>'; this is probably fixable by adding '#include <cstdint>'
+     23 | #include <vector>
+    +++ |+#include <cstdint>
+     24 | 
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:168:3: error: 'uint32_t' does not name a type
+    168 |   uint32_t begin() const;
+        |   ^~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:168:3: note: 'uint32_t' is defined in header '<cstdint>'; this is probably fixable by adding '#include <cstdint>'
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:169:3: error: 'uint32_t' does not name a type
+    169 |   uint32_t end() const;
+        |   ^~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:169:3: note: 'uint32_t' is defined in header '<cstdint>'; this is probably fixable by adding '#include <cstdint>'
+  make[2]: *** [src/CMakeFiles/sentencepiece-static.dir/build.make:569: src/CMakeFiles/sentencepiece-static.dir/sentencepiece_processor.cc.o] Error 1
+  make[2]: *** Waiting for unfinished jobs....
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:116:10: error: no declaration matches 'uint32_t sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece::id() const'
+    116 | uint32_t ImmutableSentencePieceText_ImmutableSentencePiece::id() const {
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:116:10: note: no functions named 'uint32_t sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece::id() const'
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:160:7: note: 'class sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece' defined here
+    160 | class ImmutableSentencePieceText_ImmutableSentencePiece {
+        |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:120:10: error: no declaration matches 'uint32_t sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece::begin() const'
+    120 | uint32_t ImmutableSentencePieceText_ImmutableSentencePiece::begin() const {
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:120:10: note: no functions named 'uint32_t sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece::begin() const'
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:160:7: note: 'class sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece' defined here
+    160 | class ImmutableSentencePieceText_ImmutableSentencePiece {
+        |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:124:10: error: no declaration matches 'uint32_t sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece::end() const'
+    124 | uint32_t ImmutableSentencePieceText_ImmutableSentencePiece::end() const {
+        |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.cc:124:10: note: no functions named 'uint32_t sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece::end() const'
+  /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sentencepiece-sys-0.11.3/source/src/sentencepiece_processor.h:160:7: note: 'class sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece' defined here
+    160 | class ImmutableSentencePieceText_ImmutableSentencePiece {
+        |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  make[2]: *** [src/CMakeFiles/sentencepiece.dir/build.make:569: src/CMakeFiles/sentencepiece.dir/sentencepiece_processor.cc.o] Error 1
+  make[2]: *** Waiting for unfinished jobs....
+  make[1]: *** [CMakeFiles/Makefile2:217: src/CMakeFiles/sentencepiece-static.dir/all] Error 2
+  make[1]: *** Waiting for unfinished jobs....
+  make[1]: *** [CMakeFiles/Makefile2:153: src/CMakeFiles/sentencepiece.dir/all] Error 2
+  make: *** [Makefile:156: all] Error 2
+
+  thread 'main' (2311587) panicked at /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cmake-0.1.58/src/lib.rs:1132:5:
+
+  command did not execute successfully, got: exit status: 2
+
+  build script failed, must exit now
+  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+warning: build failed, waiting for other jobs to finish...
+error: failed to run custom build command for `candle-kernels v0.9.2`
+
+Caused by:
+  process didn't exit successfully: `/var/tmp/ltt-bench/kyutai/target/release/build/candle-kernels-d83da75bc4d0cfe5/build-script-build` (exit status: 101)
+  --- stdout
+  cargo::rerun-if-changed=build.rs
+  cargo::rerun-if-changed=src/compatibility.cuh
+  cargo::rerun-if-changed=src/cuda_utils.cuh
+  cargo::rerun-if-changed=src/binary_op_macros.cuh
+  cargo:info=["/usr", "/usr/local/cuda", "/opt/cuda", "/usr/lib/cuda", "C:/Program Files/NVIDIA GPU Computing Toolkit", "C:/CUDA"]
+  cargo:rerun-if-env-changed=CUDA_COMPUTE_CAP
+  cargo:rustc-env=CUDA_COMPUTE_CAP=61
+  cargo:rustc-env=CUDA_INCLUDE_DIR=/opt/cuda/include
+  cargo:rerun-if-changed=src/binary_op_macros.cuh
+  cargo:rerun-if-changed=src/compatibility.cuh
+  cargo:rerun-if-changed=src/cuda_utils.cuh
+  cargo:rerun-if-changed=src/moe/gguf.cuh
+  cargo:rerun-if-changed=src/moe/moe_utils.cuh
+  cargo:rerun-if-env-changed=NVCC_CCBIN
+  cargo:rerun-if-changed=src/affine.cu
+  cargo:rerun-if-changed=src/moe/moe_wmma.cu
+  cargo:rerun-if-changed=src/conv.cu
+  cargo:rerun-if-changed=src/indexing.cu
+  cargo:rerun-if-changed=src/binary.cu
+  cargo:rerun-if-changed=src/fill.cu
+  cargo:rerun-if-changed=src/cast.cu
+  cargo:rerun-if-changed=src/reduce.cu
+  cargo:rerun-if-changed=src/sort.cu
+  cargo:rerun-if-changed=src/moe/moe_wmma_gguf.cu
+  cargo:rerun-if-changed=src/ternary.cu
+  cargo:rerun-if-changed=src/moe/moe_gguf.cu
+  cargo:rerun-if-changed=src/unary.cu
+  cargo:rerun-if-changed=src/quantized.cu
+
+  --- stderr
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  src/reduce.cu(672): error: no instance of overloaded function "atomicAdd" matches the argument list
+              argument types are: (__half *, const __half)
+    extern "C" __attribute__((global)) void sum_f16( const size_t numel, const size_t num_dims, const size_t num_sum_dims, const size_t *info, const __half *inp, __half *out) { const size_t *dims = info; const size_t *strides = info + num_dims; const size_t *sum_dims_l = info + 2 * num_dims; const size_t *sum_dims_s = info + 2 * num_dims + num_sum_dims; if (is_contiguous(num_dims, dims, strides)) { for (unsigned int i = blockIdx.x * blockDim.x + threadIdx.x; i < numel; i += blockDim.x * gridDim.x) { size_t dst_index = i; for (unsigned int nd = 0; nd < num_sum_dims; ++nd) { size_t stride = sum_dims_s[nd]; size_t pre = dst_index / stride; size_t post = dst_index % stride; dst_index = (pre / sum_dims_l[nd]) * stride + post; } atomicAdd(out + dst_index, inp[i]); } } else { for (unsigned int i = blockIdx.x * blockDim.x + threadIdx.x; i < numel; i += blockDim.x * gridDim.x) { unsigned strided_i = get_strided_index(i, num_dims, dims, strides); size_t dst_index = i; for (unsigned int nd = 0; nd < num_sum_dims; ++nd) { size_t stride = sum_dims_s[nd]; size_t pre = dst_index / stride; size_t post = dst_index % stride; dst_index = (pre / sum_dims_l[nd]) * stride + post; } atomicAdd(out + dst_index, inp[strided_i]); } } }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ^
+  /opt/cuda/include/cuda_bf16.hpp(3802): note #3326-D: function "atomicAdd(__nv_bfloat162 *, __nv_bfloat162)" does not match because argument #1 does not match parameter
+    static __attribute__((device)) __inline__ __nv_bfloat162 atomicAdd(__nv_bfloat162 *const address, const __nv_bfloat162 val)
+                                                             ^
+  /opt/cuda/include/cuda_fp16.hpp(3426): note #3326-D: function "atomicAdd(__half2 *, __half2)" does not match because argument #1 does not match parameter
+    static __attribute__((device)) __inline__ __half2 atomicAdd(__half2 *const address, const __half2 val) {
+                                                      ^
+  /opt/cuda/include/sm_60_atomic_functions.hpp(292): note #3326-D: function "atomicAdd(double *, double)" does not match because argument #1 does not match parameter
+    static __inline__ __attribute__((device)) double atomicAdd(double *address, double val)
+                                                     ^
+  /opt/cuda/include/sm_20_atomic_functions.hpp(82): note #3326-D: function "atomicAdd(float *, float)" does not match because argument #1 does not match parameter
+    static __inline__ __attribute__((device)) float atomicAdd(float *address, float val)
+                                                    ^
+  /opt/cuda/include/device_atomic_functions.hpp(224): note #3326-D: function "atomicAdd(unsigned long long *, unsigned long long)" does not match because argument #1 does not match parameter
+    static __inline__ __attribute__((device)) unsigned long long int atomicAdd(unsigned long long int *address, unsigned long long int val)
+                                                                     ^
+  /opt/cuda/include/device_atomic_functions.hpp(110): note #3326-D: function "atomicAdd(unsigned int *, unsigned int)" does not match because argument #1 does not match parameter
+    static __inline__ __attribute__((device)) unsigned int atomicAdd(unsigned int *address, unsigned int val)
+                                                           ^
+  /opt/cuda/include/device_atomic_functions.hpp(105): note #3326-D: function "atomicAdd(int *, int)" does not match because argument #1 does not match parameter
+    static __inline__ __attribute__((device)) int atomicAdd(int *address, int val)
+                                                  ^
+
+  src/reduce.cu(672): error: no instance of overloaded function "atomicAdd" matches the argument list
+              argument types are: (__half *, const __half)
+    extern "C" __attribute__((global)) void sum_f16( const size_t numel, const size_t num_dims, const size_t num_sum_dims, const size_t *info, const __half *inp, __half *out) { const size_t *dims = info; const size_t *strides = info + num_dims; const size_t *sum_dims_l = info + 2 * num_dims; const size_t *sum_dims_s = info + 2 * num_dims + num_sum_dims; if (is_contiguous(num_dims, dims, strides)) { for (unsigned int i = blockIdx.x * blockDim.x + threadIdx.x; i < numel; i += blockDim.x * gridDim.x) { size_t dst_index = i; for (unsigned int nd = 0; nd < num_sum_dims; ++nd) { size_t stride = sum_dims_s[nd]; size_t pre = dst_index / stride; size_t post = dst_index % stride; dst_index = (pre / sum_dims_l[nd]) * stride + post; } atomicAdd(out + dst_index, inp[i]); } } else { for (unsigned int i = blockIdx.x * blockDim.x + threadIdx.x; i < numel; i += blockDim.x * gridDim.x) { unsigned strided_i = get_strided_index(i, num_dims, dims, strides); size_t dst_index = i; for (unsigned int nd = 0; nd < num_sum_dims; ++nd) { size_t stride = sum_dims_s[nd]; size_t pre = dst_index / stride; size_t post = dst_index % stride; dst_index = (pre / sum_dims_l[nd]) * stride + post; } atomicAdd(out + dst_index, inp[strided_i]); } } }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^
+  /opt/cuda/include/cuda_bf16.hpp(3802): note #3326-D: function "atomicAdd(__nv_bfloat162 *, __nv_bfloat162)" does not match because argument #1 does not match parameter
+    static __attribute__((device)) __inline__ __nv_bfloat162 atomicAdd(__nv_bfloat162 *const address, const __nv_bfloat162 val)
+                                                             ^
+  /opt/cuda/include/cuda_fp16.hpp(3426): note #3326-D: function "atomicAdd(__half2 *, __half2)" does not match because argument #1 does not match parameter
+    static __attribute__((device)) __inline__ __half2 atomicAdd(__half2 *const address, const __half2 val) {
+                                                      ^
+  /opt/cuda/include/sm_60_atomic_functions.hpp(292): note #3326-D: function "atomicAdd(double *, double)" does not match because argument #1 does not match parameter
+    static __inline__ __attribute__((device)) double atomicAdd(double *address, double val)
+                                                     ^
+  /opt/cuda/include/sm_20_atomic_functions.hpp(82): note #3326-D: function "atomicAdd(float *, float)" does not match because argument #1 does not match parameter
+    static __inline__ __attribute__((device)) float atomicAdd(float *address, float val)
+                                                    ^
+  /opt/cuda/include/device_atomic_functions.hpp(224): note #3326-D: function "atomicAdd(unsigned long long *, unsigned long long)" does not match because argument #1 does not match parameter
+    static __inline__ __attribute__((device)) unsigned long long int atomicAdd(unsigned long long int *address, unsigned long long int val)
+                                                                     ^
+  /opt/cuda/include/device_atomic_functions.hpp(110): note #3326-D: function "atomicAdd(unsigned int *, unsigned int)" does not match because argument #1 does not match parameter
+    static __inline__ __attribute__((device)) unsigned int atomicAdd(unsigned int *address, unsigned int val)
+                                                           ^
+  /opt/cuda/include/device_atomic_functions.hpp(105): note #3326-D: function "atomicAdd(int *, int)" does not match because argument #1 does not match parameter
+    static __inline__ __attribute__((device)) int atomicAdd(int *address, int val)
+                                                  ^
+
+  2 errors detected in the compilation of "src/reduce.cu".
+  src/quantized.cu(4405): warning #177-D: variable "ncols_y" was declared but never referenced
+        constexpr int ncols_y = 1;
+                      ^
+
+  Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+  src/quantized.cu(4417): warning #177-D: variable "blocks_per_col_y" was declared but never referenced
+        const int blocks_per_col_y = k_padded / 32;
+                  ^
+
+  src/moe/moe_wmma.cu(26): error: namespace "nvcuda" has no member "wmma"
+    using namespace nvcuda::wmma;
+                            ^
+
+  src/moe/moe_wmma_gguf.cu(23): error: namespace "nvcuda" has no member "wmma"
+    using namespace nvcuda::wmma;
+                            ^
+
+  src/moe/moe_wmma.cu(123): error: identifier "fragment" is undefined
+            fragment<accumulator, WMMA_M, WMMA_N, WMMA_K, float> c_frag;
+            ^
+
+  src/moe/moe_wmma.cu(123): error: identifier "accumulator" is undefined
+            fragment<accumulator, WMMA_M, WMMA_N, WMMA_K, float> c_frag;
+                     ^
+
+  src/moe/moe_wmma.cu(123): error: type name is not allowed
+            fragment<accumulator, WMMA_M, WMMA_N, WMMA_K, float> c_frag;
+                                                          ^
+
+  src/moe/moe_wmma.cu(123): error: identifier "c_frag" is undefined
+            fragment<accumulator, WMMA_M, WMMA_N, WMMA_K, float> c_frag;
+                                                                 ^
+
+  src/moe/moe_wmma.cu(124): error: identifier "fill_fragment" is undefined
+            fill_fragment(c_frag, 0.0f);
+            ^
+
+  src/moe/moe_wmma.cu(172): error: identifier "matrix_a" is undefined
+                fragment<matrix_a, WMMA_M, WMMA_N, WMMA_K, T, row_major> a_frag;
+                         ^
+
+  src/moe/moe_wmma.cu(172): error: type name is not allowed
+                fragment<matrix_a, WMMA_M, WMMA_N, WMMA_K, T, row_major> a_frag;
+                                                           ^
+
+  src/moe/moe_wmma.cu(172): error: identifier "row_major" is undefined
+                fragment<matrix_a, WMMA_M, WMMA_N, WMMA_K, T, row_major> a_frag;
+                                                              ^
+
+  src/moe/moe_wmma.cu(172): error: identifier "a_frag" is undefined
+                fragment<matrix_a, WMMA_M, WMMA_N, WMMA_K, T, row_major> a_frag;
+                                                                         ^
+
+  src/moe/moe_wmma.cu(173): error: identifier "matrix_b" is undefined
+                fragment<matrix_b, WMMA_M, WMMA_N, WMMA_K, T, col_major> b_frag;
+                         ^
+
+  src/moe/moe_wmma.cu(173): error: type name is not allowed
+                fragment<matrix_b, WMMA_M, WMMA_N, WMMA_K, T, col_major> b_frag;
+                                                           ^
+
+  src/moe/moe_wmma.cu(173): error: identifier "col_major" is undefined
+                fragment<matrix_b, WMMA_M, WMMA_N, WMMA_K, T, col_major> b_frag;
+                                                              ^
+
+  src/moe/moe_wmma.cu(173): error: identifier "b_frag" is undefined
+                fragment<matrix_b, WMMA_M, WMMA_N, WMMA_K, T, col_major> b_frag;
+                                                                         ^
+
+  src/moe/moe_wmma.cu(183): error: identifier "mma_sync" is undefined
+                mma_sync(c_frag, a_frag, b_frag, c_frag);
+                ^
+
+  src/moe/moe_wmma.cu(191): error: identifier "mem_row_major" is undefined
+            store_matrix_sync(C_sh_ptr, c_frag, N_BLK, mem_row_major);
+                                                       ^
+
+  src/moe/moe_wmma.cu(191): error: identifier "store_matrix_sync" is undefined
+            store_matrix_sync(C_sh_ptr, c_frag, N_BLK, mem_row_major);
+            ^
+
+  src/moe/moe_wmma.cu(110): warning #177-D: variable "laneId" was declared but never referenced
+        const int laneId = threadId % 32;
+                  ^
+
+  Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+  src/moe/moe_wmma.cu(179): error: identifier "load_matrix_sync" is undefined
+                load_matrix_sync(a_frag, A_sh_ptr, K_BLK);
+                ^
+            detected during instantiation of "void vllm_rs::moe_gemm_grouped_kernel<T,WMMA_M,WMMA_N,WARPS_N>(const T *, const T *, const int32_t *, const int32_t *, const float *, T *, int, int, int32_t, int32_t, int32_t) [with T=half, WMMA_M=16, WMMA_N=16, WARPS_N=2]" at line 272
+
+  src/moe/moe_wmma.cu(179): error: identifier "load_matrix_sync" is undefined
+                load_matrix_sync(a_frag, A_sh_ptr, K_BLK);
+                ^
+            detected during instantiation of "void vllm_rs::moe_gemm_grouped_kernel<T,WMMA_M,WMMA_N,WARPS_N>(const T *, const T *, const int32_t *, const int32_t *, const float *, T *, int, int, int32_t, int32_t, int32_t) [with T=half, WMMA_M=8, WMMA_N=32, WARPS_N=1]" at line 275
+
+  src/moe/moe_wmma.cu(179): error: identifier "load_matrix_sync" is undefined
+                load_matrix_sync(a_frag, A_sh_ptr, K_BLK);
+                ^
+            detected during instantiation of "void vllm_rs::moe_gemm_grouped_kernel<T,WMMA_M,WMMA_N,WARPS_N>(const T *, const T *, const int32_t *, const int32_t *, const float *, T *, int, int, int32_t, int32_t, int32_t) [with T=nv_bfloat16, WMMA_M=16, WMMA_N=16, WARPS_N=2]" at line 279
+
+  src/moe/moe_wmma.cu(179): error: identifier "load_matrix_sync" is undefined
+                load_matrix_sync(a_frag, A_sh_ptr, K_BLK);
+                ^
+            detected during instantiation of "void vllm_rs::moe_gemm_grouped_kernel<T,WMMA_M,WMMA_N,WARPS_N>(const T *, const T *, const int32_t *, const int32_t *, const float *, T *, int, int, int32_t, int32_t, int32_t) [with T=nv_bfloat16, WMMA_M=8, WMMA_N=32, WARPS_N=1]" at line 281
+
+  src/moe/moe_wmma.cu(37): warning #177-D: variable "vllm_rs::NUM_VECS" was declared but never referenced
+    constexpr int NUM_VECS = 32;
+                  ^
+
+  src/moe/moe_wmma.cu(40): warning #177-D: variable "vllm_rs::WARPS_PER_BLOCK" was declared but never referenced
+    constexpr int WARPS_PER_BLOCK = 4;
+                  ^
+
+  21 errors detected in the compilation of "src/moe/moe_wmma.cu".
+  src/moe/moe_wmma_gguf.cu(194): error: identifier "fragment" is undefined
+            fragment<accumulator, WMMA_M, WMMA_N, WMMA_K, float> c_frag;
+            ^
+
+  src/moe/moe_wmma_gguf.cu(194): error: identifier "accumulator" is undefined
+            fragment<accumulator, WMMA_M, WMMA_N, WMMA_K, float> c_frag;
+                     ^
+
+  src/moe/moe_wmma_gguf.cu(194): error: type name is not allowed
+            fragment<accumulator, WMMA_M, WMMA_N, WMMA_K, float> c_frag;
+                                                          ^
+
+  src/moe/moe_wmma_gguf.cu(194): error: identifier "c_frag" is undefined
+            fragment<accumulator, WMMA_M, WMMA_N, WMMA_K, float> c_frag;
+                                                                 ^
+
+  src/moe/moe_wmma_gguf.cu(195): error: identifier "fill_fragment" is undefined
+            fill_fragment(c_frag, 0.0f);
+            ^
+
+  src/moe/moe_wmma_gguf.cu(259): error: identifier "matrix_a" is undefined
+                    fragment<matrix_a, WMMA_M, WMMA_N, WMMA_K, T, row_major> a_frag;
+                             ^
+
+  src/moe/moe_wmma_gguf.cu(259): error: type name is not allowed
+                    fragment<matrix_a, WMMA_M, WMMA_N, WMMA_K, T, row_major> a_frag;
+                                                               ^
+
+  src/moe/moe_wmma_gguf.cu(259): error: identifier "row_major" is undefined
+                    fragment<matrix_a, WMMA_M, WMMA_N, WMMA_K, T, row_major> a_frag;
+                                                                  ^
+
+  src/moe/moe_wmma_gguf.cu(259): error: identifier "a_frag" is undefined
+                    fragment<matrix_a, WMMA_M, WMMA_N, WMMA_K, T, row_major> a_frag;
+                                                                             ^
+
+  src/moe/moe_wmma_gguf.cu(260): error: identifier "matrix_b" is undefined
+                    fragment<matrix_b, WMMA_M, WMMA_N, WMMA_K, T, col_major> b_frag;
+                             ^
+
+  src/moe/moe_wmma_gguf.cu(260): error: type name is not allowed
+                    fragment<matrix_b, WMMA_M, WMMA_N, WMMA_K, T, col_major> b_frag;
+                                                               ^
+
+  src/moe/moe_wmma_gguf.cu(260): error: identifier "col_major" is undefined
+                    fragment<matrix_b, WMMA_M, WMMA_N, WMMA_K, T, col_major> b_frag;
+                                                                  ^
+
+  src/moe/moe_wmma_gguf.cu(260): error: identifier "b_frag" is undefined
+                    fragment<matrix_b, WMMA_M, WMMA_N, WMMA_K, T, col_major> b_frag;
+                                                                             ^
+
+  src/moe/moe_wmma_gguf.cu(269): error: identifier "mma_sync" is undefined
+                    mma_sync(c_frag, a_frag, b_frag, c_frag);
+                    ^
+
+  src/moe/moe_wmma_gguf.cu(275): error: identifier "mem_row_major" is undefined
+            store_matrix_sync(C_sh_ptr_warp, c_frag, N_BLK, mem_row_major);
+                                                            ^
+
+  src/moe/moe_wmma_gguf.cu(275): error: identifier "store_matrix_sync" is undefined
+            store_matrix_sync(C_sh_ptr_warp, c_frag, N_BLK, mem_row_major);
+            ^
+
+  src/moe/moe_wmma_gguf.cu(266): error: identifier "load_matrix_sync" is undefined
+                    load_matrix_sync(a_frag, A_sh_ptr, qk);
+                    ^
+            detected during instantiation of "void moe_gemm_gguf_prefill_kernel<T,qk,block_q_t,wrap_size>(const T *, const uint8_t *, const int32_t *, const int32_t *, const float *, float *, int, int, int32_t, int32_t, int32_t, int) [with T=half, qk=32, block_q_t=block_q8_0, wrap_size=32]" at line 414
+
+  src/moe/moe_wmma_gguf.cu(266): error: identifier "load_matrix_sync" is undefined
+                    load_matrix_sync(a_frag, A_sh_ptr, qk);
+                    ^
+            detected during instantiation of "void moe_gemm_gguf_prefill_kernel<T,qk,block_q_t,wrap_size>(const T *, const uint8_t *, const int32_t *, const int32_t *, const float *, float *, int, int, int32_t, int32_t, int32_t, int) [with T=half, qk=256, block_q_t=block_q4_K, wrap_size=32]" at line 414
+
+  src/moe/moe_wmma_gguf.cu(266): error: identifier "load_matrix_sync" is undefined
+                    load_matrix_sync(a_frag, A_sh_ptr, qk);
+                    ^
+            detected during instantiation of "void moe_gemm_gguf_prefill_kernel<T,qk,block_q_t,wrap_size>(const T *, const uint8_t *, const int32_t *, const int32_t *, const float *, float *, int, int, int32_t, int32_t, int32_t, int) [with T=half, qk=256, block_q_t=block_q2_K, wrap_size=64]" at line 414
+
+  src/moe/moe_wmma_gguf.cu(266): error: identifier "load_matrix_sync" is undefined
+                    load_matrix_sync(a_frag, A_sh_ptr, qk);
+                    ^
+            detected during instantiation of "void moe_gemm_gguf_prefill_kernel<T,qk,block_q_t,wrap_size>(const T *, const uint8_t *, const int32_t *, const int32_t *, const float *, float *, int, int, int32_t, int32_t, int32_t, int) [with T=half, qk=256, block_q_t=block_q3_K, wrap_size=64]" at line 414
+
+  src/moe/moe_wmma_gguf.cu(266): error: identifier "load_matrix_sync" is undefined
+                    load_matrix_sync(a_frag, A_sh_ptr, qk);
+                    ^
+            detected during instantiation of "void moe_gemm_gguf_prefill_kernel<T,qk,block_q_t,wrap_size>(const T *, const uint8_t *, const int32_t *, const int32_t *, const float *, float *, int, int, int32_t, int32_t, int32_t, int) [with T=half, qk=256, block_q_t=block_q5_K, wrap_size=64]" at line 414
+
+  src/moe/moe_wmma_gguf.cu(266): error: identifier "load_matrix_sync" is undefined
+                    load_matrix_sync(a_frag, A_sh_ptr, qk);
+                    ^
+            detected during instantiation of "void moe_gemm_gguf_prefill_kernel<T,qk,block_q_t,wrap_size>(const T *, const uint8_t *, const int32_t *, const int32_t *, const float *, float *, int, int, int32_t, int32_t, int32_t, int) [with T=half, qk=256, block_q_t=block_q6_K, wrap_size=64]" at line 414
+
+  src/moe/moe_wmma_gguf.cu(266): error: identifier "load_matrix_sync" is undefined
+                    load_matrix_sync(a_frag, A_sh_ptr, qk);
+                    ^
+            detected during instantiation of "void moe_gemm_gguf_prefill_kernel<T,qk,block_q_t,wrap_size>(const T *, const uint8_t *, const int32_t *, const int32_t *, const float *, float *, int, int, int32_t, int32_t, int32_t, int) [with T=nv_bfloat16, qk=32, block_q_t=block_q8_0, wrap_size=32]" at line 417
+
+  src/moe/moe_wmma_gguf.cu(266): error: identifier "load_matrix_sync" is undefined
+                    load_matrix_sync(a_frag, A_sh_ptr, qk);
+                    ^
+            detected during instantiation of "void moe_gemm_gguf_prefill_kernel<T,qk,block_q_t,wrap_size>(const T *, const uint8_t *, const int32_t *, const int32_t *, const float *, float *, int, int, int32_t, int32_t, int32_t, int) [with T=nv_bfloat16, qk=256, block_q_t=block_q4_K, wrap_size=32]" at line 417
+
+  src/moe/moe_wmma_gguf.cu(266): error: identifier "load_matrix_sync" is undefined
+                    load_matrix_sync(a_frag, A_sh_ptr, qk);
+                    ^
+            detected during instantiation of "void moe_gemm_gguf_prefill_kernel<T,qk,block_q_t,wrap_size>(const T *, const uint8_t *, const int32_t *, const int32_t *, const float *, float *, int, int, int32_t, int32_t, int32_t, int) [with T=nv_bfloat16, qk=256, block_q_t=block_q2_K, wrap_size=64]" at line 417
+
+  src/moe/moe_wmma_gguf.cu(266): error: identifier "load_matrix_sync" is undefined
+                    load_matrix_sync(a_frag, A_sh_ptr, qk);
+                    ^
+            detected during instantiation of "void moe_gemm_gguf_prefill_kernel<T,qk,block_q_t,wrap_size>(const T *, const uint8_t *, const int32_t *, const int32_t *, const float *, float *, int, int, int32_t, int32_t, int32_t, int) [with T=nv_bfloat16, qk=256, block_q_t=block_q3_K, wrap_size=64]" at line 417
+
+  src/moe/moe_wmma_gguf.cu(266): error: identifier "load_matrix_sync" is undefined
+                    load_matrix_sync(a_frag, A_sh_ptr, qk);
+                    ^
+            detected during instantiation of "void moe_gemm_gguf_prefill_kernel<T,qk,block_q_t,wrap_size>(const T *, const uint8_t *, const int32_t *, const int32_t *, const float *, float *, int, int, int32_t, int32_t, int32_t, int) [with T=nv_bfloat16, qk=256, block_q_t=block_q5_K, wrap_size=64]" at line 417
+
+  src/moe/moe_wmma_gguf.cu(266): error: identifier "load_matrix_sync" is undefined
+                    load_matrix_sync(a_frag, A_sh_ptr, qk);
+                    ^
+            detected during instantiation of "void moe_gemm_gguf_prefill_kernel<T,qk,block_q_t,wrap_size>(const T *, const uint8_t *, const int32_t *, const int32_t *, const float *, float *, int, int, int32_t, int32_t, int32_t, int) [with T=nv_bfloat16, qk=256, block_q_t=block_q6_K, wrap_size=64]" at line 417
+
+  29 errors detected in the compilation of "src/moe/moe_wmma_gguf.cu".
+
+  thread 'main' (2311781) panicked at /var/tmp/ltt-bench/kyutai/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bindgen_cuda-0.1.6/src/lib.rs:405:13:
+  nvcc error while compiling "src/moe/moe_wmma.cu":
+
+  # CLI "nvcc" "--gpu-architecture=sm_61" "--ptx" "--default-stream" "per-thread" "--output-directory" "/var/tmp/ltt-bench/kyutai/target/release/build/candle-kernels-4988d64954193e8b/out" "--expt-relaxed-constexpr" "-std=c++17" "-O3" "-Isrc" "-Isrc/moe" "-I/opt/cuda/include" "src/moe/moe_wmma.cu" 
+
+  # stdout
+
+
+  # stderr
+
+  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: failed to compile `moshi-server v0.6.4`, intermediate artifacts can be found at `/var/tmp/ltt-bench/kyutai/target`.
+To reuse those artifacts with a future compilation, set the environment variable `CARGO_BUILD_BUILD_DIR` to that path.

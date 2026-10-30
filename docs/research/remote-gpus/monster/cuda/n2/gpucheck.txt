@@ -1,0 +1,3 @@
+OK pre 23:04:14 apps=[2298998, /var/tmp/ltt-bench/src/build/cuda-server/bin/nemo-speech, 1222 MiB;] util=0% mem=1227MiB own=1222MiB load1=0.81
+OK post 23:05:52 apps=[2298998, /var/tmp/ltt-bench/src/build/cuda-server/bin/nemo-speech, 1222 MiB;] util=0% mem=1227MiB own=1222MiB load1=0.37
+foreign_pids_during_run=[]

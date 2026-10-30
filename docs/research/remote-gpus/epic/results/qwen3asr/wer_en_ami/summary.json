@@ -1,0 +1,72 @@
+[
+ {
+  "source": 0,
+  "wav": "en_ami.wav",
+  "audio_s": 60.0,
+  "first_delta_s": 4.974,
+  "n_deltas": 217,
+  "final_done_after_audio_end_s": -0.0,
+  "approx_word_latency_vs_nemo_timing": {
+   "p50": 1.82,
+   "p95": 4.11,
+   "max": 5.39,
+   "n": 88
+  },
+  "hyp_words": 133,
+  "language_tags_seen": [
+   "English"
+  ],
+  "language_tag_times": [
+   [
+    "English",
+    4.98
+   ],
+   [
+    "English",
+    9.94
+   ],
+   [
+    "English",
+    14.98
+   ],
+   [
+    "English",
+    19.94
+   ],
+   [
+    "English",
+    24.98
+   ],
+   [
+    "English",
+    29.94
+   ],
+   [
+    "English",
+    34.98
+   ],
+   [
+    "English",
+    39.94
+   ],
+   [
+    "English",
+    44.98
+   ],
+   [
+    "English",
+    49.94
+   ],
+   [
+    "English",
+    54.98
+   ],
+   [
+    "English",
+    59.94
+   ]
+  ],
+  "text_after_61s_head": "",
+  "errors": []
+ }
+]

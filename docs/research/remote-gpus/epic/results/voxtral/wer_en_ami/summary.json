@@ -1,0 +1,21 @@
+[
+ {
+  "source": 0,
+  "wav": "en_ami.wav",
+  "audio_s": 60.0,
+  "first_delta_s": 1.698,
+  "n_deltas": 149,
+  "final_done_after_audio_end_s": 0.28,
+  "approx_word_latency_vs_nemo_timing": {
+   "p50": 0.42,
+   "p95": 0.82,
+   "max": 0.98,
+   "n": 98
+  },
+  "hyp_words": 118,
+  "language_tags_seen": [],
+  "language_tag_times": [],
+  "text_after_61s_head": "",
+  "errors": []
+ }
+]

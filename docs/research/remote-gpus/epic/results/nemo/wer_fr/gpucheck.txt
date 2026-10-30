@@ -1,0 +1,10 @@
+== pre 2026-10-29T22:53:01-04:00
+apps: 2754297, nemo-cuda/x/nemo-speech-0.2.0-linux-x86_64-cuda/bin/nemo-speech, 1464 MiB;
+gpu: 0 %, 1474 MiB
+uptime:  22:53:01 up 19 days, 32 min,  2 users,  load average: 0.77, 1.34, 1.64
+docker: 
+== post 2026-10-29T22:53:37-04:00
+apps: 2754297, nemo-cuda/x/nemo-speech-0.2.0-linux-x86_64-cuda/bin/nemo-speech, 1456 MiB;
+gpu: 0 %, 1466 MiB
+uptime:  22:53:37 up 19 days, 33 min,  2 users,  load average: 0.81, 1.28, 1.61
+docker: 

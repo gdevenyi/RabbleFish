@@ -1,0 +1,374 @@
+{"type": "Ready", "_t": 0.001}
+{"type": "Step", "step_idx": 2403, "prs": [1.2784115824615583e-05, 0.00013696416863240302, 0.00028156183543615043, 0.0005870148888789117], "buffered_pcm": 0, "_t": 0.044}
+{"type": "Word", "text": "from", "start_time": 1.04, "_t": 1.609}
+{"type": "EndWord", "stop_time": 1.2, "_t": 1.609}
+{"type": "Word", "text": "a", "start_time": 1.2, "_t": 1.77}
+{"type": "EndWord", "stop_time": 1.44, "_t": 1.85}
+{"type": "Step", "step_idx": 2435, "prs": [0.06004350259900093, 0.06803803890943527, 0.07671752572059631, 0.07437310367822647], "buffered_pcm": 0, "_t": 2.016}
+{"type": "Word", "text": "plain", "start_time": 1.44, "_t": 2.088}
+{"type": "EndWord", "stop_time": 1.68, "_t": 2.088}
+{"type": "Word", "text": "text", "start_time": 1.68, "_t": 2.257}
+{"type": "EndWord", "stop_time": 2.0, "_t": 2.416}
+{"type": "Word", "text": "file.", "start_time": 2.0, "_t": 2.65}
+{"type": "EndWord", "stop_time": 2.88, "_t": 3.289}
+{"type": "Word", "text": "Yeah.", "start_time": 2.88, "_t": 3.531}
+{"type": "EndWord", "stop_time": 3.36, "_t": 3.77}
+{"type": "Word", "text": "Back", "start_time": 3.36, "_t": 3.93}
+{"type": "Step", "step_idx": 2464, "prs": [0.03606334328651428, 0.02607017382979393, 0.019073907285928726, 0.02057548426091671], "buffered_pcm": 0, "_t": 4.01}
+{"type": "EndWord", "stop_time": 3.68, "_t": 4.096}
+{"type": "Word", "text": "into", "start_time": 3.68, "_t": 4.251}
+{"type": "EndWord", "stop_time": 4.08, "_t": 4.491}
+{"type": "Word", "text": "organized", "start_time": 4.08, "_t": 4.736}
+{"type": "EndWord", "stop_time": 4.32, "_t": 4.736}
+{"type": "Word", "text": "by", "start_time": 4.32, "_t": 4.889}
+{"type": "EndWord", "stop_time": 4.48, "_t": 4.889}
+{"type": "Word", "text": "who,", "start_time": 4.48, "_t": 5.132}
+{"type": "EndWord", "stop_time": 4.72, "_t": 5.132}
+{"type": "Word", "text": "which", "start_time": 4.72, "_t": 5.296}
+{"type": "EndWord", "stop_time": 4.96, "_t": 5.37}
+{"type": "Word", "text": "speaker", "start_time": 4.96, "_t": 5.616}
+{"type": "EndWord", "stop_time": 5.28, "_t": 5.69}
+{"type": "Word", "text": "speaks", "start_time": 5.28, "_t": 5.93}
+{"type": "EndWord", "stop_time": 5.6, "_t": 6.016}
+{"type": "Step", "step_idx": 2496, "prs": [0.0006945265922695398, 0.0004993064794689417, 0.0004490457649808377, 0.0004233822110109031], "buffered_pcm": 0, "_t": 6.016}
+{"type": "Word", "text": "what", "start_time": 5.6, "_t": 6.176}
+{"type": "EndWord", "stop_time": 5.92, "_t": 6.33}
+{"type": "Word", "text": "and", "start_time": 5.92, "_t": 6.49}
+{"type": "EndWord", "stop_time": 6.16, "_t": 6.576}
+{"type": "Word", "text": "how", "start_time": 6.16, "_t": 6.73}
+{"type": "EndWord", "stop_time": 6.56, "_t": 6.975}
+{"type": "Word", "text": "doing", "start_time": 6.56, "_t": 7.137}
+{"type": "EndWord", "stop_time": 6.72, "_t": 7.137}
+{"type": "Word", "text": "the", "start_time": 6.72, "_t": 7.29}
+{"type": "EndWord", "stop_time": 6.96, "_t": 7.368}
+{"type": "Word", "text": "segment.", "start_time": 6.96, "_t": 7.769}
+{"type": "EndWord", "stop_time": 7.52, "_t": 7.93}
+{"type": "Step", "step_idx": 2529, "prs": [0.0009263103711418808, 0.000719572592061013, 0.0006079980521462858, 0.0006457214476540685], "buffered_pcm": 0, "_t": 8.01}
+{"type": "Word", "text": "I think", "start_time": 7.52, "_t": 8.17}
+{"type": "EndWord", "stop_time": 7.76, "_t": 8.17}
+{"type": "Word", "text": "that was", "start_time": 7.76, "_t": 8.412}
+{"type": "EndWord", "stop_time": 8.0, "_t": 8.412}
+{"type": "Word", "text": "the", "start_time": 8.0, "_t": 8.57}
+{"type": "EndWord", "stop_time": 8.32, "_t": 8.73}
+{"type": "Word", "text": "stupidest way they could", "start_time": 8.32, "_t": 9.29}
+{"type": "EndWord", "stop_time": 8.88, "_t": 9.29}
+{"type": "Word", "text": "ever", "start_time": 8.88, "_t": 9.455}
+{"type": "EndWord", "stop_time": 9.36, "_t": 9.777}
+{"type": "Step", "step_idx": 2565, "prs": [0.03581806644797325, 0.05554601922631264, 0.03610596805810928, 0.020534737035632133], "buffered_pcm": 0, "_t": 10.01}
+{"type": "Word", "text": "organize the", "start_time": 9.36, "_t": 10.089}
+{"type": "EndWord", "stop_time": 9.68, "_t": 10.089}
+{"type": "Word", "text": "whole", "start_time": 9.68, "_t": 10.249}
+{"type": "EndWord", "stop_time": 9.84, "_t": 10.249}
+{"type": "Word", "text": "thing, if it", "start_time": 9.84, "_t": 10.649}
+{"type": "EndWord", "stop_time": 10.24, "_t": 10.649}
+{"type": "Word", "text": "wasn't me.", "start_time": 10.24, "_t": 11.131}
+{"type": "Step", "step_idx": 2596, "prs": [0.08804644644260406, 0.0798339694738388, 0.03825788199901581, 0.02369230054318905], "buffered_pcm": 0, "_t": 12.009}
+{"type": "EndWord", "stop_time": 12.0, "_t": 12.409}
+{"type": "Word", "text": "Organize it by", "start_time": 12.0, "_t": 12.889}
+{"type": "EndWord", "stop_time": 12.56, "_t": 12.97}
+{"type": "Word", "text": "time,", "start_time": 12.56, "_t": 13.216}
+{"type": "EndWord", "stop_time": 12.8, "_t": 13.216}
+{"type": "Word", "text": "not", "start_time": 12.8, "_t": 13.371}
+{"type": "EndWord", "stop_time": 12.96, "_t": 13.371}
+{"type": "Word", "text": "by", "start_time": 12.96, "_t": 13.529}
+{"type": "EndWord", "stop_time": 13.2, "_t": 13.617}
+{"type": "Word", "text": "speaker.", "start_time": 13.2, "_t": 13.937}
+{"type": "Step", "step_idx": 2629, "prs": [0.9270994067192078, 0.857752799987793, 0.6981987357139587, 0.5873251557350159], "buffered_pcm": 0, "_t": 14.011}
+{"type": "Step", "step_idx": 2661, "prs": [0.980096161365509, 0.9472525119781494, 0.8619675636291504, 0.7666024565696716], "buffered_pcm": 0, "_t": 16.017}
+{"type": "EndWord", "stop_time": 17.12, "_t": 17.531}
+{"type": "Word", "text": "But", "start_time": 17.12, "_t": 17.689}
+{"type": "EndWord", "stop_time": 17.28, "_t": 17.689}
+{"type": "Word", "text": "so", "start_time": 17.28, "_t": 17.849}
+{"type": "EndWord", "stop_time": 17.44, "_t": 17.849}
+{"type": "Word", "text": "I", "start_time": 17.44, "_t": 18.009}
+{"type": "EndWord", "stop_time": 17.6, "_t": 18.009}
+{"type": "Step", "step_idx": 2691, "prs": [0.21605154871940613, 0.15486574172973633, 0.09351124614477158, 0.07372848689556122], "buffered_pcm": 0, "_t": 18.009}
+{"type": "Word", "text": "don't know.", "start_time": 17.6, "_t": 18.49}
+{"type": "Step", "step_idx": 2723, "prs": [0.9979261159896851, 0.9952352643013, 0.9782256484031677, 0.8994846940040588], "buffered_pcm": 0, "_t": 20.017}
+{"type": "Step", "step_idx": 2754, "prs": [0.9998434782028198, 0.9998362064361572, 0.9996445178985596, 0.9985344409942627], "buffered_pcm": 0, "_t": 22.01}
+{"type": "Step", "step_idx": 2788, "prs": [0.9996238946914673, 0.999672532081604, 0.9996687173843384, 0.999648928642273], "buffered_pcm": 0, "_t": 24.009}
+{"type": "Step", "step_idx": 2824, "prs": [0.9989412426948547, 0.9990665316581726, 0.9990435242652893, 0.9990691542625427], "buffered_pcm": 0, "_t": 26.009}
+{"type": "EndWord", "stop_time": 27.04, "_t": 27.449}
+{"type": "Word", "text": "Okay.", "start_time": 27.04, "_t": 27.697}
+{"type": "Step", "step_idx": 2859, "prs": [0.9660916924476624, 0.9099147915840149, 0.7085618376731873, 0.5477889180183411], "buffered_pcm": 0, "_t": 28.01}
+{"type": "EndWord", "stop_time": 28.24, "_t": 28.649}
+{"type": "Word", "text": "Okay.", "start_time": 28.24, "_t": 28.897}
+{"type": "EndWord", "stop_time": 28.56, "_t": 28.969}
+{"type": "Word", "text": "We're", "start_time": 28.56, "_t": 29.291}
+{"type": "EndWord", "stop_time": 28.88, "_t": 29.291}
+{"type": "Word", "text": "done.", "start_time": 28.88, "_t": 29.529}
+{"type": "EndWord", "stop_time": 29.44, "_t": 29.849}
+{"type": "Step", "step_idx": 2895, "prs": [0.9978786706924438, 0.8746458888053894, 0.5278947949409485, 0.37275537848472595], "buffered_pcm": 0, "_t": 30.016}
+{"type": "Word", "text": "Yeah.", "start_time": 29.44, "_t": 30.09}
+{"type": "EndWord", "stop_time": 30.4, "_t": 30.811}
+{"type": "Word", "text": "I", "start_time": 30.4, "_t": 30.969}
+{"type": "EndWord", "stop_time": 30.56, "_t": 30.97}
+{"type": "Word", "text": "guess", "start_time": 30.56, "_t": 31.13}
+{"type": "EndWord", "stop_time": 30.8, "_t": 31.21}
+{"type": "Word", "text": "we", "start_time": 30.8, "_t": 31.369}
+{"type": "EndWord", "stop_time": 31.6, "_t": 32.01}
+{"type": "Step", "step_idx": 2924, "prs": [0.9989799857139587, 0.9952073693275452, 0.5124211311340332, 0.32292139530181885], "buffered_pcm": 0, "_t": 32.01}
+{"type": "Word", "text": "just", "start_time": 31.6, "_t": 32.17}
+{"type": "EndWord", "stop_time": 32.56, "_t": 32.97}
+{"type": "Word", "text": "see", "start_time": 32.56, "_t": 33.13}
+{"type": "EndWord", "stop_time": 32.8, "_t": 33.216}
+{"type": "Word", "text": "what", "start_time": 32.8, "_t": 33.376}
+{"type": "EndWord", "stop_time": 33.04, "_t": 33.45}
+{"type": "Word", "text": "Steve", "start_time": 33.04, "_t": 33.61}
+{"type": "EndWord", "stop_time": 33.52, "_t": 33.929}
+{"type": "Step", "step_idx": 2962, "prs": [0.0031416756100952625, 0.001676979474723339, 0.0014687072252854705, 0.0012926729395985603], "buffered_pcm": 0, "_t": 34.016}
+{"type": "Word", "text": "says", "start_time": 33.52, "_t": 34.09}
+{"type": "EndWord", "stop_time": 34.0, "_t": 34.41}
+{"type": "Word", "text": "about", "start_time": 34.0, "_t": 34.57}
+{"type": "EndWord", "stop_time": 34.16, "_t": 34.57}
+{"type": "Word", "text": "the", "start_time": 34.16, "_t": 34.73}
+{"type": "EndWord", "stop_time": 34.96, "_t": 35.369}
+{"type": "Word", "text": "evaluation", "start_time": 34.96, "_t": 35.856}
+{"type": "EndWord", "stop_time": 35.44, "_t": 35.856}
+{"type": "Word", "text": "and", "start_time": 35.44, "_t": 36.01}
+{"type": "Step", "step_idx": 2997, "prs": [0.10066671669483185, 0.08658417314291, 0.05583683401346207, 0.04939737543463707], "buffered_pcm": 0, "_t": 36.01}
+{"type": "EndWord", "stop_time": 35.92, "_t": 36.329}
+{"type": "Word", "text": "then", "start_time": 35.92, "_t": 36.489}
+{"type": "EndWord", "stop_time": 36.96, "_t": 37.369}
+{"type": "Word", "text": "like,", "start_time": 36.96, "_t": 37.615}
+{"type": "EndWord", "stop_time": 37.6, "_t": 38.017}
+{"type": "Step", "step_idx": 3031, "prs": [0.00975026749074459, 0.008391154929995537, 0.00524380337446928, 0.003520483383908868], "buffered_pcm": 0, "_t": 38.017}
+{"type": "Word", "text": "we'll keep", "start_time": 37.6, "_t": 38.415}
+{"type": "EndWord", "stop_time": 38.0, "_t": 38.415}
+{"type": "Word", "text": "in", "start_time": 38.0, "_t": 38.577}
+{"type": "EndWord", "stop_time": 38.24, "_t": 38.649}
+{"type": "Word", "text": "touch", "start_time": 38.24, "_t": 38.817}
+{"type": "EndWord", "stop_time": 38.48, "_t": 38.889}
+{"type": "Word", "text": "by", "start_time": 38.48, "_t": 39.05}
+{"type": "EndWord", "stop_time": 38.88, "_t": 39.289}
+{"type": "Word", "text": "email", "start_time": 38.88, "_t": 39.449}
+{"type": "EndWord", "stop_time": 39.12, "_t": 39.529}
+{"type": "Word", "text": "if", "start_time": 39.12, "_t": 39.689}
+{"type": "EndWord", "stop_time": 39.28, "_t": 39.689}
+{"type": "Word", "text": "we", "start_time": 39.28, "_t": 39.855}
+{"type": "EndWord", "stop_time": 39.52, "_t": 39.93}
+{"type": "Step", "step_idx": 3065, "prs": [0.9933081865310669, 0.87420254945755, 0.6461048722267151, 0.47037237882614136], "buffered_pcm": 0, "_t": 40.017}
+{"type": "Word", "text": "need.", "start_time": 39.52, "_t": 40.172}
+{"type": "EndWord", "stop_time": 40.72, "_t": 41.137}
+{"type": "Word", "text": "Right.", "start_time": 40.72, "_t": 41.377}
+{"type": "EndWord", "stop_time": 41.36, "_t": 41.769}
+{"type": "Step", "step_idx": 3095, "prs": [0.0042405338026583195, 0.0028101601637899876, 0.0023536430671811104, 0.002654863288626075], "buffered_pcm": 0, "_t": 42.009}
+{"type": "Word", "text": "Anything.", "start_time": 41.36, "_t": 42.089}
+{"type": "EndWord", "stop_time": 41.68, "_t": 42.089}
+{"type": "Word", "text": "I", "start_time": 41.68, "_t": 42.256}
+{"type": "EndWord", "stop_time": 41.84, "_t": 42.256}
+{"type": "Word", "text": "guess", "start_time": 41.84, "_t": 42.415}
+{"type": "EndWord", "stop_time": 42.16, "_t": 42.569}
+{"type": "Word", "text": "we'll see you", "start_time": 42.16, "_t": 43.049}
+{"type": "EndWord", "stop_time": 42.64, "_t": 43.049}
+{"type": "Word", "text": "in", "start_time": 42.64, "_t": 43.21}
+{"type": "EndWord", "stop_time": 42.8, "_t": 43.21}
+{"type": "Word", "text": "time,", "start_time": 42.8, "_t": 43.45}
+{"type": "EndWord", "stop_time": 43.04, "_t": 43.45}
+{"type": "Word", "text": "Steve.", "start_time": 43.04, "_t": 43.689}
+{"type": "Step", "step_idx": 3127, "prs": [0.9673522710800171, 0.9514768123626709, 0.7569513320922852, 0.6458105444908142], "buffered_pcm": 0, "_t": 44.009}
+{"type": "EndWord", "stop_time": 45.6, "_t": 46.009}
+{"type": "Step", "step_idx": 3159, "prs": [0.029928991571068764, 0.038332607597112656, 0.044415734708309174, 0.041371364146471024], "buffered_pcm": 0, "_t": 46.009}
+{"type": "Word", "text": "And", "start_time": 45.6, "_t": 46.169}
+{"type": "EndWord", "stop_time": 46.0, "_t": 46.41}
+{"type": "Word", "text": "Monday.", "start_time": 46.0, "_t": 46.736}
+{"type": "EndWord", "stop_time": 47.6, "_t": 48.01}
+{"type": "Step", "step_idx": 3189, "prs": [0.4100639522075653, 0.38815417885780334, 0.265698105096817, 0.20960426330566406], "buffered_pcm": 0, "_t": 48.01}
+{"type": "Word", "text": "See you", "start_time": 47.6, "_t": 48.256}
+{"type": "EndWord", "stop_time": 47.84, "_t": 48.256}
+{"type": "Word", "text": "next", "start_time": 47.84, "_t": 48.412}
+{"type": "EndWord", "stop_time": 48.08, "_t": 48.49}
+{"type": "Word", "text": "week.", "start_time": 48.08, "_t": 48.737}
+{"type": "EndWord", "stop_time": 48.88, "_t": 49.289}
+{"type": "Word", "text": "Yeah. We", "start_time": 48.88, "_t": 49.609}
+{"type": "EndWord", "stop_time": 49.28, "_t": 49.69}
+{"type": "Step", "step_idx": 3220, "prs": [0.0018888076301664114, 0.0017245026538148522, 0.001951310783624649, 0.0016269335756078362], "buffered_pcm": 0, "_t": 50.016}
+{"type": "Word", "text": "don't. Do we need another", "start_time": 49.28, "_t": 50.49}
+{"type": "EndWord", "stop_time": 50.16, "_t": 50.57}
+{"type": "Word", "text": "meeting", "start_time": 50.16, "_t": 50.81}
+{"type": "EndWord", "stop_time": 50.48, "_t": 50.896}
+{"type": "Word", "text": "this", "start_time": 50.48, "_t": 51.048}
+{"type": "EndWord", "stop_time": 50.8, "_t": 51.209}
+{"type": "Word", "text": "week?", "start_time": 50.8, "_t": 51.451}
+{"type": "Step", "step_idx": 3254, "prs": [0.3089293837547302, 0.19595859944820404, 0.03340946137905121, 0.02490619570016861], "buffered_pcm": 0, "_t": 52.017}
+{"type": "EndWord", "stop_time": 52.16, "_t": 52.571}
+{"type": "Word", "text": "Probably", "start_time": 52.16, "_t": 52.809}
+{"type": "EndWord", "stop_time": 52.48, "_t": 52.889}
+{"type": "Word", "text": "not. I", "start_time": 52.48, "_t": 53.211}
+{"type": "EndWord", "stop_time": 52.8, "_t": 53.211}
+{"type": "Word", "text": "mean,", "start_time": 52.8, "_t": 53.449}
+{"type": "EndWord", "stop_time": 53.12, "_t": 53.536}
+{"type": "Word", "text": "just", "start_time": 53.12, "_t": 53.691}
+{"type": "Step", "step_idx": 3286, "prs": [0.9585145711898804, 0.1641170084476471, 0.021870462223887444, 0.02038043551146984], "buffered_pcm": 0, "_t": 54.009}
+{"type": "EndWord", "stop_time": 53.84, "_t": 54.25}
+{"type": "Word", "text": "get", "start_time": 53.84, "_t": 54.41}
+{"type": "EndWord", "stop_time": 54.64, "_t": 55.051}
+{"type": "Word", "text": "work", "start_time": 54.64, "_t": 55.217}
+{"type": "EndWord", "stop_time": 55.04, "_t": 55.449}
+{"type": "Word", "text": "done.", "start_time": 55.04, "_t": 55.697}
+{"type": "EndWord", "stop_time": 55.6, "_t": 56.015}
+{"type": "Step", "step_idx": 3318, "prs": [0.035742055624723434, 0.03654145449399948, 0.025960391387343407, 0.02257588692009449], "buffered_pcm": 0, "_t": 56.015}
+{"type": "Word", "text": "I", "start_time": 55.6, "_t": 56.177}
+{"type": "EndWord", "stop_time": 55.76, "_t": 56.177}
+{"type": "Word", "text": "think", "start_time": 55.76, "_t": 56.33}
+{"type": "EndWord", "stop_time": 56.64, "_t": 57.051}
+{"type": "Word", "text": "that's what", "start_time": 56.64, "_t": 57.451}
+{"type": "EndWord", "stop_time": 57.04, "_t": 57.451}
+{"type": "Step", "step_idx": 3353, "prs": [0.03374616801738739, 0.013420669361948967, 0.020293310284614563, 0.016397541388869286], "buffered_pcm": 0, "_t": 58.015}
+{"type": "Word", "text": "I've got to do.", "start_time": 57.04, "_t": 58.089}
+{"type": "EndWord", "stop_time": 57.84, "_t": 58.249}
+{"type": "Word", "text": "We", "start_time": 57.84, "_t": 58.409}
+{"type": "EndWord", "stop_time": 58.0, "_t": 58.409}
+{"type": "Word", "text": "can", "start_time": 58.0, "_t": 58.57}
+{"type": "EndWord", "stop_time": 58.32, "_t": 58.736}
+{"type": "Word", "text": "just", "start_time": 58.32, "_t": 58.89}
+{"type": "EndWord", "stop_time": 58.64, "_t": 59.051}
+{"type": "Word", "text": "email", "start_time": 58.64, "_t": 59.209}
+{"type": "EndWord", "stop_time": 58.88, "_t": 59.291}
+{"type": "Word", "text": "if", "start_time": 58.88, "_t": 59.457}
+{"type": "EndWord", "stop_time": 59.04, "_t": 59.457}
+{"type": "Word", "text": "we", "start_time": 59.04, "_t": 59.609}
+{"type": "EndWord", "stop_time": 59.36, "_t": 59.769}
+{"type": "Word", "text": "need.", "start_time": 59.36, "_t": 60.009}
+{"type": "Step", "step_idx": 3384, "prs": [0.37268009781837463, 0.374048113822937, 0.14082247018814087, 0.10331454873085022], "buffered_pcm": 0, "_t": 60.009}
+{"type": "EndWord", "stop_time": 59.92, "_t": 60.331}
+{"type": "Word", "text": "Yeah.", "start_time": 59.92, "_t": 60.571}
+{"type": "EndWord", "stop_time": 61.04, "_t": 61.45}
+{"type": "Word", "text": "But", "start_time": 61.04, "_t": 61.616}
+{"type": "EndWord", "stop_time": 61.2, "_t": 61.616}
+{"type": "Word", "text": "on", "start_time": 61.2, "_t": 61.776}
+{"type": "EndWord", "stop_time": 61.36, "_t": 61.776}
+{"type": "Word", "text": "a", "start_time": 61.36, "_t": 61.936}
+{"type": "EndWord", "stop_time": 61.6, "_t": 62.009}
+{"type": "Step", "step_idx": 3417, "prs": [0.05256153643131256, 0.053662002086639404, 0.04411527141928673, 0.03449541702866554], "buffered_pcm": 0, "_t": 62.009}
+{"type": "Word", "text": "second", "start_time": 61.6, "_t": 62.257}
+{"type": "EndWord", "stop_time": 62.08, "_t": 62.489}
+{"type": "Word", "text": "siècle,", "start_time": 62.08, "_t": 62.809}
+{"type": "EndWord", "stop_time": 62.56, "_t": 62.97}
+{"type": "Word", "text": "je", "start_time": 62.56, "_t": 63.129}
+{"type": "EndWord", "stop_time": 62.88, "_t": 63.297}
+{"type": "Word", "text": "fis", "start_time": 62.88, "_t": 63.531}
+{"type": "EndWord", "stop_time": 63.28, "_t": 63.697}
+{"type": "Step", "step_idx": 3451, "prs": [0.0011386546539142728, 0.00080542650539428, 0.0011462743859738111, 0.0019013057462871075], "buffered_pcm": 0, "_t": 64.016}
+{"type": "Word", "text": "serment", "start_time": 63.28, "_t": 64.09}
+{"type": "EndWord", "stop_time": 63.68, "_t": 64.09}
+{"type": "Word", "text": "d'ouvrir tous les", "start_time": 63.68, "_t": 64.569}
+{"type": "EndWord", "stop_time": 64.32, "_t": 64.73}
+{"type": "Word", "text": "trésors de", "start_time": 64.32, "_t": 65.136}
+{"type": "EndWord", "stop_time": 64.72, "_t": 65.136}
+{"type": "Word", "text": "la", "start_time": 64.72, "_t": 65.296}
+{"type": "EndWord", "stop_time": 64.96, "_t": 65.37}
+{"type": "Word", "text": "terre,", "start_time": 64.96, "_t": 65.61}
+{"type": "EndWord", "stop_time": 65.52, "_t": 65.93}
+{"type": "Step", "step_idx": 3486, "prs": [0.019642258062958717, 0.009942252188920975, 0.006702447310090065, 0.008969014510512352], "buffered_pcm": 0, "_t": 66.015}
+{"type": "Word", "text": "à", "start_time": 65.52, "_t": 66.089}
+{"type": "EndWord", "stop_time": 66.0, "_t": 66.416}
+{"type": "Word", "text": "quiconque me", "start_time": 66.0, "_t": 66.81}
+{"type": "EndWord", "stop_time": 66.64, "_t": 67.057}
+{"type": "Word", "text": "mettrait", "start_time": 66.64, "_t": 67.289}
+{"type": "EndWord", "stop_time": 66.88, "_t": 67.289}
+{"type": "Word", "text": "en", "start_time": 66.88, "_t": 67.455}
+{"type": "EndWord", "stop_time": 67.28, "_t": 67.69}
+{"type": "Word", "text": "liberté.", "start_time": 67.28, "_t": 68.016}
+{"type": "Step", "step_idx": 3520, "prs": [0.9923639297485352, 0.3871358335018158, 0.08815990388393402, 0.0748351588845253], "buffered_pcm": 0, "_t": 68.016}
+{"type": "EndWord", "stop_time": 68.16, "_t": 68.571}
+{"type": "Word", "text": "Mais", "start_time": 68.16, "_t": 68.73}
+{"type": "EndWord", "stop_time": 68.32, "_t": 68.73}
+{"type": "Word", "text": "je", "start_time": 68.32, "_t": 68.89}
+{"type": "EndWord", "stop_time": 68.48, "_t": 68.89}
+{"type": "Word", "text": "ne", "start_time": 68.48, "_t": 69.049}
+{"type": "EndWord", "stop_time": 68.64, "_t": 69.049}
+{"type": "Word", "text": "fus pas", "start_time": 68.64, "_t": 69.368}
+{"type": "EndWord", "stop_time": 69.04, "_t": 69.451}
+{"type": "Word", "text": "plus", "start_time": 69.04, "_t": 69.61}
+{"type": "EndWord", "stop_time": 69.36, "_t": 69.776}
+{"type": "Step", "step_idx": 3554, "prs": [0.9985169768333435, 0.8193545341491699, 0.12001126259565353, 0.12673795223236084], "buffered_pcm": 0, "_t": 70.01}
+{"type": "Word", "text": "heureux.", "start_time": 69.36, "_t": 70.09}
+{"type": "EndWord", "stop_time": 70.8, "_t": 71.217}
+{"type": "Word", "text": "Dans", "start_time": 70.8, "_t": 71.376}
+{"type": "EndWord", "stop_time": 70.96, "_t": 71.376}
+{"type": "Word", "text": "le", "start_time": 70.96, "_t": 71.53}
+{"type": "EndWord", "stop_time": 71.36, "_t": 71.77}
+{"type": "Step", "step_idx": 3587, "prs": [0.010939772240817547, 0.0054645719937980175, 0.001566927065141499, 0.0014060065150260925], "buffered_pcm": 0, "_t": 72.016}
+{"type": "Word", "text": "troisième,", "start_time": 71.36, "_t": 72.09}
+{"type": "EndWord", "stop_time": 71.68, "_t": 72.09}
+{"type": "Word", "text": "je", "start_time": 71.68, "_t": 72.256}
+{"type": "EndWord", "stop_time": 72.08, "_t": 72.496}
+{"type": "Word", "text": "promis", "start_time": 72.08, "_t": 72.73}
+{"type": "EndWord", "stop_time": 72.32, "_t": 72.73}
+{"type": "Word", "text": "de", "start_time": 72.32, "_t": 72.89}
+{"type": "EndWord", "stop_time": 72.64, "_t": 73.05}
+{"type": "Word", "text": "faire", "start_time": 72.64, "_t": 73.21}
+{"type": "EndWord", "stop_time": 73.2, "_t": 73.617}
+{"type": "Word", "text": "puissant", "start_time": 73.2, "_t": 73.936}
+{"type": "Step", "step_idx": 3619, "prs": [0.0003350796177983284, 0.0004826223012059927, 0.00023809597769286484, 0.00030381762189790606], "buffered_pcm": 0, "_t": 74.01}
+{"type": "EndWord", "stop_time": 73.68, "_t": 74.096}
+{"type": "Word", "text": "monarque mon", "start_time": 73.68, "_t": 74.496}
+{"type": "EndWord", "stop_time": 74.48, "_t": 74.891}
+{"type": "Word", "text": "libérateur,", "start_time": 74.48, "_t": 75.21}
+{"type": "EndWord", "stop_time": 74.88, "_t": 75.29}
+{"type": "Word", "text": "d'être", "start_time": 74.88, "_t": 75.615}
+{"type": "EndWord", "stop_time": 75.2, "_t": 75.615}
+{"type": "Word", "text": "toujours", "start_time": 75.2, "_t": 75.848}
+{"type": "EndWord", "stop_time": 75.44, "_t": 75.848}
+{"type": "Word", "text": "près", "start_time": 75.44, "_t": 76.01}
+{"type": "EndWord", "stop_time": 75.6, "_t": 76.01}
+{"type": "Step", "step_idx": 3651, "prs": [0.0001500903454143554, 0.00025896215811371803, 0.00023234507534652948, 0.0002461677067913115], "buffered_pcm": 0, "_t": 76.01}
+{"type": "Word", "text": "de lui", "start_time": 75.6, "_t": 76.252}
+{"type": "EndWord", "stop_time": 76.0, "_t": 76.417}
+{"type": "Word", "text": "en", "start_time": 76.0, "_t": 76.577}
+{"type": "EndWord", "stop_time": 76.32, "_t": 76.736}
+{"type": "Word", "text": "esprit.", "start_time": 76.32, "_t": 77.048}
+{"type": "EndWord", "stop_time": 77.44, "_t": 77.849}
+{"type": "Step", "step_idx": 3685, "prs": [0.02413974143564701, 0.018767280504107475, 0.016534827649593353, 0.02704540081322193], "buffered_pcm": 0, "_t": 78.017}
+{"type": "Word", "text": "Lorsqu'il", "start_time": 77.44, "_t": 78.336}
+{"type": "EndWord", "stop_time": 78.16, "_t": 78.569}
+{"type": "Word", "text": "achevait ce", "start_time": 78.16, "_t": 79.049}
+{"type": "EndWord", "stop_time": 78.96, "_t": 79.369}
+{"type": "Word", "text": "repas", "start_time": 78.96, "_t": 79.529}
+{"type": "EndWord", "stop_time": 79.44, "_t": 79.849}
+{"type": "Step", "step_idx": 3717, "prs": [0.12265639007091522, 0.038973718881607056, 0.004926758352667093, 0.011537941172719002], "buffered_pcm": 0, "_t": 80.009}
+{"type": "Word", "text": "frugal,", "start_time": 79.44, "_t": 80.33}
+{"type": "EndWord", "stop_time": 80.16, "_t": 80.57}
+{"type": "Word", "text": "comme", "start_time": 80.16, "_t": 80.729}
+{"type": "EndWord", "stop_time": 80.4, "_t": 80.809}
+{"type": "Word", "text": "il", "start_time": 80.4, "_t": 80.969}
+{"type": "EndWord", "stop_time": 80.72, "_t": 81.129}
+{"type": "Word", "text": "était", "start_time": 80.72, "_t": 81.289}
+{"type": "EndWord", "stop_time": 81.04, "_t": 81.449}
+{"type": "Word", "text": "bon", "start_time": 81.04, "_t": 81.617}
+{"type": "Step", "step_idx": 3749, "prs": [0.4949013888835907, 0.21847540140151978, 0.01692243479192257, 0.012479682452976704], "buffered_pcm": 0, "_t": 82.009}
+{"type": "EndWord", "stop_time": 81.84, "_t": 82.25}
+{"type": "Word", "text": "musulman,", "start_time": 81.84, "_t": 82.577}
+{"type": "EndWord", "stop_time": 82.32, "_t": 82.737}
+{"type": "Word", "text": "il", "start_time": 82.32, "_t": 82.896}
+{"type": "EndWord", "stop_time": 82.56, "_t": 82.976}
+{"type": "Word", "text": "se", "start_time": 82.56, "_t": 83.137}
+{"type": "EndWord", "stop_time": 82.8, "_t": 83.209}
+{"type": "Word", "text": "lava", "start_time": 82.8, "_t": 83.449}
+{"type": "EndWord", "stop_time": 83.04, "_t": 83.449}
+{"type": "Word", "text": "les", "start_time": 83.04, "_t": 83.609}
+{"type": "EndWord", "stop_time": 83.36, "_t": 83.769}
+{"type": "Step", "step_idx": 3784, "prs": [0.014289434999227524, 0.0015336786163970828, 0.00036416269722394645, 0.00035551859764382243], "buffered_pcm": 0, "_t": 84.016}
+{"type": "Word", "text": "mains,", "start_time": 83.36, "_t": 84.096}
+{"type": "EndWord", "stop_time": 83.92, "_t": 84.335}
+{"type": "Word", "text": "le", "start_time": 83.92, "_t": 84.497}
+{"type": "EndWord", "stop_time": 84.48, "_t": 84.889}
+{"type": "Word", "text": "visage", "start_time": 84.48, "_t": 85.129}
+{"type": "EndWord", "stop_time": 84.8, "_t": 85.21}
+{"type": "Word", "text": "et", "start_time": 84.8, "_t": 85.369}
+{"type": "EndWord", "stop_time": 84.96, "_t": 85.369}
+{"type": "Word", "text": "les", "start_time": 84.96, "_t": 85.529}
+{"type": "Step", "step_idx": 3817, "prs": [0.9972110390663147, 0.9444677829742432, 0.6665416359901428, 0.5038886666297913], "buffered_pcm": 0, "_t": 86.009}
+{"type": "EndWord", "stop_time": 86.0, "_t": 86.416}
+{"type": "Word", "text": "pieds,", "start_time": 86.0, "_t": 86.651}
+{"type": "EndWord", "stop_time": 86.32, "_t": 86.736}
+{"type": "Word", "text": "et", "start_time": 86.32, "_t": 86.89}
+{"type": "EndWord", "stop_time": 86.48, "_t": 86.89}
+{"type": "Word", "text": "fit", "start_time": 86.48, "_t": 87.049}
+{"type": "EndWord", "stop_time": 86.8, "_t": 87.209}
+{"type": "Word", "text": "sa", "start_time": 86.8, "_t": 87.377}
+{"type": "EndWord", "stop_time": 87.28, "_t": 87.697}
+{"type": "Word", "text": "prière.", "start_time": 87.28, "_t": 88.016}
+{"type": "Marker", "id": 0, "_t": 88.016}
+{"type": "Step", "step_idx": 3853, "prs": [0.995999813079834, 0.950685441493988, 0.6198792457580566, 0.5460769534111023], "buffered_pcm": 0, "_t": 88.016}

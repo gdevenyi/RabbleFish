@@ -1,0 +1,10 @@
+== before-kyutai-start 2026-10-29T23:38:23-04:00
+apps: 
+gpu: 0 %, 2 MiB
+uptime:  23:38:23 up 19 days,  1:18,  2 users,  load average: 5.23, 3.76, 2.40
+docker: 
+== after-kyutai-start 2026-10-29T23:38:55-04:00
+apps: 2843527, ./install/bin/moshi-server, 3560 MiB;
+gpu: 0 %, 3570 MiB
+uptime:  23:38:55 up 19 days,  1:18,  2 users,  load average: 4.06, 3.61, 2.39
+docker: 

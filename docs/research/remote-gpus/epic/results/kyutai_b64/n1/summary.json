@@ -1,0 +1,43 @@
+[
+ {
+  "source": 0,
+  "wav": "en_fr.wav",
+  "audio_s": 87.8,
+  "first_word_s": 1.622,
+  "words": 164,
+  "step_lag": {
+   "p50": -0.22,
+   "p95": -0.22,
+   "max": -0.2,
+   "n": 1097
+  },
+  "word_emit_lag_vs_own_start": {
+   "p50": 0.58,
+   "p95": 0.9,
+   "max": 1.22,
+   "n": 164
+  },
+  "word_end_lag_vs_own_stop": {
+   "p50": 0.42,
+   "p95": 0.42,
+   "max": 0.42,
+   "n": 163
+  },
+  "approx_word_latency_vs_nemo_timing": {
+   "p50": 0.42,
+   "p95": 0.9,
+   "max": 1.38,
+   "n": 107
+  },
+  "marker_back_after_audio_end_s": 0.48,
+  "event_types": [
+   "EndWord",
+   "Marker",
+   "Ready",
+   "Step",
+   "Word"
+  ],
+  "text_after_60_5s_head": "But on a second siècle, je fis serment d'ouvrir tous les trésors de la terre, à quiconque me mettrait en liberté. Mais je ne fus pas plus heureux. Dans le troisième, je promis de faire puissant monarq",
+  "errors": []
+ }
+]

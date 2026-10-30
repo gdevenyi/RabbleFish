@@ -1,0 +1,1 @@
+WER 0.206  (sub 10, del 18, ins 1, ref words 141)

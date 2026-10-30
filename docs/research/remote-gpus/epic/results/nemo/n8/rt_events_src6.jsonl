@@ -1,0 +1,820 @@
+{"event_id": "event_4942", "session": {"input_audio_format": "pcm16", "model": "nemotron-3.5-asr-streaming-0.6b.q8_0", "sample_rate": 16000}, "type": "session.created"}
+{"event_id": "event_4950", "session": {"endpointing_ms": 800, "language": "auto", "speaker_diarization": true, "word_timestamps": true}, "type": "session.updated", "_t": 0.041}
+{"audio_processed": 1.6799999475479126, "delta": "From a", "event_id": "event_4957", "type": "conversation.item.input_audio_transcription.delta", "_t": 1.665}
+{"audio_processed": 1.7599999904632568, "delta": "", "event_id": "event_4966", "type": "conversation.item.input_audio_transcription.delta", "_t": 1.725}
+{"audio_processed": 1.840000033378601, "delta": " pla", "event_id": "event_4974", "type": "conversation.item.input_audio_transcription.delta", "_t": 1.825}
+{"audio_processed": 1.9199999570846558, "delta": "", "event_id": "event_4983", "type": "conversation.item.input_audio_transcription.delta", "_t": 1.885}
+{"audio_processed": 2, "delta": "in", "event_id": "event_4989", "type": "conversation.item.input_audio_transcription.delta", "_t": 1.985}
+{"audio_processed": 2.0799999237060547, "delta": "", "event_id": "event_4998", "type": "conversation.item.input_audio_transcription.delta", "_t": 2.049}
+{"audio_processed": 2.1600000858306885, "delta": " text", "event_id": "event_5005", "type": "conversation.item.input_audio_transcription.delta", "_t": 2.141}
+{"audio_processed": 2.240000009536743, "delta": "", "event_id": "event_5012", "type": "conversation.item.input_audio_transcription.delta", "_t": 2.221}
+{"audio_processed": 2.319999933242798, "delta": " fi", "event_id": "event_5023", "type": "conversation.item.input_audio_transcription.delta", "_t": 2.306}
+{"audio_processed": 2.4000000953674316, "delta": "", "event_id": "event_5031", "type": "conversation.item.input_audio_transcription.delta", "_t": 2.365}
+{"audio_processed": 2.4800000190734863, "delta": "", "event_id": "event_5037", "type": "conversation.item.input_audio_transcription.delta", "_t": 2.457}
+{"audio_processed": 2.559999942779541, "delta": "", "event_id": "event_5046", "type": "conversation.item.input_audio_transcription.delta", "_t": 2.526}
+{"audio_processed": 2.640000104904175, "delta": "le", "event_id": "event_5054", "type": "conversation.item.input_audio_transcription.delta", "_t": 2.626}
+{"audio_processed": 2.7200000286102295, "delta": "", "event_id": "event_5062", "type": "conversation.item.input_audio_transcription.delta", "_t": 2.685}
+{"audio_processed": 2.799999952316284, "delta": "", "event_id": "event_5069", "type": "conversation.item.input_audio_transcription.delta", "_t": 2.777}
+{"audio_processed": 2.880000114440918, "delta": "", "event_id": "event_5076", "type": "conversation.item.input_audio_transcription.delta", "_t": 2.845}
+{"audio_processed": 2.9600000381469727, "delta": "", "event_id": "event_5085", "type": "conversation.item.input_audio_transcription.delta", "_t": 2.941}
+{"audio_processed": 3.0399999618530273, "delta": "", "event_id": "event_5093", "type": "conversation.item.input_audio_transcription.delta", "_t": 3.005}
+{"audio_processed": 3.119999885559082, "delta": "", "event_id": "event_5101", "type": "conversation.item.input_audio_transcription.delta", "_t": 3.097}
+{"audio_processed": 3.200000047683716, "delta": "", "event_id": "event_5109", "type": "conversation.item.input_audio_transcription.delta", "_t": 3.165}
+{"audio_processed": 3.2799999713897705, "delta": "", "event_id": "event_5114", "type": "conversation.item.input_audio_transcription.delta", "_t": 3.269}
+{"audio_processed": 3.359999895095825, "delta": "", "event_id": "event_5125", "type": "conversation.item.input_audio_transcription.delta", "_t": 3.325}
+{"audio_processed": 3.440000057220459, "event_id": "event_5135", "transcript": "From a plain text file", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 1.52, "speaker": 1, "start": 1.44, "word": "From"}, {"confidence": 1, "end": 1.6, "speaker": 1, "start": 1.52, "word": "a"}, {"confidence": 1, "end": 1.84, "speaker": 1, "start": 1.68, "word": "plain"}, {"confidence": 1, "end": 2, "speaker": 1, "start": 1.92, "word": "text"}, {"confidence": 1, "end": 2.48, "speaker": 1, "start": 2.16, "word": "file"}], "_t": 3.421}
+{"audio_processed": 3.759999990463257, "delta": "back", "event_id": "event_5143", "type": "conversation.item.input_audio_transcription.delta", "_t": 3.745}
+{"audio_processed": 3.8399999141693115, "delta": "", "event_id": "event_5151", "type": "conversation.item.input_audio_transcription.delta", "_t": 3.805}
+{"audio_processed": 3.9200000762939453, "delta": " into", "event_id": "event_5158", "type": "conversation.item.input_audio_transcription.delta", "_t": 3.905}
+{"audio_processed": 4, "delta": "", "event_id": "event_5164", "type": "conversation.item.input_audio_transcription.delta", "_t": 3.965}
+{"audio_processed": 4.079999923706055, "delta": "", "event_id": "event_5172", "type": "conversation.item.input_audio_transcription.delta", "_t": 4.061}
+{"audio_processed": 4.159999847412109, "delta": "", "event_id": "event_5182", "type": "conversation.item.input_audio_transcription.delta", "_t": 4.125}
+{"audio_processed": 4.239999771118164, "delta": " or", "event_id": "event_5190", "type": "conversation.item.input_audio_transcription.delta", "_t": 4.229}
+{"audio_processed": 4.320000171661377, "delta": "", "event_id": "event_5197", "type": "conversation.item.input_audio_transcription.delta", "_t": 4.305}
+{"audio_processed": 4.400000095367432, "delta": "ganis", "event_id": "event_5205", "type": "conversation.item.input_audio_transcription.delta", "_t": 4.385}
+{"audio_processed": 4.480000019073486, "delta": "", "event_id": "event_5214", "type": "conversation.item.input_audio_transcription.delta", "_t": 4.449}
+{"audio_processed": 4.559999942779541, "delta": "er", "event_id": "event_5223", "type": "conversation.item.input_audio_transcription.delta", "_t": 4.545}
+{"audio_processed": 4.639999866485596, "delta": "", "event_id": "event_5229", "type": "conversation.item.input_audio_transcription.delta", "_t": 4.605}
+{"audio_processed": 4.71999979019165, "delta": " by", "event_id": "event_5236", "type": "conversation.item.input_audio_transcription.delta", "_t": 4.701}
+{"audio_processed": 4.800000190734863, "delta": "", "event_id": "event_5244", "type": "conversation.item.input_audio_transcription.delta", "_t": 4.769}
+{"audio_processed": 4.880000114440918, "delta": "", "event_id": "event_5255", "type": "conversation.item.input_audio_transcription.delta", "_t": 4.861}
+{"audio_processed": 4.960000038146973, "delta": "", "event_id": "event_5259", "type": "conversation.item.input_audio_transcription.delta", "_t": 4.925}
+{"audio_processed": 5.039999961853027, "delta": "", "event_id": "event_5268", "type": "conversation.item.input_audio_transcription.delta", "_t": 5.017}
+{"audio_processed": 5.119999885559082, "delta": "", "event_id": "event_5277", "type": "conversation.item.input_audio_transcription.delta", "_t": 5.089}
+{"audio_processed": 5.199999809265137, "delta": " which", "event_id": "event_5284", "type": "conversation.item.input_audio_transcription.delta", "_t": 5.178}
+{"audio_processed": 5.28000020980835, "delta": "", "event_id": "event_5294", "type": "conversation.item.input_audio_transcription.delta", "_t": 5.25}
+{"audio_processed": 5.360000133514404, "delta": " speaker", "event_id": "event_5300", "type": "conversation.item.input_audio_transcription.delta", "_t": 5.361}
+{"audio_processed": 5.440000057220459, "delta": "", "event_id": "event_5310", "type": "conversation.item.input_audio_transcription.delta", "_t": 5.409}
+{"audio_processed": 5.519999980926514, "delta": " spe", "event_id": "event_5318", "type": "conversation.item.input_audio_transcription.delta", "_t": 5.506}
+{"audio_processed": 5.599999904632568, "delta": "", "event_id": "event_5326", "type": "conversation.item.input_audio_transcription.delta", "_t": 5.566}
+{"audio_processed": 5.679999828338623, "delta": "aks", "event_id": "event_5334", "type": "conversation.item.input_audio_transcription.delta", "_t": 5.662}
+{"audio_processed": 5.760000228881836, "delta": "", "event_id": "event_5343", "type": "conversation.item.input_audio_transcription.delta", "_t": 5.726}
+{"audio_processed": 5.840000152587891, "delta": " what", "event_id": "event_5348", "type": "conversation.item.input_audio_transcription.delta", "_t": 5.818}
+{"audio_processed": 5.920000076293945, "delta": "", "event_id": "event_5358", "type": "conversation.item.input_audio_transcription.delta", "_t": 5.886}
+{"audio_processed": 6, "delta": "", "event_id": "event_5366", "type": "conversation.item.input_audio_transcription.delta", "_t": 5.981}
+{"audio_processed": 6.079999923706055, "delta": "", "event_id": "event_5372", "type": "conversation.item.input_audio_transcription.delta", "_t": 6.049}
+{"audio_processed": 6.159999847412109, "delta": "", "event_id": "event_5382", "type": "conversation.item.input_audio_transcription.delta", "_t": 6.141}
+{"audio_processed": 6.239999771118164, "delta": "", "event_id": "event_5390", "type": "conversation.item.input_audio_transcription.delta", "_t": 6.205}
+{"audio_processed": 6.320000171661377, "delta": " and", "event_id": "event_5399", "type": "conversation.item.input_audio_transcription.delta", "_t": 6.309}
+{"audio_processed": 6.400000095367432, "delta": "", "event_id": "event_5407", "type": "conversation.item.input_audio_transcription.delta", "_t": 6.385}
+{"audio_processed": 6.480000019073486, "delta": "", "event_id": "event_5411", "type": "conversation.item.input_audio_transcription.delta", "_t": 6.453}
+{"audio_processed": 6.559999942779541, "delta": "", "event_id": "event_5420", "type": "conversation.item.input_audio_transcription.delta", "_t": 6.525}
+{"audio_processed": 6.639999866485596, "delta": " how", "event_id": "event_5427", "type": "conversation.item.input_audio_transcription.delta", "_t": 6.613}
+{"audio_processed": 6.71999979019165, "delta": "", "event_id": "event_5438", "type": "conversation.item.input_audio_transcription.delta", "_t": 6.685}
+{"audio_processed": 6.800000190734863, "delta": "", "event_id": "event_5445", "type": "conversation.item.input_audio_transcription.delta", "_t": 6.777}
+{"audio_processed": 6.880000114440918, "delta": "", "event_id": "event_5454", "type": "conversation.item.input_audio_transcription.delta", "_t": 6.845}
+{"audio_processed": 6.960000038146973, "delta": " doing", "event_id": "event_5463", "type": "conversation.item.input_audio_transcription.delta", "_t": 6.945}
+{"audio_processed": 7.039999961853027, "delta": "", "event_id": "event_5470", "type": "conversation.item.input_audio_transcription.delta", "_t": 7.009}
+{"audio_processed": 7.119999885559082, "delta": " the", "event_id": "event_5479", "type": "conversation.item.input_audio_transcription.delta", "_t": 7.105}
+{"audio_processed": 7.199999809265137, "delta": "", "event_id": "event_5486", "type": "conversation.item.input_audio_transcription.delta", "_t": 7.165}
+{"audio_processed": 7.28000020980835, "delta": " seg", "event_id": "event_5493", "type": "conversation.item.input_audio_transcription.delta", "_t": 7.265}
+{"audio_processed": 7.360000133514404, "delta": "", "event_id": "event_5499", "type": "conversation.item.input_audio_transcription.delta", "_t": 7.325}
+{"audio_processed": 7.440000057220459, "delta": "ment", "event_id": "event_5511", "type": "conversation.item.input_audio_transcription.delta", "_t": 7.441}
+{"audio_processed": 7.519999980926514, "delta": "", "event_id": "event_5518", "type": "conversation.item.input_audio_transcription.delta", "_t": 7.489}
+{"audio_processed": 7.599999904632568, "delta": "", "event_id": "event_5526", "type": "conversation.item.input_audio_transcription.delta", "_t": 7.585}
+{"audio_processed": 7.679999828338623, "delta": "", "event_id": "event_5533", "type": "conversation.item.input_audio_transcription.delta", "_t": 7.646}
+{"audio_processed": 7.760000228881836, "delta": "", "event_id": "event_5540", "type": "conversation.item.input_audio_transcription.delta", "_t": 7.738}
+{"audio_processed": 7.840000152587891, "delta": "", "event_id": "event_5548", "type": "conversation.item.input_audio_transcription.delta", "_t": 7.806}
+{"audio_processed": 7.920000076293945, "delta": " I think", "event_id": "event_5558", "type": "conversation.item.input_audio_transcription.delta", "_t": 7.906}
+{"audio_processed": 8, "delta": "", "event_id": "event_5567", "type": "conversation.item.input_audio_transcription.delta", "_t": 7.965}
+{"audio_processed": 8.079999923706055, "delta": " that", "event_id": "event_5572", "type": "conversation.item.input_audio_transcription.delta", "_t": 8.058}
+{"audio_processed": 8.15999984741211, "delta": "", "event_id": "event_5582", "type": "conversation.item.input_audio_transcription.delta", "_t": 8.126}
+{"audio_processed": 8.239999771118164, "delta": " was", "event_id": "event_5590", "type": "conversation.item.input_audio_transcription.delta", "_t": 8.226}
+{"audio_processed": 8.319999694824219, "delta": "", "event_id": "event_5593", "type": "conversation.item.input_audio_transcription.delta", "_t": 8.286}
+{"audio_processed": 8.399999618530273, "delta": "", "event_id": "event_5601", "type": "conversation.item.input_audio_transcription.delta", "_t": 8.369}
+{"audio_processed": 8.479999542236328, "delta": "", "event_id": "event_5612", "type": "conversation.item.input_audio_transcription.delta", "_t": 8.466}
+{"audio_processed": 8.5600004196167, "delta": " the stup", "event_id": "event_5622", "type": "conversation.item.input_audio_transcription.delta", "_t": 8.546}
+{"audio_processed": 8.640000343322754, "delta": "", "event_id": "event_5630", "type": "conversation.item.input_audio_transcription.delta", "_t": 8.606}
+{"audio_processed": 8.720000267028809, "delta": "ide", "event_id": "event_5639", "type": "conversation.item.input_audio_transcription.delta", "_t": 8.706}
+{"audio_processed": 8.800000190734863, "delta": "", "event_id": "event_5646", "type": "conversation.item.input_audio_transcription.delta", "_t": 8.766}
+{"audio_processed": 8.880000114440918, "delta": "st way", "event_id": "event_5655", "type": "conversation.item.input_audio_transcription.delta", "_t": 8.866}
+{"audio_processed": 8.960000038146973, "delta": "", "event_id": "event_5662", "type": "conversation.item.input_audio_transcription.delta", "_t": 8.926}
+{"audio_processed": 9.039999961853027, "delta": " they", "event_id": "event_5669", "type": "conversation.item.input_audio_transcription.delta", "_t": 9.025}
+{"audio_processed": 9.119999885559082, "delta": "", "event_id": "event_5679", "type": "conversation.item.input_audio_transcription.delta", "_t": 9.089}
+{"audio_processed": 9.199999809265137, "delta": " could have", "event_id": "event_5686", "type": "conversation.item.input_audio_transcription.delta", "_t": 9.189}
+{"audio_processed": 9.279999732971191, "delta": "", "event_id": "event_5694", "type": "conversation.item.input_audio_transcription.delta", "_t": 9.249}
+{"audio_processed": 9.359999656677246, "delta": "", "event_id": "event_5701", "type": "conversation.item.input_audio_transcription.delta", "_t": 9.341}
+{"audio_processed": 9.4399995803833, "delta": "", "event_id": "event_5710", "type": "conversation.item.input_audio_transcription.delta", "_t": 9.409}
+{"audio_processed": 9.520000457763672, "delta": "", "event_id": "event_5714", "type": "conversation.item.input_audio_transcription.delta", "_t": 9.517}
+{"audio_processed": 9.600000381469727, "delta": "", "event_id": "event_5726", "type": "conversation.item.input_audio_transcription.delta", "_t": 9.566}
+{"audio_processed": 9.680000305175781, "delta": " orga", "event_id": "event_5735", "type": "conversation.item.input_audio_transcription.delta", "_t": 9.666}
+{"audio_processed": 9.760000228881836, "delta": "", "event_id": "event_5743", "type": "conversation.item.input_audio_transcription.delta", "_t": 9.726}
+{"audio_processed": 9.84000015258789, "delta": "nised", "event_id": "event_5751", "type": "conversation.item.input_audio_transcription.delta", "_t": 9.829}
+{"audio_processed": 9.920000076293945, "delta": "", "event_id": "event_5758", "type": "conversation.item.input_audio_transcription.delta", "_t": 9.886}
+{"audio_processed": 10, "delta": " the", "event_id": "event_5766", "type": "conversation.item.input_audio_transcription.delta", "_t": 9.985}
+{"audio_processed": 10.079999923706055, "delta": "", "event_id": "event_5774", "type": "conversation.item.input_audio_transcription.delta", "_t": 10.045}
+{"audio_processed": 10.15999984741211, "delta": " whole", "event_id": "event_5782", "type": "conversation.item.input_audio_transcription.delta", "_t": 10.146}
+{"audio_processed": 10.239999771118164, "delta": "", "event_id": "event_5789", "type": "conversation.item.input_audio_transcription.delta", "_t": 10.205}
+{"audio_processed": 10.319999694824219, "delta": " thing", "event_id": "event_5798", "type": "conversation.item.input_audio_transcription.delta", "_t": 10.301}
+{"audio_processed": 10.399999618530273, "delta": "", "event_id": "event_5804", "type": "conversation.item.input_audio_transcription.delta", "_t": 10.365}
+{"audio_processed": 10.479999542236328, "delta": " if you", "event_id": "event_5812", "type": "conversation.item.input_audio_transcription.delta", "_t": 10.466}
+{"audio_processed": 10.5600004196167, "delta": "", "event_id": "event_5822", "type": "conversation.item.input_audio_transcription.delta", "_t": 10.55}
+{"audio_processed": 10.640000343322754, "delta": " ask", "event_id": "event_5827", "type": "conversation.item.input_audio_transcription.delta", "_t": 10.613}
+{"audio_processed": 10.720000267028809, "delta": "", "event_id": "event_5839", "type": "conversation.item.input_audio_transcription.delta", "_t": 10.685}
+{"audio_processed": 10.800000190734863, "delta": " me", "event_id": "event_5845", "type": "conversation.item.input_audio_transcription.delta", "_t": 10.781}
+{"audio_processed": 10.880000114440918, "delta": "", "event_id": "event_5851", "type": "conversation.item.input_audio_transcription.delta", "_t": 10.845}
+{"audio_processed": 10.960000038146973, "delta": "", "event_id": "event_5863", "type": "conversation.item.input_audio_transcription.delta", "_t": 10.946}
+{"audio_processed": 11.039999961853027, "delta": "", "event_id": "event_5868", "type": "conversation.item.input_audio_transcription.delta", "_t": 11.005}
+{"audio_processed": 11.119999885559082, "delta": "", "event_id": "event_5876", "type": "conversation.item.input_audio_transcription.delta", "_t": 11.097}
+{"audio_processed": 11.199999809265137, "delta": "", "event_id": "event_5885", "type": "conversation.item.input_audio_transcription.delta", "_t": 11.165}
+{"audio_processed": 11.279999732971191, "delta": "", "event_id": "event_5895", "type": "conversation.item.input_audio_transcription.delta", "_t": 11.266}
+{"audio_processed": 11.359999656677246, "delta": "", "event_id": "event_5902", "type": "conversation.item.input_audio_transcription.delta", "_t": 11.325}
+{"audio_processed": 11.4399995803833, "delta": "", "event_id": "event_5910", "type": "conversation.item.input_audio_transcription.delta", "_t": 11.421}
+{"audio_processed": 11.520000457763672, "delta": "", "event_id": "event_5916", "type": "conversation.item.input_audio_transcription.delta", "_t": 11.485}
+{"audio_processed": 11.600000381469727, "event_id": "event_5924", "transcript": "back into organiser by which speaker speaks what and how doing the segment I think that was the stupidest way they could have organised the whole thing if you ask me", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 3.6, "speaker": 1, "start": 3.52, "word": "back"}, {"confidence": 1, "end": 3.84, "speaker": 1, "start": 3.68, "word": "into"}, {"confidence": 1, "end": 4.48, "speaker": 1, "start": 4, "word": "organiser"}, {"confidence": 1, "end": 4.56, "speaker": 1, "start": 4.48, "word": "by"}, {"confidence": 1, "end": 5.04, "speaker": 1, "start": 4.96, "word": "which"}, {"confidence": 1, "end": 5.28, "speaker": 1, "start": 5.12, "word": "speaker"}, {"confidence": 1, "end": 5.52, "speaker": 1, "start": 5.36, "word": "speaks"}, {"confidence": 1, "end": 5.76, "speaker": 1, "start": 5.68, "word": "what"}, {"confidence": 1, "end": 6.16, "speaker": 1, "start": 6.08, "word": "and"}, {"confidence": 1, "end": 6.48, "speaker": 1, "start": 6.4, "word": "how"}, {"confidence": 1, "end": 6.88, "speaker": 1, "start": 6.72, "word": "doing"}, {"confidence": 1, "end": 6.96, "speaker": 1, "start": 6.88, "word": "the"}, {"confidence": 1, "end": 7.28, "speaker": 1, "start": 7.04, "word": "segment"}, {"confidence": 1, "end": 7.76, "speaker": 1, "start": 7.68, "word": "I"}, {"confidence": 1, "end": 7.84, "speaker": 1, "start": 7.76, "word": "think"}, {"confidence": 1, "end": 7.92, "speaker": 1, "start": 7.84, "word": "that"}, {"confidence": 1, "end": 8.08, "speaker": 1, "start": 8, "word": "was"}, {"confidence": 1, "end": 8.4, "speaker": 1, "start": 8.32, "word": "the"}, {"confidence": 1, "end": 8.72, "speaker": 1, "start": 8.4, "word": "stupidest"}, {"confidence": 1, "end": 8.8, "speaker": 1, "start": 8.72, "word": "way"}, {"confidence": 1, "end": 8.96, "speaker": 1, "start": 8.88, "word": "they"}, {"confidence": 1, "end": 9.04, "speaker": 1, "start": 8.96, "word": "could"}, {"confidence": 1, "end": 9.12, "speaker": 1, "start": 9.04, "word": "have"}, {"confidence": 1, "end": 9.76, "speaker": 1, "start": 9.44, "word": "organised"}, {"confidence": 1, "end": 9.92, "speaker": 1, "start": 9.84, "word": "the"}, {"confidence": 1, "end": 10, "speaker": 1, "start": 9.92, "word": "whole"}, {"confidence": 1, "end": 10.16, "speaker": 1, "start": 10.08, "word": "thing"}, {"confidence": 1, "end": 10.32, "speaker": 1, "start": 10.24, "word": "if"}, {"confidence": 1, "end": 10.4, "speaker": 1, "start": 10.32, "word": "you"}, {"confidence": 1, "end": 10.48, "speaker": 1, "start": 10.4, "word": "ask"}, {"confidence": 1, "end": 10.64, "speaker": 1, "start": 10.56, "word": "me"}], "_t": 11.601}
+{"audio_processed": 12.239999771118164, "delta": "orga", "event_id": "event_5930", "type": "conversation.item.input_audio_transcription.delta", "_t": 12.172}
+{"audio_processed": 12.319999694824219, "delta": "", "event_id": "event_5943", "type": "conversation.item.input_audio_transcription.delta", "_t": 12.242}
+{"audio_processed": 12.399999618530273, "delta": "nised", "event_id": "event_5950", "type": "conversation.item.input_audio_transcription.delta", "_t": 12.342}
+{"audio_processed": 12.479999542236328, "delta": "", "event_id": "event_5956", "type": "conversation.item.input_audio_transcription.delta", "_t": 12.402}
+{"audio_processed": 12.5600004196167, "delta": " it", "event_id": "event_5963", "type": "conversation.item.input_audio_transcription.delta", "_t": 12.494}
+{"audio_processed": 12.640000343322754, "delta": "", "event_id": "event_5972", "type": "conversation.item.input_audio_transcription.delta", "_t": 12.586}
+{"audio_processed": 12.720000267028809, "delta": " by", "event_id": "event_5981", "type": "conversation.item.input_audio_transcription.delta", "_t": 12.656}
+{"audio_processed": 12.800000190734863, "delta": "", "event_id": "event_5990", "type": "conversation.item.input_audio_transcription.delta", "_t": 12.722}
+{"audio_processed": 12.880000114440918, "delta": " time", "event_id": "event_5997", "type": "conversation.item.input_audio_transcription.delta", "_t": 12.819}
+{"audio_processed": 12.960000038146973, "delta": "", "event_id": "event_6004", "type": "conversation.item.input_audio_transcription.delta", "_t": 12.881}
+{"audio_processed": 13.039999961853027, "delta": "", "event_id": "event_6015", "type": "conversation.item.input_audio_transcription.delta", "_t": 12.981}
+{"audio_processed": 13.119999885559082, "delta": "", "event_id": "event_6023", "type": "conversation.item.input_audio_transcription.delta", "_t": 13.042}
+{"audio_processed": 13.199999809265137, "delta": ", not", "event_id": "event_6026", "type": "conversation.item.input_audio_transcription.delta", "_t": 13.131}
+{"audio_processed": 13.279999732971191, "delta": "", "event_id": "event_6039", "type": "conversation.item.input_audio_transcription.delta", "_t": 13.201}
+{"audio_processed": 13.359999656677246, "delta": " by", "event_id": "event_6045", "type": "conversation.item.input_audio_transcription.delta", "_t": 13.297}
+{"audio_processed": 13.4399995803833, "delta": "", "event_id": "event_6054", "type": "conversation.item.input_audio_transcription.delta", "_t": 13.361}
+{"audio_processed": 13.520000457763672, "delta": " spe", "event_id": "event_6061", "type": "conversation.item.input_audio_transcription.delta", "_t": 13.459}
+{"audio_processed": 13.600000381469727, "delta": "", "event_id": "event_6070", "type": "conversation.item.input_audio_transcription.delta", "_t": 13.521}
+{"audio_processed": 13.680000305175781, "delta": "aker", "event_id": "event_6077", "type": "conversation.item.input_audio_transcription.delta", "_t": 13.644}
+{"audio_processed": 13.760000228881836, "delta": "", "event_id": "event_6085", "type": "conversation.item.input_audio_transcription.delta", "_t": 13.725}
+{"audio_processed": 13.84000015258789, "delta": "", "event_id": "event_6094", "type": "conversation.item.input_audio_transcription.delta", "_t": 13.825}
+{"audio_processed": 13.920000076293945, "delta": "", "event_id": "event_6101", "type": "conversation.item.input_audio_transcription.delta", "_t": 13.885}
+{"audio_processed": 14, "delta": "", "event_id": "event_6111", "type": "conversation.item.input_audio_transcription.delta", "_t": 13.985}
+{"audio_processed": 14.079999923706055, "delta": "", "event_id": "event_6118", "type": "conversation.item.input_audio_transcription.delta", "_t": 14.045}
+{"audio_processed": 14.15999984741211, "delta": "", "event_id": "event_6127", "type": "conversation.item.input_audio_transcription.delta", "_t": 14.145}
+{"audio_processed": 14.239999771118164, "delta": "", "event_id": "event_6135", "type": "conversation.item.input_audio_transcription.delta", "_t": 14.205}
+{"audio_processed": 14.319999694824219, "delta": "", "event_id": "event_6140", "type": "conversation.item.input_audio_transcription.delta", "_t": 14.298}
+{"audio_processed": 14.399999618530273, "delta": "", "event_id": "event_6151", "type": "conversation.item.input_audio_transcription.delta", "_t": 14.366}
+{"audio_processed": 14.479999542236328, "event_id": "event_6159", "transcript": "organised it by time, not by speaker", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 12.32, "speaker": 1, "start": 12, "word": "organised"}, {"confidence": 1, "end": 12.4, "speaker": 1, "start": 12.32, "word": "it"}, {"confidence": 1, "end": 12.56, "speaker": 1, "start": 12.48, "word": "by"}, {"confidence": 1, "end": 12.72, "speaker": 1, "start": 12.64, "word": "time,"}, {"confidence": 1, "end": 13.04, "speaker": 1, "start": 12.96, "word": "not"}, {"confidence": 1, "end": 13.2, "speaker": 1, "start": 13.12, "word": "by"}, {"confidence": 1, "end": 13.6, "speaker": 1, "start": 13.36, "word": "speaker"}], "_t": 14.481}
+{"audio_processed": 17.84000015258789, "delta": "I don't", "event_id": "event_6165", "type": "conversation.item.input_audio_transcription.delta", "_t": 17.807}
+{"audio_processed": 17.920000076293945, "delta": "", "event_id": "event_6174", "type": "conversation.item.input_audio_transcription.delta", "_t": 17.886}
+{"audio_processed": 18, "delta": " know", "event_id": "event_6181", "type": "conversation.item.input_audio_transcription.delta", "_t": 17.985}
+{"audio_processed": 18.079999923706055, "delta": "", "event_id": "event_6189", "type": "conversation.item.input_audio_transcription.delta", "_t": 18.045}
+{"audio_processed": 18.15999984741211, "delta": "", "event_id": "event_6196", "type": "conversation.item.input_audio_transcription.delta", "_t": 18.137}
+{"audio_processed": 18.239999771118164, "delta": "", "event_id": "event_6205", "type": "conversation.item.input_audio_transcription.delta", "_t": 18.205}
+{"audio_processed": 18.31999969482422, "delta": "", "event_id": "event_6212", "type": "conversation.item.input_audio_transcription.delta", "_t": 18.297}
+{"audio_processed": 18.399999618530273, "delta": "", "event_id": "event_6219", "type": "conversation.item.input_audio_transcription.delta", "_t": 18.365}
+{"audio_processed": 18.479999542236328, "delta": "", "event_id": "event_6230", "type": "conversation.item.input_audio_transcription.delta", "_t": 18.462}
+{"audio_processed": 18.559999465942383, "delta": "", "event_id": "event_6236", "type": "conversation.item.input_audio_transcription.delta", "_t": 18.526}
+{"audio_processed": 18.639999389648438, "delta": " really", "event_id": "event_6247", "type": "conversation.item.input_audio_transcription.delta", "_t": 18.626}
+{"audio_processed": 18.719999313354492, "delta": "", "event_id": "event_6253", "type": "conversation.item.input_audio_transcription.delta", "_t": 18.686}
+{"audio_processed": 18.799999237060547, "delta": "", "event_id": "event_6257", "type": "conversation.item.input_audio_transcription.delta", "_t": 18.77}
+{"audio_processed": 18.8799991607666, "delta": "", "event_id": "event_6271", "type": "conversation.item.input_audio_transcription.delta", "_t": 18.874}
+{"audio_processed": 18.959999084472656, "delta": "", "event_id": "event_6277", "type": "conversation.item.input_audio_transcription.delta", "_t": 18.937}
+{"audio_processed": 19.040000915527344, "delta": "", "event_id": "event_6285", "type": "conversation.item.input_audio_transcription.delta", "_t": 19.005}
+{"audio_processed": 19.1200008392334, "delta": "", "event_id": "event_6292", "type": "conversation.item.input_audio_transcription.delta", "_t": 19.097}
+{"audio_processed": 19.200000762939453, "delta": "", "event_id": "event_6301", "type": "conversation.item.input_audio_transcription.delta", "_t": 19.165}
+{"audio_processed": 19.280000686645508, "delta": "", "event_id": "event_6310", "type": "conversation.item.input_audio_transcription.delta", "_t": 19.262}
+{"audio_processed": 19.360000610351562, "delta": "", "event_id": "event_6318", "type": "conversation.item.input_audio_transcription.delta", "_t": 19.329}
+{"audio_processed": 19.440000534057617, "delta": " all we're gonna", "event_id": "event_6327", "type": "conversation.item.input_audio_transcription.delta", "_t": 19.429}
+{"audio_processed": 19.520000457763672, "delta": "", "event_id": "event_6333", "type": "conversation.item.input_audio_transcription.delta", "_t": 19.486}
+{"audio_processed": 19.600000381469727, "delta": " do like", "event_id": "event_6342", "type": "conversation.item.input_audio_transcription.delta", "_t": 19.582}
+{"audio_processed": 19.68000030517578, "delta": "", "event_id": "event_6349", "type": "conversation.item.input_audio_transcription.delta", "_t": 19.646}
+{"audio_processed": 19.760000228881836, "delta": " that", "event_id": "event_6352", "type": "conversation.item.input_audio_transcription.delta", "_t": 19.729}
+{"audio_processed": 19.84000015258789, "delta": "", "event_id": "event_6363", "type": "conversation.item.input_audio_transcription.delta", "_t": 19.805}
+{"audio_processed": 19.920000076293945, "delta": "", "event_id": "event_6371", "type": "conversation.item.input_audio_transcription.delta", "_t": 19.921}
+{"audio_processed": 20, "delta": "", "event_id": "event_6381", "type": "conversation.item.input_audio_transcription.delta", "_t": 19.961}
+{"audio_processed": 20.079999923706055, "delta": "", "event_id": "event_6390", "type": "conversation.item.input_audio_transcription.delta", "_t": 20.019}
+{"audio_processed": 20.15999984741211, "delta": "", "event_id": "event_6398", "type": "conversation.item.input_audio_transcription.delta", "_t": 20.082}
+{"audio_processed": 20.239999771118164, "delta": "", "event_id": "event_6407", "type": "conversation.item.input_audio_transcription.delta", "_t": 20.183}
+{"audio_processed": 20.31999969482422, "delta": "", "event_id": "event_6412", "type": "conversation.item.input_audio_transcription.delta", "_t": 20.242}
+{"audio_processed": 20.399999618530273, "delta": "", "event_id": "event_6422", "type": "conversation.item.input_audio_transcription.delta", "_t": 20.339}
+{"audio_processed": 20.479999542236328, "delta": "", "event_id": "event_6430", "type": "conversation.item.input_audio_transcription.delta", "_t": 20.402}
+{"audio_processed": 20.559999465942383, "event_id": "event_6437", "transcript": "I don't know really all we're gonna do like that", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 17.68, "speaker": 1, "start": 17.6, "word": "I"}, {"confidence": 1, "end": 17.76, "speaker": 1, "start": 17.68, "word": "don't"}, {"confidence": 1, "end": 17.92, "speaker": 1, "start": 17.84, "word": "know"}, {"confidence": 1, "end": 18.48, "speaker": 1, "start": 18.4, "word": "really"}, {"confidence": 1, "end": 19.28, "speaker": 1, "start": 19.2, "word": "all"}, {"confidence": 1, "end": 19.36, "speaker": 1, "start": 19.28, "word": "we're"}, {"confidence": 1, "end": 19.36, "speaker": 1, "start": 19.28, "word": "gonna"}, {"confidence": 1, "end": 19.44, "speaker": 1, "start": 19.36, "word": "do"}, {"confidence": 1, "end": 19.52, "speaker": 1, "start": 19.44, "word": "like"}, {"confidence": 1, "end": 19.68, "speaker": 1, "start": 19.6, "word": "that"}], "_t": 20.496}
+{"audio_processed": 27.1200008392334, "delta": "okay", "event_id": "event_6447", "type": "conversation.item.input_audio_transcription.delta", "_t": 27.062}
+{"audio_processed": 27.200000762939453, "delta": "", "event_id": "event_6452", "type": "conversation.item.input_audio_transcription.delta", "_t": 27.155}
+{"audio_processed": 27.280000686645508, "delta": "", "event_id": "event_6460", "type": "conversation.item.input_audio_transcription.delta", "_t": 27.213}
+{"audio_processed": 27.360000610351562, "delta": "", "event_id": "event_6468", "type": "conversation.item.input_audio_transcription.delta", "_t": 27.282}
+{"audio_processed": 27.440000534057617, "delta": "", "event_id": "event_6478", "type": "conversation.item.input_audio_transcription.delta", "_t": 27.38}
+{"audio_processed": 27.520000457763672, "delta": "", "event_id": "event_6486", "type": "conversation.item.input_audio_transcription.delta", "_t": 27.441}
+{"audio_processed": 27.600000381469727, "delta": "", "event_id": "event_6494", "type": "conversation.item.input_audio_transcription.delta", "_t": 27.539}
+{"audio_processed": 27.68000030517578, "delta": "", "event_id": "event_6502", "type": "conversation.item.input_audio_transcription.delta", "_t": 27.603}
+{"audio_processed": 27.760000228881836, "delta": "", "event_id": "event_6510", "type": "conversation.item.input_audio_transcription.delta", "_t": 27.698}
+{"audio_processed": 27.84000015258789, "delta": "", "event_id": "event_6518", "type": "conversation.item.input_audio_transcription.delta", "_t": 27.763}
+{"audio_processed": 27.920000076293945, "event_id": "event_6525", "transcript": "okay", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 27.04, "speaker": 2, "start": 26.96, "word": "okay"}], "_t": 27.888}
+{"audio_processed": 28.399999618530273, "delta": "yeah", "event_id": "event_6534", "type": "conversation.item.input_audio_transcription.delta", "_t": 28.386}
+{"audio_processed": 28.479999542236328, "delta": "", "event_id": "event_6542", "type": "conversation.item.input_audio_transcription.delta", "_t": 28.446}
+{"audio_processed": 28.559999465942383, "delta": "", "event_id": "event_6549", "type": "conversation.item.input_audio_transcription.delta", "_t": 28.538}
+{"audio_processed": 28.639999389648438, "delta": "", "event_id": "event_6557", "type": "conversation.item.input_audio_transcription.delta", "_t": 28.606}
+{"audio_processed": 28.719999313354492, "delta": "", "event_id": "event_6566", "type": "conversation.item.input_audio_transcription.delta", "_t": 28.701}
+{"audio_processed": 28.799999237060547, "delta": "", "event_id": "event_6569", "type": "conversation.item.input_audio_transcription.delta", "_t": 28.761}
+{"audio_processed": 28.8799991607666, "delta": " are we done", "event_id": "event_6582", "type": "conversation.item.input_audio_transcription.delta", "_t": 28.823}
+{"audio_processed": 28.959999084472656, "delta": "", "event_id": "event_6590", "type": "conversation.item.input_audio_transcription.delta", "_t": 28.881}
+{"audio_processed": 29.040000915527344, "delta": "", "event_id": "event_6598", "type": "conversation.item.input_audio_transcription.delta", "_t": 28.978}
+{"audio_processed": 29.1200008392334, "delta": "", "event_id": "event_6606", "type": "conversation.item.input_audio_transcription.delta", "_t": 29.042}
+{"audio_processed": 29.200000762939453, "delta": "", "event_id": "event_6615", "type": "conversation.item.input_audio_transcription.delta", "_t": 29.14}
+{"audio_processed": 29.280000686645508, "delta": "", "event_id": "event_6623", "type": "conversation.item.input_audio_transcription.delta", "_t": 29.235}
+{"audio_processed": 29.360000610351562, "delta": "", "event_id": "event_6628", "type": "conversation.item.input_audio_transcription.delta", "_t": 29.294}
+{"audio_processed": 29.440000534057617, "delta": "", "event_id": "event_6638", "type": "conversation.item.input_audio_transcription.delta", "_t": 29.362}
+{"audio_processed": 29.520000457763672, "delta": " yeah", "event_id": "event_6647", "type": "conversation.item.input_audio_transcription.delta", "_t": 29.462}
+{"audio_processed": 29.600000381469727, "delta": "", "event_id": "event_6654", "type": "conversation.item.input_audio_transcription.delta", "_t": 29.522}
+{"audio_processed": 29.68000030517578, "delta": "", "event_id": "event_6662", "type": "conversation.item.input_audio_transcription.delta", "_t": 29.618}
+{"audio_processed": 29.760000228881836, "delta": "", "event_id": "event_6671", "type": "conversation.item.input_audio_transcription.delta", "_t": 29.682}
+{"audio_processed": 29.84000015258789, "delta": "", "event_id": "event_6679", "type": "conversation.item.input_audio_transcription.delta", "_t": 29.781}
+{"audio_processed": 29.920000076293945, "delta": "", "event_id": "event_6685", "type": "conversation.item.input_audio_transcription.delta", "_t": 29.841}
+{"audio_processed": 30, "delta": "", "event_id": "event_6694", "type": "conversation.item.input_audio_transcription.delta", "_t": 29.938}
+{"audio_processed": 30.079999923706055, "delta": "", "event_id": "event_6703", "type": "conversation.item.input_audio_transcription.delta", "_t": 30.05}
+{"audio_processed": 30.15999984741211, "delta": "", "event_id": "event_6708", "type": "conversation.item.input_audio_transcription.delta", "_t": 30.138}
+{"audio_processed": 30.239999771118164, "delta": "", "event_id": "event_6716", "type": "conversation.item.input_audio_transcription.delta", "_t": 30.209}
+{"audio_processed": 30.31999969482422, "event_id": "event_6727", "transcript": "yeah are we done yeah", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 28.24, "speaker": 2, "start": 28.16, "word": "yeah"}, {"confidence": 1, "end": 28.72, "speaker": 2, "start": 28.64, "word": "are"}, {"confidence": 1, "end": 28.8, "speaker": 2, "start": 28.72, "word": "we"}, {"confidence": 1, "end": 28.8, "speaker": 2, "start": 28.72, "word": "done"}, {"confidence": 1, "end": 29.44, "speaker": 2, "start": 29.36, "word": "yeah"}], "_t": 30.321}
+{"audio_processed": 30.799999237060547, "delta": "I think", "event_id": "event_6732", "type": "conversation.item.input_audio_transcription.delta", "_t": 30.735}
+{"audio_processed": 30.8799991607666, "delta": "", "event_id": "event_6741", "type": "conversation.item.input_audio_transcription.delta", "_t": 30.802}
+{"audio_processed": 30.959999084472656, "delta": " we", "event_id": "event_6747", "type": "conversation.item.input_audio_transcription.delta", "_t": 30.894}
+{"audio_processed": 31.040000915527344, "delta": "", "event_id": "event_6756", "type": "conversation.item.input_audio_transcription.delta", "_t": 30.961}
+{"audio_processed": 31.1200008392334, "delta": " just", "event_id": "event_6763", "type": "conversation.item.input_audio_transcription.delta", "_t": 31.055}
+{"audio_processed": 31.200000762939453, "delta": "", "event_id": "event_6774", "type": "conversation.item.input_audio_transcription.delta", "_t": 31.122}
+{"audio_processed": 31.280000686645508, "delta": "", "event_id": "event_6782", "type": "conversation.item.input_audio_transcription.delta", "_t": 31.219}
+{"audio_processed": 31.360000610351562, "delta": "", "event_id": "event_6790", "type": "conversation.item.input_audio_transcription.delta", "_t": 31.316}
+{"audio_processed": 31.440000534057617, "delta": "", "event_id": "event_6798", "type": "conversation.item.input_audio_transcription.delta", "_t": 31.378}
+{"audio_processed": 31.520000457763672, "delta": "", "event_id": "event_6807", "type": "conversation.item.input_audio_transcription.delta", "_t": 31.442}
+{"audio_processed": 31.600000381469727, "delta": "", "event_id": "event_6814", "type": "conversation.item.input_audio_transcription.delta", "_t": 31.539}
+{"audio_processed": 31.68000030517578, "delta": "", "event_id": "event_6822", "type": "conversation.item.input_audio_transcription.delta", "_t": 31.603}
+{"audio_processed": 31.760000228881836, "delta": "", "event_id": "event_6831", "type": "conversation.item.input_audio_transcription.delta", "_t": 31.701}
+{"audio_processed": 31.84000015258789, "delta": "", "event_id": "event_6832", "type": "conversation.item.input_audio_transcription.delta", "_t": 31.762}
+{"audio_processed": 31.920000076293945, "event_id": "event_6841", "transcript": "I think we just", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 30.64, "speaker": 2, "start": 30.56, "word": "I"}, {"confidence": 1, "end": 30.64, "speaker": 2, "start": 30.56, "word": "think"}, {"confidence": 1, "end": 30.88, "speaker": 2, "start": 30.8, "word": "we"}, {"confidence": 1, "end": 31.04, "speaker": 2, "start": 30.96, "word": "just"}], "_t": 31.846}
+{"audio_processed": 32.880001068115234, "delta": "see", "event_id": "event_6850", "type": "conversation.item.input_audio_transcription.delta", "_t": 32.809}
+{"audio_processed": 32.959999084472656, "delta": "", "event_id": "event_6863", "type": "conversation.item.input_audio_transcription.delta", "_t": 32.882}
+{"audio_processed": 33.040000915527344, "delta": "", "event_id": "event_6871", "type": "conversation.item.input_audio_transcription.delta", "_t": 32.981}
+{"audio_processed": 33.119998931884766, "delta": "", "event_id": "event_6877", "type": "conversation.item.input_audio_transcription.delta", "_t": 33.042}
+{"audio_processed": 33.20000076293945, "delta": " what", "event_id": "event_6884", "type": "conversation.item.input_audio_transcription.delta", "_t": 33.134}
+{"audio_processed": 33.279998779296875, "delta": "", "event_id": "event_6893", "type": "conversation.item.input_audio_transcription.delta", "_t": 33.202}
+{"audio_processed": 33.36000061035156, "delta": " Ste", "event_id": "event_6900", "type": "conversation.item.input_audio_transcription.delta", "_t": 33.295}
+{"audio_processed": 33.439998626708984, "delta": "", "event_id": "event_6909", "type": "conversation.item.input_audio_transcription.delta", "_t": 33.395}
+{"audio_processed": 33.52000045776367, "delta": "ve", "event_id": "event_6916", "type": "conversation.item.input_audio_transcription.delta", "_t": 33.454}
+{"audio_processed": 33.599998474121094, "delta": "", "event_id": "event_6925", "type": "conversation.item.input_audio_transcription.delta", "_t": 33.522}
+{"audio_processed": 33.68000030517578, "delta": " say", "event_id": "event_6934", "type": "conversation.item.input_audio_transcription.delta", "_t": 33.622}
+{"audio_processed": 33.7599983215332, "delta": "", "event_id": "event_6942", "type": "conversation.item.input_audio_transcription.delta", "_t": 33.682}
+{"audio_processed": 33.84000015258789, "delta": "s", "event_id": "event_6951", "type": "conversation.item.input_audio_transcription.delta", "_t": 33.781}
+{"audio_processed": 33.91999816894531, "delta": "", "event_id": "event_6958", "type": "conversation.item.input_audio_transcription.delta", "_t": 33.843}
+{"audio_processed": 34, "delta": "", "event_id": "event_6960", "type": "conversation.item.input_audio_transcription.delta", "_t": 33.923}
+{"audio_processed": 34.08000183105469, "delta": "", "event_id": "event_6973", "type": "conversation.item.input_audio_transcription.delta", "_t": 34.002}
+{"audio_processed": 34.15999984741211, "delta": " about", "event_id": "event_6976", "type": "conversation.item.input_audio_transcription.delta", "_t": 34.086}
+{"audio_processed": 34.2400016784668, "delta": "", "event_id": "event_6989", "type": "conversation.item.input_audio_transcription.delta", "_t": 34.163}
+{"audio_processed": 34.31999969482422, "delta": "", "event_id": "event_6997", "type": "conversation.item.input_audio_transcription.delta", "_t": 34.256}
+{"audio_processed": 34.400001525878906, "delta": "", "event_id": "event_7005", "type": "conversation.item.input_audio_transcription.delta", "_t": 34.322}
+{"audio_processed": 34.47999954223633, "delta": "", "event_id": "event_7013", "type": "conversation.item.input_audio_transcription.delta", "_t": 34.45}
+{"audio_processed": 34.560001373291016, "delta": "", "event_id": "event_7022", "type": "conversation.item.input_audio_transcription.delta", "_t": 34.525}
+{"audio_processed": 34.63999938964844, "delta": " the", "event_id": "event_7031", "type": "conversation.item.input_audio_transcription.delta", "_t": 34.625}
+{"audio_processed": 34.720001220703125, "delta": "", "event_id": "event_7038", "type": "conversation.item.input_audio_transcription.delta", "_t": 34.686}
+{"audio_processed": 34.79999923706055, "delta": "", "event_id": "event_7044", "type": "conversation.item.input_audio_transcription.delta", "_t": 34.778}
+{"audio_processed": 34.880001068115234, "delta": "", "event_id": "event_7053", "type": "conversation.item.input_audio_transcription.delta", "_t": 34.846}
+{"audio_processed": 34.959999084472656, "delta": " eval", "event_id": "event_7063", "type": "conversation.item.input_audio_transcription.delta", "_t": 34.946}
+{"audio_processed": 35.040000915527344, "delta": "", "event_id": "event_7067", "type": "conversation.item.input_audio_transcription.delta", "_t": 35.006}
+{"audio_processed": 35.119998931884766, "delta": "uation", "event_id": "event_7079", "type": "conversation.item.input_audio_transcription.delta", "_t": 35.106}
+{"audio_processed": 35.20000076293945, "delta": "", "event_id": "event_7084", "type": "conversation.item.input_audio_transcription.delta", "_t": 35.165}
+{"audio_processed": 35.279998779296875, "delta": "", "event_id": "event_7095", "type": "conversation.item.input_audio_transcription.delta", "_t": 35.261}
+{"audio_processed": 35.36000061035156, "delta": "", "event_id": "event_7099", "type": "conversation.item.input_audio_transcription.delta", "_t": 35.326}
+{"audio_processed": 35.439998626708984, "delta": "", "event_id": "event_7106", "type": "conversation.item.input_audio_transcription.delta", "_t": 35.409}
+{"audio_processed": 35.52000045776367, "delta": "", "event_id": "event_7114", "type": "conversation.item.input_audio_transcription.delta", "_t": 35.518}
+{"audio_processed": 35.599998474121094, "delta": "", "event_id": "event_7127", "type": "conversation.item.input_audio_transcription.delta", "_t": 35.585}
+{"audio_processed": 35.68000030517578, "delta": "", "event_id": "event_7134", "type": "conversation.item.input_audio_transcription.delta", "_t": 35.65}
+{"audio_processed": 35.7599983215332, "delta": " and", "event_id": "event_7140", "type": "conversation.item.input_audio_transcription.delta", "_t": 35.738}
+{"audio_processed": 35.84000015258789, "delta": "", "event_id": "event_7148", "type": "conversation.item.input_audio_transcription.delta", "_t": 35.806}
+{"audio_processed": 35.91999816894531, "delta": " then", "event_id": "event_7159", "type": "conversation.item.input_audio_transcription.delta", "_t": 35.906}
+{"audio_processed": 36, "delta": "", "event_id": "event_7166", "type": "conversation.item.input_audio_transcription.delta", "_t": 35.965}
+{"audio_processed": 36.08000183105469, "delta": "", "event_id": "event_7172", "type": "conversation.item.input_audio_transcription.delta", "_t": 36.058}
+{"audio_processed": 36.15999984741211, "delta": "", "event_id": "event_7182", "type": "conversation.item.input_audio_transcription.delta", "_t": 36.125}
+{"audio_processed": 36.2400016784668, "delta": "", "event_id": "event_7190", "type": "conversation.item.input_audio_transcription.delta", "_t": 36.221}
+{"audio_processed": 36.31999969482422, "delta": "", "event_id": "event_7197", "type": "conversation.item.input_audio_transcription.delta", "_t": 36.289}
+{"audio_processed": 36.400001525878906, "delta": " like", "event_id": "event_7205", "type": "conversation.item.input_audio_transcription.delta", "_t": 36.382}
+{"audio_processed": 36.47999954223633, "delta": "", "event_id": "event_7214", "type": "conversation.item.input_audio_transcription.delta", "_t": 36.446}
+{"audio_processed": 36.560001373291016, "delta": "", "event_id": "event_7222", "type": "conversation.item.input_audio_transcription.delta", "_t": 36.561}
+{"audio_processed": 36.63999938964844, "delta": "", "event_id": "event_7230", "type": "conversation.item.input_audio_transcription.delta", "_t": 36.601}
+{"audio_processed": 36.720001220703125, "delta": "", "event_id": "event_7237", "type": "conversation.item.input_audio_transcription.delta", "_t": 36.656}
+{"audio_processed": 36.79999923706055, "delta": "", "event_id": "event_7247", "type": "conversation.item.input_audio_transcription.delta", "_t": 36.722}
+{"audio_processed": 36.880001068115234, "delta": "", "event_id": "event_7255", "type": "conversation.item.input_audio_transcription.delta", "_t": 36.821}
+{"audio_processed": 36.959999084472656, "delta": "", "event_id": "event_7262", "type": "conversation.item.input_audio_transcription.delta", "_t": 36.882}
+{"audio_processed": 37.040000915527344, "delta": "", "event_id": "event_7271", "type": "conversation.item.input_audio_transcription.delta", "_t": 36.981}
+{"audio_processed": 37.119998931884766, "delta": "", "event_id": "event_7279", "type": "conversation.item.input_audio_transcription.delta", "_t": 37.042}
+{"audio_processed": 37.20000076293945, "event_id": "event_7287", "transcript": "see what Steve says about the evaluation and then like", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 32.72, "speaker": 2, "start": 32.64, "word": "see"}, {"confidence": 1, "end": 33.04, "speaker": 2, "start": 32.96, "word": "what"}, {"confidence": 1, "end": 33.44, "speaker": 2, "start": 33.2, "word": "Steve"}, {"confidence": 1, "end": 33.68, "speaker": 2, "start": 33.44, "word": "says"}, {"confidence": 1, "end": 34, "speaker": 2, "start": 33.92, "word": "about"}, {"confidence": 1, "end": 34.48, "speaker": 2, "start": 34.4, "word": "the"}, {"confidence": 1, "end": 35.04, "speaker": 2, "start": 34.8, "word": "evaluation"}, {"confidence": 1, "end": 35.6, "speaker": 2, "start": 35.52, "word": "and"}, {"confidence": 1, "end": 35.84, "speaker": 2, "start": 35.76, "word": "then"}, {"confidence": 1, "end": 36.24, "speaker": 2, "start": 36.16, "word": "like"}], "_t": 37.141}
+{"audio_processed": 38, "delta": "we'll", "event_id": "event_7293", "type": "conversation.item.input_audio_transcription.delta", "_t": 37.94}
+{"audio_processed": 38.08000183105469, "delta": "", "event_id": "event_7302", "type": "conversation.item.input_audio_transcription.delta", "_t": 38.001}
+{"audio_processed": 38.15999984741211, "delta": " keep", "event_id": "event_7309", "type": "conversation.item.input_audio_transcription.delta", "_t": 38.101}
+{"audio_processed": 38.2400016784668, "delta": "", "event_id": "event_7319", "type": "conversation.item.input_audio_transcription.delta", "_t": 38.162}
+{"audio_processed": 38.31999969482422, "delta": " in touch", "event_id": "event_7327", "type": "conversation.item.input_audio_transcription.delta", "_t": 38.264}
+{"audio_processed": 38.400001525878906, "delta": "", "event_id": "event_7334", "type": "conversation.item.input_audio_transcription.delta", "_t": 38.321}
+{"audio_processed": 38.47999954223633, "delta": "", "event_id": "event_7340", "type": "conversation.item.input_audio_transcription.delta", "_t": 38.413}
+{"audio_processed": 38.560001373291016, "delta": "", "event_id": "event_7350", "type": "conversation.item.input_audio_transcription.delta", "_t": 38.482}
+{"audio_processed": 38.63999938964844, "delta": "", "event_id": "event_7359", "type": "conversation.item.input_audio_transcription.delta", "_t": 38.615}
+{"audio_processed": 38.720001220703125, "delta": "", "event_id": "event_7366", "type": "conversation.item.input_audio_transcription.delta", "_t": 38.685}
+{"audio_processed": 38.79999923706055, "delta": "", "event_id": "event_7373", "type": "conversation.item.input_audio_transcription.delta", "_t": 38.781}
+{"audio_processed": 38.880001068115234, "delta": "", "event_id": "event_7382", "type": "conversation.item.input_audio_transcription.delta", "_t": 38.846}
+{"audio_processed": 38.959999084472656, "delta": " by", "event_id": "event_7391", "type": "conversation.item.input_audio_transcription.delta", "_t": 38.945}
+{"audio_processed": 39.040000915527344, "delta": "", "event_id": "event_7398", "type": "conversation.item.input_audio_transcription.delta", "_t": 39.005}
+{"audio_processed": 39.119998931884766, "delta": " email", "event_id": "event_7406", "type": "conversation.item.input_audio_transcription.delta", "_t": 39.105}
+{"audio_processed": 39.20000076293945, "delta": "", "event_id": "event_7414", "type": "conversation.item.input_audio_transcription.delta", "_t": 39.169}
+{"audio_processed": 39.279998779296875, "delta": "", "event_id": "event_7422", "type": "conversation.item.input_audio_transcription.delta", "_t": 39.266}
+{"audio_processed": 39.36000061035156, "delta": "", "event_id": "event_7431", "type": "conversation.item.input_audio_transcription.delta", "_t": 39.326}
+{"audio_processed": 39.439998626708984, "delta": " if", "event_id": "event_7433", "type": "conversation.item.input_audio_transcription.delta", "_t": 39.409}
+{"audio_processed": 39.52000045776367, "delta": "", "event_id": "event_7447", "type": "conversation.item.input_audio_transcription.delta", "_t": 39.486}
+{"audio_processed": 39.599998474121094, "delta": " we need", "event_id": "event_7454", "type": "conversation.item.input_audio_transcription.delta", "_t": 39.589}
+{"audio_processed": 39.68000030517578, "delta": "", "event_id": "event_7460", "type": "conversation.item.input_audio_transcription.delta", "_t": 39.68}
+{"audio_processed": 39.7599983215332, "delta": "", "event_id": "event_7470", "type": "conversation.item.input_audio_transcription.delta", "_t": 39.721}
+{"audio_processed": 39.84000015258789, "delta": "", "event_id": "event_7479", "type": "conversation.item.input_audio_transcription.delta", "_t": 39.806}
+{"audio_processed": 39.91999816894531, "delta": "", "event_id": "event_7487", "type": "conversation.item.input_audio_transcription.delta", "_t": 39.901}
+{"audio_processed": 40, "delta": "", "event_id": "event_7493", "type": "conversation.item.input_audio_transcription.delta", "_t": 39.969}
+{"audio_processed": 40.08000183105469, "delta": "", "event_id": "event_7501", "type": "conversation.item.input_audio_transcription.delta", "_t": 40.058}
+{"audio_processed": 40.15999984741211, "delta": "", "event_id": "event_7510", "type": "conversation.item.input_audio_transcription.delta", "_t": 40.125}
+{"audio_processed": 40.2400016784668, "delta": "", "event_id": "event_7517", "type": "conversation.item.input_audio_transcription.delta", "_t": 40.218}
+{"audio_processed": 40.31999969482422, "delta": "", "event_id": "event_7525", "type": "conversation.item.input_audio_transcription.delta", "_t": 40.286}
+{"audio_processed": 40.400001525878906, "event_id": "event_7532", "transcript": "we'll keep in touch by email if we need", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 37.84, "speaker": 2, "start": 37.76, "word": "we'll"}, {"confidence": 1, "end": 38.08, "speaker": 2, "start": 37.92, "word": "keep"}, {"confidence": 1, "end": 38.16, "speaker": 2, "start": 38.08, "word": "in"}, {"confidence": 1, "end": 38.24, "speaker": 2, "start": 38.16, "word": "touch"}, {"confidence": 1, "end": 38.8, "speaker": 2, "start": 38.72, "word": "by"}, {"confidence": 1, "end": 39.04, "speaker": 2, "start": 38.96, "word": "email"}, {"confidence": 1, "end": 39.28, "speaker": 2, "start": 39.2, "word": "if"}, {"confidence": 1, "end": 39.44, "speaker": 2, "start": 39.36, "word": "we"}, {"confidence": 1, "end": 39.52, "speaker": 2, "start": 39.44, "word": "need"}], "_t": 40.401}
+{"audio_processed": 41.36000061035156, "delta": "anything", "event_id": "event_7538", "type": "conversation.item.input_audio_transcription.delta", "_t": 41.288}
+{"audio_processed": 41.439998626708984, "delta": "", "event_id": "event_7550", "type": "conversation.item.input_audio_transcription.delta", "_t": 41.362}
+{"audio_processed": 41.52000045776367, "delta": "", "event_id": "event_7559", "type": "conversation.item.input_audio_transcription.delta", "_t": 41.461}
+{"audio_processed": 41.599998474121094, "delta": "", "event_id": "event_7565", "type": "conversation.item.input_audio_transcription.delta", "_t": 41.522}
+{"audio_processed": 41.68000030517578, "delta": "", "event_id": "event_7573", "type": "conversation.item.input_audio_transcription.delta", "_t": 41.615}
+{"audio_processed": 41.7599983215332, "delta": "", "event_id": "event_7580", "type": "conversation.item.input_audio_transcription.delta", "_t": 41.715}
+{"audio_processed": 41.84000015258789, "delta": "", "event_id": "event_7590", "type": "conversation.item.input_audio_transcription.delta", "_t": 41.779}
+{"audio_processed": 41.91999816894531, "delta": "", "event_id": "event_7597", "type": "conversation.item.input_audio_transcription.delta", "_t": 41.842}
+{"audio_processed": 42, "delta": " I", "event_id": "event_7606", "type": "conversation.item.input_audio_transcription.delta", "_t": 41.942}
+{"audio_processed": 42.08000183105469, "delta": "", "event_id": "event_7612", "type": "conversation.item.input_audio_transcription.delta", "_t": 42.002}
+{"audio_processed": 42.15999984741211, "delta": " guess", "event_id": "event_7620", "type": "conversation.item.input_audio_transcription.delta", "_t": 42.095}
+{"audio_processed": 42.2400016784668, "delta": "", "event_id": "event_7630", "type": "conversation.item.input_audio_transcription.delta", "_t": 42.162}
+{"audio_processed": 42.31999969482422, "delta": " we", "event_id": "event_7639", "type": "conversation.item.input_audio_transcription.delta", "_t": 42.262}
+{"audio_processed": 42.400001525878906, "delta": "", "event_id": "event_7644", "type": "conversation.item.input_audio_transcription.delta", "_t": 42.322}
+{"audio_processed": 42.47999954223633, "delta": "'ll", "event_id": "event_7652", "type": "conversation.item.input_audio_transcription.delta", "_t": 42.414}
+{"audio_processed": 42.560001373291016, "delta": "", "event_id": "event_7660", "type": "conversation.item.input_audio_transcription.delta", "_t": 42.481}
+{"audio_processed": 42.63999938964844, "delta": " see you", "event_id": "event_7666", "type": "conversation.item.input_audio_transcription.delta", "_t": 42.571}
+{"audio_processed": 42.720001220703125, "delta": "", "event_id": "event_7676", "type": "conversation.item.input_audio_transcription.delta", "_t": 42.642}
+{"audio_processed": 42.79999923706055, "delta": "", "event_id": "event_7683", "type": "conversation.item.input_audio_transcription.delta", "_t": 42.765}
+{"audio_processed": 42.880001068115234, "delta": "", "event_id": "event_7695", "type": "conversation.item.input_audio_transcription.delta", "_t": 42.846}
+{"audio_processed": 42.959999084472656, "delta": " in", "event_id": "event_7702", "type": "conversation.item.input_audio_transcription.delta", "_t": 42.949}
+{"audio_processed": 43.040000915527344, "delta": "", "event_id": "event_7710", "type": "conversation.item.input_audio_transcription.delta", "_t": 43.009}
+{"audio_processed": 43.119998931884766, "delta": "", "event_id": "event_7717", "type": "conversation.item.input_audio_transcription.delta", "_t": 43.097}
+{"audio_processed": 43.20000076293945, "delta": "", "event_id": "event_7726", "type": "conversation.item.input_audio_transcription.delta", "_t": 43.169}
+{"audio_processed": 43.279998779296875, "delta": " Thursday", "event_id": "event_7733", "type": "conversation.item.input_audio_transcription.delta", "_t": 43.265}
+{"audio_processed": 43.36000061035156, "delta": "", "event_id": "event_7741", "type": "conversation.item.input_audio_transcription.delta", "_t": 43.325}
+{"audio_processed": 43.439998626708984, "delta": "", "event_id": "event_7750", "type": "conversation.item.input_audio_transcription.delta", "_t": 43.425}
+{"audio_processed": 43.52000045776367, "delta": "", "event_id": "event_7759", "type": "conversation.item.input_audio_transcription.delta", "_t": 43.485}
+{"audio_processed": 43.599998474121094, "delta": "", "event_id": "event_7767", "type": "conversation.item.input_audio_transcription.delta", "_t": 43.581}
+{"audio_processed": 43.68000030517578, "delta": "", "event_id": "event_7774", "type": "conversation.item.input_audio_transcription.delta", "_t": 43.645}
+{"audio_processed": 43.7599983215332, "delta": "", "event_id": "event_7782", "type": "conversation.item.input_audio_transcription.delta", "_t": 43.741}
+{"audio_processed": 43.84000015258789, "delta": "", "event_id": "event_7787", "type": "conversation.item.input_audio_transcription.delta", "_t": 43.837}
+{"audio_processed": 43.91999816894531, "delta": "", "event_id": "event_7796", "type": "conversation.item.input_audio_transcription.delta", "_t": 43.897}
+{"audio_processed": 44, "delta": "", "event_id": "event_7806", "type": "conversation.item.input_audio_transcription.delta", "_t": 43.965}
+{"audio_processed": 44.08000183105469, "event_id": "event_7815", "transcript": "anything I guess we'll see you in Thursday", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 41.2, "speaker": 2, "start": 41.12, "word": "anything"}, {"confidence": 1, "end": 41.84, "speaker": 2, "start": 41.76, "word": "I"}, {"confidence": 1, "end": 42, "speaker": 2, "start": 41.92, "word": "guess"}, {"confidence": 1, "end": 42.4, "speaker": 2, "start": 42.16, "word": "we'll"}, {"confidence": 1, "end": 42.48, "speaker": 2, "start": 42.4, "word": "see"}, {"confidence": 1, "end": 42.56, "speaker": 2, "start": 42.48, "word": "you"}, {"confidence": 1, "end": 42.8, "speaker": 2, "start": 42.72, "word": "in"}, {"confidence": 1, "end": 43.2, "speaker": 2, "start": 43.04, "word": "Thursday"}], "_t": 44.061}
+{"audio_processed": 46, "delta": "and", "event_id": "event_7821", "type": "conversation.item.input_audio_transcription.delta", "_t": 45.981}
+{"audio_processed": 46.08000183105469, "delta": "", "event_id": "event_7830", "type": "conversation.item.input_audio_transcription.delta", "_t": 46.045}
+{"audio_processed": 46.15999984741211, "delta": " Monday", "event_id": "event_7838", "type": "conversation.item.input_audio_transcription.delta", "_t": 46.145}
+{"audio_processed": 46.2400016784668, "delta": "", "event_id": "event_7846", "type": "conversation.item.input_audio_transcription.delta", "_t": 46.205}
+{"audio_processed": 46.31999969482422, "delta": "", "event_id": "event_7853", "type": "conversation.item.input_audio_transcription.delta", "_t": 46.297}
+{"audio_processed": 46.400001525878906, "delta": "", "event_id": "event_7861", "type": "conversation.item.input_audio_transcription.delta", "_t": 46.365}
+{"audio_processed": 46.47999954223633, "delta": "", "event_id": "event_7871", "type": "conversation.item.input_audio_transcription.delta", "_t": 46.461}
+{"audio_processed": 46.560001373291016, "delta": "", "event_id": "event_7878", "type": "conversation.item.input_audio_transcription.delta", "_t": 46.529}
+{"audio_processed": 46.63999938964844, "delta": "", "event_id": "event_7886", "type": "conversation.item.input_audio_transcription.delta", "_t": 46.621}
+{"audio_processed": 46.720001220703125, "delta": "", "event_id": "event_7895", "type": "conversation.item.input_audio_transcription.delta", "_t": 46.685}
+{"audio_processed": 46.79999923706055, "delta": "", "event_id": "event_7903", "type": "conversation.item.input_audio_transcription.delta", "_t": 46.781}
+{"audio_processed": 46.880001068115234, "delta": "", "event_id": "event_7911", "type": "conversation.item.input_audio_transcription.delta", "_t": 46.845}
+{"audio_processed": 46.959999084472656, "event_id": "event_7919", "transcript": "and Monday", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 45.84, "speaker": 2, "start": 45.76, "word": "and"}, {"confidence": 1, "end": 46.08, "speaker": 2, "start": 45.92, "word": "Monday"}], "_t": 46.961}
+{"audio_processed": 49.20000076293945, "delta": "yeah", "event_id": "event_7925", "type": "conversation.item.input_audio_transcription.delta", "_t": 49.136}
+{"audio_processed": 49.279998779296875, "delta": "", "event_id": "event_7932", "type": "conversation.item.input_audio_transcription.delta", "_t": 49.202}
+{"audio_processed": 49.36000061035156, "delta": " we", "event_id": "event_7940", "type": "conversation.item.input_audio_transcription.delta", "_t": 49.294}
+{"audio_processed": 49.439998626708984, "delta": "", "event_id": "event_7950", "type": "conversation.item.input_audio_transcription.delta", "_t": 49.361}
+{"audio_processed": 49.52000045776367, "delta": "", "event_id": "event_7955", "type": "conversation.item.input_audio_transcription.delta", "_t": 49.45}
+{"audio_processed": 49.599998474121094, "delta": "", "event_id": "event_7963", "type": "conversation.item.input_audio_transcription.delta", "_t": 49.521}
+{"audio_processed": 49.68000030517578, "delta": " died", "event_id": "event_7973", "type": "conversation.item.input_audio_transcription.delta", "_t": 49.618}
+{"audio_processed": 49.7599983215332, "delta": "", "event_id": "event_7980", "type": "conversation.item.input_audio_transcription.delta", "_t": 49.681}
+{"audio_processed": 49.84000015258789, "delta": " we", "event_id": "event_7989", "type": "conversation.item.input_audio_transcription.delta", "_t": 49.779}
+{"audio_processed": 49.91999816894531, "delta": "", "event_id": "event_7998", "type": "conversation.item.input_audio_transcription.delta", "_t": 49.842}
+{"audio_processed": 50, "delta": " need", "event_id": "event_8006", "type": "conversation.item.input_audio_transcription.delta", "_t": 49.941}
+{"audio_processed": 50.08000183105469, "delta": "", "event_id": "event_8013", "type": "conversation.item.input_audio_transcription.delta", "_t": 50.036}
+{"audio_processed": 50.15999984741211, "delta": " another", "event_id": "event_8021", "type": "conversation.item.input_audio_transcription.delta", "_t": 50.097}
+{"audio_processed": 50.2400016784668, "delta": "", "event_id": "event_8030", "type": "conversation.item.input_audio_transcription.delta", "_t": 50.161}
+{"audio_processed": 50.31999969482422, "delta": " meeting", "event_id": "event_8038", "type": "conversation.item.input_audio_transcription.delta", "_t": 50.263}
+{"audio_processed": 50.400001525878906, "delta": "", "event_id": "event_8045", "type": "conversation.item.input_audio_transcription.delta", "_t": 50.322}
+{"audio_processed": 50.47999954223633, "delta": "", "event_id": "event_8055", "type": "conversation.item.input_audio_transcription.delta", "_t": 50.424}
+{"audio_processed": 50.560001373291016, "delta": "", "event_id": "event_8061", "type": "conversation.item.input_audio_transcription.delta", "_t": 50.482}
+{"audio_processed": 50.63999938964844, "delta": "", "event_id": "event_8068", "type": "conversation.item.input_audio_transcription.delta", "_t": 50.573}
+{"audio_processed": 50.720001220703125, "delta": "", "event_id": "event_8078", "type": "conversation.item.input_audio_transcription.delta", "_t": 50.642}
+{"audio_processed": 50.79999923706055, "delta": " this", "event_id": "event_8085", "type": "conversation.item.input_audio_transcription.delta", "_t": 50.737}
+{"audio_processed": 50.880001068115234, "delta": "", "event_id": "event_8094", "type": "conversation.item.input_audio_transcription.delta", "_t": 50.802}
+{"audio_processed": 50.959999084472656, "delta": " week", "event_id": "event_8103", "type": "conversation.item.input_audio_transcription.delta", "_t": 50.902}
+{"audio_processed": 51.040000915527344, "delta": "", "event_id": "event_8109", "type": "conversation.item.input_audio_transcription.delta", "_t": 50.961}
+{"audio_processed": 51.119998931884766, "delta": "", "event_id": "event_8117", "type": "conversation.item.input_audio_transcription.delta", "_t": 51.091}
+{"audio_processed": 51.20000076293945, "delta": "", "event_id": "event_8126", "type": "conversation.item.input_audio_transcription.delta", "_t": 51.165}
+{"audio_processed": 51.279998779296875, "delta": "", "event_id": "event_8134", "type": "conversation.item.input_audio_transcription.delta", "_t": 51.261}
+{"audio_processed": 51.36000061035156, "delta": "", "event_id": "event_8142", "type": "conversation.item.input_audio_transcription.delta", "_t": 51.326}
+{"audio_processed": 51.439998626708984, "delta": "", "event_id": "event_8149", "type": "conversation.item.input_audio_transcription.delta", "_t": 51.418}
+{"audio_processed": 51.52000045776367, "delta": "", "event_id": "event_8158", "type": "conversation.item.input_audio_transcription.delta", "_t": 51.486}
+{"audio_processed": 51.599998474121094, "delta": "", "event_id": "event_8166", "type": "conversation.item.input_audio_transcription.delta", "_t": 51.582}
+{"audio_processed": 51.68000030517578, "delta": "", "event_id": "event_8174", "type": "conversation.item.input_audio_transcription.delta", "_t": 51.646}
+{"audio_processed": 51.7599983215332, "event_id": "event_8182", "transcript": "yeah we died we need another meeting this week", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 49.04, "speaker": 1, "start": 48.96, "word": "yeah"}, {"confidence": 1, "end": 49.2, "speaker": 1, "start": 49.12, "word": "we"}, {"confidence": 1, "end": 49.6, "speaker": 1, "start": 49.44, "word": "died"}, {"confidence": 1, "end": 49.76, "speaker": 1, "start": 49.68, "word": "we"}, {"confidence": 1, "end": 49.84, "speaker": 1, "start": 49.76, "word": "need"}, {"confidence": 1, "end": 50.08, "speaker": 1, "start": 49.92, "word": "another"}, {"confidence": 1, "end": 50.24, "speaker": 1, "start": 50.08, "word": "meeting"}, {"confidence": 1, "end": 50.72, "speaker": 1, "start": 50.64, "word": "this"}, {"confidence": 1, "end": 50.8, "speaker": 1, "start": 50.72, "word": "week"}], "_t": 51.742}
+{"audio_processed": 52.400001525878906, "delta": "pro", "event_id": "event_8188", "type": "conversation.item.input_audio_transcription.delta", "_t": 52.377}
+{"audio_processed": 52.47999954223633, "delta": "", "event_id": "event_8196", "type": "conversation.item.input_audio_transcription.delta", "_t": 52.445}
+{"audio_processed": 52.560001373291016, "delta": "bably", "event_id": "event_8207", "type": "conversation.item.input_audio_transcription.delta", "_t": 52.545}
+{"audio_processed": 52.63999938964844, "delta": "", "event_id": "event_8212", "type": "conversation.item.input_audio_transcription.delta", "_t": 52.605}
+{"audio_processed": 52.720001220703125, "delta": " not", "event_id": "event_8221", "type": "conversation.item.input_audio_transcription.delta", "_t": 52.701}
+{"audio_processed": 52.79999923706055, "delta": "", "event_id": "event_8228", "type": "conversation.item.input_audio_transcription.delta", "_t": 52.765}
+{"audio_processed": 52.880001068115234, "delta": "", "event_id": "event_8235", "type": "conversation.item.input_audio_transcription.delta", "_t": 52.853}
+{"audio_processed": 52.959999084472656, "delta": "", "event_id": "event_8242", "type": "conversation.item.input_audio_transcription.delta", "_t": 52.929}
+{"audio_processed": 53.040000915527344, "delta": " I mean", "event_id": "event_8250", "type": "conversation.item.input_audio_transcription.delta", "_t": 53.017}
+{"audio_processed": 53.119998931884766, "delta": "", "event_id": "event_8261", "type": "conversation.item.input_audio_transcription.delta", "_t": 53.086}
+{"audio_processed": 53.20000076293945, "delta": " just", "event_id": "event_8270", "type": "conversation.item.input_audio_transcription.delta", "_t": 53.201}
+{"audio_processed": 53.279998779296875, "delta": "", "event_id": "event_8277", "type": "conversation.item.input_audio_transcription.delta", "_t": 53.246}
+{"audio_processed": 53.36000061035156, "delta": "", "event_id": "event_8284", "type": "conversation.item.input_audio_transcription.delta", "_t": 53.338}
+{"audio_processed": 53.439998626708984, "delta": "", "event_id": "event_8295", "type": "conversation.item.input_audio_transcription.delta", "_t": 53.409}
+{"audio_processed": 53.52000045776367, "delta": " get", "event_id": "event_8300", "type": "conversation.item.input_audio_transcription.delta", "_t": 53.505}
+{"audio_processed": 53.599998474121094, "delta": "", "event_id": "event_8309", "type": "conversation.item.input_audio_transcription.delta", "_t": 53.566}
+{"audio_processed": 53.68000030517578, "delta": "", "event_id": "event_8316", "type": "conversation.item.input_audio_transcription.delta", "_t": 53.657}
+{"audio_processed": 53.7599983215332, "delta": "", "event_id": "event_8326", "type": "conversation.item.input_audio_transcription.delta", "_t": 53.726}
+{"audio_processed": 53.84000015258789, "delta": "", "event_id": "event_8334", "type": "conversation.item.input_audio_transcription.delta", "_t": 53.822}
+{"audio_processed": 53.91999816894531, "delta": "", "event_id": "event_8342", "type": "conversation.item.input_audio_transcription.delta", "_t": 53.886}
+{"audio_processed": 54, "delta": "", "event_id": "event_8349", "type": "conversation.item.input_audio_transcription.delta", "_t": 53.978}
+{"audio_processed": 54.08000183105469, "delta": "", "event_id": "event_8359", "type": "conversation.item.input_audio_transcription.delta", "_t": 54.046}
+{"audio_processed": 54.15999984741211, "delta": "", "event_id": "event_8364", "type": "conversation.item.input_audio_transcription.delta", "_t": 54.138}
+{"audio_processed": 54.2400016784668, "delta": "", "event_id": "event_8373", "type": "conversation.item.input_audio_transcription.delta", "_t": 54.24}
+{"audio_processed": 54.31999969482422, "event_id": "event_8378", "transcript": "probably not I mean just get", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 52.4, "speaker": 3, "start": 52.16, "word": "probably"}, {"confidence": 1, "end": 52.56, "speaker": 3, "start": 52.48, "word": "not"}, {"confidence": 1, "end": 52.88, "speaker": 3, "start": 52.8, "word": "I"}, {"confidence": 1, "end": 52.96, "speaker": 3, "start": 52.88, "word": "mean"}, {"confidence": 1, "end": 53.12, "speaker": 3, "start": 53.04, "word": "just"}, {"confidence": 1, "end": 53.36, "speaker": 3, "start": 53.28, "word": "get"}], "_t": 54.282}
+{"audio_processed": 54.63999938964844, "delta": "work", "event_id": "event_8389", "type": "conversation.item.input_audio_transcription.delta", "_t": 54.579}
+{"audio_processed": 54.720001220703125, "delta": "", "event_id": "event_8399", "type": "conversation.item.input_audio_transcription.delta", "_t": 54.642}
+{"audio_processed": 54.79999923706055, "delta": "", "event_id": "event_8406", "type": "conversation.item.input_audio_transcription.delta", "_t": 54.738}
+{"audio_processed": 54.880001068115234, "delta": "", "event_id": "event_8412", "type": "conversation.item.input_audio_transcription.delta", "_t": 54.802}
+{"audio_processed": 54.959999084472656, "delta": "", "event_id": "event_8420", "type": "conversation.item.input_audio_transcription.delta", "_t": 54.893}
+{"audio_processed": 55.040000915527344, "delta": "", "event_id": "event_8430", "type": "conversation.item.input_audio_transcription.delta", "_t": 54.961}
+{"audio_processed": 55.119998931884766, "delta": " done", "event_id": "event_8439", "type": "conversation.item.input_audio_transcription.delta", "_t": 55.063}
+{"audio_processed": 55.20000076293945, "delta": "", "event_id": "event_8444", "type": "conversation.item.input_audio_transcription.delta", "_t": 55.121}
+{"audio_processed": 55.279998779296875, "delta": "", "event_id": "event_8451", "type": "conversation.item.input_audio_transcription.delta", "_t": 55.246}
+{"audio_processed": 55.36000061035156, "delta": "", "event_id": "event_8462", "type": "conversation.item.input_audio_transcription.delta", "_t": 55.326}
+{"audio_processed": 55.439998626708984, "delta": "", "event_id": "event_8470", "type": "conversation.item.input_audio_transcription.delta", "_t": 55.421}
+{"audio_processed": 55.52000045776367, "delta": "", "event_id": "event_8478", "type": "conversation.item.input_audio_transcription.delta", "_t": 55.486}
+{"audio_processed": 55.599998474121094, "delta": "", "event_id": "event_8483", "type": "conversation.item.input_audio_transcription.delta", "_t": 55.574}
+{"audio_processed": 55.68000030517578, "delta": "", "event_id": "event_8495", "type": "conversation.item.input_audio_transcription.delta", "_t": 55.645}
+{"audio_processed": 55.7599983215332, "delta": "", "event_id": "event_8501", "type": "conversation.item.input_audio_transcription.delta", "_t": 55.745}
+{"audio_processed": 55.84000015258789, "delta": "", "event_id": "event_8509", "type": "conversation.item.input_audio_transcription.delta", "_t": 55.805}
+{"audio_processed": 55.91999816894531, "delta": " I think", "event_id": "event_8518", "type": "conversation.item.input_audio_transcription.delta", "_t": 55.905}
+{"audio_processed": 56, "delta": "", "event_id": "event_8527", "type": "conversation.item.input_audio_transcription.delta", "_t": 55.965}
+{"audio_processed": 56.08000183105469, "delta": "", "event_id": "event_8535", "type": "conversation.item.input_audio_transcription.delta", "_t": 56.069}
+{"audio_processed": 56.15999984741211, "delta": "", "event_id": "event_8540", "type": "conversation.item.input_audio_transcription.delta", "_t": 56.129}
+{"audio_processed": 56.2400016784668, "delta": " that's", "event_id": "event_8549", "type": "conversation.item.input_audio_transcription.delta", "_t": 56.225}
+{"audio_processed": 56.31999969482422, "delta": "", "event_id": "event_8555", "type": "conversation.item.input_audio_transcription.delta", "_t": 56.321}
+{"audio_processed": 56.400001525878906, "delta": "", "event_id": "event_8564", "type": "conversation.item.input_audio_transcription.delta", "_t": 56.366}
+{"audio_processed": 56.47999954223633, "delta": "", "event_id": "event_8573", "type": "conversation.item.input_audio_transcription.delta", "_t": 56.446}
+{"audio_processed": 56.560001373291016, "delta": "", "event_id": "event_8578", "type": "conversation.item.input_audio_transcription.delta", "_t": 56.534}
+{"audio_processed": 56.63999938964844, "delta": "", "event_id": "event_8589", "type": "conversation.item.input_audio_transcription.delta", "_t": 56.609}
+{"audio_processed": 56.720001220703125, "delta": "", "event_id": "event_8597", "type": "conversation.item.input_audio_transcription.delta", "_t": 56.697}
+{"audio_processed": 56.79999923706055, "delta": "", "event_id": "event_8607", "type": "conversation.item.input_audio_transcription.delta", "_t": 56.769}
+{"audio_processed": 56.880001068115234, "delta": "", "event_id": "event_8612", "type": "conversation.item.input_audio_transcription.delta", "_t": 56.857}
+{"audio_processed": 56.959999084472656, "delta": "", "event_id": "event_8622", "type": "conversation.item.input_audio_transcription.delta", "_t": 56.925}
+{"audio_processed": 57.040000915527344, "event_id": "event_8630", "transcript": "work done I think that's", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 54.56, "speaker": 3, "start": 54.48, "word": "work"}, {"confidence": 1, "end": 55.04, "speaker": 3, "start": 54.96, "word": "done"}, {"confidence": 1, "end": 55.76, "speaker": 3, "start": 55.68, "word": "I"}, {"confidence": 1, "end": 55.84, "speaker": 3, "start": 55.76, "word": "think"}, {"confidence": 1, "end": 56.16, "speaker": 3, "start": 56, "word": "that's"}], "_t": 57.041}
+{"audio_processed": 57.20000076293945, "delta": "what", "event_id": "event_8638", "type": "conversation.item.input_audio_transcription.delta", "_t": 57.142}
+{"audio_processed": 57.279998779296875, "delta": "", "event_id": "event_8646", "type": "conversation.item.input_audio_transcription.delta", "_t": 57.201}
+{"audio_processed": 57.36000061035156, "delta": " I've got", "event_id": "event_8655", "type": "conversation.item.input_audio_transcription.delta", "_t": 57.34}
+{"audio_processed": 57.439998626708984, "delta": "", "event_id": "event_8662", "type": "conversation.item.input_audio_transcription.delta", "_t": 57.406}
+{"audio_processed": 57.52000045776367, "delta": " to", "event_id": "event_8670", "type": "conversation.item.input_audio_transcription.delta", "_t": 57.501}
+{"audio_processed": 57.599998474121094, "delta": "", "event_id": "event_8678", "type": "conversation.item.input_audio_transcription.delta", "_t": 57.566}
+{"audio_processed": 57.68000030517578, "delta": " do", "event_id": "event_8684", "type": "conversation.item.input_audio_transcription.delta", "_t": 57.662}
+{"audio_processed": 57.7599983215332, "delta": "", "event_id": "event_8695", "type": "conversation.item.input_audio_transcription.delta", "_t": 57.726}
+{"audio_processed": 57.84000015258789, "delta": "", "event_id": "event_8702", "type": "conversation.item.input_audio_transcription.delta", "_t": 57.822}
+{"audio_processed": 57.91999816894531, "delta": "", "event_id": "event_8711", "type": "conversation.item.input_audio_transcription.delta", "_t": 57.886}
+{"audio_processed": 58, "delta": "", "event_id": "event_8719", "type": "conversation.item.input_audio_transcription.delta", "_t": 57.989}
+{"audio_processed": 58.08000183105469, "delta": "", "event_id": "event_8726", "type": "conversation.item.input_audio_transcription.delta", "_t": 58.045}
+{"audio_processed": 58.15999984741211, "delta": " we", "event_id": "event_8733", "type": "conversation.item.input_audio_transcription.delta", "_t": 58.138}
+{"audio_processed": 58.2400016784668, "delta": "", "event_id": "event_8742", "type": "conversation.item.input_audio_transcription.delta", "_t": 58.206}
+{"audio_processed": 58.31999969482422, "delta": "", "event_id": "event_8750", "type": "conversation.item.input_audio_transcription.delta", "_t": 58.301}
+{"audio_processed": 58.400001525878906, "delta": "", "event_id": "event_8758", "type": "conversation.item.input_audio_transcription.delta", "_t": 58.401}
+{"audio_processed": 58.47999954223633, "delta": " can", "event_id": "event_8767", "type": "conversation.item.input_audio_transcription.delta", "_t": 58.449}
+{"audio_processed": 58.560001373291016, "delta": "", "event_id": "event_8772", "type": "conversation.item.input_audio_transcription.delta", "_t": 58.529}
+{"audio_processed": 58.63999938964844, "delta": "", "event_id": "event_8780", "type": "conversation.item.input_audio_transcription.delta", "_t": 58.617}
+{"audio_processed": 58.720001220703125, "delta": "", "event_id": "event_8788", "type": "conversation.item.input_audio_transcription.delta", "_t": 58.689}
+{"audio_processed": 58.79999923706055, "delta": " just", "event_id": "event_8799", "type": "conversation.item.input_audio_transcription.delta", "_t": 58.789}
+{"audio_processed": 58.880001068115234, "delta": "", "event_id": "event_8806", "type": "conversation.item.input_audio_transcription.delta", "_t": 58.845}
+{"audio_processed": 58.959999084472656, "delta": " email", "event_id": "event_8815", "type": "conversation.item.input_audio_transcription.delta", "_t": 58.945}
+{"audio_processed": 59.040000915527344, "delta": "", "event_id": "event_8822", "type": "conversation.item.input_audio_transcription.delta", "_t": 59.005}
+{"audio_processed": 59.119998931884766, "delta": "", "event_id": "event_8830", "type": "conversation.item.input_audio_transcription.delta", "_t": 59.101}
+{"audio_processed": 59.20000076293945, "delta": "", "event_id": "event_8838", "type": "conversation.item.input_audio_transcription.delta", "_t": 59.165}
+{"audio_processed": 59.279998779296875, "delta": " if", "event_id": "event_8846", "type": "conversation.item.input_audio_transcription.delta", "_t": 59.266}
+{"audio_processed": 59.36000061035156, "delta": "", "event_id": "event_8853", "type": "conversation.item.input_audio_transcription.delta", "_t": 59.325}
+{"audio_processed": 59.439998626708984, "delta": " we need", "event_id": "event_8860", "type": "conversation.item.input_audio_transcription.delta", "_t": 59.441}
+{"audio_processed": 59.52000045776367, "delta": "", "event_id": "event_8869", "type": "conversation.item.input_audio_transcription.delta", "_t": 59.485}
+{"audio_processed": 59.599998474121094, "delta": "", "event_id": "event_8877", "type": "conversation.item.input_audio_transcription.delta", "_t": 59.536}
+{"audio_processed": 59.68000030517578, "delta": "", "event_id": "event_8886", "type": "conversation.item.input_audio_transcription.delta", "_t": 59.602}
+{"audio_processed": 59.7599983215332, "delta": "", "event_id": "event_8894", "type": "conversation.item.input_audio_transcription.delta", "_t": 59.698}
+{"audio_processed": 59.84000015258789, "delta": "", "event_id": "event_8902", "type": "conversation.item.input_audio_transcription.delta", "_t": 59.761}
+{"audio_processed": 59.91999816894531, "delta": "", "event_id": "event_8910", "type": "conversation.item.input_audio_transcription.delta", "_t": 59.86}
+{"audio_processed": 60, "delta": "", "event_id": "event_8918", "type": "conversation.item.input_audio_transcription.delta", "_t": 59.921}
+{"audio_processed": 60.08000183105469, "delta": "", "event_id": "event_8924", "type": "conversation.item.input_audio_transcription.delta", "_t": 60.061}
+{"audio_processed": 60.15999984741211, "delta": "", "event_id": "event_8935", "type": "conversation.item.input_audio_transcription.delta", "_t": 60.125}
+{"audio_processed": 60.2400016784668, "event_id": "event_8943", "transcript": "what I've got to do we can just email if we need", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 57.04, "speaker": 3, "start": 56.96, "word": "what"}, {"confidence": 1, "end": 57.2, "speaker": 3, "start": 57.12, "word": "I've"}, {"confidence": 1, "end": 57.28, "speaker": 3, "start": 57.2, "word": "got"}, {"confidence": 1, "end": 57.36, "speaker": 3, "start": 57.28, "word": "to"}, {"confidence": 1, "end": 57.52, "speaker": 2, "start": 57.44, "word": "do"}, {"confidence": 1, "end": 58.08, "speaker": 2, "start": 58, "word": "we"}, {"confidence": 1, "end": 58.32, "speaker": 2, "start": 58.24, "word": "can"}, {"confidence": 1, "end": 58.64, "speaker": 2, "start": 58.56, "word": "just"}, {"confidence": 1, "end": 58.8, "speaker": 2, "start": 58.72, "word": "email"}, {"confidence": 1, "end": 59.12, "speaker": 2, "start": 59.04, "word": "if"}, {"confidence": 1, "end": 59.28, "speaker": 2, "start": 59.2, "word": "we"}, {"confidence": 1, "end": 59.36, "speaker": 2, "start": 59.28, "word": "need"}], "_t": 60.241}
+{"audio_processed": 61.52000045776367, "delta": "panel", "event_id": "event_8951", "type": "conversation.item.input_audio_transcription.delta", "_t": 61.498}
+{"audio_processed": 61.599998474121094, "delta": "", "event_id": "event_8953", "type": "conversation.item.input_audio_transcription.delta", "_t": 61.565}
+{"audio_processed": 61.68000030517578, "delta": "", "event_id": "event_8967", "type": "conversation.item.input_audio_transcription.delta", "_t": 61.661}
+{"audio_processed": 61.7599983215332, "delta": "", "event_id": "event_8974", "type": "conversation.item.input_audio_transcription.delta", "_t": 61.729}
+{"audio_processed": 61.84000015258789, "delta": " le", "event_id": "event_8981", "type": "conversation.item.input_audio_transcription.delta", "_t": 61.825}
+{"audio_processed": 61.91999816894531, "delta": "", "event_id": "event_8991", "type": "conversation.item.input_audio_transcription.delta", "_t": 61.886}
+{"audio_processed": 62, "delta": " second", "event_id": "event_8999", "type": "conversation.item.input_audio_transcription.delta", "_t": 61.985}
+{"audio_processed": 62.08000183105469, "delta": "", "event_id": "event_9005", "type": "conversation.item.input_audio_transcription.delta", "_t": 62.049}
+{"audio_processed": 62.15999984741211, "delta": " siè", "event_id": "event_9013", "type": "conversation.item.input_audio_transcription.delta", "_t": 62.145}
+{"audio_processed": 62.2400016784668, "delta": "", "event_id": "event_9022", "type": "conversation.item.input_audio_transcription.delta", "_t": 62.205}
+{"audio_processed": 62.31999969482422, "delta": "cle", "event_id": "event_9028", "type": "conversation.item.input_audio_transcription.delta", "_t": 62.297}
+{"audio_processed": 62.400001525878906, "delta": "", "event_id": "event_9039", "type": "conversation.item.input_audio_transcription.delta", "_t": 62.366}
+{"audio_processed": 62.47999954223633, "delta": "", "event_id": "event_9046", "type": "conversation.item.input_audio_transcription.delta", "_t": 62.461}
+{"audio_processed": 62.560001373291016, "delta": "", "event_id": "event_9055", "type": "conversation.item.input_audio_transcription.delta", "_t": 62.557}
+{"audio_processed": 62.63999938964844, "delta": "", "event_id": "event_9062", "type": "conversation.item.input_audio_transcription.delta", "_t": 62.622}
+{"audio_processed": 62.720001220703125, "delta": "", "event_id": "event_9070", "type": "conversation.item.input_audio_transcription.delta", "_t": 62.689}
+{"audio_processed": 62.79999923706055, "delta": "", "event_id": "event_9076", "type": "conversation.item.input_audio_transcription.delta", "_t": 62.778}
+{"audio_processed": 62.880001068115234, "delta": "", "event_id": "event_9080", "type": "conversation.item.input_audio_transcription.delta", "_t": 62.846}
+{"audio_processed": 62.959999084472656, "delta": " je", "event_id": "event_9088", "type": "conversation.item.input_audio_transcription.delta", "_t": 62.926}
+{"audio_processed": 63.040000915527344, "delta": "", "event_id": "event_9097", "type": "conversation.item.input_audio_transcription.delta", "_t": 63.006}
+{"audio_processed": 63.119998931884766, "delta": " fi", "event_id": "event_9107", "type": "conversation.item.input_audio_transcription.delta", "_t": 63.093}
+{"audio_processed": 63.20000076293945, "delta": "", "event_id": "event_9116", "type": "conversation.item.input_audio_transcription.delta", "_t": 63.165}
+{"audio_processed": 63.279998779296875, "delta": "s", "event_id": "event_9127", "type": "conversation.item.input_audio_transcription.delta", "_t": 63.265}
+{"audio_processed": 63.36000061035156, "delta": "", "event_id": "event_9134", "type": "conversation.item.input_audio_transcription.delta", "_t": 63.325}
+{"audio_processed": 63.439998626708984, "delta": " ser", "event_id": "event_9143", "type": "conversation.item.input_audio_transcription.delta", "_t": 63.425}
+{"audio_processed": 63.52000045776367, "delta": "", "event_id": "event_9149", "type": "conversation.item.input_audio_transcription.delta", "_t": 63.485}
+{"audio_processed": 63.599998474121094, "delta": "ment", "event_id": "event_9156", "type": "conversation.item.input_audio_transcription.delta", "_t": 63.601}
+{"audio_processed": 63.68000030517578, "delta": "", "event_id": "event_9164", "type": "conversation.item.input_audio_transcription.delta", "_t": 63.641}
+{"audio_processed": 63.7599983215332, "delta": " d'", "event_id": "event_9174", "type": "conversation.item.input_audio_transcription.delta", "_t": 63.701}
+{"audio_processed": 63.84000015258789, "delta": "", "event_id": "event_9182", "type": "conversation.item.input_audio_transcription.delta", "_t": 63.761}
+{"audio_processed": 63.91999816894531, "delta": "ouvri", "event_id": "event_9189", "type": "conversation.item.input_audio_transcription.delta", "_t": 63.86}
+{"audio_processed": 64, "delta": "", "event_id": "event_9194", "type": "conversation.item.input_audio_transcription.delta", "_t": 63.922}
+{"audio_processed": 64.08000183105469, "delta": "r", "event_id": "event_9204", "type": "conversation.item.input_audio_transcription.delta", "_t": 64.017}
+{"audio_processed": 64.16000366210938, "delta": "", "event_id": "event_9212", "type": "conversation.item.input_audio_transcription.delta", "_t": 64.081}
+{"audio_processed": 64.23999786376953, "delta": " tou", "event_id": "event_9223", "type": "conversation.item.input_audio_transcription.delta", "_t": 64.182}
+{"audio_processed": 64.31999969482422, "delta": "", "event_id": "event_9224", "type": "conversation.item.input_audio_transcription.delta", "_t": 64.241}
+{"audio_processed": 64.4000015258789, "delta": "s les", "event_id": "event_9235", "type": "conversation.item.input_audio_transcription.delta", "_t": 64.334}
+{"audio_processed": 64.4800033569336, "delta": "", "event_id": "event_9244", "type": "conversation.item.input_audio_transcription.delta", "_t": 64.402}
+{"audio_processed": 64.55999755859375, "delta": " trésor", "event_id": "event_9255", "type": "conversation.item.input_audio_transcription.delta", "_t": 64.504}
+{"audio_processed": 64.63999938964844, "delta": "", "event_id": "event_9260", "type": "conversation.item.input_audio_transcription.delta", "_t": 64.597}
+{"audio_processed": 64.72000122070312, "delta": "s", "event_id": "event_9268", "type": "conversation.item.input_audio_transcription.delta", "_t": 64.654}
+{"audio_processed": 64.80000305175781, "delta": "", "event_id": "event_9276", "type": "conversation.item.input_audio_transcription.delta", "_t": 64.721}
+{"audio_processed": 64.87999725341797, "delta": " de la", "event_id": "event_9287", "type": "conversation.item.input_audio_transcription.delta", "_t": 64.823}
+{"audio_processed": 64.95999908447266, "delta": "", "event_id": "event_9293", "type": "conversation.item.input_audio_transcription.delta", "_t": 64.881}
+{"audio_processed": 65.04000091552734, "delta": " terre", "event_id": "event_9296", "type": "conversation.item.input_audio_transcription.delta", "_t": 64.973}
+{"audio_processed": 65.12000274658203, "delta": "", "event_id": "event_9310", "type": "conversation.item.input_audio_transcription.delta", "_t": 65.042}
+{"audio_processed": 65.19999694824219, "delta": "", "event_id": "event_9317", "type": "conversation.item.input_audio_transcription.delta", "_t": 65.136}
+{"audio_processed": 65.27999877929688, "delta": "", "event_id": "event_9326", "type": "conversation.item.input_audio_transcription.delta", "_t": 65.201}
+{"audio_processed": 65.36000061035156, "delta": "", "event_id": "event_9334", "type": "conversation.item.input_audio_transcription.delta", "_t": 65.299}
+{"audio_processed": 65.44000244140625, "delta": "", "event_id": "event_9342", "type": "conversation.item.input_audio_transcription.delta", "_t": 65.361}
+{"audio_processed": 65.5199966430664, "delta": "", "event_id": "event_9350", "type": "conversation.item.input_audio_transcription.delta", "_t": 65.458}
+{"audio_processed": 65.5999984741211, "delta": "", "event_id": "event_9357", "type": "conversation.item.input_audio_transcription.delta", "_t": 65.524}
+{"audio_processed": 65.68000030517578, "delta": "", "event_id": "event_9363", "type": "conversation.item.input_audio_transcription.delta", "_t": 65.645}
+{"audio_processed": 65.76000213623047, "delta": "", "event_id": "event_9373", "type": "conversation.item.input_audio_transcription.delta", "_t": 65.725}
+{"audio_processed": 65.83999633789062, "event_id": "event_9380", "transcript": "panel le second siècle je fis serment d'ouvrir tous les trésors de la terre", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 61.44, "speaker": 4, "start": 61.28, "word": "panel"}, {"confidence": 1, "end": 61.76, "speaker": 4, "start": 61.68, "word": "le"}, {"confidence": 1, "end": 61.92, "speaker": 4, "start": 61.76, "word": "second"}, {"confidence": 1, "end": 62.24, "speaker": 4, "start": 62, "word": "siècle"}, {"confidence": 1, "end": 62.8, "speaker": 4, "start": 62.72, "word": "je"}, {"confidence": 1, "end": 63.2, "speaker": 4, "start": 62.96, "word": "fis"}, {"confidence": 1, "end": 63.52, "speaker": 4, "start": 63.28, "word": "serment"}, {"confidence": 1, "end": 63.92, "speaker": 4, "start": 63.6, "word": "d'ouvrir"}, {"confidence": 1, "end": 64.24, "speaker": 4, "start": 64, "word": "tous"}, {"confidence": 1, "end": 64.24, "speaker": 4, "start": 64.16, "word": "les"}, {"confidence": 1, "end": 64.64, "speaker": 4, "start": 64.32, "word": "trésors"}, {"confidence": 1, "end": 64.72, "speaker": 4, "start": 64.64, "word": "de"}, {"confidence": 1, "end": 64.8, "speaker": 4, "start": 64.72, "word": "la"}, {"confidence": 1, "end": 64.96, "speaker": 4, "start": 64.8, "word": "terre"}], "_t": 65.817}
+{"audio_processed": 66, "delta": "à", "event_id": "event_9391", "type": "conversation.item.input_audio_transcription.delta", "_t": 65.985}
+{"audio_processed": 66.08000183105469, "delta": "", "event_id": "event_9395", "type": "conversation.item.input_audio_transcription.delta", "_t": 66.046}
+{"audio_processed": 66.16000366210938, "delta": " qui", "event_id": "event_9404", "type": "conversation.item.input_audio_transcription.delta", "_t": 66.138}
+{"audio_processed": 66.23999786376953, "delta": "", "event_id": "event_9415", "type": "conversation.item.input_audio_transcription.delta", "_t": 66.21}
+{"audio_processed": 66.31999969482422, "delta": " comp", "event_id": "event_9423", "type": "conversation.item.input_audio_transcription.delta", "_t": 66.306}
+{"audio_processed": 66.4000015258789, "delta": "", "event_id": "event_9430", "type": "conversation.item.input_audio_transcription.delta", "_t": 66.366}
+{"audio_processed": 66.4800033569336, "delta": "te", "event_id": "event_9432", "type": "conversation.item.input_audio_transcription.delta", "_t": 66.45}
+{"audio_processed": 66.55999755859375, "delta": "", "event_id": "event_9445", "type": "conversation.item.input_audio_transcription.delta", "_t": 66.526}
+{"audio_processed": 66.63999938964844, "delta": " mes", "event_id": "event_9452", "type": "conversation.item.input_audio_transcription.delta", "_t": 66.618}
+{"audio_processed": 66.72000122070312, "delta": "", "event_id": "event_9462", "type": "conversation.item.input_audio_transcription.delta", "_t": 66.72}
+{"audio_processed": 66.80000305175781, "delta": " maît", "event_id": "event_9467", "type": "conversation.item.input_audio_transcription.delta", "_t": 66.761}
+{"audio_processed": 66.87999725341797, "delta": "", "event_id": "event_9474", "type": "conversation.item.input_audio_transcription.delta", "_t": 66.802}
+{"audio_processed": 66.95999908447266, "delta": "rises", "event_id": "event_9484", "type": "conversation.item.input_audio_transcription.delta", "_t": 66.894}
+{"audio_processed": 67.04000091552734, "delta": "", "event_id": "event_9495", "type": "conversation.item.input_audio_transcription.delta", "_t": 66.962}
+{"audio_processed": 67.12000274658203, "delta": " en", "event_id": "event_9503", "type": "conversation.item.input_audio_transcription.delta", "_t": 67.063}
+{"audio_processed": 67.19999694824219, "delta": "", "event_id": "event_9509", "type": "conversation.item.input_audio_transcription.delta", "_t": 67.121}
+{"audio_processed": 67.27999877929688, "delta": " liber", "event_id": "event_9512", "type": "conversation.item.input_audio_transcription.delta", "_t": 67.209}
+{"audio_processed": 67.36000061035156, "delta": "", "event_id": "event_9526", "type": "conversation.item.input_audio_transcription.delta", "_t": 67.282}
+{"audio_processed": 67.44000244140625, "delta": "té", "event_id": "event_9534", "type": "conversation.item.input_audio_transcription.delta", "_t": 67.382}
+{"audio_processed": 67.5199966430664, "delta": "", "event_id": "event_9543", "type": "conversation.item.input_audio_transcription.delta", "_t": 67.442}
+{"audio_processed": 67.5999984741211, "delta": "", "event_id": "event_9549", "type": "conversation.item.input_audio_transcription.delta", "_t": 67.537}
+{"audio_processed": 67.68000030517578, "delta": "", "event_id": "event_9557", "type": "conversation.item.input_audio_transcription.delta", "_t": 67.602}
+{"audio_processed": 67.76000213623047, "delta": "", "event_id": "event_9564", "type": "conversation.item.input_audio_transcription.delta", "_t": 67.728}
+{"audio_processed": 67.83999633789062, "delta": "", "event_id": "event_9574", "type": "conversation.item.input_audio_transcription.delta", "_t": 67.805}
+{"audio_processed": 67.91999816894531, "delta": "", "event_id": "event_9581", "type": "conversation.item.input_audio_transcription.delta", "_t": 67.897}
+{"audio_processed": 68, "delta": "", "event_id": "event_9589", "type": "conversation.item.input_audio_transcription.delta", "_t": 67.965}
+{"audio_processed": 68.08000183105469, "delta": "", "event_id": "event_9599", "type": "conversation.item.input_audio_transcription.delta", "_t": 68.065}
+{"audio_processed": 68.16000366210938, "delta": "", "event_id": "event_9606", "type": "conversation.item.input_audio_transcription.delta", "_t": 68.125}
+{"audio_processed": 68.23999786376953, "event_id": "event_9614", "transcript": "à qui compte mes maîtrises en liberté", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 65.84, "speaker": 4, "start": 65.76, "word": "à"}, {"confidence": 1, "end": 66, "speaker": 4, "start": 65.92, "word": "qui"}, {"confidence": 1, "end": 66.32, "speaker": 4, "start": 66.08, "word": "compte"}, {"confidence": 1, "end": 66.48, "speaker": 4, "start": 66.4, "word": "mes"}, {"confidence": 1, "end": 66.88, "speaker": 4, "start": 66.56, "word": "maîtrises"}, {"confidence": 1, "end": 67.04, "speaker": 4, "start": 66.96, "word": "en"}, {"confidence": 1, "end": 67.36, "speaker": 4, "start": 67.04, "word": "liberté"}], "_t": 68.221}
+{"audio_processed": 68.4000015258789, "delta": "mais", "event_id": "event_9623", "type": "conversation.item.input_audio_transcription.delta", "_t": 68.385}
+{"audio_processed": 68.4800033569336, "delta": "", "event_id": "event_9631", "type": "conversation.item.input_audio_transcription.delta", "_t": 68.446}
+{"audio_processed": 68.55999755859375, "delta": "", "event_id": "event_9638", "type": "conversation.item.input_audio_transcription.delta", "_t": 68.542}
+{"audio_processed": 68.63999938964844, "delta": "", "event_id": "event_9647", "type": "conversation.item.input_audio_transcription.delta", "_t": 68.605}
+{"audio_processed": 68.72000122070312, "delta": " je ne", "event_id": "event_9653", "type": "conversation.item.input_audio_transcription.delta", "_t": 68.701}
+{"audio_processed": 68.80000305175781, "delta": "", "event_id": "event_9660", "type": "conversation.item.input_audio_transcription.delta", "_t": 68.797}
+{"audio_processed": 68.87999725341797, "delta": " fus", "event_id": "event_9671", "type": "conversation.item.input_audio_transcription.delta", "_t": 68.866}
+{"audio_processed": 68.95999908447266, "delta": "", "event_id": "event_9675", "type": "conversation.item.input_audio_transcription.delta", "_t": 68.926}
+{"audio_processed": 69.04000091552734, "delta": " pas", "event_id": "event_9682", "type": "conversation.item.input_audio_transcription.delta", "_t": 69.013}
+{"audio_processed": 69.12000274658203, "delta": "", "event_id": "event_9695", "type": "conversation.item.input_audio_transcription.delta", "_t": 69.089}
+{"audio_processed": 69.19999694824219, "delta": "", "event_id": "event_9703", "type": "conversation.item.input_audio_transcription.delta", "_t": 69.182}
+{"audio_processed": 69.27999877929688, "delta": "", "event_id": "event_9707", "type": "conversation.item.input_audio_transcription.delta", "_t": 69.246}
+{"audio_processed": 69.36000061035156, "delta": " plus", "event_id": "event_9717", "type": "conversation.item.input_audio_transcription.delta", "_t": 69.337}
+{"audio_processed": 69.44000244140625, "delta": "", "event_id": "event_9727", "type": "conversation.item.input_audio_transcription.delta", "_t": 69.405}
+{"audio_processed": 69.5199966430664, "delta": " heureux", "event_id": "event_9735", "type": "conversation.item.input_audio_transcription.delta", "_t": 69.506}
+{"audio_processed": 69.5999984741211, "delta": "", "event_id": "event_9742", "type": "conversation.item.input_audio_transcription.delta", "_t": 69.569}
+{"audio_processed": 69.68000030517578, "delta": "", "event_id": "event_9749", "type": "conversation.item.input_audio_transcription.delta", "_t": 69.657}
+{"audio_processed": 69.76000213623047, "delta": "", "event_id": "event_9758", "type": "conversation.item.input_audio_transcription.delta", "_t": 69.725}
+{"audio_processed": 69.83999633789062, "delta": "", "event_id": "event_9767", "type": "conversation.item.input_audio_transcription.delta", "_t": 69.842}
+{"audio_processed": 69.91999816894531, "delta": "", "event_id": "event_9774", "type": "conversation.item.input_audio_transcription.delta", "_t": 69.885}
+{"audio_processed": 70, "delta": "", "event_id": "event_9783", "type": "conversation.item.input_audio_transcription.delta", "_t": 69.985}
+{"audio_processed": 70.08000183105469, "delta": "", "event_id": "event_9789", "type": "conversation.item.input_audio_transcription.delta", "_t": 70.045}
+{"audio_processed": 70.16000366210938, "delta": "", "event_id": "event_9796", "type": "conversation.item.input_audio_transcription.delta", "_t": 70.137}
+{"audio_processed": 70.23999786376953, "delta": "", "event_id": "event_9802", "type": "conversation.item.input_audio_transcription.delta", "_t": 70.206}
+{"audio_processed": 70.31999969482422, "event_id": "event_9811", "transcript": "mais je ne fus pas plus heureux", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 68.32, "speaker": 4, "start": 68.24, "word": "mais"}, {"confidence": 1, "end": 68.56, "speaker": 4, "start": 68.48, "word": "je"}, {"confidence": 1, "end": 68.64, "speaker": 4, "start": 68.56, "word": "ne"}, {"confidence": 1, "end": 68.8, "speaker": 4, "start": 68.72, "word": "fus"}, {"confidence": 1, "end": 68.96, "speaker": 4, "start": 68.88, "word": "pas"}, {"confidence": 1, "end": 69.2, "speaker": 4, "start": 69.12, "word": "plus"}, {"confidence": 1, "end": 69.44, "speaker": 4, "start": 69.28, "word": "heureux"}], "_t": 70.298}
+{"audio_processed": 71.12000274658203, "delta": "dans", "event_id": "event_9823", "type": "conversation.item.input_audio_transcription.delta", "_t": 71.106}
+{"audio_processed": 71.19999694824219, "delta": "", "event_id": "event_9831", "type": "conversation.item.input_audio_transcription.delta", "_t": 71.166}
+{"audio_processed": 71.27999877929688, "delta": " le", "event_id": "event_9838", "type": "conversation.item.input_audio_transcription.delta", "_t": 71.269}
+{"audio_processed": 71.36000061035156, "delta": "", "event_id": "event_9844", "type": "conversation.item.input_audio_transcription.delta", "_t": 71.326}
+{"audio_processed": 71.44000244140625, "delta": " tro", "event_id": "event_9855", "type": "conversation.item.input_audio_transcription.delta", "_t": 71.426}
+{"audio_processed": 71.5199966430664, "delta": "", "event_id": "event_9863", "type": "conversation.item.input_audio_transcription.delta", "_t": 71.486}
+{"audio_processed": 71.5999984741211, "delta": "isième", "event_id": "event_9870", "type": "conversation.item.input_audio_transcription.delta", "_t": 71.585}
+{"audio_processed": 71.68000030517578, "delta": "", "event_id": "event_9878", "type": "conversation.item.input_audio_transcription.delta", "_t": 71.645}
+{"audio_processed": 71.76000213623047, "delta": "", "event_id": "event_9884", "type": "conversation.item.input_audio_transcription.delta", "_t": 71.741}
+{"audio_processed": 71.83999633789062, "delta": "", "event_id": "event_9893", "type": "conversation.item.input_audio_transcription.delta", "_t": 71.805}
+{"audio_processed": 71.91999816894531, "delta": ", je", "event_id": "event_9901", "type": "conversation.item.input_audio_transcription.delta", "_t": 71.921}
+{"audio_processed": 72, "delta": "", "event_id": "event_9909", "type": "conversation.item.input_audio_transcription.delta", "_t": 71.969}
+{"audio_processed": 72.08000183105469, "delta": "", "event_id": "event_9917", "type": "conversation.item.input_audio_transcription.delta", "_t": 72.057}
+{"audio_processed": 72.16000366210938, "delta": "", "event_id": "event_9927", "type": "conversation.item.input_audio_transcription.delta", "_t": 72.125}
+{"audio_processed": 72.23999786376953, "delta": " promi", "event_id": "event_9935", "type": "conversation.item.input_audio_transcription.delta", "_t": 72.225}
+{"audio_processed": 72.31999969482422, "delta": "", "event_id": "event_9940", "type": "conversation.item.input_audio_transcription.delta", "_t": 72.285}
+{"audio_processed": 72.4000015258789, "delta": "s", "event_id": "event_9949", "type": "conversation.item.input_audio_transcription.delta", "_t": 72.381}
+{"audio_processed": 72.4800033569336, "delta": "", "event_id": "event_9957", "type": "conversation.item.input_audio_transcription.delta", "_t": 72.445}
+{"audio_processed": 72.55999755859375, "delta": " de", "event_id": "event_9967", "type": "conversation.item.input_audio_transcription.delta", "_t": 72.545}
+{"audio_processed": 72.63999938964844, "delta": "", "event_id": "event_9974", "type": "conversation.item.input_audio_transcription.delta", "_t": 72.605}
+{"audio_processed": 72.72000122070312, "delta": " faire", "event_id": "event_9982", "type": "conversation.item.input_audio_transcription.delta", "_t": 72.705}
+{"audio_processed": 72.80000305175781, "delta": "", "event_id": "event_9990", "type": "conversation.item.input_audio_transcription.delta", "_t": 72.765}
+{"audio_processed": 72.87999725341797, "delta": "", "event_id": "event_9998", "type": "conversation.item.input_audio_transcription.delta", "_t": 72.861}
+{"audio_processed": 72.95999908447266, "delta": "", "event_id": "event_10004", "type": "conversation.item.input_audio_transcription.delta", "_t": 72.958}
+{"audio_processed": 73.04000091552734, "delta": "", "event_id": "event_10015", "type": "conversation.item.input_audio_transcription.delta", "_t": 73.026}
+{"audio_processed": 73.12000274658203, "delta": "", "event_id": "event_10023", "type": "conversation.item.input_audio_transcription.delta", "_t": 73.085}
+{"audio_processed": 73.19999694824219, "delta": "", "event_id": "event_10028", "type": "conversation.item.input_audio_transcription.delta", "_t": 73.182}
+{"audio_processed": 73.27999877929688, "delta": "", "event_id": "event_10037", "type": "conversation.item.input_audio_transcription.delta", "_t": 73.246}
+{"audio_processed": 73.36000061035156, "delta": " puis", "event_id": "event_10046", "type": "conversation.item.input_audio_transcription.delta", "_t": 73.346}
+{"audio_processed": 73.44000244140625, "delta": "", "event_id": "event_10054", "type": "conversation.item.input_audio_transcription.delta", "_t": 73.405}
+{"audio_processed": 73.5199966430664, "delta": "sant", "event_id": "event_10060", "type": "conversation.item.input_audio_transcription.delta", "_t": 73.501}
+{"audio_processed": 73.5999984741211, "delta": "", "event_id": "event_10070", "type": "conversation.item.input_audio_transcription.delta", "_t": 73.565}
+{"audio_processed": 73.68000030517578, "delta": "", "event_id": "event_10078", "type": "conversation.item.input_audio_transcription.delta", "_t": 73.661}
+{"audio_processed": 73.76000213623047, "delta": "", "event_id": "event_10083", "type": "conversation.item.input_audio_transcription.delta", "_t": 73.726}
+{"audio_processed": 73.83999633789062, "delta": " mon", "event_id": "event_10091", "type": "conversation.item.input_audio_transcription.delta", "_t": 73.813}
+{"audio_processed": 73.91999816894531, "delta": "", "event_id": "event_10101", "type": "conversation.item.input_audio_transcription.delta", "_t": 73.886}
+{"audio_processed": 74, "delta": "arque", "event_id": "event_10107", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.001}
+{"audio_processed": 74.08000183105469, "delta": "", "event_id": "event_10117", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.042}
+{"audio_processed": 74.16000366210938, "delta": " mon", "event_id": "event_10124", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.097}
+{"audio_processed": 74.23999786376953, "delta": "", "event_id": "event_10130", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.162}
+{"audio_processed": 74.31999969482422, "delta": " li", "event_id": "event_10141", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.257}
+{"audio_processed": 74.4000015258789, "delta": "", "event_id": "event_10149", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.321}
+{"audio_processed": 74.4800033569336, "delta": "bérat", "event_id": "event_10159", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.423}
+{"audio_processed": 74.55999755859375, "delta": "", "event_id": "event_10166", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.482}
+{"audio_processed": 74.63999938964844, "delta": "eur", "event_id": "event_10173", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.578}
+{"audio_processed": 74.72000122070312, "delta": "", "event_id": "event_10183", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.642}
+{"audio_processed": 74.80000305175781, "delta": "", "event_id": "event_10188", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.733}
+{"audio_processed": 74.87999725341797, "delta": "", "event_id": "event_10198", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.802}
+{"audio_processed": 74.95999908447266, "delta": ", d'", "event_id": "event_10207", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.904}
+{"audio_processed": 75.04000091552734, "delta": "", "event_id": "event_10212", "type": "conversation.item.input_audio_transcription.delta", "_t": 74.995}
+{"audio_processed": 75.12000274658203, "delta": "être", "event_id": "event_10220", "type": "conversation.item.input_audio_transcription.delta", "_t": 75.055}
+{"audio_processed": 75.19999694824219, "delta": "", "event_id": "event_10230", "type": "conversation.item.input_audio_transcription.delta", "_t": 75.123}
+{"audio_processed": 75.27999877929688, "delta": " tou", "event_id": "event_10237", "type": "conversation.item.input_audio_transcription.delta", "_t": 75.222}
+{"audio_processed": 75.36000061035156, "delta": "", "event_id": "event_10247", "type": "conversation.item.input_audio_transcription.delta", "_t": 75.282}
+{"audio_processed": 75.44000244140625, "delta": "jours", "event_id": "event_10255", "type": "conversation.item.input_audio_transcription.delta", "_t": 75.383}
+{"audio_processed": 75.5199966430664, "delta": "", "event_id": "event_10263", "type": "conversation.item.input_audio_transcription.delta", "_t": 75.442}
+{"audio_processed": 75.5999984741211, "delta": "", "event_id": "event_10267", "type": "conversation.item.input_audio_transcription.delta", "_t": 75.531}
+{"audio_processed": 75.68000030517578, "delta": "", "event_id": "event_10276", "type": "conversation.item.input_audio_transcription.delta", "_t": 75.604}
+{"audio_processed": 75.76000213623047, "delta": " près", "event_id": "event_10285", "type": "conversation.item.input_audio_transcription.delta", "_t": 75.697}
+{"audio_processed": 75.83999633789062, "delta": "", "event_id": "event_10295", "type": "conversation.item.input_audio_transcription.delta", "_t": 75.762}
+{"audio_processed": 75.91999816894531, "delta": " de lui", "event_id": "event_10303", "type": "conversation.item.input_audio_transcription.delta", "_t": 75.862}
+{"audio_processed": 76, "delta": "", "event_id": "event_10309", "type": "conversation.item.input_audio_transcription.delta", "_t": 75.922}
+{"audio_processed": 76.08000183105469, "delta": "", "event_id": "event_10318", "type": "conversation.item.input_audio_transcription.delta", "_t": 76.052}
+{"audio_processed": 76.16000366210938, "delta": "", "event_id": "event_10326", "type": "conversation.item.input_audio_transcription.delta", "_t": 76.126}
+{"audio_processed": 76.23999786376953, "delta": "", "event_id": "event_10334", "type": "conversation.item.input_audio_transcription.delta", "_t": 76.222}
+{"audio_processed": 76.31999969482422, "delta": "", "event_id": "event_10342", "type": "conversation.item.input_audio_transcription.delta", "_t": 76.286}
+{"audio_processed": 76.4000015258789, "delta": " en es", "event_id": "event_10350", "type": "conversation.item.input_audio_transcription.delta", "_t": 76.385}
+{"audio_processed": 76.4800033569336, "delta": "", "event_id": "event_10358", "type": "conversation.item.input_audio_transcription.delta", "_t": 76.446}
+{"audio_processed": 76.55999755859375, "delta": "prit", "event_id": "event_10366", "type": "conversation.item.input_audio_transcription.delta", "_t": 76.546}
+{"audio_processed": 76.63999938964844, "delta": "", "event_id": "event_10374", "type": "conversation.item.input_audio_transcription.delta", "_t": 76.606}
+{"audio_processed": 76.72000122070312, "delta": "", "event_id": "event_10382", "type": "conversation.item.input_audio_transcription.delta", "_t": 76.702}
+{"audio_processed": 76.80000305175781, "delta": "", "event_id": "event_10390", "type": "conversation.item.input_audio_transcription.delta", "_t": 76.765}
+{"audio_processed": 76.87999725341797, "delta": "", "event_id": "event_10398", "type": "conversation.item.input_audio_transcription.delta", "_t": 76.862}
+{"audio_processed": 76.95999908447266, "delta": "", "event_id": "event_10405", "type": "conversation.item.input_audio_transcription.delta", "_t": 76.925}
+{"audio_processed": 77.04000091552734, "delta": "", "event_id": "event_10415", "type": "conversation.item.input_audio_transcription.delta", "_t": 77.026}
+{"audio_processed": 77.12000274658203, "delta": "", "event_id": "event_10423", "type": "conversation.item.input_audio_transcription.delta", "_t": 77.12}
+{"audio_processed": 77.19999694824219, "delta": "", "event_id": "event_10430", "type": "conversation.item.input_audio_transcription.delta", "_t": 77.162}
+{"audio_processed": 77.27999877929688, "delta": "", "event_id": "event_10434", "type": "conversation.item.input_audio_transcription.delta", "_t": 77.202}
+{"audio_processed": 77.36000061035156, "delta": " lors", "event_id": "event_10445", "type": "conversation.item.input_audio_transcription.delta", "_t": 77.297}
+{"audio_processed": 77.44000244140625, "delta": "", "event_id": "event_10454", "type": "conversation.item.input_audio_transcription.delta", "_t": 77.361}
+{"audio_processed": 77.5199966430664, "delta": "qu'il", "event_id": "event_10463", "type": "conversation.item.input_audio_transcription.delta", "_t": 77.463}
+{"audio_processed": 77.5999984741211, "delta": "", "event_id": "event_10468", "type": "conversation.item.input_audio_transcription.delta", "_t": 77.522}
+{"audio_processed": 77.68000030517578, "delta": "", "event_id": "event_10474", "type": "conversation.item.input_audio_transcription.delta", "_t": 77.608}
+{"audio_processed": 77.76000213623047, "delta": "", "event_id": "event_10483", "type": "conversation.item.input_audio_transcription.delta", "_t": 77.682}
+{"audio_processed": 77.83999633789062, "delta": " eût", "event_id": "event_10493", "type": "conversation.item.input_audio_transcription.delta", "_t": 77.78}
+{"audio_processed": 77.91999816894531, "delta": "", "event_id": "event_10500", "type": "conversation.item.input_audio_transcription.delta", "_t": 77.842}
+{"audio_processed": 78, "delta": " a", "event_id": "event_10507", "type": "conversation.item.input_audio_transcription.delta", "_t": 77.932}
+{"audio_processed": 78.08000183105469, "delta": "", "event_id": "event_10518", "type": "conversation.item.input_audio_transcription.delta", "_t": 78.002}
+{"audio_processed": 78.16000366210938, "delta": "che", "event_id": "event_10527", "type": "conversation.item.input_audio_transcription.delta", "_t": 78.133}
+{"audio_processed": 78.23999786376953, "delta": "", "event_id": "event_10534", "type": "conversation.item.input_audio_transcription.delta", "_t": 78.209}
+{"audio_processed": 78.31999969482422, "delta": "vé", "event_id": "event_10541", "type": "conversation.item.input_audio_transcription.delta", "_t": 78.297}
+{"audio_processed": 78.4000015258789, "delta": "", "event_id": "event_10550", "type": "conversation.item.input_audio_transcription.delta", "_t": 78.369}
+{"audio_processed": 78.4800033569336, "delta": "", "event_id": "event_10559", "type": "conversation.item.input_audio_transcription.delta", "_t": 78.469}
+{"audio_processed": 78.55999755859375, "delta": "", "event_id": "event_10565", "type": "conversation.item.input_audio_transcription.delta", "_t": 78.525}
+{"audio_processed": 78.63999938964844, "delta": "", "event_id": "event_10573", "type": "conversation.item.input_audio_transcription.delta", "_t": 78.617}
+{"audio_processed": 78.72000122070312, "delta": "", "event_id": "event_10582", "type": "conversation.item.input_audio_transcription.delta", "_t": 78.689}
+{"audio_processed": 78.80000305175781, "delta": "", "event_id": "event_10588", "type": "conversation.item.input_audio_transcription.delta", "_t": 78.777}
+{"audio_processed": 78.87999725341797, "delta": "", "event_id": "event_10595", "type": "conversation.item.input_audio_transcription.delta", "_t": 78.846}
+{"audio_processed": 78.95999908447266, "delta": " ce re", "event_id": "event_10605", "type": "conversation.item.input_audio_transcription.delta", "_t": 78.946}
+{"audio_processed": 79.04000091552734, "delta": "", "event_id": "event_10615", "type": "conversation.item.input_audio_transcription.delta", "_t": 79.006}
+{"audio_processed": 79.12000274658203, "delta": "pa", "event_id": "event_10623", "type": "conversation.item.input_audio_transcription.delta", "_t": 79.105}
+{"audio_processed": 79.19999694824219, "delta": "", "event_id": "event_10630", "type": "conversation.item.input_audio_transcription.delta", "_t": 79.198}
+{"audio_processed": 79.27999877929688, "delta": "", "event_id": "event_10638", "type": "conversation.item.input_audio_transcription.delta", "_t": 79.265}
+{"audio_processed": 79.36000061035156, "delta": "", "event_id": "event_10647", "type": "conversation.item.input_audio_transcription.delta", "_t": 79.325}
+{"audio_processed": 79.44000244140625, "delta": "", "event_id": "event_10653", "type": "conversation.item.input_audio_transcription.delta", "_t": 79.417}
+{"audio_processed": 79.5199966430664, "delta": "", "event_id": "event_10661", "type": "conversation.item.input_audio_transcription.delta", "_t": 79.489}
+{"audio_processed": 79.5999984741211, "delta": "", "event_id": "event_10671", "type": "conversation.item.input_audio_transcription.delta", "_t": 79.585}
+{"audio_processed": 79.68000030517578, "delta": "", "event_id": "event_10678", "type": "conversation.item.input_audio_transcription.delta", "_t": 79.649}
+{"audio_processed": 79.76000213623047, "delta": "s", "event_id": "event_10684", "type": "conversation.item.input_audio_transcription.delta", "_t": 79.737}
+{"audio_processed": 79.83999633789062, "delta": "", "event_id": "event_10694", "type": "conversation.item.input_audio_transcription.delta", "_t": 79.806}
+{"audio_processed": 79.91999816894531, "delta": "", "event_id": "event_10702", "type": "conversation.item.input_audio_transcription.delta", "_t": 79.901}
+{"audio_processed": 80, "delta": "", "event_id": "event_10710", "type": "conversation.item.input_audio_transcription.delta", "_t": 79.966}
+{"audio_processed": 80.08000183105469, "delta": "", "event_id": "event_10718", "type": "conversation.item.input_audio_transcription.delta", "_t": 80.062}
+{"audio_processed": 80.16000366210938, "delta": "", "event_id": "event_10726", "type": "conversation.item.input_audio_transcription.delta", "_t": 80.126}
+{"audio_processed": 80.23999786376953, "delta": " comme", "event_id": "event_10733", "type": "conversation.item.input_audio_transcription.delta", "_t": 80.241}
+{"audio_processed": 80.31999969482422, "delta": "", "event_id": "event_10741", "type": "conversation.item.input_audio_transcription.delta", "_t": 80.283}
+{"audio_processed": 80.4000015258789, "delta": " il", "event_id": "event_10750", "type": "conversation.item.input_audio_transcription.delta", "_t": 80.34}
+{"audio_processed": 80.4800033569336, "delta": "", "event_id": "event_10758", "type": "conversation.item.input_audio_transcription.delta", "_t": 80.402}
+{"audio_processed": 80.55999755859375, "delta": "", "event_id": "event_10765", "type": "conversation.item.input_audio_transcription.delta", "_t": 80.496}
+{"audio_processed": 80.63999938964844, "delta": "", "event_id": "event_10775", "type": "conversation.item.input_audio_transcription.delta", "_t": 80.562}
+{"audio_processed": 80.72000122070312, "delta": " était", "event_id": "event_10783", "type": "conversation.item.input_audio_transcription.delta", "_t": 80.665}
+{"audio_processed": 80.80000305175781, "delta": "", "event_id": "event_10791", "type": "conversation.item.input_audio_transcription.delta", "_t": 80.722}
+{"audio_processed": 80.87999725341797, "delta": "", "event_id": "event_10799", "type": "conversation.item.input_audio_transcription.delta", "_t": 80.821}
+{"audio_processed": 80.95999908447266, "delta": "", "event_id": "event_10807", "type": "conversation.item.input_audio_transcription.delta", "_t": 80.882}
+{"audio_processed": 81.04000091552734, "delta": "", "event_id": "event_10814", "type": "conversation.item.input_audio_transcription.delta", "_t": 80.978}
+{"audio_processed": 81.12000274658203, "delta": "", "event_id": "event_10821", "type": "conversation.item.input_audio_transcription.delta", "_t": 81.041}
+{"audio_processed": 81.19999694824219, "delta": "", "event_id": "event_10831", "type": "conversation.item.input_audio_transcription.delta", "_t": 81.14}
+{"audio_processed": 81.27999877929688, "delta": "", "event_id": "event_10839", "type": "conversation.item.input_audio_transcription.delta", "_t": 81.233}
+{"audio_processed": 81.36000061035156, "delta": " bon", "event_id": "event_10844", "type": "conversation.item.input_audio_transcription.delta", "_t": 81.295}
+{"audio_processed": 81.44000244140625, "delta": "", "event_id": "event_10855", "type": "conversation.item.input_audio_transcription.delta", "_t": 81.362}
+{"audio_processed": 81.5199966430664, "delta": "", "event_id": "event_10863", "type": "conversation.item.input_audio_transcription.delta", "_t": 81.461}
+{"audio_processed": 81.5999984741211, "delta": "", "event_id": "event_10870", "type": "conversation.item.input_audio_transcription.delta", "_t": 81.522}
+{"audio_processed": 81.68000030517578, "delta": " musul", "event_id": "event_10878", "type": "conversation.item.input_audio_transcription.delta", "_t": 81.624}
+{"audio_processed": 81.76000213623047, "delta": "", "event_id": "event_10887", "type": "conversation.item.input_audio_transcription.delta", "_t": 81.681}
+{"audio_processed": 81.83999633789062, "delta": "man", "event_id": "event_10894", "type": "conversation.item.input_audio_transcription.delta", "_t": 81.779}
+{"audio_processed": 81.91999816894531, "delta": "", "event_id": "event_10902", "type": "conversation.item.input_audio_transcription.delta", "_t": 81.841}
+{"audio_processed": 82, "delta": "", "event_id": "event_10910", "type": "conversation.item.input_audio_transcription.delta", "_t": 81.94}
+{"audio_processed": 82.08000183105469, "delta": "", "event_id": "event_10919", "type": "conversation.item.input_audio_transcription.delta", "_t": 82.002}
+{"audio_processed": 82.16000366210938, "delta": "", "event_id": "event_10927", "type": "conversation.item.input_audio_transcription.delta", "_t": 82.101}
+{"audio_processed": 82.23999786376953, "delta": "", "event_id": "event_10933", "type": "conversation.item.input_audio_transcription.delta", "_t": 82.162}
+{"audio_processed": 82.31999969482422, "delta": ", il", "event_id": "event_10942", "type": "conversation.item.input_audio_transcription.delta", "_t": 82.296}
+{"audio_processed": 82.4000015258789, "delta": "", "event_id": "event_10950", "type": "conversation.item.input_audio_transcription.delta", "_t": 82.365}
+{"audio_processed": 82.4800033569336, "delta": "", "event_id": "event_10956", "type": "conversation.item.input_audio_transcription.delta", "_t": 82.458}
+{"audio_processed": 82.55999755859375, "delta": "", "event_id": "event_10964", "type": "conversation.item.input_audio_transcription.delta", "_t": 82.526}
+{"audio_processed": 82.63999938964844, "delta": "", "event_id": "event_10973", "type": "conversation.item.input_audio_transcription.delta", "_t": 82.618}
+{"audio_processed": 82.72000122070312, "delta": "", "event_id": "event_10983", "type": "conversation.item.input_audio_transcription.delta", "_t": 82.686}
+{"audio_processed": 82.80000305175781, "delta": " se", "event_id": "event_10986", "type": "conversation.item.input_audio_transcription.delta", "_t": 82.774}
+{"audio_processed": 82.87999725341797, "delta": "", "event_id": "event_10997", "type": "conversation.item.input_audio_transcription.delta", "_t": 82.845}
+{"audio_processed": 82.95999908447266, "delta": " la", "event_id": "event_11007", "type": "conversation.item.input_audio_transcription.delta", "_t": 82.945}
+{"audio_processed": 83.04000091552734, "delta": "", "event_id": "event_11015", "type": "conversation.item.input_audio_transcription.delta", "_t": 83.006}
+{"audio_processed": 83.12000274658203, "delta": "val", "event_id": "event_11023", "type": "conversation.item.input_audio_transcription.delta", "_t": 83.106}
+{"audio_processed": 83.19999694824219, "delta": "", "event_id": "event_11030", "type": "conversation.item.input_audio_transcription.delta", "_t": 83.166}
+{"audio_processed": 83.27999877929688, "delta": "ait", "event_id": "event_11039", "type": "conversation.item.input_audio_transcription.delta", "_t": 83.265}
+{"audio_processed": 83.36000061035156, "delta": "", "event_id": "event_11044", "type": "conversation.item.input_audio_transcription.delta", "_t": 83.357}
+{"audio_processed": 83.44000244140625, "delta": " main", "event_id": "event_11054", "type": "conversation.item.input_audio_transcription.delta", "_t": 83.422}
+{"audio_processed": 83.5199966430664, "delta": "", "event_id": "event_11062", "type": "conversation.item.input_audio_transcription.delta", "_t": 83.485}
+{"audio_processed": 83.5999984741211, "delta": "", "event_id": "event_11071", "type": "conversation.item.input_audio_transcription.delta", "_t": 83.582}
+{"audio_processed": 83.68000030517578, "delta": "", "event_id": "event_11078", "type": "conversation.item.input_audio_transcription.delta", "_t": 83.646}
+{"audio_processed": 83.76000213623047, "delta": "", "event_id": "event_11087", "type": "conversation.item.input_audio_transcription.delta", "_t": 83.75}
+{"audio_processed": 83.83999633789062, "delta": "", "event_id": "event_11092", "type": "conversation.item.input_audio_transcription.delta", "_t": 83.81}
+{"audio_processed": 83.91999816894531, "delta": "", "event_id": "event_11102", "type": "conversation.item.input_audio_transcription.delta", "_t": 83.902}
+{"audio_processed": 84, "delta": "", "event_id": "event_11110", "type": "conversation.item.input_audio_transcription.delta", "_t": 83.966}
+{"audio_processed": 84.08000183105469, "delta": ", le", "event_id": "event_11118", "type": "conversation.item.input_audio_transcription.delta", "_t": 84.066}
+{"audio_processed": 84.16000366210938, "delta": "", "event_id": "event_11126", "type": "conversation.item.input_audio_transcription.delta", "_t": 84.126}
+{"audio_processed": 84.23999786376953, "delta": " vis", "event_id": "event_11132", "type": "conversation.item.input_audio_transcription.delta", "_t": 84.221}
+{"audio_processed": 84.31999969482422, "delta": "", "event_id": "event_11142", "type": "conversation.item.input_audio_transcription.delta", "_t": 84.289}
+{"audio_processed": 84.4000015258789, "delta": "age", "event_id": "event_11151", "type": "conversation.item.input_audio_transcription.delta", "_t": 84.401}
+{"audio_processed": 84.4800033569336, "delta": "", "event_id": "event_11157", "type": "conversation.item.input_audio_transcription.delta", "_t": 84.449}
+{"audio_processed": 84.55999755859375, "delta": "", "event_id": "event_11166", "type": "conversation.item.input_audio_transcription.delta", "_t": 84.545}
+{"audio_processed": 84.63999938964844, "delta": "", "event_id": "event_11172", "type": "conversation.item.input_audio_transcription.delta", "_t": 84.605}
+{"audio_processed": 84.72000122070312, "delta": "", "event_id": "event_11181", "type": "conversation.item.input_audio_transcription.delta", "_t": 84.697}
+{"audio_processed": 84.80000305175781, "delta": "", "event_id": "event_11190", "type": "conversation.item.input_audio_transcription.delta", "_t": 84.765}
+{"audio_processed": 84.87999725341797, "delta": "", "event_id": "event_11198", "type": "conversation.item.input_audio_transcription.delta", "_t": 84.861}
+{"audio_processed": 84.95999908447266, "delta": "", "event_id": "event_11205", "type": "conversation.item.input_audio_transcription.delta", "_t": 84.925}
+{"audio_processed": 85.04000091552734, "delta": " et", "event_id": "event_11214", "type": "conversation.item.input_audio_transcription.delta", "_t": 85.021}
+{"audio_processed": 85.12000274658203, "delta": "", "event_id": "event_11222", "type": "conversation.item.input_audio_transcription.delta", "_t": 85.086}
+{"audio_processed": 85.19999694824219, "delta": "", "event_id": "event_11231", "type": "conversation.item.input_audio_transcription.delta", "_t": 85.186}
+{"audio_processed": 85.27999877929688, "delta": "", "event_id": "event_11239", "type": "conversation.item.input_audio_transcription.delta", "_t": 85.245}
+{"audio_processed": 85.36000061035156, "delta": " les", "event_id": "event_11243", "type": "conversation.item.input_audio_transcription.delta", "_t": 85.333}
+{"audio_processed": 85.44000244140625, "delta": "", "event_id": "event_11255", "type": "conversation.item.input_audio_transcription.delta", "_t": 85.437}
+{"audio_processed": 85.5199966430664, "delta": " pied", "event_id": "event_11261", "type": "conversation.item.input_audio_transcription.delta", "_t": 85.501}
+{"audio_processed": 85.5999984741211, "delta": "", "event_id": "event_11269", "type": "conversation.item.input_audio_transcription.delta", "_t": 85.565}
+{"audio_processed": 85.68000030517578, "delta": "s", "event_id": "event_11279", "type": "conversation.item.input_audio_transcription.delta", "_t": 85.669}
+{"audio_processed": 85.76000213623047, "delta": "", "event_id": "event_11286", "type": "conversation.item.input_audio_transcription.delta", "_t": 85.729}
+{"audio_processed": 85.83999633789062, "delta": "", "event_id": "event_11293", "type": "conversation.item.input_audio_transcription.delta", "_t": 85.817}
+{"audio_processed": 85.91999816894531, "delta": "", "event_id": "event_11301", "type": "conversation.item.input_audio_transcription.delta", "_t": 85.885}
+{"audio_processed": 86, "delta": "", "event_id": "event_11310", "type": "conversation.item.input_audio_transcription.delta", "_t": 85.981}
+{"audio_processed": 86.08000183105469, "delta": "", "event_id": "event_11318", "type": "conversation.item.input_audio_transcription.delta", "_t": 86.045}
+{"audio_processed": 86.16000366210938, "delta": "", "event_id": "event_11327", "type": "conversation.item.input_audio_transcription.delta", "_t": 86.145}
+{"audio_processed": 86.23999786376953, "delta": "", "event_id": "event_11334", "type": "conversation.item.input_audio_transcription.delta", "_t": 86.205}
+{"audio_processed": 86.31999969482422, "delta": "", "event_id": "event_11342", "type": "conversation.item.input_audio_transcription.delta", "_t": 86.301}
+{"audio_processed": 86.4000015258789, "delta": "", "event_id": "event_11350", "type": "conversation.item.input_audio_transcription.delta", "_t": 86.365}
+{"audio_processed": 86.4800033569336, "event_id": "event_11359", "transcript": "dans le troisième, je promis de faire puissant monarque mon libérateur, d'être toujours près de lui en esprit lorsqu'il eût achevé ce repas comme il était bon musulman, il se lavalait main, le visage et les pieds", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 70.96, "speaker": 4, "start": 70.88, "word": "dans"}, {"confidence": 1, "end": 71.2, "speaker": 4, "start": 71.12, "word": "le"}, {"confidence": 1, "end": 71.44, "speaker": 4, "start": 71.28, "word": "troisième,"}, {"confidence": 1, "end": 71.84, "speaker": 4, "start": 71.76, "word": "je"}, {"confidence": 1, "end": 72.32, "speaker": 4, "start": 72, "word": "promis"}, {"confidence": 1, "end": 72.48, "speaker": 4, "start": 72.4, "word": "de"}, {"confidence": 1, "end": 72.64, "speaker": 4, "start": 72.56, "word": "faire"}, {"confidence": 1, "end": 73.36, "speaker": 4, "start": 73.12, "word": "puissant"}, {"confidence": 1, "end": 73.92, "speaker": 4, "start": 73.6, "word": "monarque"}, {"confidence": 1, "end": 74.08, "speaker": 4, "start": 74, "word": "mon"}, {"confidence": 1, "end": 74.48, "speaker": 4, "start": 74.16, "word": "libérateur,"}, {"confidence": 1, "end": 75.04, "speaker": 4, "start": 74.8, "word": "d'être"}, {"confidence": 1, "end": 75.28, "speaker": 4, "start": 75.12, "word": "toujours"}, {"confidence": 1, "end": 75.6, "speaker": 4, "start": 75.52, "word": "près"}, {"confidence": 1, "end": 75.76, "speaker": 4, "start": 75.68, "word": "de"}, {"confidence": 1, "end": 75.84, "speaker": 4, "start": 75.76, "word": "lui"}, {"confidence": 1, "end": 76.24, "speaker": 4, "start": 76.16, "word": "en"}, {"confidence": 1, "end": 76.4, "speaker": 4, "start": 76.24, "word": "esprit"}, {"confidence": 1, "end": 77.36, "speaker": 5, "start": 77.12, "word": "lorsqu'il"}, {"confidence": 1, "end": 77.68, "speaker": 5, "start": 77.6, "word": "eût"}, {"confidence": 1, "end": 78.24, "speaker": 5, "start": 77.84, "word": "achevé"}, {"confidence": 1, "end": 78.8, "speaker": 5, "start": 78.72, "word": "ce"}, {"confidence": 1, "end": 79.68, "speaker": 5, "start": 78.8, "word": "repas"}, {"confidence": 1, "end": 80.16, "speaker": 5, "start": 80.08, "word": "comme"}, {"confidence": 1, "end": 80.32, "speaker": 5, "start": 80.24, "word": "il"}, {"confidence": 1, "end": 80.56, "speaker": 5, "start": 80.48, "word": "était"}, {"confidence": 1, "end": 81.28, "speaker": 5, "start": 81.12, "word": "bon"}, {"confidence": 1, "end": 81.76, "speaker": 5, "start": 81.44, "word": "musulman,"}, {"confidence": 1, "end": 82.24, "speaker": 5, "start": 82.16, "word": "il"}, {"confidence": 1, "end": 82.64, "speaker": 5, "start": 82.56, "word": "se"}, {"confidence": 1, "end": 83.2, "speaker": 5, "start": 82.8, "word": "lavalait"}, {"confidence": 1, "end": 83.36, "speaker": 5, "start": 83.2, "word": "main,"}, {"confidence": 1, "end": 83.92, "speaker": 5, "start": 83.84, "word": "le"}, {"confidence": 1, "end": 84.24, "speaker": 5, "start": 84.08, "word": "visage"}, {"confidence": 1, "end": 84.88, "speaker": 5, "start": 84.8, "word": "et"}, {"confidence": 1, "end": 85.2, "speaker": 5, "start": 85.12, "word": "les"}, {"confidence": 1, "end": 85.52, "speaker": 5, "start": 85.28, "word": "pieds"}], "_t": 86.481}
+{"audio_processed": 86.63999938964844, "delta": "et", "event_id": "event_11365", "type": "conversation.item.input_audio_transcription.delta", "_t": 86.583}
+{"audio_processed": 86.72000122070312, "delta": "", "event_id": "event_11375", "type": "conversation.item.input_audio_transcription.delta", "_t": 86.642}
+{"audio_processed": 86.80000305175781, "delta": " fit", "event_id": "event_11383", "type": "conversation.item.input_audio_transcription.delta", "_t": 86.743}
+{"audio_processed": 86.87999725341797, "delta": "", "event_id": "event_11391", "type": "conversation.item.input_audio_transcription.delta", "_t": 86.801}
+{"audio_processed": 86.95999908447266, "delta": " sa", "event_id": "event_11399", "type": "conversation.item.input_audio_transcription.delta", "_t": 86.901}
+{"audio_processed": 87.04000091552734, "delta": "", "event_id": "event_11406", "type": "conversation.item.input_audio_transcription.delta", "_t": 86.961}
+{"audio_processed": 87.12000274658203, "delta": " pri", "event_id": "event_11415", "type": "conversation.item.input_audio_transcription.delta", "_t": 87.062}
+{"audio_processed": 87.19999694824219, "delta": "", "event_id": "event_11422", "type": "conversation.item.input_audio_transcription.delta", "_t": 87.122}
+{"audio_processed": 87.27999877929688, "delta": "ère", "event_id": "event_11427", "type": "conversation.item.input_audio_transcription.delta", "_t": 87.212}
+{"audio_processed": 87.36000061035156, "delta": "", "event_id": "event_11437", "type": "conversation.item.input_audio_transcription.delta", "_t": 87.282}
+{"audio_processed": 87.44000244140625, "delta": "", "event_id": "event_11446", "type": "conversation.item.input_audio_transcription.delta", "_t": 87.379}
+{"audio_processed": 87.5199966430664, "delta": "", "event_id": "event_11454", "type": "conversation.item.input_audio_transcription.delta", "_t": 87.475}
+{"audio_processed": 87.5999984741211, "delta": "", "event_id": "event_11461", "type": "conversation.item.input_audio_transcription.delta", "_t": 87.536}
+{"audio_processed": 87.68000030517578, "delta": "", "event_id": "event_11470", "type": "conversation.item.input_audio_transcription.delta", "_t": 87.602}
+{"audio_processed": 87.76000213623047, "delta": "", "event_id": "event_11475", "type": "conversation.item.input_audio_transcription.delta", "_t": 87.692}
+{"audio_processed": 87.76000213623047, "event_id": "event_11490", "transcript": "et fit sa prière", "type": "conversation.item.input_audio_transcription.completed", "words": [{"confidence": 1, "end": 86.48, "speaker": 5, "start": 86.4, "word": "et"}, {"confidence": 1, "end": 86.72, "speaker": 5, "start": 86.56, "word": "fit"}, {"confidence": 1, "end": 86.88, "speaker": 5, "start": 86.8, "word": "sa"}, {"confidence": 1, "end": 87.12, "speaker": 5, "start": 86.96, "word": "prière"}], "_t": 87.84}
+{"event_id": "event_11491", "type": "input_audio_buffer.committed", "_t": 87.84}

@@ -1,0 +1,21 @@
+[
+ {
+  "source": 0,
+  "wav": "fr.wav",
+  "audio_s": 27.8,
+  "finals": 4,
+  "words": 64,
+  "first_partial_s": 1.6,
+  "word_latency_p50_s": 5.17,
+  "word_latency_p95_s": 10.24,
+  "word_latency_max_s": 11.6,
+  "speakers_seen": [
+   1,
+   2
+  ],
+  "languages_seen": [
+   "None"
+  ],
+  "errors": []
+ }
+]

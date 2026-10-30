@@ -1,0 +1,21 @@
+[
+ {
+  "source": 0,
+  "wav": "fr.wav",
+  "audio_s": 27.8,
+  "first_delta_s": 1.777,
+  "n_deltas": 97,
+  "final_done_after_audio_end_s": 0.26,
+  "approx_word_latency_vs_nemo_timing": {
+   "p50": 0.42,
+   "p95": 0.82,
+   "max": 0.9,
+   "n": 63
+  },
+  "hyp_words": 70,
+  "language_tags_seen": [],
+  "language_tag_times": [],
+  "text_after_61s_head": "",
+  "errors": []
+ }
+]

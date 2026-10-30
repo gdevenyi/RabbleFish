@@ -1,0 +1,192 @@
+[
+ {
+  "source": 0,
+  "wav": "en_fr.wav",
+  "audio_s": 87.8,
+  "first_delta_s": 4.972,
+  "n_deltas": 439,
+  "final_done_after_audio_end_s": 0.06,
+  "approx_word_latency_vs_nemo_timing": {
+   "p50": 1.72,
+   "p95": 4.12,
+   "max": 5.39,
+   "n": 133
+  },
+  "hyp_words": 248,
+  "language_tags_seen": [
+   "English",
+   "French"
+  ],
+  "language_tag_times": [
+   [
+    "English",
+    4.98
+   ],
+   [
+    "English",
+    9.94
+   ],
+   [
+    "English",
+    14.98
+   ],
+   [
+    "English",
+    19.94
+   ],
+   [
+    "English",
+    24.98
+   ],
+   [
+    "English",
+    29.94
+   ],
+   [
+    "English",
+    34.99
+   ],
+   [
+    "English",
+    39.94
+   ],
+   [
+    "English",
+    44.99
+   ],
+   [
+    "English",
+    49.94
+   ],
+   [
+    "English",
+    54.99
+   ],
+   [
+    "English",
+    59.95
+   ],
+   [
+    "French",
+    64.99
+   ],
+   [
+    "French",
+    69.95
+   ],
+   [
+    "French",
+    74.99
+   ],
+   [
+    "French",
+    79.95
+   ],
+   [
+    "French",
+    84.99
+   ],
+   [
+    "French",
+    87.79
+   ]
+  ],
+  "text_after_61s_head": " Pendant le second siècle, je fis serment d'ouvrir tous les trésors de la terre. À qui compte me mettrait en liberté, mais je ne fus pas plus heureux. Dans le troisième, je promis de faire puissant mo",
+  "errors": []
+ },
+ {
+  "source": 1,
+  "wav": "en_fr.wav",
+  "audio_s": 87.8,
+  "first_delta_s": 4.977,
+  "n_deltas": 440,
+  "final_done_after_audio_end_s": 0.07,
+  "approx_word_latency_vs_nemo_timing": {
+   "p50": 1.73,
+   "p95": 4.12,
+   "max": 5.4,
+   "n": 133
+  },
+  "hyp_words": 248,
+  "language_tags_seen": [
+   "English",
+   "French"
+  ],
+  "language_tag_times": [
+   [
+    "English",
+    4.99
+   ],
+   [
+    "English",
+    9.95
+   ],
+   [
+    "English",
+    14.99
+   ],
+   [
+    "English",
+    19.95
+   ],
+   [
+    "English",
+    24.99
+   ],
+   [
+    "English",
+    29.95
+   ],
+   [
+    "English",
+    34.99
+   ],
+   [
+    "English",
+    39.95
+   ],
+   [
+    "English",
+    44.99
+   ],
+   [
+    "English",
+    49.95
+   ],
+   [
+    "English",
+    54.99
+   ],
+   [
+    "English",
+    59.95
+   ],
+   [
+    "French",
+    64.99
+   ],
+   [
+    "French",
+    69.95
+   ],
+   [
+    "French",
+    74.99
+   ],
+   [
+    "French",
+    79.95
+   ],
+   [
+    "French",
+    84.99
+   ],
+   [
+    "French",
+    87.79
+   ]
+  ],
+  "text_after_61s_head": " Pendant le second siècle, je fis serment d'ouvrir tous les trésors de la terre. À qui compte me mettrai en liberté, mais je ne fus pas plus heureux. Dans le troisième, je promis de faire puissant mon",
+  "errors": []
+ }
+]

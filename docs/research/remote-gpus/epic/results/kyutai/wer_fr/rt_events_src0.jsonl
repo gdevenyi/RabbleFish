@@ -1,0 +1,134 @@
+{"type": "Ready", "_t": 0.001}
+{"type": "Step", "step_idx": 4610, "prs": [1.2784115824615583e-05, 0.00013696416863240302, 0.00028156183543615043, 0.0005870148888789117], "buffered_pcm": 0, "_t": 0.048}
+{"type": "Word", "text": "Pendant", "start_time": 1.12, "_t": 1.77}
+{"type": "EndWord", "stop_time": 1.36, "_t": 1.77}
+{"type": "Word", "text": "le", "start_time": 1.36, "_t": 1.931}
+{"type": "EndWord", "stop_time": 1.6, "_t": 2.009}
+{"type": "Step", "step_idx": 4635, "prs": [0.1483851671218872, 0.17429445683956146, 0.1903267651796341, 0.1499267965555191], "buffered_pcm": 0, "_t": 2.009}
+{"type": "Word", "text": "second", "start_time": 1.6, "_t": 2.25}
+{"type": "EndWord", "stop_time": 2.08, "_t": 2.49}
+{"type": "Word", "text": "siècle,", "start_time": 2.08, "_t": 2.81}
+{"type": "EndWord", "stop_time": 2.56, "_t": 2.971}
+{"type": "Word", "text": "je", "start_time": 2.56, "_t": 3.131}
+{"type": "EndWord", "stop_time": 2.88, "_t": 3.289}
+{"type": "Word", "text": "fis", "start_time": 2.88, "_t": 3.532}
+{"type": "EndWord", "stop_time": 3.28, "_t": 3.688}
+{"type": "Step", "step_idx": 4660, "prs": [0.0005350357969291508, 0.0004513387393672019, 0.00040445427293889225, 0.0006927091162651777], "buffered_pcm": 0, "_t": 4.009}
+{"type": "Word", "text": "serment", "start_time": 3.28, "_t": 4.091}
+{"type": "EndWord", "stop_time": 3.68, "_t": 4.091}
+{"type": "Word", "text": "d'ouvrir tous les", "start_time": 3.68, "_t": 4.57}
+{"type": "EndWord", "stop_time": 4.32, "_t": 4.728}
+{"type": "Word", "text": "trésors de la", "start_time": 4.32, "_t": 5.208}
+{"type": "EndWord", "stop_time": 4.96, "_t": 5.369}
+{"type": "Word", "text": "terre,", "start_time": 4.96, "_t": 5.611}
+{"type": "EndWord", "stop_time": 5.52, "_t": 5.929}
+{"type": "Step", "step_idx": 4685, "prs": [0.017602508887648582, 0.007399989292025566, 0.0039953445084393024, 0.005009895656257868], "buffered_pcm": 0, "_t": 6.01}
+{"type": "Word", "text": "à", "start_time": 5.52, "_t": 6.09}
+{"type": "EndWord", "stop_time": 6.0, "_t": 6.409}
+{"type": "Word", "text": "quiconque me", "start_time": 6.0, "_t": 6.81}
+{"type": "EndWord", "stop_time": 6.64, "_t": 7.05}
+{"type": "Word", "text": "mettrait", "start_time": 6.64, "_t": 7.289}
+{"type": "EndWord", "stop_time": 6.88, "_t": 7.289}
+{"type": "Word", "text": "en", "start_time": 6.88, "_t": 7.45}
+{"type": "EndWord", "stop_time": 7.28, "_t": 7.691}
+{"type": "Word", "text": "liberté.", "start_time": 7.28, "_t": 8.009}
+{"type": "Step", "step_idx": 4710, "prs": [0.9983493089675903, 0.6283196806907654, 0.108059361577034, 0.09710757434368134], "buffered_pcm": 0, "_t": 8.009}
+{"type": "EndWord", "stop_time": 8.16, "_t": 8.569}
+{"type": "Word", "text": "Mais", "start_time": 8.16, "_t": 8.729}
+{"type": "EndWord", "stop_time": 8.32, "_t": 8.729}
+{"type": "Word", "text": "je ne", "start_time": 8.32, "_t": 8.97}
+{"type": "EndWord", "stop_time": 8.64, "_t": 9.05}
+{"type": "Word", "text": "fus pas", "start_time": 8.64, "_t": 9.371}
+{"type": "EndWord", "stop_time": 9.04, "_t": 9.449}
+{"type": "Word", "text": "plus", "start_time": 9.04, "_t": 9.609}
+{"type": "EndWord", "stop_time": 9.36, "_t": 9.77}
+{"type": "Step", "step_idx": 4735, "prs": [0.9995853304862976, 0.9327093362808228, 0.22518904507160187, 0.24656710028648376], "buffered_pcm": 0, "_t": 10.01}
+{"type": "Word", "text": "heureux.", "start_time": 9.36, "_t": 10.089}
+{"type": "EndWord", "stop_time": 10.72, "_t": 11.13}
+{"type": "Word", "text": "Dans", "start_time": 10.72, "_t": 11.29}
+{"type": "EndWord", "stop_time": 10.96, "_t": 11.37}
+{"type": "Word", "text": "le", "start_time": 10.96, "_t": 11.531}
+{"type": "EndWord", "stop_time": 11.36, "_t": 11.769}
+{"type": "Step", "step_idx": 4760, "prs": [0.005089880432933569, 0.0032669873908162117, 0.0007955440669320524, 0.000718939583748579], "buffered_pcm": 0, "_t": 12.01}
+{"type": "Word", "text": "troisième,", "start_time": 11.36, "_t": 12.09}
+{"type": "EndWord", "stop_time": 11.68, "_t": 12.09}
+{"type": "Word", "text": "je", "start_time": 11.68, "_t": 12.248}
+{"type": "EndWord", "stop_time": 12.08, "_t": 12.491}
+{"type": "Word", "text": "promis", "start_time": 12.08, "_t": 12.732}
+{"type": "EndWord", "stop_time": 12.32, "_t": 12.732}
+{"type": "Word", "text": "de", "start_time": 12.32, "_t": 12.89}
+{"type": "EndWord", "stop_time": 12.64, "_t": 13.048}
+{"type": "Word", "text": "faire", "start_time": 12.64, "_t": 13.21}
+{"type": "EndWord", "stop_time": 13.2, "_t": 13.609}
+{"type": "Word", "text": "puissant", "start_time": 13.2, "_t": 13.93}
+{"type": "Step", "step_idx": 4785, "prs": [0.0010241646086797118, 0.001984894275665283, 0.0009216557955369353, 0.0011431960156187415], "buffered_pcm": 0, "_t": 14.01}
+{"type": "EndWord", "stop_time": 13.68, "_t": 14.088}
+{"type": "Word", "text": "monarque mon", "start_time": 13.68, "_t": 14.489}
+{"type": "EndWord", "stop_time": 14.4, "_t": 14.81}
+{"type": "Word", "text": "libérateur,", "start_time": 14.4, "_t": 15.128}
+{"type": "EndWord", "stop_time": 14.88, "_t": 15.289}
+{"type": "Word", "text": "d'être", "start_time": 14.88, "_t": 15.609}
+{"type": "EndWord", "stop_time": 15.2, "_t": 15.609}
+{"type": "Word", "text": "toujours", "start_time": 15.2, "_t": 15.85}
+{"type": "EndWord", "stop_time": 15.44, "_t": 15.85}
+{"type": "Step", "step_idx": 4810, "prs": [0.0002864149573724717, 0.0005814151372760534, 0.0004474865272641182, 0.0005061972769908607], "buffered_pcm": 0, "_t": 16.008}
+{"type": "Word", "text": "près de", "start_time": 15.44, "_t": 16.09}
+{"type": "EndWord", "stop_time": 15.68, "_t": 16.09}
+{"type": "Word", "text": "lui", "start_time": 15.68, "_t": 16.251}
+{"type": "EndWord", "stop_time": 15.92, "_t": 16.329}
+{"type": "Word", "text": "en", "start_time": 15.92, "_t": 16.489}
+{"type": "EndWord", "stop_time": 16.32, "_t": 16.73}
+{"type": "Word", "text": "esprit.", "start_time": 16.32, "_t": 17.049}
+{"type": "EndWord", "stop_time": 17.44, "_t": 17.849}
+{"type": "Step", "step_idx": 4835, "prs": [0.02001580037176609, 0.016500554978847504, 0.018133532255887985, 0.032020553946495056], "buffered_pcm": 0, "_t": 18.009}
+{"type": "Word", "text": "Lorsqu'il", "start_time": 17.44, "_t": 18.33}
+{"type": "EndWord", "stop_time": 18.16, "_t": 18.57}
+{"type": "Word", "text": "achevait ce", "start_time": 18.16, "_t": 19.049}
+{"type": "EndWord", "stop_time": 18.88, "_t": 19.29}
+{"type": "Word", "text": "repas", "start_time": 18.88, "_t": 19.45}
+{"type": "EndWord", "stop_time": 19.44, "_t": 19.85}
+{"type": "Step", "step_idx": 4860, "prs": [0.14850586652755737, 0.03950147330760956, 0.004556457977741957, 0.010755602270364761], "buffered_pcm": 0, "_t": 20.01}
+{"type": "Word", "text": "frugal,", "start_time": 19.44, "_t": 20.329}
+{"type": "EndWord", "stop_time": 20.16, "_t": 20.569}
+{"type": "Word", "text": "comme", "start_time": 20.16, "_t": 20.73}
+{"type": "EndWord", "stop_time": 20.32, "_t": 20.73}
+{"type": "Word", "text": "il", "start_time": 20.32, "_t": 20.89}
+{"type": "EndWord", "stop_time": 20.72, "_t": 21.129}
+{"type": "Word", "text": "était", "start_time": 20.72, "_t": 21.289}
+{"type": "EndWord", "stop_time": 21.04, "_t": 21.449}
+{"type": "Word", "text": "bon", "start_time": 21.04, "_t": 21.61}
+{"type": "Step", "step_idx": 4885, "prs": [0.5429169535636902, 0.22668325901031494, 0.020926808938384056, 0.017249513417482376], "buffered_pcm": 0, "_t": 22.01}
+{"type": "EndWord", "stop_time": 21.84, "_t": 22.249}
+{"type": "Word", "text": "musulman,", "start_time": 21.84, "_t": 22.57}
+{"type": "EndWord", "stop_time": 22.32, "_t": 22.73}
+{"type": "Word", "text": "il", "start_time": 22.32, "_t": 22.889}
+{"type": "EndWord", "stop_time": 22.56, "_t": 22.971}
+{"type": "Word", "text": "se", "start_time": 22.56, "_t": 23.129}
+{"type": "EndWord", "stop_time": 22.8, "_t": 23.21}
+{"type": "Word", "text": "lava", "start_time": 22.8, "_t": 23.45}
+{"type": "EndWord", "stop_time": 23.04, "_t": 23.45}
+{"type": "Word", "text": "les", "start_time": 23.04, "_t": 23.611}
+{"type": "EndWord", "stop_time": 23.36, "_t": 23.769}
+{"type": "Step", "step_idx": 4910, "prs": [0.01614173874258995, 0.002059554448351264, 0.0006680548540316522, 0.0007176250219345093], "buffered_pcm": 0, "_t": 24.01}
+{"type": "Word", "text": "mains,", "start_time": 23.36, "_t": 24.09}
+{"type": "EndWord", "stop_time": 23.84, "_t": 24.25}
+{"type": "Word", "text": "le", "start_time": 23.84, "_t": 24.411}
+{"type": "EndWord", "stop_time": 24.48, "_t": 24.89}
+{"type": "Word", "text": "visage", "start_time": 24.48, "_t": 25.13}
+{"type": "EndWord", "stop_time": 24.8, "_t": 25.208}
+{"type": "Word", "text": "et", "start_time": 24.8, "_t": 25.369}
+{"type": "EndWord", "stop_time": 24.96, "_t": 25.369}
+{"type": "Word", "text": "les", "start_time": 24.96, "_t": 25.529}
+{"type": "Step", "step_idx": 4935, "prs": [0.9987357258796692, 0.9721629023551941, 0.8010762929916382, 0.6786265969276428], "buffered_pcm": 0, "_t": 26.008}
+{"type": "EndWord", "stop_time": 25.92, "_t": 26.329}
+{"type": "Word", "text": "pieds,", "start_time": 25.92, "_t": 26.57}
+{"type": "EndWord", "stop_time": 26.32, "_t": 26.73}
+{"type": "Word", "text": "et", "start_time": 26.32, "_t": 26.891}
+{"type": "EndWord", "stop_time": 26.48, "_t": 26.891}
+{"type": "Word", "text": "fit", "start_time": 26.48, "_t": 27.049}
+{"type": "EndWord", "stop_time": 26.8, "_t": 27.21}
+{"type": "Word", "text": "sa", "start_time": 26.8, "_t": 27.37}
+{"type": "EndWord", "stop_time": 27.2, "_t": 27.608}
+{"type": "Word", "text": "prière.", "start_time": 27.2, "_t": 27.931}
+{"type": "Step", "step_idx": 4960, "prs": [0.9980103373527527, 0.9579972624778748, 0.494301438331604, 0.5014415979385376], "buffered_pcm": 0, "_t": 28.01}
+{"type": "Marker", "id": 0, "_t": 28.17}

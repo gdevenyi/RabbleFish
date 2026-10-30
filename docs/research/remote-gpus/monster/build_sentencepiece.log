@@ -1,0 +1,130 @@
+Cloning into '/var/tmp/ltt-bench/src/.deps/sentencepiece-build/source'...
+From https://github.com/google/sentencepiece
+ * branch            31646a467d2051eb904e0b45de3a73e91fe1c1e3 -> FETCH_HEAD
+CMake Warning (deprecated) at CMakeLists.txt:15 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+This warning is for project developers.  Use -Wno-author or -Wno-deprecated
+to suppress it.
+
+-- VERSION: 0.2.1
+-- The C compiler identification is GNU 16.2.1
+-- The CXX compiler identification is GNU 16.2.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /var/tmp/ltt-bench/src/.deps/sentencepiece-build/build
+[1/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/bytestream.cc.o
+[2/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/arena.cc.o
+[3/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/arenastring.cc.o
+[4/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/coded_stream.cc.o
+[5/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/common.cc.o
+[6/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/generated_enum_util.cc.o
+[7/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/implicit_weak_message.cc.o
+[8/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/int128.cc.o
+[9/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/io_win32.cc.o
+[10/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/generated_message_util.cc.o
+[11/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/message_lite.cc.o
+[12/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/extension_set.cc.o
+[13/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/generated_message_table_driven_lite.cc.o
+[14/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/parse_context.cc.o
+[15/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/status.cc.o
+[16/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/statusor.cc.o
+[17/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/stringpiece.cc.o
+[18/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/stringprintf.cc.o
+[19/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/structurally_valid.cc.o
+[20/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/time.cc.o
+[21/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/zero_copy_stream.cc.o
+[22/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/wire_format_lite.cc.o
+[23/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/repeated_field.cc.o
+In file included from /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/third_party/protobuf-lite/repeated_field.cc:35:
+In member function 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = bool]',
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = bool]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1624:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = bool]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1618:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = bool]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1599:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = bool]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1194:12:
+/var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1639:11: warning: 'void* memcpy(void*, const void*, size_t)' offset 0 is out of the bounds [0, 0] [-Warray-bounds=]
+ 1639 |     memcpy(to, from, static_cast<size_t>(array_size) * sizeof(Element));
+      |     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In member function 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = int]',
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1624:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1618:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1599:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1194:12:
+/var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1639:11: warning: 'void* memcpy(void*, const void*, size_t)' offset [0, 3] is out of the bounds [0, 0] [-Warray-bounds=]
+ 1639 |     memcpy(to, from, static_cast<size_t>(array_size) * sizeof(Element));
+      |     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In member function 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = unsigned int]',
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = unsigned int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1624:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = unsigned int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1618:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = unsigned int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1599:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = unsigned int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1194:12:
+/var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1639:11: warning: 'void* memcpy(void*, const void*, size_t)' offset [0, 3] is out of the bounds [0, 0] [-Warray-bounds=]
+ 1639 |     memcpy(to, from, static_cast<size_t>(array_size) * sizeof(Element));
+      |     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In member function 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = long int]',
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = long int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1624:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = long int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1618:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = long int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1599:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = long int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1194:12:
+/var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1639:11: warning: 'void* memcpy(void*, const void*, size_t)' offset [0, 7] is out of the bounds [0, 0] [-Warray-bounds=]
+ 1639 |     memcpy(to, from, static_cast<size_t>(array_size) * sizeof(Element));
+      |     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In member function 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = long unsigned int]',
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = long unsigned int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1624:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = long unsigned int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1618:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = long unsigned int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1599:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = long unsigned int]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1194:12:
+/var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1639:11: warning: 'void* memcpy(void*, const void*, size_t)' offset [0, 7] is out of the bounds [0, 0] [-Warray-bounds=]
+ 1639 |     memcpy(to, from, static_cast<size_t>(array_size) * sizeof(Element));
+      |     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In member function 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = float]',
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = float]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1624:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = float]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1618:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = float]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1599:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = float]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1194:12:
+/var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1639:11: warning: 'void* memcpy(void*, const void*, size_t)' offset [0, 3] is out of the bounds [0, 0] [-Warray-bounds=]
+ 1639 |     memcpy(to, from, static_cast<size_t>(array_size) * sizeof(Element));
+      |     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In member function 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = double]',
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = double]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1624:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = double]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1618:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = double]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1599:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = double]' at /var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1194:12:
+/var/tmp/ltt-bench/src/.deps/sentencepiece-build/source/src/../third_party/protobuf-lite/google/protobuf/repeated_field.h:1639:11: warning: 'void* memcpy(void*, const void*, size_t)' offset [0, 7] is out of the bounds [0, 0] [-Warray-bounds=]
+ 1639 |     memcpy(to, from, static_cast<size_t>(array_size) * sizeof(Element));
+      |     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[24/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/strutil.cc.o
+[25/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/zero_copy_stream_impl.cc.o
+[26/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/protobuf-lite/zero_copy_stream_impl_lite.cc.o
+[27/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/builtin_pb/sentencepiece.pb.cc.o
+[28/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/char_model.cc.o
+[29/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/bpe_model.cc.o
+[30/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/error.cc.o
+[31/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/filesystem.cc.o
+[32/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/builtin_pb/sentencepiece_model.pb.cc.o
+[33/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/model_factory.cc.o
+[34/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/model_interface.cc.o
+[35/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/normalizer.cc.o
+[36/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/util.cc.o
+[37/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/word_model.cc.o
+[38/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/__/third_party/absl/flags/flag.cc.o
+[39/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/unigram_model.cc.o
+[40/41] Building CXX object src/CMakeFiles/sentencepiece-static.dir/sentencepiece_processor.cc.o
+[41/41] Linking CXX static library src/libsentencepiece.a

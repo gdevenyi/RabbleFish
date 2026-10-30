@@ -1,0 +1,10 @@
+== pre 2026-10-29T23:46:00-04:00
+apps: 2843527, ./install/bin/moshi-server, 3654 MiB;2852221, nemo-cuda/x/nemo-speech-0.2.0-linux-x86_64-cuda/bin/nemo-speech, 1382 MiB;
+gpu: 0 %, 5051 MiB
+uptime:  23:46:00 up 19 days,  1:25,  2 users,  load average: 1.14, 1.78, 1.96
+docker: 
+== post 2026-10-29T23:47:35-04:00
+apps: 2843527, ./install/bin/moshi-server, 3654 MiB;2852221, nemo-cuda/x/nemo-speech-0.2.0-linux-x86_64-cuda/bin/nemo-speech, 1424 MiB;
+gpu: 0 %, 5093 MiB
+uptime:  23:47:35 up 19 days,  1:27,  2 users,  load average: 1.32, 1.70, 1.91
+docker: 

@@ -1,0 +1,21 @@
+[
+ {
+  "source": 0,
+  "wav": "en_fr.wav",
+  "audio_s": 87.8,
+  "first_delta_s": 1.698,
+  "n_deltas": 247,
+  "final_done_after_audio_end_s": 0.31,
+  "approx_word_latency_vs_nemo_timing": {
+   "p50": 0.42,
+   "p95": 0.82,
+   "max": 0.98,
+   "n": 155
+  },
+  "hyp_words": 188,
+  "language_tags_seen": [],
+  "language_tag_times": [],
+  "text_after_61s_head": " Pendant le second siècle, je fis serment d'ouvrir tous les trésors de la terre à quiconque me mettrait en liberté. Mais je ne fus pas plus heureux. Dans le troisième, je promis de faire puissant mona",
+  "errors": []
+ }
+]

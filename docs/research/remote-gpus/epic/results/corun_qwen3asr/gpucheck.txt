@@ -1,0 +1,10 @@
+== pre 2026-10-29T23:26:44-04:00
+apps: 2790531, VLLM::EngineCore, 7222 MiB;2803828, nemo-cuda/x/nemo-speech-0.2.0-linux-x86_64-cuda/bin/nemo-speech, 1382 MiB;
+gpu: 0 %, 8619 MiB
+uptime:  23:26:44 up 19 days,  1:06,  2 users,  load average: 1.15, 1.22, 1.45
+docker: 
+== post 2026-10-29T23:28:20-04:00
+apps: 2790531, VLLM::EngineCore, 7222 MiB;2803828, nemo-cuda/x/nemo-speech-0.2.0-linux-x86_64-cuda/bin/nemo-speech, 1424 MiB;
+gpu: 0 %, 8661 MiB
+uptime:  23:28:20 up 19 days,  1:08,  2 users,  load average: 1.10, 1.16, 1.41
+docker: 

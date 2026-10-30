@@ -1,0 +1,15 @@
+vulkan n1 n= 1 plag50 -0.04 plag95 0.0 plagmax 0.06 fin50 0.89 finmax 0.96 wl50 2.06 wl95 11.89 wlmax 15.41 finals 20 words 192 spk 5 VRAM 1072 util 34 RSS 280
+vulkan n2 n= 2 plag50 -0.02--0.01 plag95 0.08 plagmax 0.16 fin50 0.94-0.95 finmax 1.04 wl50 2.06-2.11 wl95 11.91-11.98 wlmax 15.5 finals 20 words 192 spk 5 VRAM 1072 util 96 RSS 308
+vulkan n3 n= 3 plag50 -0.02--0.0 plag95 0.15-0.16 plagmax 0.24 fin50 0.94-1.02 finmax 1.12 wl50 2.06-2.15 wl95 11.91-12.06 wlmax 15.58 finals 20 words 192 spk 5 VRAM 1072 util 72 RSS 323
+vulkan n4 n= 4 plag50 -0.01-0.0 plag95 0.24 plagmax 0.47 fin50 0.95-1.12 finmax 1.2 wl50 2.11-2.16 wl95 11.87-12.15 wlmax 15.67 finals 20 words 192 spk 5 VRAM 1072 util 97 RSS 338
+vulkan n6 n= 6 plag50 0.21-1.12 plag95 0.7-3.17 plagmax 3.88 fin50 1.09-1.99 finmax 4.32 wl50 2.31-3.46 wl95 12.47-15.28 wlmax 18.8 finals 20 words 192 spk 5 VRAM 1072 util 99 RSS 325
+vulkan wer_en n= 1 plag50 -0.03 plag95 0.0 plagmax 0.07 fin50 0.93 finmax 0.96 wl50 1.83 wl95 5.84 wlmax 8.0 finals 15 words 124 spk 3 VRAM 1069 util 67 RSS 337
+vulkan wer_fr n= 1 plag50 -0.04 plag95 0.0 plagmax 0.08 fin50 0.86 finmax 0.96 wl50 5.23 wl95 10.3 wlmax 11.66 finals 4 words 64 spk 2 VRAM 1069 util 61 RSS 346
+cuda n1 n= 1 plag50 -0.04 plag95 -0.02 plagmax -0.01 fin50 0.87 finmax 0.95 wl50 2.0 wl95 11.99 wlmax 15.51 finals 20 words 192 spk 5 VRAM 1227 util 14 RSS 474
+cuda n2 n= 2 plag50 -0.04 plag95 -0.01 plagmax 0.0 fin50 0.88 finmax 0.96 wl50 2.02 wl95 12.0 wlmax 15.52 finals 20 words 192 spk 5 VRAM 1227 util 14 RSS 500
+cuda n3 n= 3 plag50 -0.04 plag95 -0.0 plagmax 0.0 fin50 0.87-0.88 finmax 0.96 wl50 2.02-2.03 wl95 12.0 wlmax 15.52 finals 20 words 192 spk 5 VRAM 1227 util 18 RSS 521
+cuda n4 n= 4 plag50 -0.04 plag95 -0.01--0.0 plagmax 0.05 fin50 0.87-0.88 finmax 1.0 wl50 2.02-2.06 wl95 12.0-12.04 wlmax 15.56 finals 20 words 192 spk 5 VRAM 1227 util 35 RSS 529
+cuda n6 n= 6 plag50 -0.03 plag95 0.01-0.05 plagmax 0.08 fin50 0.87-0.93 finmax 1.04 wl50 2.02-2.06 wl95 12.02-12.08 wlmax 15.6 finals 20 words 192 spk 5 VRAM 1227 util 64 RSS 493
+cuda n8 n= 8 plag50 -0.04--0.02 plag95 0.05-0.06 plagmax 0.14 fin50 0.87-0.96 finmax 1.09 wl50 2.02-2.08 wl95 12.05-12.13 wlmax 15.65 finals 20 words 192 spk 5 VRAM 1229 util 56 RSS 536
+cuda wer_en n= 1 plag50 -0.04 plag95 -0.03 plagmax -0.01 fin50 0.87 finmax 0.93 wl50 1.77 wl95 5.78 wlmax 7.94 finals 15 words 125 spk 3 VRAM 1227 util 14 RSS 535
+cuda wer_fr n= 1 plag50 -0.07 plag95 -0.06 plagmax -0.05 fin50 0.81 finmax 0.9 wl50 5.17 wl95 10.25 wlmax 11.61 finals 4 words 64 spk 2 VRAM 1221 util 5 RSS 539

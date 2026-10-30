@@ -1,0 +1,10 @@
+== pre 2026-10-29T23:48:05-04:00
+apps: 2854609, ./install/bin/moshi-server, 9800 MiB;
+gpu: 0 %, 9810 MiB
+uptime:  23:48:05 up 19 days,  1:27,  2 users,  load average: 1.39, 1.67, 1.90
+docker: 
+== post 2026-10-29T23:49:33-04:00
+apps: 2854609, ./install/bin/moshi-server, 10056 MiB;
+gpu: 35 %, 10066 MiB
+uptime:  23:49:33 up 19 days,  1:29,  2 users,  load average: 2.14, 1.83, 1.93
+docker: 

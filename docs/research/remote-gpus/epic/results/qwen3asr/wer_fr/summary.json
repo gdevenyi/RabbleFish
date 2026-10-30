@@ -1,0 +1,48 @@
+[
+ {
+  "source": 0,
+  "wav": "fr.wav",
+  "audio_s": 27.8,
+  "first_delta_s": 4.972,
+  "n_deltas": 133,
+  "final_done_after_audio_end_s": 0.05,
+  "approx_word_latency_vs_nemo_timing": {
+   "p50": 1.4,
+   "p95": 4.11,
+   "max": 4.83,
+   "n": 54
+  },
+  "hyp_words": 67,
+  "language_tags_seen": [
+   "French"
+  ],
+  "language_tag_times": [
+   [
+    "French",
+    4.98
+   ],
+   [
+    "French",
+    9.94
+   ],
+   [
+    "French",
+    14.98
+   ],
+   [
+    "French",
+    19.94
+   ],
+   [
+    "French",
+    24.98
+   ],
+   [
+    "French",
+    27.78
+   ]
+  ],
+  "text_after_61s_head": "",
+  "errors": []
+ }
+]

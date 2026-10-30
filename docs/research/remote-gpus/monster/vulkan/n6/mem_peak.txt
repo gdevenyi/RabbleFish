@@ -1,0 +1,1 @@
+peak VRAM MiB 1072  peak GPU util % 99  peak RSS MiB 325

@@ -1,0 +1,22 @@
+[
+ {
+  "source": 0,
+  "wav": "en_ami.wav",
+  "audio_s": 60.0,
+  "finals": 15,
+  "words": 125,
+  "first_partial_s": 1.6,
+  "word_latency_p50_s": 1.74,
+  "word_latency_p95_s": 5.77,
+  "word_latency_max_s": 7.93,
+  "speakers_seen": [
+   1,
+   2,
+   3
+  ],
+  "languages_seen": [
+   "None"
+  ],
+  "errors": []
+ }
+]

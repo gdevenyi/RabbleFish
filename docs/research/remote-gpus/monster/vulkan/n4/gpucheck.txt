@@ -1,0 +1,3 @@
+OK pre 22:51:01 apps=[2280094, /var/tmp/ltt-bench/vulkan/nemo-speech-0.2.0-linux-x86_64-vulkan/bin/nemo-speech, 1067 MiB;] util=0% mem=1072MiB own=1067MiB load1=0.95
+OK post 22:52:39 apps=[2280094, /var/tmp/ltt-bench/vulkan/nemo-speech-0.2.0-linux-x86_64-vulkan/bin/nemo-speech, 1067 MiB;] util=0% mem=1072MiB own=1067MiB load1=0.73
+foreign_pids_during_run=[]

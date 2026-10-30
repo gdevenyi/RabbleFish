@@ -1,0 +1,10 @@
+== before-qwen-start 2026-10-29T23:16:20-04:00
+apps: 
+gpu: 0 %, 2 MiB
+uptime:  23:16:20 up 19 days, 56 min,  2 users,  load average: 0.90, 1.19, 1.53
+docker: 
+== after-qwen-start 2026-10-29T23:18:40-04:00
+apps: 2790531, VLLM::EngineCore, 7160 MiB;
+gpu: 0 %, 7170 MiB
+uptime:  23:18:40 up 19 days, 58 min,  2 users,  load average: 1.93, 1.73, 1.71
+docker: 
