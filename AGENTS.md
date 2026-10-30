@@ -17,3 +17,4 @@ Single-context: one `GLOSSARY.md` and `docs/adr/` at the repo root. See `docs/ag
 - `pnpm dev`: backend (`uvicorn`, port 8000) and frontend (Vite, port 5173) together.
 - `pnpm test`, `pnpm lint`, `pnpm build`, `pnpm start`: see `README.md`.
 - Backend only: `uv run --project backend pytest backend`, `uv run --project backend ruff check backend`.
+- Sources: `uv run --project backend python -m ltt.capture list`; record together with `... record <key> <key> --seconds 10 --out <dir>` (reports gaps and lag).

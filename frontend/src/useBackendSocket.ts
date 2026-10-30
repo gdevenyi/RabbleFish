@@ -1,10 +1,20 @@
 import { useEffect, useState } from 'react'
 
 export type ConnectionStatus = 'connecting' | 'connected' | 'disconnected'
+export type SourceMode = 'single' | 'diarize'
+
+export interface SourceInfo {
+  key: string
+  kind: 'microphone' | 'monitor'
+  description: string
+  selected: boolean
+  mode: SourceMode
+}
 
 type ServerMessage =
   | { type: 'hello'; version: string }
   | { type: 'heartbeat'; seq: number; server_time: number }
+  | { type: 'sources'; sources: SourceInfo[] }
 
 const RECONNECT_DELAY_MS = 1000
 
@@ -13,6 +23,7 @@ export function useBackendSocket() {
   const [status, setStatus] = useState<ConnectionStatus>('connecting')
   const [version, setVersion] = useState<string>()
   const [lastHeartbeat, setLastHeartbeat] = useState<{ seq: number; serverTime: number }>()
+  const [sources, setSources] = useState<SourceInfo[]>([])
 
   useEffect(() => {
     let ws: WebSocket | undefined
@@ -28,6 +39,7 @@ export function useBackendSocket() {
         const msg = JSON.parse(ev.data) as ServerMessage
         if (msg.type === 'hello') setVersion(msg.version)
         if (msg.type === 'heartbeat') setLastHeartbeat({ seq: msg.seq, serverTime: msg.server_time })
+        if (msg.type === 'sources') setSources(msg.sources)
       }
       ws.onclose = () => {
         setStatus('disconnected')
@@ -42,5 +54,14 @@ export function useBackendSocket() {
     }
   }, [])
 
-  return { status, version, lastHeartbeat }
+  return { status, version, lastHeartbeat, sources }
+}
+
+export async function updateSource(key: string, change: { selected?: boolean; mode?: SourceMode }) {
+  const r = await fetch(`/api/sources/${encodeURIComponent(key)}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(change),
+  })
+  if (!r.ok) throw new Error(`update ${key}: HTTP ${r.status}`)
 }
