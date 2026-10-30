@@ -4,9 +4,7 @@ Live transcription of the audio on a Linux (PipeWire) desktop, with one timeline
 
 ![The timeline during a live Session: one column per Speaker, Partial text below the Live edge, French Segments with English Translations](docs/media/demo.gif)
 
-A real Session, sped up 3×: 60 s of an English meeting (AMI corpus) followed by 28 s of French read speech (Multilingual LibriSpeech), played into a PipeWire sink and captured from its monitor. The local endpoint (NeMo-Speech.cpp with Nemotron 3.5 ASR Streaming, Nemotron 3 Diarization and Riva-Translate-4B on the laptop's Intel Arc iGPU) finds five Speakers, shows Partial text before a Speaker is known, marks the switch to French and adds English Translations. Midway, "Speaker 1" is renamed "Alice". Full-length video:
-
-https://github.com/user-attachments/assets/7446ef84-f5cf-4806-ad8d-77bda2f3a8eb
+A real Session, sped up 3×: 60 s of an English meeting (AMI corpus) followed by 28 s of French read speech (Multilingual LibriSpeech), played into a PipeWire sink and captured from its monitor. The local endpoint (NeMo-Speech.cpp with Nemotron 3.5 ASR Streaming, Nemotron 3 Diarization and Riva-Translate-4B on the laptop's Intel Arc iGPU) finds five Speakers, shows Partial text before a Speaker is known, marks the switch to French and adds English Translations. Midway, "Speaker 1" is renamed "Alice".
 
 The audio is CC BY 4.0; see `NOTICE`. The plan and every design decision are in the [wayfinder map](https://github.com/gdevenyi/live-transcribe-translate/issues/1).
 
