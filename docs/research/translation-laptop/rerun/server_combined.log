@@ -1,0 +1,5 @@
+[nemo-speech] serve session started
+[asr] model=nemotron-3.5-asr-streaming-0.6b.q8_0 head=rnnt backend=Vulkan0 diarization=on
+[asr] mode=streaming head=rnnt left=56 center=1 right=1 attention=58 encoder-frames step=160ms
+[nemo-speech] serve session finished
+HTTP API listening on http://127.0.0.1:8093

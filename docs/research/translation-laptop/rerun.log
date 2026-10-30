@@ -1,0 +1,44 @@
+[00:35:09] == A: one Vulkan server with ASR + diarization + NMT
+[00:35:19] RUN A_alone: before: cpu busy 4 %, loadavg 2.84 7.95 7.56
+{"mode": "alone", "all": {"n": 20, "p50": 0.73, "p95": 2.35, "max": 2.4}, "en_to_fr": {"n": 15, "p50": 0.76, "p95": 1.24, "max": 2.4}, "fr_to_en": {"n": 5, "p50": 0.69, "p95": 1.0, "max": 2.35}}
+[00:35:39] RUN A_alone: after: cpu busy 4 %, loadavg 2.17 7.47 7.40
+[00:35:43] RUN A_asr3_ctl: before: cpu busy 3 %, loadavg 1.99 7.34 7.36
+[00:37:21] RUN A_asr3_ctl: after: cpu busy 2 %, loadavg 1.07 5.51 6.70
+  rc0.jsonl finals=20 partial lag p50=0.04 p95=0.21 max=0.32 | utt end->final p50=0.96 max=1.18
+  rc1.jsonl finals=20 partial lag p50=0.04 p95=0.23 max=0.40 | utt end->final p50=1.03 max=1.23
+  rc2.jsonl finals=20 partial lag p50=0.06 p95=0.24 max=0.40 | utt end->final p50=1.09 max=1.26
+[00:37:25] RUN A_live1: before: cpu busy 4 %, loadavg 1.07 5.51 6.70
+{"mode": "live", "all": {"n": 20, "p50": 0.74, "p95": 2.68, "max": 2.7}, "en_to_fr": {"n": 15, "p50": 0.74, "p95": 1.24, "max": 2.68}, "fr_to_en": {"n": 5, "p50": 0.74, "p95": 1.11, "max": 2.7}}
+[00:39:03] RUN A_live1: after: cpu busy 6 %, loadavg 0.61 4.11 6.08
+  rc0.jsonl finals=20 partial lag p50=-0.00 p95=0.52 max=1.60 | utt end->final p50=0.96 max=2.64
+[00:39:07] RUN A_live2: before: cpu busy 4 %, loadavg 0.64 4.06 6.05
+{"mode": "live", "all": {"n": 40, "p50": 1.16, "p95": 3.31, "max": 5.18}, "en_to_fr": {"n": 30, "p50": 1.16, "p95": 2.55, "max": 5.1}, "fr_to_en": {"n": 10, "p50": 1.34, "p95": 2.83, "max": 5.18}}
+[00:40:45] RUN A_live2: after: cpu busy 3 %, loadavg 1.04 3.29 5.58
+  rc0.jsonl finals=20 partial lag p50=0.44 p95=3.75 max=5.04 | utt end->final p50=1.90 max=6.21
+  rc1.jsonl finals=20 partial lag p50=0.68 p95=4.05 max=5.04 | utt end->final p50=1.84 max=6.20
+[00:40:49] RUN A_live3: before: cpu busy 2 %, loadavg 0.96 3.23 5.55
+{"mode": "live", "all": {"n": 60, "p50": 1.86, "p95": 5.64, "max": 7.92}, "en_to_fr": {"n": 45, "p50": 1.74, "p95": 4.5, "max": 7.6}, "fr_to_en": {"n": 15, "p50": 2.33, "p95": 5.64, "max": 7.92}}
+[00:42:37] RUN A_live3: after: cpu busy 4 %, loadavg 1.38 2.69 5.09
+  rc0.jsonl finals=14 partial lag p50=16.77 p95=31.49 max=36.52 | utt end->final p50=20.86 max=32.32
+  rc1.jsonl finals=14 partial lag p50=19.94 p95=33.04 max=37.94 | utt end->final p50=24.95 max=38.20
+  rc2.jsonl finals=14 partial lag p50=19.60 p95=33.49 max=35.69 | utt end->final p50=24.91 max=34.72
+[00:42:40] == B: ASR + diarization on a Vulkan server, NMT on a CPU-build server
+[00:42:52] RUN B_alone: before: cpu busy 5 %, loadavg 1.37 2.62 5.03
+{"mode": "alone", "all": {"n": 20, "p50": 1.95, "p95": 5.33, "max": 5.83}, "en_to_fr": {"n": 15, "p50": 1.9, "p95": 2.78, "max": 5.33}, "fr_to_en": {"n": 5, "p50": 2.0, "p95": 2.75, "max": 5.83}}
+[00:43:41] RUN B_alone: after: cpu busy 4 %, loadavg 2.82 2.85 4.97
+[00:43:45] RUN B_live1: before: cpu busy 3 %, loadavg 2.82 2.85 4.97
+{"mode": "live", "all": {"n": 20, "p50": 2.15, "p95": 5.91, "max": 6.11}, "en_to_fr": {"n": 15, "p50": 2.13, "p95": 3.06, "max": 5.91}, "fr_to_en": {"n": 5, "p50": 2.17, "p95": 3.05, "max": 6.11}}
+[00:45:23] RUN B_live1: after: cpu busy 3 %, loadavg 2.35 2.73 4.72
+  rc0.jsonl finals=20 partial lag p50=-0.02 p95=0.07 max=0.16 | utt end->final p50=0.96 max=1.03
+[00:45:27] RUN B_live2: before: cpu busy 4 %, loadavg 2.16 2.69 4.69
+{"mode": "live", "all": {"n": 40, "p50": 4.59, "p95": 8.67, "max": 12.64}, "en_to_fr": {"n": 30, "p50": 4.46, "p95": 6.55, "max": 12.11}, "fr_to_en": {"n": 10, "p50": 5.75, "p95": 7.93, "max": 12.64}}
+[00:47:21] RUN B_live2: after: cpu busy 4 %, loadavg 3.34 3.01 4.57
+  rc0.jsonl finals=20 partial lag p50=-0.00 p95=0.09 max=0.21 | utt end->final p50=0.96 max=1.04
+  rc1.jsonl finals=20 partial lag p50=-0.00 p95=0.09 max=0.21 | utt end->final p50=0.96 max=1.04
+[00:47:25] RUN B_live3: before: cpu busy 4 %, loadavg 3.34 3.01 4.57
+{"mode": "live", "all": {"n": 60, "p50": 6.82, "p95": 13.99, "max": 19.58}, "en_to_fr": {"n": 45, "p50": 6.52, "p95": 12.09, "max": 19.58}, "fr_to_en": {"n": 15, "p50": 8.69, "p95": 13.99, "max": 18.69}}
+[00:50:11] RUN B_live3: after: cpu busy 10 %, loadavg 3.89 3.55 4.52
+  rc0.jsonl finals=18 partial lag p50=0.07 p95=11.86 max=13.94 | utt end->final p50=1.00 max=8.00
+  rc1.jsonl finals=18 partial lag p50=0.07 p95=12.02 max=13.95 | utt end->final p50=1.06 max=7.89
+  rc2.jsonl finals=18 partial lag p50=0.08 p95=11.80 max=13.78 | utt end->final p50=1.07 max=6.93
+[00:50:17] == done

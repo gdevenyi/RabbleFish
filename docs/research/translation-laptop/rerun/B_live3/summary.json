@@ -1,0 +1,65 @@
+[
+ {
+  "source": 0,
+  "wav": "en_fr.wav",
+  "audio_s": 87.8,
+  "finals": 18,
+  "words": 150,
+  "first_partial_s": 1.71,
+  "word_latency_p50_s": 2.32,
+  "word_latency_p95_s": 8.18,
+  "word_latency_max_s": 9.12,
+  "speakers_seen": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "languages_seen": [
+   "None"
+  ],
+  "errors": []
+ },
+ {
+  "source": 1,
+  "wav": "en_fr.wav",
+  "audio_s": 87.8,
+  "finals": 18,
+  "words": 150,
+  "first_partial_s": 1.72,
+  "word_latency_p50_s": 2.35,
+  "word_latency_p95_s": 8.13,
+  "word_latency_max_s": 9.01,
+  "speakers_seen": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "languages_seen": [
+   "None"
+  ],
+  "errors": []
+ },
+ {
+  "source": 2,
+  "wav": "en_fr.wav",
+  "audio_s": 87.8,
+  "finals": 18,
+  "words": 150,
+  "first_partial_s": 1.72,
+  "word_latency_p50_s": 2.32,
+  "word_latency_p95_s": 7.41,
+  "word_latency_max_s": 8.07,
+  "speakers_seen": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "languages_seen": [
+   "None"
+  ],
+  "errors": []
+ }
+]

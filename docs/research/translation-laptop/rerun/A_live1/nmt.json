@@ -1,0 +1,205 @@
+{
+ "summary": {
+  "mode": "live",
+  "all": {
+   "n": 20,
+   "p50": 0.74,
+   "p95": 2.68,
+   "max": 2.7
+  },
+  "en_to_fr": {
+   "n": 15,
+   "p50": 0.74,
+   "p95": 1.24,
+   "max": 2.68
+  },
+  "fr_to_en": {
+   "n": 5,
+   "p50": 0.74,
+   "p95": 1.11,
+   "max": 2.7
+  }
+ },
+ "rows": [
+  {
+   "t": 3.441,
+   "text": "From a plain text file",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 0.529,
+   "translation": "À partir d'un fichier texte simple",
+   "source": 0
+  },
+  {
+   "t": 11.761,
+   "text": "back into organiser by which speaker speaks what and how doing the segment I think that was the stupidest way they could have organised the whole thing if you ask me",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 2.682,
+   "translation": "retour à l'organisation par laquelle le conférencier dit quoi et comment, dans le segment que je pense être la façon la plus stupide dont ils auraient pu organiser tout cela, si vous me demandez.",
+   "source": 0
+  },
+  {
+   "t": 14.537,
+   "text": "organised it by time, not by speaker",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 0.974,
+   "translation": "j'ai organisé cela par ordre chronologique, et non pas par intervenant",
+   "source": 0
+  },
+  {
+   "t": 20.557,
+   "text": "I don't know really all gonna do like that",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 1.013,
+   "translation": "Je ne sais pas vraiment si tout le monde va faire comme ça",
+   "source": 0
+  },
+  {
+   "t": 28.07,
+   "text": "okay",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 0.328,
+   "translation": "d'accord",
+   "source": 0
+  },
+  {
+   "t": 30.613,
+   "text": "yeah are we done yeah",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 0.625,
+   "translation": "Ouais, sommes-nous finis ?",
+   "source": 0
+  },
+  {
+   "t": 31.962,
+   "text": "I think we just",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 0.527,
+   "translation": "Je pense que nous venons de",
+   "source": 0
+  },
+  {
+   "t": 37.211,
+   "text": "see what Steve says about the evaluation and then like",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 1.045,
+   "translation": "regardez ce que Steve dit à propos de l'évaluation et ensuite, comme",
+   "source": 0
+  },
+  {
+   "t": 40.481,
+   "text": "we'll keep in touch by email if we need",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 0.903,
+   "translation": "Nous resterons en contact par courriel si nous en avons besoin",
+   "source": 0
+  },
+  {
+   "t": 44.209,
+   "text": "anything I guess we'll see you on Thursday",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 0.66,
+   "translation": "Je suppose que nous vous reverrons jeudi",
+   "source": 0
+  },
+  {
+   "t": 47.167,
+   "text": "and Monday",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 0.299,
+   "translation": "et lundi",
+   "source": 0
+  },
+  {
+   "t": 51.805,
+   "text": "yeah we died we need another meeting this week",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 1.084,
+   "translation": "Oui, nous sommes morts. Nous avons besoin d'une autre réunion cette semaine.",
+   "source": 0
+  },
+  {
+   "t": 54.529,
+   "text": "probably not I mean just get",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 0.737,
+   "translation": "probablement pas, je veux dire, il suffit de",
+   "source": 0
+  },
+  {
+   "t": 57.162,
+   "text": "work done I think that's",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 0.693,
+   "translation": "Le travail accompli, je pense que c'est",
+   "source": 0
+  },
+  {
+   "t": 60.457,
+   "text": "what I've got to do we can just email if we need",
+   "lang": "en",
+   "target": "fr",
+   "latency_s": 1.239,
+   "translation": "Ce que je dois faire, nous pouvons simplement envoyer un courriel si nous en avons besoin.",
+   "source": 0
+  },
+  {
+   "t": 65.997,
+   "text": "panel le second siècle je fis serment d'ouvrir tous les trésors de la terre",
+   "lang": "fr",
+   "target": "en",
+   "latency_s": 1.109,
+   "translation": "In the second century, I swore to open all the treasures of the earth.",
+   "source": 0
+  },
+  {
+   "t": 68.307,
+   "text": "à quicomte me mettrait en liberté",
+   "lang": "fr",
+   "target": "en",
+   "latency_s": 0.744,
+   "translation": "To whom would I have to pay to be released?",
+   "source": 0
+  },
+  {
+   "t": 70.287,
+   "text": "mais je ne fus pas plus heureux",
+   "lang": "fr",
+   "target": "en",
+   "latency_s": 0.427,
+   "translation": "but I was no happier",
+   "source": 0
+  },
+  {
+   "t": 86.481,
+   "text": "dans le troisième. Je promis de faire puissant monarque mon libérateur, d'être toujours près de lui en esprit lorsqu'il eût achevé ce repas comme il était bon musulman, il se lavalait main, le visage et les pieds",
+   "lang": "fr",
+   "target": "en",
+   "latency_s": 2.702,
+   "translation": "In the third, I promised to make my liberator a powerful monarch, to be always near him in spirit when he had finished this meal, as a good Muslim, he washed his hands, face, and feet.",
+   "source": 0
+  },
+  {
+   "t": 88.453,
+   "text": "et fit sa prière",
+   "lang": "fr",
+   "target": "en",
+   "latency_s": 0.3,
+   "translation": "and he prayed",
+   "source": 0
+  }
+ ]
+}
