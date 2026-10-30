@@ -10,6 +10,10 @@ Live transcription of the audio on a Linux desktop, with one timeline column for
 One continuous run of transcription, from start to stop. Speaker identity and display names are valid only inside one session.
 _Avoid_: Recording, meeting, run
 
+**Interrupted session**:
+A session that ended without being stopped, for example because the app crashed. It is kept as a past session and is never continued.
+_Avoid_: Crashed session, broken session
+
 **Source**:
 One audio input that the user selects for a session, for example a microphone or the monitor of an output device. Each source stays a separate stream.
 _Avoid_: Device, channel, input
