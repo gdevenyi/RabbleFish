@@ -128,21 +128,23 @@ The app cannot read the server flags, so it cannot check them. Use them all:
 
 ## Point the app at the endpoint
 
-Set the base URL of the endpoint:
-
-```sh
-export LTT_ASR_ENDPOINT_URL=ws://127.0.0.1:8080
-```
-
-When the config file is available (`~/.config/live-transcribe-translate/config.toml`),
-the key is `asr_endpoint_url`:
+Set the base URL of the endpoint with the key `asr_endpoint_url` in the config
+file (`~/.config/live-transcribe-translate/config.toml`):
 
 ```toml
 asr_endpoint_url = "ws://127.0.0.1:8080"
 ```
 
+or with the environment variable, which overrides the file:
+
+```sh
+export LTT_ASR_ENDPOINT_URL=ws://127.0.0.1:8080
+```
+
 The default is `ws://127.0.0.1:8080`, so a local endpoint on port 8080 needs
-no setting.
+no setting. `ltt config` shows the effective value. The "Endpoint" chip of the
+UI shows whether the endpoint is ready and which capabilities (transcription,
+diarization, translation) it has.
 
 ## Remote endpoint
 
@@ -156,10 +158,11 @@ To use a GPU on another machine:
    ```
 
 2. Start the endpoint there (printed command or the systemd unit).
-3. On the laptop, set the endpoint URL to the GPU machine:
+3. On the laptop, set the endpoint URL to the GPU machine in
+   `~/.config/live-transcribe-translate/config.toml`:
 
-   ```sh
-   export LTT_ASR_ENDPOINT_URL=ws://gpu-host.lan:8080
+   ```toml
+   asr_endpoint_url = "ws://gpu-host.lan:8080"
    ```
 
 Bind the host carefully. **The endpoint has no login by default**: anyone who
@@ -180,9 +183,9 @@ can reach the port can use the models. Use one of these:
 - `ltt-endpoint.service` runs `nemo-speech serve` with the values from
   `<prefix>/endpoint.env`, which the script writes. Run the script again to
   change the backend, host, port or threads, then restart the unit.
-- `ltt.service` runs `ltt serve`. **It needs the `ltt` CLI, which is a
-  separate ticket and is not available yet.** The unit expects it in
-  `~/.local/bin/ltt` (`uv tool install` from the repository). It uses
+- `ltt.service` runs `ltt serve`. It expects the `ltt` CLI in
+  `~/.local/bin/ltt` (`uv tool install ./backend` from the repository root;
+  see `README.md`). It uses
   `Wants=` for the endpoint, not `Requires=`, because the endpoint can be on
   another machine, and `ltt serve` starts also when the endpoint is not ready.
 
@@ -193,7 +196,7 @@ mkdir -p ~/.config/systemd/user
 cp scripts/systemd/ltt-endpoint.service scripts/systemd/ltt.service ~/.config/systemd/user/
 systemctl --user daemon-reload
 systemctl --user enable --now ltt-endpoint.service
-systemctl --user enable --now ltt.service      # when the ltt CLI is installed
+systemctl --user enable --now ltt.service
 ```
 
 Show the state and the log:

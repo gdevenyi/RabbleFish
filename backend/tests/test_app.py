@@ -46,11 +46,13 @@ def test_health():
     assert r.json()["status"] == "ok"
 
 
-def test_ws_sends_hello_sources_then_heartbeats():
+def test_ws_sends_hello_sources_endpoint_then_heartbeats():
     with client() as c, c.websocket_connect("/ws") as ws:
-        assert ws.receive_json()["type"] == "hello"
+        hello = ws.receive_json()
+        assert hello["type"] == "hello" and hello["default_target_language"] == "en"
         assert ws.receive_json()["type"] == "sources"
-        beats = [m for m in (ws.receive_json() for _ in range(3)) if m["type"] == "heartbeat"]
+        assert ws.receive_json()["type"] == "endpoint_status"
+        beats = [m for m in (ws.receive_json() for _ in range(4)) if m["type"] == "heartbeat"]
         assert len(beats) >= 2
         assert beats[1]["seq"] == beats[0]["seq"] + 1
 

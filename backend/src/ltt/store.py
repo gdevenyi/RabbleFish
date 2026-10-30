@@ -2,9 +2,8 @@
 
 Layout: `<base>/sessions/<YYYY-MM-DDTHH-MM-SS>/events.jsonl`, and the saved audio in
 `audio/` next to it. The directory name is the local time of the Session start, with
-`-2`, `-3`, ... when two Sessions start in the same second. `<base>` is `LTT_DATA_DIR`,
-else `$XDG_DATA_HOME/live-transcribe-translate`, else
-`~/.local/share/live-transcribe-translate`.
+`-2`, `-3`, ... when two Sessions start in the same second. `<base>` is the `data_dir`
+setting (see `ltt.settings`; by default `$XDG_DATA_HOME/live-transcribe-translate`).
 
 Each line is one event, exactly as on `/ws`. Only the event types in `SAVED_TYPES` are
 saved. Each event is written and flushed when it happens, so an app crash loses nothing;
@@ -38,7 +37,6 @@ from ltt.transcript import Transcript
 
 log = logging.getLogger(__name__)
 
-APP_DIR = "live-transcribe-translate"
 LOG_NAME = "events.jsonl"
 AUDIO_DIR = "audio"
 FSYNC_INTERVAL_S = 2.0
@@ -56,13 +54,6 @@ SAVED_TYPES = frozenset(
 )
 CLOSED_STATES = ("stopped", "interrupted")
 SESSION_ID = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}(-\d+)?$")
-
-
-def default_data_dir() -> Path:
-    if env := os.environ.get("LTT_DATA_DIR"):
-        return Path(env)
-    xdg = os.environ.get("XDG_DATA_HOME") or str(Path.home() / ".local" / "share")
-    return Path(xdg) / APP_DIR
 
 
 class Syncer:

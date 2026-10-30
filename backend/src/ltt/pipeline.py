@@ -59,7 +59,10 @@ class SourcePipeline:
         clock: Callable[[], int] = time.monotonic_ns,
         resolve_source: ResolveSource | None = None,
         recorder: AudioRecorder | None = None,
+        silence: tuple[float, float] | None = None,
     ) -> None:
+        """`silence` is (after_s, threshold_dbfs) of the "silent" warning; None gives the
+        defaults of `ltt.level`."""
         self.source = source
         self.recorder = recorder
         self.resolve_source = resolve_source
@@ -74,7 +77,7 @@ class SourcePipeline:
         self._stopping = asyncio.Event()
         self._task: asyncio.Task | None = None
         self._capture_task: asyncio.Task | None = None
-        self.silence = SilenceDetector()
+        self.silence = SilenceDetector(*(silence or ()))
         self._state: str | None = None  # of the last source_status event
         self._message: str | None = None
         # A Source that is muted at the start shows "muted" in its first event.
@@ -239,9 +242,11 @@ class Session:
         translator: Callable[[Publish], Translator] | None = None,
         audio_dir: Path | None = None,
         started_at: float | None = None,
+        silence: tuple[float, float] | None = None,
     ) -> None:
         """`audio_dir` is the Session directory to save the audio in; None saves none.
-        `started_at` is the unix time of the start (default: now)."""
+        `started_at` is the unix time of the start (default: now). `silence` is
+        (after_s, threshold_dbfs) of the "silent" warning of each Source."""
         self.start_ns = clock()
         self.started_at = time.time() if started_at is None else started_at
         self.ended_at: float | None = None
@@ -267,6 +272,7 @@ class Session:
                 None
                 if audio_dir is None
                 else AudioRecorder(audio_dir, source.key, self.start_ns, self.publish),
+                silence,
             )
             for source, diarize in sources
         ]

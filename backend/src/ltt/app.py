@@ -3,7 +3,6 @@
 import asyncio
 import contextlib
 import logging
-import os
 import time
 from collections.abc import AsyncIterator, Awaitable, Callable
 from pathlib import Path
@@ -15,17 +14,13 @@ from pydantic import BaseModel
 
 from ltt import __version__
 from ltt.capture import Capture
+from ltt.endpoint_status import RECHECK_S, check_endpoint, initial_status
 from ltt.export import SessionExport
 from ltt.nemo import NemoEndpoint
 from ltt.pipeline import CaptureFactory, Session
+from ltt.settings import Settings, load_settings, static_dir
 from ltt.sources import Source, SourceRegistry, watch_sources
-from ltt.store import (
-    FSYNC_INTERVAL_S,
-    SavedSession,
-    SessionLog,
-    SessionStore,
-    default_data_dir,
-)
+from ltt.store import FSYNC_INTERVAL_S, SavedSession, SessionLog, SessionStore
 from ltt.transcript import LanguageDetector, LanguageIdentifier, Transcript
 from ltt.translation import (
     DEFAULT_TARGET_LANGUAGE,
@@ -36,8 +31,6 @@ from ltt.translation import (
 )
 
 HEARTBEAT_INTERVAL_S = 1.0
-DEFAULT_ASR_ENDPOINT_URL = "ws://127.0.0.1:8080"
-DEFAULT_LANGUAGES = "en,fr"
 
 log = logging.getLogger(__name__)
 
@@ -78,7 +71,9 @@ def default_setting(source: Source) -> SourceSetting:
 class Hub:
     """The current Sources, their settings, the Session, and the connected UI sockets."""
 
-    def __init__(self, store: SessionStore) -> None:
+    def __init__(self, store: SessionStore, default_target_language: str = "en") -> None:
+        self.default_target_language = default_target_language
+        self.endpoint_status: dict | None = None  # the last endpoint_status event
         self.registry = SourceRegistry()
         self.settings: dict[str, SourceSetting] = {}  # by Source key; kept when a device goes
         self.transcript = Transcript()  # the current or last Session
@@ -138,7 +133,19 @@ class Hub:
         state, as on a new connection; the snapshot that follows is empty."""
         self.close_log()
         self.transcript.reset()
-        self._broadcast({"type": "hello", "version": __version__})
+        self._broadcast(self.hello())
+
+    def hello(self) -> dict:
+        return {
+            "type": "hello",
+            "version": __version__,
+            "default_target_language": self.default_target_language,
+        }
+
+    def set_endpoint_status(self, status: dict) -> None:
+        """Keep the last endpoint state (not a Session event: never in the log)."""
+        self.endpoint_status = status
+        self._broadcast(status)
 
     def close_log(self) -> None:
         if self.log is not None:
@@ -210,6 +217,28 @@ async def _sync_loop(hub: Hub) -> None:
         hub.sync()
 
 
+async def _endpoint_loop(hub: Hub, check: Callable[[], Awaitable[dict]], wake: asyncio.Event):
+    """Check the endpoint now, again when `wake` is set (a Session start), and every
+    RECHECK_S seconds while it is not ready. It never stops the app."""
+    while True:
+        wake.clear()
+        status = await check()
+        before = hub.endpoint_status
+        if before is None or before.get("state") != status["state"]:
+            level = logging.INFO if status["state"] == "ready" else logging.WARNING
+            log.log(
+                level,
+                "endpoint %s: %s%s",
+                status["asr_url"],
+                status["state"],
+                f" ({status['message']})" if status["message"] else "",
+            )
+        hub.set_endpoint_status(status)
+        timeout = None if status["state"] == "ready" else RECHECK_S
+        with contextlib.suppress(TimeoutError):
+            await asyncio.wait_for(wake.wait(), timeout)
+
+
 async def _run_watcher(watch: Watcher, hub: Hub) -> None:
     try:
         await watch(hub.registry, hub.broadcast_sources)
@@ -220,37 +249,41 @@ async def _run_watcher(watch: Watcher, hub: Hub) -> None:
 def create_app(
     watch: Watcher = watch_sources,
     *,
+    settings: Settings | None = None,
     asr_endpoint_url: str | None = None,
     capture_factory: CaptureFactory = Capture,
     detect_language: LanguageDetector | None = None,
     translation_endpoint_url: str | None = None,
     data_dir: Path | str | None = None,
 ) -> FastAPI:
-    """Create the app.
+    """Create the app. With no `settings`, it reads them with `load_settings()` (the
+    config file and the LTT_* environment variables; see `ltt.settings`).
 
-    `asr_endpoint_url` defaults to `LTT_ASR_ENDPOINT_URL`, then to ws://127.0.0.1:8080.
-    `translation_endpoint_url` defaults to `LTT_TRANSLATION_ENDPOINT_URL`, then to the
-    http:// form of the ASR endpoint (the same NeMo-Speech.cpp server).
-    `detect_language` defaults to lingua, limited to `LTT_LANGUAGES` (default "en,fr").
-    `data_dir` defaults to `LTT_DATA_DIR`, then to `$XDG_DATA_HOME/live-transcribe-translate`.
+    The other arguments replace a setting (tests use them). `translation_endpoint_url`
+    with no setting is the http:// form of the ASR endpoint (the same server).
+    `detect_language` defaults to lingua, limited to the `detect_languages` setting.
     """
-    hub = Hub(SessionStore(Path(data_dir) if data_dir else default_data_dir()))
+    settings = settings or load_settings()
+    hub = Hub(
+        SessionStore(Path(data_dir) if data_dir else settings.data_dir),
+        settings.default_target_language,
+    )
     store = hub.store
-    endpoint = NemoEndpoint(
-        asr_endpoint_url or os.environ.get("LTT_ASR_ENDPOINT_URL") or DEFAULT_ASR_ENDPOINT_URL
-    )
+    endpoint = NemoEndpoint(asr_endpoint_url or settings.asr_endpoint_url)
     translation_endpoint = TranslationEndpoint(
-        translation_endpoint_url
-        or os.environ.get("LTT_TRANSLATION_ENDPOINT_URL")
-        or endpoint.http_url
+        translation_endpoint_url or settings.translation_endpoint_url or endpoint.http_url
     )
+    hub.endpoint_status = initial_status(endpoint.http_url, translation_endpoint.url)
+    recheck = asyncio.Event()
     detectors: list[LanguageDetector] = [detect_language] if detect_language else []
 
     def language_detector() -> LanguageDetector:
         if not detectors:  # built once, at the first Session start
-            codes = os.environ.get("LTT_LANGUAGES", DEFAULT_LANGUAGES)
-            detectors.append(LanguageIdentifier([c.strip() for c in codes.split(",") if c]))
+            detectors.append(LanguageIdentifier(list(settings.detect_languages)))
         return detectors[0]
+
+    async def check() -> dict:
+        return await asyncio.to_thread(check_endpoint, endpoint.http_url, translation_endpoint.url)
 
     @contextlib.asynccontextmanager
     async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
@@ -259,6 +292,7 @@ def create_app(
         tasks = [
             asyncio.create_task(_run_watcher(watch, hub)),
             asyncio.create_task(_sync_loop(hub)),
+            asyncio.create_task(_endpoint_loop(hub, check, recheck)),
         ]
         yield
         if hub.session is not None:
@@ -275,6 +309,19 @@ def create_app(
     app.state.asr_endpoint = endpoint
     app.state.translation_endpoint = translation_endpoint
     app.state.store = store
+    app.state.settings = settings
+
+    @app.get("/api/config")
+    async def get_config() -> dict:
+        """The settings that the UI uses, and the last endpoint state."""
+        return {
+            "version": __version__,
+            "default_target_language": settings.default_target_language,
+            "detect_languages": list(settings.detect_languages),
+            "asr_endpoint_url": endpoint.url,
+            "translation_endpoint_url": translation_endpoint.url,
+            "endpoint_status": hub.endpoint_status,
+        }
 
     @app.get("/api/health")
     async def health() -> dict:
@@ -332,8 +379,10 @@ def create_app(
             translator=lambda publish: Translator(translation_endpoint, target, publish),
             audio_dir=session_log.dir if start.save_audio else None,
             started_at=started_at,
+            silence=(settings.silent_after_s, settings.silence_dbfs),
         )
         hub.session.start()
+        recheck.set()  # the endpoint chip shows the state at this start too
         return hub.session.event("started")
 
     @app.post("/api/session/stop")
@@ -442,8 +491,10 @@ def create_app(
         await ws.accept()
         queue, snapshot = hub.subscribe()
         try:
-            await ws.send_json({"type": "hello", "version": __version__})
+            await ws.send_json(hub.hello())
             await ws.send_json({"type": "sources", "sources": hub.sources_payload()})
+            if hub.endpoint_status is not None:
+                await ws.send_json(hub.endpoint_status)
             for event in snapshot:
                 await ws.send_json(event)
             seq = 0
@@ -463,14 +514,11 @@ def create_app(
         finally:
             hub.unsubscribe(queue)
 
-    static_dir = Path(
-        os.environ.get("LTT_STATIC_DIR", Path(__file__).resolve().parents[3] / "frontend" / "dist")
-    )
     # Mounted last so that /api and /ws take precedence. In development Vite serves
     # the frontend, so the directory may not exist.
-    if static_dir.is_dir():
-        app.mount("/", StaticFiles(directory=static_dir, html=True), name="frontend")
+    ui_dir = static_dir()
+    if ui_dir is not None and ui_dir.is_dir():
+        app.mount("/", StaticFiles(directory=ui_dir, html=True), name="frontend")
+    else:
+        log.info("no built UI (run `pnpm build`); only the API is served")
     return app
-
-
-app = create_app()

@@ -1,7 +1,7 @@
 // The app state that the /ws events build, and the pure reducer for it.
 // The reducer is idempotent: the snapshot on connect can repeat events that the UI
 // already has, and the result is the same.
-import type { ServerEvent, SourceInfo, SourceWarning, Word } from '../contract'
+import type { EndpointStatusEvent, ServerEvent, SourceInfo, SourceWarning, Word } from '../contract'
 
 export interface Speaker {
   id: string
@@ -65,6 +65,24 @@ export function warningHint(w: SourceWarning): string {
     : 'This Source has given only silence for some time. Make sure that the correct device is selected and that it plays sound.'
 }
 
+/** The text, the colour and the tooltip of the "Endpoint" chip. */
+export function endpointChip(e: EndpointStatusEvent): { label: string; tone: 'live' | 'connecting' | 'error'; hint: string } {
+  const where = e.asr_url === e.translation_url ? e.asr_url : `${e.asr_url} (translation: ${e.translation_url})`
+  const has = e.capabilities.length ? `Capabilities: ${e.capabilities.join(', ')}.` : ''
+  switch (e.state) {
+    case 'checking':
+      return { label: 'checking', tone: 'connecting', hint: `Checking ${where}` }
+    case 'ready':
+      return e.missing.length
+        ? { label: `ready, no ${e.missing.join(', ')}`, tone: 'connecting', hint: `${where}: ${e.message ?? ''} ${has}`.trim() }
+        : { label: 'ready', tone: 'live', hint: `${where}. ${has}` }
+    case 'not_ready':
+      return { label: 'not ready', tone: 'error', hint: `${e.message ?? where}. The app checks again every 30 s and at each start.` }
+    case 'unreachable':
+      return { label: 'unreachable', tone: 'error', hint: `${e.message ?? where}. Start the endpoint (see docs/endpoint.md). The app checks again every 30 s.` }
+  }
+}
+
 export interface SessionInfo {
   /** "interrupted" only in a past Session: the app ended without a stop. */
   state: 'idle' | 'started' | 'stopped' | 'interrupted'
@@ -82,6 +100,10 @@ export interface TranslationStatus {
 
 export interface AppState {
   version: string | null
+  /** The `default_target_language` setting of the backend, from `hello`. */
+  defaultTargetLang: string | null
+  /** The state of the model endpoint; null before the backend sends it. */
+  endpointStatus: EndpointStatusEvent | null
   /** Server clock minus client clock, in seconds, from the last heartbeat. */
   clockOffset: number
   sources: SourceInfo[]
@@ -120,7 +142,7 @@ const emptyTranscript = {
 } satisfies Partial<AppState>
 
 export function initialState(): AppState {
-  return { version: null, clockOffset: 0, sources: [], ...emptyTranscript }
+  return { version: null, defaultTargetLang: null, endpointStatus: null, clockOffset: 0, sources: [], ...emptyTranscript }
 }
 
 /** Applies events in order. The state is copied once for the whole batch. */
@@ -187,7 +209,11 @@ function apply(s: AppState, { event: e, at }: ReceivedEvent) {
     case 'hello':
       // A new connection: the snapshot that follows sends the whole Session again.
       s.version = e.version
+      s.defaultTargetLang = e.default_target_language ?? s.defaultTargetLang
       resetTranscript(s)
+      return
+    case 'endpoint_status':
+      s.endpointStatus = e
       return
     case 'heartbeat':
       s.clockOffset = e.server_time - at

@@ -8,7 +8,7 @@ import { PastSessions } from './PastSessions'
 import { formatStart, pastSessionApi, pastSessionEvents } from './pastSession'
 import { SourcesPanel } from './SourcesPanel'
 import { formatTime, liveEdge, sourceDescription } from './timeline/model'
-import { initialState, type ReceivedEvent, reduceAll, warningHint, warningLabel } from './timeline/state'
+import { endpointChip, initialState, type ReceivedEvent, reduceAll, warningHint, warningLabel } from './timeline/state'
 import { Timeline } from './timeline/Timeline'
 import { useBackendSocket } from './useBackendSocket'
 
@@ -22,7 +22,9 @@ export function App() {
   const [error, setError] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
   const [sourcesOpen, setSourcesOpen] = useState(true)
-  const [targetLang, setTargetLang] = useState(DEFAULT_TARGET_LANGUAGE)
+  // null: the user did not choose yet, so the selector shows the backend's default.
+  const [chosenTargetLang, setTargetLang] = useState<string | null>(null)
+  const targetLang = chosenTargetLang ?? state.defaultTargetLang ?? DEFAULT_TARGET_LANGUAGE
   const [saveAudio, setSaveAudio] = useState(true)
   // Past Sessions: the list panel, and the past Session open in the Timeline (if any).
   const [pastOpen, setPastOpen] = useState(false)
@@ -49,6 +51,7 @@ export function App() {
       .finally(() => setBusy(false))
   }
   const online = status === 'connected' || status === 'demo'
+  const endpoint = state.endpointStatus ? endpointChip(state.endpointStatus) : null
   const anySelected = state.sources.some((s) => s.selected)
 
   const openPast = (id: string) => {
@@ -118,6 +121,11 @@ export function App() {
           Stop
         </button>
         <span className="source-status">
+          {endpoint && (
+            <span className={`chip chip-${endpoint.tone}`} title={endpoint.hint} data-testid="endpoint-status">
+              Endpoint: {endpoint.label}
+            </span>
+          )}
           {Object.entries(state.sourceStatus).map(([key, st]) => (
             <span
               key={key}

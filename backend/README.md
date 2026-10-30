@@ -3,12 +3,33 @@
 FastAPI app that serves the WebSocket and REST API for the web UI, and the built frontend in production.
 
 ```sh
-uv run uvicorn ltt.app:app --reload   # development, port 8000
+uv run ltt serve                      # the app, with the settings below
+uv run uvicorn --factory ltt.app:create_app --reload   # development, port 8000
 uv run pytest
 uv run ruff check && uv run ruff format --check
 ```
 
-`LTT_STATIC_DIR` sets the directory of the built frontend (default: `../frontend/dist`, relative to this directory).
+The built UI: `LTT_STATIC_DIR` if it is set, else `ltt/static` in the installed package (the wheel has it, see "Packaging"), else `../frontend/dist` of the checkout. With none of them, only the API is served (in development Vite serves the UI).
+
+## The `ltt` command
+
+`ltt` is the `[project.scripts]` entry `ltt.cli:main`.
+
+| Command | Use |
+| --- | --- |
+| `ltt serve [--host H] [--port P]` | Start the UI and the API. It prints the URL, and a warning when the host is not a loopback address (there is no login). |
+| `ltt sessions list` | The saved Sessions: ID, date, length, state, Speakers. `started` is a log with no stop line: the Session runs now, or the app ended without a stop (the next `ltt serve` marks it `interrupted`). |
+| `ltt export SESSION_ID --format md\|json [-o FILE]` | The export of a saved Session (`ltt.export`), to stdout or to FILE. |
+| `ltt config` | The effective settings, and where each value comes from. |
+| `ltt --version`, `ltt --help` | |
+
+`sessions list` and `export` only read the logs. A bad config file or a bad environment value stops each command with `ltt: bad setting: ...` and exit status 2.
+
+## Packaging
+
+`hatch_build.py` is a build hook of the wheel. It runs `pnpm install --frozen-lockfile` and `pnpm -C frontend build` at the repository root, and adds `frontend/dist` to the wheel as `ltt/static`. So `uv tool install ./backend` (from the repository root) needs Node.js and pnpm. To use a `frontend/dist` that is already built, set `LTT_SKIP_UI_BUILD=1`. An editable install (`uv sync`, `uv run`) does not run the hook.
+
+Build the wheel from a checkout of the whole repository: an sdist of `backend/` alone does not contain the UI.
 
 ## Sources and capture
 
@@ -54,21 +75,40 @@ At the start of each connection, the backend checks `GET /ready` and `GET /v1/mo
 
 ### Settings
 
-| Environment variable | Default | Use |
-| --- | --- | --- |
-| `LTT_ASR_ENDPOINT_URL` | `ws://127.0.0.1:8080` | Base URL of the NeMo-Speech.cpp endpoint (`ws://` or `wss://`) |
-| `LTT_LANGUAGES` | `en,fr` | ISO 639-1 codes for the language identifier (lingua, CPU only) |
-| `LTT_TRANSLATION_ENDPOINT_URL` | the `http://` form of `LTT_ASR_ENDPOINT_URL` | Base URL of the translation endpoint (`http://` or `https://`) |
-| `LTT_DATA_DIR` | `$XDG_DATA_HOME/live-transcribe-translate` (`~/.local/share/...`) | The directory of the saved Sessions (`sessions/` in it) |
-| `LTT_SILENT_AFTER_S` | `30` | Seconds of quiet audio before the `silent` warning of a Source |
-| `LTT_SILENCE_DBFS` | `-60` | A 100 ms chunk with a lower peak level (dBFS) is quiet |
+`ltt.settings` reads all settings. The file is `$XDG_CONFIG_HOME/live-transcribe-translate/config.toml` (by default `~/.config/live-transcribe-translate/config.toml`); the app works with no file. Precedence, from high to low: the `--host` and `--port` flags of `ltt serve`, the environment variable, the file, the default. An empty environment variable counts as not set. A file that is not valid TOML, an unknown key or a bad value is an error (`ltt config` shows the effective values and their sources).
+
+| Key in `config.toml` | Environment variable | Default | Use |
+| --- | --- | --- | --- |
+| `asr_endpoint_url` | `LTT_ASR_ENDPOINT_URL` | `"ws://127.0.0.1:8080"` | Base URL of the NeMo-Speech.cpp endpoint (`ws://` or `wss://`) |
+| `translation_endpoint_url` | `LTT_TRANSLATION_ENDPOINT_URL` | the `http://` form of `asr_endpoint_url` | Base URL of the translation endpoint (`http://` or `https://`) |
+| `detect_languages` | `LTT_LANGUAGES` (comma-separated) | `["en", "fr"]` | ISO 639-1 codes for the language identifier (lingua, CPU only) |
+| `default_target_language` | `LTT_DEFAULT_TARGET_LANGUAGE` | `"en"` | The first value of the "Translate to" selector of the UI |
+| `data_dir` | `LTT_DATA_DIR` | `$XDG_DATA_HOME/live-transcribe-translate` (`~/.local/share/...`) | The directory of the saved Sessions (`sessions/` in it). `~` is expanded. |
+| `host` | `LTT_HOST` | `"127.0.0.1"` | The address of the UI. Another address gives LAN access, with **no login**. |
+| `port` | `LTT_PORT` | `8000` | The port of the UI |
+| `silent_after_s` | `LTT_SILENT_AFTER_S` | `30` | Seconds of quiet audio before the `silent` warning of a Source |
+| `silence_dbfs` | `LTT_SILENCE_DBFS` | `-60` | A 100 ms chunk with a lower peak level (dBFS) is quiet |
+
+`pnpm dev` always uses port 8000 for the backend (the Vite proxy expects it); `host` and `port` apply to `ltt serve`.
+
+### Endpoint state
+
+`ltt serve` checks the endpoint when it starts, but does not wait for the check: the app starts also when the endpoint is not reachable. It checks again at each Session start, and every 30 s while the endpoint is not ready. The check is `GET /ready` and `GET /v1/models` on the ASR endpoint, and `GET /v1/models` on the translation endpoint when it is another server. The log shows each change of state. The UI shows the "Endpoint" chip from the `endpoint_status` event (see `ltt.endpoint_status`):
+
+```json
+{"type": "endpoint_status", "state": "ready", "asr_url": "http://127.0.0.1:8080", "translation_url": "http://127.0.0.1:8080",
+ "capabilities": ["transcription", "diarization", "translation"], "missing": [], "message": null, "checked_at": 1793356650.0}
+```
+
+`state` is `checking` (before the first result), `ready` (it can transcribe; `missing` names the capabilities that it does not have), `not_ready` (`/ready` is not true, or no transcription model) or `unreachable`. This event is not a Session event and is not saved.
 
 ### API
 
 - `POST /api/session/start` with an optional body `{"target_language": "fr", "save_audio": true}` (defaults `en` and `true`), `POST /api/session/stop`. The `stopped` `session` event has `ended_at` (unix seconds). While a Session runs, `PATCH /api/sources/...` returns 409. An unsupported Target language returns 400.
 - `PATCH /api/speakers/{id}` `{display_name}`. Encode the `#` of the ID as `%23`.
 - `POST /api/speakers/merge` `{from_speaker_id, into_speaker_id}`.
-- `/ws`: `hello`, `sources`, then the snapshot of the current or last Session (`session`, `source_status`, `speaker`, `segment`, `merge`, `translation`, `translation_status`, `audio_file`, `partial`), then the live events. The `session` event has `target_lang`.
+- `GET /api/config`: `default_target_language`, `detect_languages`, the endpoint URLs and the last `endpoint_status`.
+- `/ws`: `hello` (with `version` and `default_target_language`), `sources`, the last `endpoint_status`, then the snapshot of the current or last Session (`session`, `source_status`, `speaker`, `segment`, `merge`, `translation`, `translation_status`, `audio_file`, `partial`), then the live events. The `session` event has `target_lang`.
 
 A `source_status` `live` event after a reconnect has `gap: {start, end}`, in seconds since the Session start. The audio of the gap is lost.
 
@@ -76,10 +116,10 @@ Each `sources` entry has `muted` (true when PipeWire reports the node as muted; 
 
 ### Silent or muted Source
 
-The backend measures the peak level of each 100 ms chunk of each Source, also while the NeMo connection is down. A chunk with a peak below `LTT_SILENCE_DBFS` (default -60 dBFS) is quiet. Each `source_status` event has `warning`:
+The backend measures the peak level of each 100 ms chunk of each Source, also while the NeMo connection is down. A chunk with a peak below `silence_dbfs` (default -60 dBFS) is quiet. Each `source_status` event has `warning`:
 
 - `"muted"`: the chunk is quiet and PipeWire reports the node as muted. It shows at once. For a microphone, this is the `mute` of the node (`pactl set-source-mute`). For a sink monitor, this is the `mute` of the sink (`pactl set-sink-mute`) when the sink has `monitor.channel-volumes` on (the usual setting: the monitor follows the sink volume, as in PulseAudio), or its `monitorMute`. The backend reads it from `info.params.Props` of the node in `pw-dump --monitor`. A mute that only the hardware or the application knows (for example the mute button of a call app) is not seen; it gives `"silent"`.
-- `"silent"`: all chunks were quiet for `LTT_SILENT_AFTER_S` seconds (default 30) of audio time.
+- `"silent"`: all chunks were quiet for `silent_after_s` seconds (default 30) of audio time.
 - `null`: the Source has sound. The first chunk with sound clears the warning.
 
 When the warning changes, the backend sends a `source_status` event with the current `state` and `message` and the new `warning` (without `gap`). `state` does not change. The event is saved in the event log like all `source_status` events.
@@ -95,7 +135,7 @@ With the endpoint running, and a temporary null sink as the speech Source:
 ```sh
 pactl load-module module-null-sink sink_name=ltt_test   # prints the module ID
 pactl set-sink-mute ltt_test 0                          # a new null sink can start muted
-LTT_ASR_ENDPOINT_URL=ws://127.0.0.1:8080 uv run uvicorn ltt.app:app
+LTT_ASR_ENDPOINT_URL=ws://127.0.0.1:8080 uv run ltt serve
 # select monitor:ltt_test (diarize), POST /api/session/start, then:
 pw-play --target ltt_test speech.wav
 pactl unload-module <module ID>

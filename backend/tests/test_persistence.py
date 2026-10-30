@@ -69,7 +69,7 @@ def test_live_session_is_saved_and_replays_as_the_snapshot(fake_nemo, fake_trans
             n = len(c.app.state.hub.transcript.snapshot())
             while len(live) < n:
                 msg = ws.receive_json()
-                if msg["type"] != "heartbeat":
+                if msg["type"] not in ("heartbeat", "endpoint_status"):
                     live.append(msg)
         opened = c.get(f"/api/sessions/{d.name}").json()
         assert opened["events"] == live
