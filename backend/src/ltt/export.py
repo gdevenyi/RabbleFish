@@ -304,8 +304,8 @@ def _offset(d: datetime) -> str:
 
 
 def _sources(t: Transcript) -> list[str]:
-    """The keys of the Sources of the Session, in order of first appearance. The log has
-    no Source descriptions, so the keys are used."""
+    """The keys of the Sources of the Session: of the Speakers, then of the Segments and
+    the audio files. The log has no Source descriptions, so the keys are used."""
     keys: dict[str, None] = {}
     for e in [*t.speakers.values(), *t.segments, *t.audio_files]:
         if e.get("source_key"):

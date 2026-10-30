@@ -122,7 +122,7 @@ The running Session is not a past Session: these return 409 for it, and the list
 `ltt.export` makes a Markdown or a JSON file of one Session from its event log (decided in issue #30). A past Session is the replay of its log. The live Session is a snapshot of the moment, marked "in progress", without Partial text. Merges (also chains of Merges) and display names are applied in both formats.
 
 - `GET /api/sessions/{id}/export?format=md|json` (default `md`): a saved Session. The running Session is exported too. An unknown ID returns 404, another format 422.
-- `GET /api/session/export?format=md|json`: the current or last Session, as on `/ws`. 404 before the first Session.
+- `GET /api/session/export?format=md|json`: the current or last Session, as on `/ws`. 404 before the first Session, and after a restart of the backend until the next Session starts (the last Session is then a past Session).
 - The response is a download: `Content-Disposition: attachment; filename="<session id>.md"` (or `.json`).
 - The UI has an Export control (Markdown, JSON) in the bar for the live or last Session, and in the banner of an open past Session.
 
