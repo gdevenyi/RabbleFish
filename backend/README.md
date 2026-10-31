@@ -64,11 +64,13 @@ nemo-speech serve --port 8080 \
   --diar-model Nemotron-3-Diarization.q8_0.gguf \
   --asr.endpointing.enable=true \
   --asr.batching.enabled=false \
+  --asr.streaming.rnnt_right_context=6 \
   --threads 4
 ```
 
 - `--asr.endpointing.enable=true`: the endpoint finalizes the text at each pause (the session sets `endpointing_ms: 800`).
 - `--asr.batching.enabled=false`: with batching, two or more concurrent realtime sessions give no output or abort (NVIDIA/NeMo-Speech.cpp#89).
+- `--asr.streaming.rnnt_right_context=6`: the endpoint decodes in chunks of 560 ms, not the 160 ms of the server default. See `docs/endpoint.md`.
 - `--threads N`: N must be at least the number of selected Sources, because each Source holds one connection for the whole Session.
 
 At the start of each connection, the backend checks `GET /ready` and `GET /v1/models`. It needs a `transcription` model, and also a `diarization` model for a Source in "diarize" mode. A failure is sent as `source_status` `error`, and the backend tries again.
@@ -277,6 +279,7 @@ nemo-speech serve --port 8080 \
   --nmt.model.path riva-translate-4b-instruct-v2.q8_0.gguf \
   --asr.endpointing.enable=true \
   --asr.batching.enabled=false \
+  --asr.streaming.rnnt_right_context=6 \
   --threads 4
 ```
 

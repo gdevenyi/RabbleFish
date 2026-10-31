@@ -114,7 +114,7 @@ The sessions are saved under `~/.local/share/rabblefish/sessions/`, one folder p
 
 ## Endpoint
 
-Every endpoint runs the same stack ([ADR-0001](docs/adr/0001-endpoint-only-app-built-new.md)): NeMo-Speech.cpp with Nemotron 3.5 ASR Streaming 0.6B, Nemotron 3 Diarization and Riva-Translate-4B. The server needs `--asr.endpointing.enable=true --asr.batching.enabled=false`, and `--threads` at least equal to the number of sources. The setup script prints these flags for you.
+Every endpoint runs the same stack ([ADR-0001](docs/adr/0001-endpoint-only-app-built-new.md)): NeMo-Speech.cpp with Nemotron 3.5 ASR Streaming 0.6B, Nemotron 3 Diarization and Riva-Translate-4B. The server needs `--asr.endpointing.enable=true --asr.batching.enabled=false --asr.streaming.rnnt_right_context=6`, and `--threads` at least equal to the number of sources. The setup script prints these flags for you.
 
 Capacity measured with NeMo-Speech.cpp v0.2.0, in real time, with diarization:
 
