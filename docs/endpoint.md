@@ -86,7 +86,8 @@ Run the command that the script prints, for example:
     --diar-model ~/.local/share/rabblefish/endpoint/models/Nemotron-3-Diarization.q8_0.gguf \
     --nmt.model.path ~/.local/share/rabblefish/endpoint/models/riva-translate-4b-instruct-v2.q8_0.gguf \
     --device vulkan --host 127.0.0.1 --port 8080 --no-ui --threads 4 \
-    --asr.endpointing.enable=true --asr.batching.enabled=false
+    --asr.endpointing.enable=true --asr.batching.enabled=false \
+    --asr.streaming.rnnt_right_context=6
 ```
 
 Check it:
@@ -126,6 +127,12 @@ The app cannot read the server flags, so it cannot check them. Use them all:
   the same time, because each Source holds one connection for the whole
   Session.
 - `--no-ui`: the app does not use the NeMo-Speech.cpp browser playground.
+- `--asr.streaming.rnnt_right_context=6`: the endpoint decodes in chunks of
+  560 ms, not the 160 ms of the server default (`1`). This gives fewer errors on
+  continuous speech, mainly in French, and fewer lost sessions when the GPU is
+  near its limit. Partial text arrives about 0.2 s later, and finals about 0.2 s
+  later. Use an explicit value: `-1` gives `3` with this model. All sessions of
+  the endpoint use the same value.
 
 ## Point the app at the endpoint
 
@@ -242,6 +249,10 @@ For a remote endpoint, install `rabblefish-endpoint.service` on the GPU machine 
   file on Hugging Face (2026-09-10) is older than this change, and its 48
   pointwise convolution tensors are Q8_0. It works with v0.3.0, but it does not
   have this fix. The script uses this published file.
+- The script does not change an installed systemd unit, and the unit holds the
+  server flags. When the flags change, copy
+  `scripts/systemd/rabblefish-endpoint.service` to `~/.config/systemd/user/`
+  again, then run `systemctl --user daemon-reload` and restart the endpoint.
 - To use another backend, run the script again with the new `--backend`. It
   downloads the new archive and changes the `bin/nemo-speech` link. The models
   stay.

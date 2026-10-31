@@ -452,7 +452,8 @@ EOF
 	((translation)) && cmd+=(--nmt.model.path "$models/$NMT_FILE")
 	cmd+=(--device "$backend" --host "$host" --port "$port" --no-ui
 		--threads "$threads"
-		--asr.endpointing.enable=true --asr.batching.enabled=false)
+		--asr.endpointing.enable=true --asr.batching.enabled=false
+		--asr.streaming.rnnt_right_context=6)
 
 	local url_host=$host
 	[[ $host == 0.0.0.0 || $host == :: ]] && url_host="<this machine's address>"

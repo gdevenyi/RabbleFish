@@ -32,7 +32,8 @@ ExecStart=%h/.local/share/rabblefish/endpoint/bin/nemo-speech serve \
     --no-ui \
     --threads ${RABBLEFISH_ENDPOINT_THREADS} \
     --asr.endpointing.enable=true \
-    --asr.batching.enabled=false
+    --asr.batching.enabled=false \
+    --asr.streaming.rnnt_right_context=6
 Restart=on-failure
 RestartSec=10
 
