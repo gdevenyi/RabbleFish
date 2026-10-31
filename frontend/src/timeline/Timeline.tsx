@@ -6,6 +6,7 @@ import { COLLAPSED_PX, type ColumnInput, layoutColumns, type PinState, togglePin
 import { ColumnHeader, type HeaderColumn, hueStyle } from './ColumnHeader'
 import { buildModel, formatDuration, formatTime, liveEdge, nameOf } from './model'
 import { Overview } from './Overview'
+import { segmentBoxHeight } from './segmentBox'
 import { type AppState, type Merge, type Segment, type Speaker, warningHint, warningLabel } from './state'
 import { buildTimeScale } from './timeScale'
 import './timeline.css'
@@ -13,7 +14,6 @@ import './timeline.css'
 const HEAD = 92 // header height in px (source group title + Column headers)
 const GUTTER = 56
 const TAIL = 150 // space below the Live edge, for the Partial text
-const MIN_SEG_PX = 22
 const SCALES = [4, 8, 12, 18, 26, 36] // px per second
 const DEFAULT_SCALE = 3
 const FINALIZING_S = 3
@@ -491,12 +491,11 @@ function SegmentBox({
   translation: { text: string; targetLang: string } | undefined
   mergedFrom: Speaker | undefined
 }) {
-  const h = Math.max(MIN_SEG_PX, height)
-  const max = Math.max(h, room)
+  const { min, max, thin } = segmentBoxHeight(height, room)
   return (
     <div
-      className={`tl-seg ${switchFrom ? 'tl-switch' : ''} ${overlap ? 'tl-seg-overlap' : ''}`}
-      style={{ ...hue, left: x + 3, width: w - 6, top, minHeight: h, maxHeight: Number.isFinite(max) ? max : undefined }}
+      className={`tl-seg ${switchFrom ? 'tl-switch' : ''} ${overlap ? 'tl-seg-overlap' : ''} ${thin ? 'tl-seg-thin' : ''}`}
+      style={{ ...hue, left: x + 3, width: w - 6, top, minHeight: min, maxHeight: max }}
       title={`${formatTime(seg.start)}–${formatTime(seg.end)}${seg.lang ? ` · ${seg.lang}` : ' · language not detected'}\n${seg.text}${translation ? `\n→ ${translation.text}` : ''}`}
       data-testid="segment"
       tabIndex={-1}
