@@ -15,6 +15,11 @@ dependencies = [
 [project.scripts]
 rabblefish = "rabblefish.cli:main"
 
+[project.optional-dependencies]
+# For `rabblefish reprocess --diarizer pyannote` (offline diarization without a speaker
+# cap). Pulls in PyTorch. Validated with pyannote-audio 4.0.7.
+pyannote = ["pyannote.audio>=4.0"]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

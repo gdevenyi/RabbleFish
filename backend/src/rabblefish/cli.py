@@ -127,6 +127,60 @@ def cmd_export(args: argparse.Namespace, settings: Settings) -> int:
     return 0
 
 
+def cmd_reprocess(args: argparse.Namespace, settings: Settings) -> int:
+    from rabblefish.reprocess import (
+        ReprocessError,
+        reprocess_session,
+        resolve_binary,
+        resolve_model,
+    )
+
+    store = SessionStore(settings.data_dir)
+    saved = store.load(args.session_id)
+    if saved is None:
+        print(
+            f"rabblefish: unknown session: {args.session_id} (see `rabblefish sessions list`)",
+            file=sys.stderr,
+        )
+        return EXIT_NOT_FOUND
+    binary = args.nemo_speech or None
+    try:
+        resolved_binary = resolve_binary(binary, settings.data_dir)
+        asr_model = resolve_model(
+            args.asr_model,
+            settings.data_dir,
+            "nemotron-3.5-asr-streaming-0.6b.q8_0.gguf",
+            "nvidia/nemotron-3.5-asr-streaming-0.6b",
+        )
+        diar_model = resolve_model(
+            args.diar_model,
+            settings.data_dir,
+            "Nemotron-3-Diarization.q8_0.gguf",
+            "nvidia/Nemotron-3-Diarization",
+        )
+        summary = reprocess_session(
+            saved.dir,
+            binary=resolved_binary,
+            asr_model=asr_model,
+            diar_model=diar_model,
+            diarizer=args.diarizer,
+            output=Path(args.output) if args.output else None,
+            overwrite=args.overwrite,
+            languages=settings.detect_languages,
+            min_speakers=args.min_speakers,
+            max_speakers=args.max_speakers,
+        )
+    except ReprocessError as e:
+        print(f"rabblefish: reprocess: {e}", file=sys.stderr)
+        return EXIT_USAGE
+    print(
+        f"Wrote {summary['output']}: {summary['segments']} segments, {summary['speakers']}"
+        f" speakers, {summary['files']} audio files, {summary['seconds']:.0f} s of audio",
+        file=sys.stderr,
+    )
+    return 0
+
+
 def cmd_config(_args: argparse.Namespace, settings: Settings) -> int:
     path = config_path()
     print(f"# config file: {path}{'' if path.is_file() else ' (not found: defaults)'}")
@@ -180,6 +234,59 @@ def parser() -> argparse.ArgumentParser:
     export.add_argument("--format", "-f", choices=["md", "json"], default="md", help="default: md")
     export.add_argument("--output", "-o", metavar="FILE", help="write to FILE (default: stdout)")
     export.set_defaults(func=cmd_export)
+
+    reprocess = sub.add_parser(
+        "reprocess",
+        help="re-transcribe the saved audio of one Session, offline, with speakers",
+    )
+    reprocess.add_argument(
+        "session_id", metavar="SESSION_ID", help="an ID from `rabblefish sessions list`"
+    )
+    reprocess.add_argument(
+        "--diarizer",
+        choices=["sortformer", "pyannote"],
+        default="sortformer",
+        help="sortformer: the endpoint diarizer, at most 8 speakers per file;"
+        " pyannote: the offline pyannote pipeline, no speaker cap (extra: pyannote)."
+        " default: sortformer",
+    )
+    reprocess.add_argument(
+        "--asr-model",
+        metavar="MODEL",
+        help="GGUF path or Hugging Face ID (default: the endpoint installation's ASR model)",
+    )
+    reprocess.add_argument(
+        "--diar-model",
+        metavar="MODEL",
+        help="Sortformer GGUF path or Hugging Face ID (default: the endpoint installation's)",
+    )
+    reprocess.add_argument(
+        "--nemo-speech",
+        metavar="PATH",
+        help="the nemo-speech binary (default: the endpoint installation, then the PATH)",
+    )
+    reprocess.add_argument(
+        "--output",
+        "-o",
+        metavar="FILE",
+        help="write to FILE (default: <session>/reprocessed.jsonl)",
+    )
+    reprocess.add_argument(
+        "--overwrite", action="store_true", help="replace an existing reprocessed.jsonl"
+    )
+    reprocess.add_argument(
+        "--min-speakers",
+        type=int,
+        metavar="N",
+        help="pyannote only: the smallest speaker count to try",
+    )
+    reprocess.add_argument(
+        "--max-speakers",
+        type=int,
+        metavar="N",
+        help="pyannote only: the largest speaker count to try",
+    )
+    reprocess.set_defaults(func=cmd_reprocess)
 
     config = sub.add_parser("config", help="show the effective settings and their sources")
     config.set_defaults(func=cmd_config)

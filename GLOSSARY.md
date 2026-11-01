@@ -87,3 +87,7 @@ _Avoid_: Minimap, scrubber
 **Endpoint**:
 A configured network address that serves one model task (transcription, diarization or translation). An endpoint can be on this laptop or on a remote machine.
 _Avoid_: Backend, server, provider
+
+**Reprocessed transcript**:
+The offline re-transcription of the saved audio of a Session (`reprocessed.jsonl`, `rabblefish reprocess`). Its Speakers and Segments carry an `r` in their ID, so they never collide with the live ones.
+_Avoid_: Re-run, redo, second pass
