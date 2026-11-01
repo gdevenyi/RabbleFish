@@ -186,7 +186,9 @@ can reach the port can use the models. Use one of these:
 
 ## systemd user units
 
-`scripts/systemd/` has two templates. The script does not install them.
+`scripts/systemd/` has two templates. The script does not install them, but it
+updates an installed `rabblefish-endpoint.service` when you run it again (see
+[Update or remove](#update-or-remove)).
 
 - `rabblefish-endpoint.service` runs `nemo-speech serve` with the values from
   `<prefix>/endpoint.env`, which the script writes. Run the script again to
@@ -249,10 +251,16 @@ For a remote endpoint, install `rabblefish-endpoint.service` on the GPU machine 
   file on Hugging Face (2026-09-10) is older than this change, and its 48
   pointwise convolution tensors are Q8_0. It works with v0.3.0, but it does not
   have this fix. The script uses this published file.
-- The script does not change an installed systemd unit, and the unit holds the
-  server flags. When the flags change, copy
-  `scripts/systemd/rabblefish-endpoint.service` to `~/.config/systemd/user/`
-  again, then run `systemctl --user daemon-reload` and restart the endpoint.
+- The installed `rabblefish-endpoint.service` holds the server flags. When you
+  run the script again, it updates that file from the template, keeps the old
+  file as `rabblefish-endpoint.service.bak`, and runs
+  `systemctl --user daemon-reload`. It does not restart the endpoint, because the
+  endpoint can be in use: run `systemctl --user restart
+  rabblefish-endpoint.service` when you can. The script does not change a unit
+  that reads the `endpoint.env` of another prefix, and it does not install a unit
+  when there is none. It replaces local changes in the file, so put them in a
+  drop-in (`systemctl --user edit rabblefish-endpoint.service`). It does not
+  change `rabblefish.service`.
 - To use another backend, run the script again with the new `--backend`. It
   downloads the new archive and changes the `bin/nemo-speech` link. The models
   stay.

@@ -13,6 +13,8 @@ set -euo pipefail
 readonly NEMO_VERSION="0.3.0"
 readonly NEMO_REPO="https://github.com/NVIDIA/NeMo-Speech.cpp"
 readonly HF="https://huggingface.co"
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+readonly script_dir
 
 readonly ASR_REPO="nvidia/nemotron-3.5-asr-streaming-0.6b"
 readonly ASR_FILE="nemotron-3.5-asr-streaming-0.6b.q8_0.gguf"
@@ -411,10 +413,58 @@ step_translation() {
 }
 
 # ---------------------------------------------------------------------------
-# Step 4: env file and serve command
+# Step 4: env file, systemd unit and serve command
+
+# Update an installed endpoint unit from the template, because the unit holds
+# the server flags. Do not install a unit when there is none, and do not restart
+# one: the running endpoint can be in use.
+update_systemd_unit() {
+	local unit_name=rabblefish-endpoint.service
+	local unit="${XDG_CONFIG_HOME:-$HOME/.config}/systemd/user/$unit_name"
+	local template="$script_dir/systemd/$unit_name"
+	local default_prefix='%h/.local/share/rabblefish/endpoint'
+	if [[ ! -f $unit ]]; then
+		skip "no installed $unit_name to update."
+		return
+	fi
+	if [[ ! -f $template ]]; then
+		warn "$template is missing: cannot update $unit."
+		return
+	fi
+
+	# Another prefix owns the unit when its EnvironmentFile is not ours.
+	local unit_env
+	unit_env=$(sed -n 's/^EnvironmentFile=-\{0,1\}//p' "$unit" | head -n 1)
+	unit_env=${unit_env//%h/$HOME}
+	if [[ $unit_env != "$env_file" ]]; then
+		warn "$unit reads $unit_env, not $env_file: the script does not change it."
+		return
+	fi
+
+	local new unit_prefix=$default_prefix
+	[[ $prefix == "$HOME/.local/share/rabblefish/endpoint" ]] || unit_prefix=$prefix
+	new=$(<"$template")
+	new=${new//"$default_prefix"/$unit_prefix}
+	if [[ $(<"$unit") == "$new" ]]; then
+		skip "$unit is up to date."
+		return
+	fi
+
+	cp -p "$unit" "$unit.bak"
+	printf '%s\n' "$new" >"$unit.new"
+	mv -f "$unit.new" "$unit"
+	echo "    updated $unit (the old file is $unit.bak)"
+	if ! command -v systemctl >/dev/null 2>&1 || ! systemctl --user daemon-reload; then
+		warn "cannot reload systemd: run 'systemctl --user daemon-reload'."
+		return
+	fi
+	if systemctl --user is-active --quiet "$unit_name"; then
+		echo "    the running endpoint keeps its old flags until you run: systemctl --user restart $unit_name"
+	fi
+}
 
 step_env() {
-	info "4/4 env file and serve command"
+	info "4/4 env file, systemd unit and serve command"
 	local nmt_model="" nmt_args=""
 	if ((translation)); then
 		nmt_model="$models/$NMT_FILE"
@@ -445,6 +495,7 @@ EOF
 		printf '%s\n' "$new" >"$env_file"
 		echo "    wrote $env_file"
 	fi
+	update_systemd_unit
 
 	local cmd=("$bin_link" serve
 		--asr-model "$models/$ASR_FILE"
