@@ -87,6 +87,7 @@ rabblefish serve                    # then open http://127.0.0.1:8000
 | `rabblefish serve` | Start the backend and the web UI (`--host`, `--port`) |
 | `rabblefish sessions list` | List the saved sessions: ID, date, length, state, speakers |
 | `rabblefish export <id> --format md\|json [-o FILE]` | Export one session to Markdown or JSON |
+| `rabblefish reprocess <id> [--diarizer sortformer\|pyannote] [--overwrite] [-o FILE]` | Re-transcribe the saved audio of one session, offline, with speaker labels: writes `<session>/reprocessed.jsonl` (see `docs/reprocess.md`) |
 | `rabblefish config` | Show each effective setting and where it comes from |
 
 The UI also lists the past sessions. You can reopen one read-only, rename and merge its speakers, export it, or delete it.
