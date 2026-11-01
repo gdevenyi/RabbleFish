@@ -135,6 +135,14 @@ def cmd_reprocess(args: argparse.Namespace, settings: Settings) -> int:
         resolve_model,
     )
 
+    hints = {"--min-speakers": args.min_speakers, "--max-speakers": args.max_speakers}
+    given = [flag for flag, value in hints.items() if value is not None]
+    if given and args.diarizer != "pyannote":
+        print(
+            f"rabblefish: reprocess: {' and '.join(given)} needs --diarizer pyannote",
+            file=sys.stderr,
+        )
+        return EXIT_USAGE
     store = SessionStore(settings.data_dir)
     saved = store.load(args.session_id)
     if saved is None:

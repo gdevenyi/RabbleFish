@@ -26,6 +26,7 @@ import subprocess
 import tempfile
 import time
 import wave
+from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -60,6 +61,15 @@ class SourceAudio:
     pcm: Path
     start: float  # Session time of the first sample
     sample_rate: int
+
+
+@dataclass
+class SourceCounters:
+    """The IDs given so far for one Source. A Source can have many files, and its IDs are
+    unique across them."""
+
+    speakers: int = 0
+    segments: int = 0
 
 
 def load_audio_files(session_dir: Path) -> list[SourceAudio]:
@@ -133,8 +143,11 @@ def transcribe_file(
     except OSError as e:
         raise ReprocessError(f"{binary}: {e}") from e
     if r.returncode != 0:
-        detail = (r.stderr or r.stdout).strip().splitlines()[-1:] or ["no output"]
-        raise ReprocessError(f"{binary} transcribe failed: {detail[0]}")
+        lines = (r.stderr or r.stdout).strip().splitlines()
+        # The `[nemo-speech]` lines give the state of the run; the others give the cause.
+        causes = [line for line in lines if not line.startswith("[nemo-speech]")] or lines
+        detail = "; ".join(causes[-3:]) or "no output"
+        raise ReprocessError(f"{binary} transcribe failed: {detail}")
     try:
         return json.loads(out_json.read_text(encoding="utf-8"))
     except (OSError, ValueError) as e:
@@ -151,7 +164,7 @@ def pyannote_turns(
     except ImportError as e:
         raise ReprocessError(
             "pyannote is not installed: install the optional extra"
-            " (`uv tool install ./backend --extras pyannote` or pip install 'rabblefish[pyannote]')"
+            " (`uv tool install './backend[pyannote]'`)"
         ) from e
     try:
         pipe = Pipeline.from_pretrained(PYANNOTE_MODEL)
@@ -176,7 +189,12 @@ def pyannote_turns(
 def label_words_with_turns(
     words: list[dict], turns: list[tuple[float, float, object]]
 ) -> list[dict]:
-    """Give each word the label of the turn that overlaps it most (words keep their order)."""
+    """Give each word the label of the turn that overlaps it most (words keep their order).
+
+    A word that overlaps no turn gets the label of the nearest turn: the ASR and the
+    diarizer do not agree exactly on where speech stops, and such a word is not a new
+    person. Without any turn, all words have the label None (one Speaker).
+    """
     labeled = []
     for w in words:
         start, end = w.get("start") or 0.0, w.get("end") or 0.0
@@ -185,12 +203,18 @@ def label_words_with_turns(
             overlap = min(end, t_end) - max(start, t_start)
             if overlap > best_overlap:
                 best, best_overlap = label, overlap
+        if best is None and turns:
+            best = min(turns, key=lambda t: max(t[0] - end, start - t[1]))[2]
         labeled.append({**w, "speaker": best})
     return labeled
 
 
 def words_to_events(
-    words: list[dict], source_key: str, file_start: float, lang_id: LanguageIdentifier
+    words: list[dict],
+    source_key: str,
+    file_start: float,
+    lang_id: LanguageIdentifier,
+    counters: SourceCounters | None = None,
 ) -> tuple[list[dict], list[dict]]:
     """The `speaker` and `segment` events of one file's words, in the live event schema.
 
@@ -198,8 +222,10 @@ def words_to_events(
     sample). Consecutive words with the same speaker label form one Segment, split at
     every speaker change and at every pause longer than SPLIT_PAUSE_S, like the live
     pipeline splits at speaker changes and at the endpointing pause. Speaker and
-    Segment IDs carry an `r`, so they never collide with the live ones.
+    Segment IDs carry an `r`, so they never collide with the live ones. `counters` holds
+    the numbers given so far for the Source, so that the IDs of its next file continue them.
     """
+    counters = counters if counters is not None else SourceCounters()
     speakers: dict[object, dict] = {}
     speaker_events: list[dict] = []
     segment_events: list[dict] = []
@@ -207,16 +233,16 @@ def words_to_events(
     run_label: object = EMPTY
 
     def flush() -> None:
-        nonlocal run, run_label, n_segments, n_speakers
+        nonlocal run
         if not run:
             return
         if run_label not in speakers:
-            n_speakers += 1
+            counters.speakers += 1
             speaker = {
                 "type": "speaker",
-                "id": f"{source_key}#r{n_speakers}",
+                "id": f"{source_key}#r{counters.speakers}",
                 "source_key": source_key,
-                "label": f"Speaker {n_speakers}",
+                "label": f"Speaker {counters.speakers}",
                 "display_name": None,
             }
             speakers[run_label] = speaker
@@ -230,11 +256,11 @@ def words_to_events(
             for w in run
         ]
         text = " ".join(m["w"] for m in mapped)
-        n_segments += 1
+        counters.segments += 1
         segment_events.append(
             {
                 "type": "segment",
-                "id": f"{source_key}/r{n_segments}",
+                "id": f"{source_key}/r{counters.segments}",
                 "source_key": source_key,
                 "speaker_id": speakers[run_label]["id"],
                 "start": mapped[0]["start"],
@@ -246,8 +272,6 @@ def words_to_events(
         )
         run = []
 
-    n_segments = 0
-    n_speakers = 0
     for w in words:
         if not (w.get("word") or "").strip():
             continue
@@ -284,14 +308,30 @@ def reprocess_session(
     """
     transcribe = transcribe or transcribe_file
     diarize = diarize or pyannote_turns
-    audio = load_audio_files(session_dir)
+    audio = []
+    for sa in load_audio_files(session_dir):
+        if sa.pcm.stat().st_size == 0:
+            log.warning("skipping %s: the file is empty", sa.pcm.name)
+        else:
+            audio.append(sa)
+    if not audio:
+        raise ReprocessError("all the saved audio files of the Session are empty")
     output = output or session_dir / REPROCESSED_NAME
+    inputs = [session_dir / LOG_NAME, *(sa.pcm for sa in audio)]
+    if any(output.resolve() == path.resolve() for path in inputs):
+        raise ReprocessError(f"{output} is an input of the reprocess: choose another --output")
     if output.exists() and not overwrite:
         raise ReprocessError(f"{output} exists (pass --overwrite to replace it)")
+    # Before the transcription, which can take a long time: do not lose it at the end.
+    if not output.parent.is_dir():
+        raise ReprocessError(f"{output.parent}: the output directory does not exist")
+    if not os.access(output.parent, os.W_OK):
+        raise ReprocessError(f"{output.parent}: the output directory is not writable")
     lang_id = LanguageIdentifier(list(languages))
     total_seconds = 0.0
     speaker_events: list[dict] = []
     segment_events: list[dict] = []
+    counters: defaultdict[str, SourceCounters] = defaultdict(SourceCounters)
     with tempfile.TemporaryDirectory(dir=session_dir, prefix=".reprocess-") as work:
         work = Path(work)
         for i, sa in enumerate(audio):
@@ -309,7 +349,9 @@ def reprocess_session(
                 words = label_words_with_turns(result.get("words") or [], turns)
             else:
                 raise ReprocessError(f"unknown diarizer {diarizer!r} (sortformer, pyannote)")
-            spk, seg = words_to_events(words, sa.source_key, sa.start, lang_id)
+            spk, seg = words_to_events(
+                words, sa.source_key, sa.start, lang_id, counters[sa.source_key]
+            )
             speaker_events += spk
             segment_events += seg
     tmp = output.with_name(output.name + ".tmp")
@@ -323,9 +365,7 @@ def reprocess_session(
                 "diarizer": diarizer,
                 "files": len(audio),
             }
-            f.write(
-                json.dumps(header, ensure_ascii=False, separators=(",", ":")) + "\n"
-            )
+            f.write(json.dumps(header, ensure_ascii=False, separators=(",", ":")) + "\n")
             for event in [*speaker_events, *segment_events]:
                 f.write(json.dumps(event, ensure_ascii=False, separators=(",", ":")) + "\n")
             f.write(
@@ -342,6 +382,8 @@ def reprocess_session(
                 + "\n"
             )
         os.replace(tmp, output)
+    except OSError as e:
+        raise ReprocessError(f"{output}: cannot write the output: {e}") from e
     finally:
         tmp.unlink(missing_ok=True)
     return {

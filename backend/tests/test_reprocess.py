@@ -3,6 +3,7 @@ events, the reprocessed log, and the failure cases. The offline transcription ru
 against fakes: no GPU, no nemo-speech binary, no pyannote."""
 
 import json
+import sys
 import wave
 from pathlib import Path
 
@@ -284,3 +285,169 @@ def test_cli_reprocess_session_store_loads_what_the_command_wrote(tmp_path, monk
         transcript.apply(event)
     assert [s["text"] for s in transcript.segments] == ["bonjour à tous"]
     assert "microphone:mic-001#r1" in transcript.speakers
+
+
+def two_files_on_one_source(data_dir: Path) -> tuple[str, Path]:
+    """One Source with two files: the capture broke, so the recorder started a new file."""
+    sid, directory = make_session(data_dir, files=("mic-001", "mic-002"))
+    log = directory / LOG_NAME
+    text = log.read_text(encoding="utf-8")
+    log.write_text(
+        text.replace("microphone:mic-001", "microphone:m").replace(
+            "microphone:mic-002", "microphone:m"
+        ),
+        encoding="utf-8",
+    )
+    return sid, directory
+
+
+def test_reprocess_session_ids_are_unique_across_the_files_of_one_source(tmp_path, monkeypatch):
+    sid, directory = two_files_on_one_source(tmp_path)
+    words = [
+        {"word": "bonjour", "start": 0.2, "end": 0.5, "speaker": 1},
+        {"word": "à", "start": 0.5, "end": 0.6, "speaker": 1},
+        {"word": "hello", "start": 1.2, "end": 1.4, "speaker": 2},
+    ]
+    monkeypatch.setattr(reprocess, "transcribe_file", fake_transcribe_result(words))
+    summary = reprocess_session(
+        directory, binary="b", asr_model="m", diar_model="d", languages=LANGS
+    )
+    events = list(read_events(directory / "reprocessed.jsonl"))
+    speakers = [e for e in events if e["type"] == "speaker"]
+    segments = [e for e in events if e["type"] == "segment"]
+    assert [s["id"] for s in speakers] == [f"microphone:m#r{n}" for n in (1, 2, 3, 4)]
+    assert [s["label"] for s in speakers] == [f"Speaker {n}" for n in (1, 2, 3, 4)]
+    assert [s["id"] for s in segments] == [f"microphone:m/r{n}" for n in (1, 2, 3, 4)]
+    # Labels are per file: the same label in the second file is another Speaker.
+    assert [s["speaker_id"] for s in segments] == [s["id"] for s in speakers]
+    assert summary["speakers"] == 4 and summary["segments"] == 4
+
+
+def test_label_words_with_turns_gives_a_word_outside_all_turns_the_nearest_turn():
+    words = [
+        {"word": "a", "start": 0.5, "end": 0.7},
+        {"word": "after", "start": 6.8, "end": 6.9},  # touches the end of A, no overlap
+        {"word": "before", "start": 8.5, "end": 8.8},  # nearer to the start of B
+        {"word": "b", "start": 9.5, "end": 9.7},
+    ]
+    turns = [(0.0, 6.8, "A"), (9.0, 10.0, "B")]
+    labeled = label_words_with_turns(words, turns)
+    assert [w["speaker"] for w in labeled] == ["A", "A", "B", "B"]
+
+
+def test_label_words_with_turns_handles_a_zero_length_word():
+    labeled = label_words_with_turns([{"word": "a", "start": 1.0, "end": 1.0}], [(0.0, 2.0, "A")])
+    assert labeled[0]["speaker"] == "A"
+
+
+def test_label_words_with_turns_without_turns_gives_one_speaker():
+    lang = LanguageIdentifier(list(LANGS))
+    words = [{"word": "a", "start": 0.0, "end": 0.2}, {"word": "b", "start": 0.2, "end": 0.4}]
+    speakers, segments = words_to_events(label_words_with_turns(words, []), "s", 0.0, lang)
+    assert len(speakers) == 1 and len(segments) == 1
+
+
+def test_reprocess_session_refuses_a_missing_output_directory_before_transcribing(
+    tmp_path, monkeypatch
+):
+    sid, directory = make_session(tmp_path)
+
+    def must_not_run(*args, **kwargs):
+        raise AssertionError("the transcription started")
+
+    monkeypatch.setattr(reprocess, "transcribe_file", must_not_run)
+    with pytest.raises(ReprocessError, match="output directory"):
+        reprocess_session(
+            directory,
+            binary="b",
+            asr_model="m",
+            diar_model="d",
+            languages=LANGS,
+            output=tmp_path / "none" / "out.jsonl",
+        )
+
+
+def test_transcribe_file_reports_the_cause_of_a_failure(tmp_path):
+    binary = tmp_path / "nemo-speech"
+    binary.write_text(
+        "#!/bin/sh\n"
+        "echo '[nemo-speech] transcribe session started' >&2\n"
+        "echo 'nemo-speech transcribe: ASR model file does not exist: /m.gguf' >&2\n"
+        "echo '[nemo-speech] transcribe session failed (exit code 3)' >&2\n"
+        "exit 3\n",
+        encoding="utf-8",
+    )
+    binary.chmod(0o755)
+    with pytest.raises(ReprocessError, match="ASR model file does not exist: /m.gguf"):
+        reprocess.transcribe_file(
+            str(binary), tmp_path / "a.wav", "/m.gguf", None, tmp_path / "a.json"
+        )
+
+
+def test_pyannote_install_hint_is_a_command_that_exists(monkeypatch, tmp_path):
+    monkeypatch.setitem(sys.modules, "pyannote.audio", None)
+    with pytest.raises(ReprocessError) as e:
+        reprocess.pyannote_turns(tmp_path / "a.wav", None, None)
+    assert "uv tool install './backend[pyannote]'" in str(e.value)
+    assert "--extras" not in str(e.value) and "pip install" not in str(e.value)
+
+
+@pytest.mark.parametrize("flag", ["--min-speakers", "--max-speakers"])
+def test_cli_reprocess_refuses_speaker_hints_with_sortformer(capsys, tmp_path, monkeypatch, flag):
+    sid, directory = make_session(tmp_path / "data")
+
+    def must_not_run(*args, **kwargs):
+        raise AssertionError("the reprocess started")
+
+    monkeypatch.setattr(reprocess, "reprocess_session", must_not_run)
+    code = cli.main(["reprocess", sid, "--nemo-speech", "/bin/true", flag, "3"])
+    out, err = capsys.readouterr()
+    assert code == cli.EXIT_USAGE and flag in err and "pyannote" in err
+
+
+def test_reprocess_session_skips_an_empty_audio_file(tmp_path, monkeypatch, caplog):
+    sid, directory = make_session(tmp_path, files=("a", "b"))
+    (directory / "audio" / "a.pcm").write_bytes(b"")
+    seen = []
+    words = [{"word": "ok", "start": 0.0, "end": 0.3, "speaker": 1}]
+
+    def transcribe(binary, wav, asr_model, diar_model, out_json):
+        seen.append(wav)
+        return {"words": words}
+
+    monkeypatch.setattr(reprocess, "transcribe_file", transcribe)
+    with caplog.at_level("WARNING", logger="rabblefish.reprocess"):
+        summary = reprocess_session(
+            directory, binary="b", asr_model="m", diar_model="d", languages=LANGS
+        )
+    assert len(seen) == 1 and summary["files"] == 1 and summary["segments"] == 1
+    assert "a.pcm" in caplog.text
+
+
+def test_reprocess_session_refuses_a_session_with_only_empty_audio(tmp_path):
+    sid, directory = make_session(tmp_path)
+    (directory / "audio" / "mic-001.pcm").write_bytes(b"")
+    with pytest.raises(ReprocessError, match="empty"):
+        reprocess_session(directory, binary="b", asr_model="m", diar_model="d", languages=LANGS)
+
+
+@pytest.mark.parametrize("target", [LOG_NAME, "audio/mic-001.pcm"])
+def test_reprocess_session_never_writes_over_the_session_inputs(tmp_path, monkeypatch, target):
+    sid, directory = make_session(tmp_path)
+    before = (directory / target).read_bytes()
+
+    def must_not_run(*args, **kwargs):
+        raise AssertionError("the transcription started")
+
+    monkeypatch.setattr(reprocess, "transcribe_file", must_not_run)
+    with pytest.raises(ReprocessError, match="input of the reprocess"):
+        reprocess_session(
+            directory,
+            binary="b",
+            asr_model="m",
+            diar_model="d",
+            languages=LANGS,
+            output=directory / target,
+            overwrite=True,
+        )
+    assert (directory / target).read_bytes() == before
